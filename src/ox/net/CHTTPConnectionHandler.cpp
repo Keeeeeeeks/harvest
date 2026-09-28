@@ -103,6 +103,7 @@ bool CHTTPConnectionHandler::OnEvent(const event::SEvent& event)
         return false;
 
     Lock.enter();
+    bool closeConnection = false;
 
     switch (event.NetworkEvent.Type)
     {
@@ -131,146 +132,128 @@ bool CHTTPConnectionHandler::OnEvent(const event::SEvent& event)
         e.NetworkEvent.Type = event::ENET_HTTP_ERROR;
         e.NetworkEvent.Data = (char*)"Unable to connect";
         Receiver->OnEvent(e);
-
-        Lock.leave();
-        disconnect();
-        return true;
+        closeConnection = true;
+        break;
     }
 
     case event::ENET_DATA_RECEIVED:
-    {
-        if (State == EHS_IDLE)
-            break;
-
-        // the data is not zero-terminated: take the last byte out, terminate, and put it back
-        char last = event.NetworkEvent.Data[event.NetworkEvent.Size - 1];
-        event.NetworkEvent.Data[event.NetworkEvent.Size - 1] = 0;
-        core::CString<char> data = event.NetworkEvent.Data;
-        data.append(last);
-        Buffer.append(data);
-
-        bool finished = false;
-        bool more = true;
-        while (more)
-        {
-            more = false;
-            switch (State)
-            {
-            case EHS_HEADER:
-            {
-                int end = Buffer.findNext("\r\n\r\n", 0);
-                if (end == -1)
-                    break;
-
-                core::CString<char> header = Buffer.subString(0, end);
-                Buffer = Buffer.subStringToEnd(end + 4);
-                ContentLength = getContentLength(header);
-
-                if (ContentLength >= 0)
-                {
-                    State = EHS_BODY;
-                    more = true;
-                }
-                else if (ContentLength == -1)
-                {
-                    State = EHS_CHUNK_SIZE;
-                    more = true;
-                }
-                else
-                {
-                    event::SEvent e;
-                    e.EventType = event::EET_NETWORK_EVENT;
-                    e.NetworkEvent.Type = event::ENET_HTTP_ERROR;
-                    e.NetworkEvent.Size = -ContentLength;
-                    e.NetworkEvent.Data = (char*)"Error code";
-                    Receiver->OnEvent(e);
-                    State = EHS_IDLE;
-                    finished = true;
-                }
-                break;
-            }
-
-            case EHS_CHUNK_SIZE:
-            {
-                if (Buffer.size() < 3)
-                    break;
-
-                int end = Buffer.findNext("\r\n", 0);
-                if (end == -1)
-                    break;
-
-                ContentLength = strtol(Buffer.c_str(), 0, 16);
-                if (ContentLength == 0)
-                {
-                    State = EHS_IDLE;
-                    event::SEvent e;
-                    e.EventType = event::EET_NETWORK_EVENT;
-                    e.NetworkEvent.Type = event::ENET_HTTP_DONE;
-                    e.NetworkEvent.Data = (char*)Content.c_str();
-                    Receiver->OnEvent(e);
-                    finished = true;
-                    break;
-                }
-
-                Buffer = Buffer.subStringToEnd(end + 2);
-                State = EHS_CHUNK_DATA;
-                more = true;
-                break;
-            }
-
-            case EHS_CHUNK_DATA:
-            {
-                if (Buffer.size() < ContentLength + 2)
-                    break;
-
-                Content.append(Buffer.subString(0, ContentLength));
-                Buffer = Buffer.subStringToEnd(ContentLength + 2);
-                State = EHS_CHUNK_SIZE;
-                more = true;
-                break;
-            }
-
-            case EHS_BODY:
-            {
-                if (Buffer.size() < ContentLength)
-                    break;
-
-                State = EHS_IDLE;
-                event::SEvent e;
-                e.EventType = event::EET_NETWORK_EVENT;
-                e.NetworkEvent.Type = event::ENET_HTTP_DONE;
-                e.NetworkEvent.Data = (char*)Buffer.c_str();
-                Receiver->OnEvent(e);
-                finished = true;
-                break;
-            }
-            }
-        }
-
-        Lock.leave();
-        if (finished)
-            disconnect();
-        return true;
-    }
-
-    case event::ENET_DISCONNECTED:
-    {
         if (State != EHS_IDLE)
         {
+            // the data is not zero-terminated: take the last byte out, terminate, and put it back
+            char last = event.NetworkEvent.Data[event.NetworkEvent.Size - 1];
+            event.NetworkEvent.Data[event.NetworkEvent.Size - 1] = 0;
+            core::CString<char> data = event.NetworkEvent.Data;
+            data.append(last);
+            Buffer.append(data);
+
+            for (;;)
+            {
+                if (State == EHS_HEADER)
+                {
+                    int end = Buffer.findNext("\r\n\r\n", 0);
+                    if (end != -1)
+                    {
+                        core::CString<char> header = Buffer.subString(0, end);
+                        Buffer = Buffer.subStringToEnd(end + 4);
+                        ContentLength = getContentLength(header);
+
+                        if (ContentLength >= 0)
+                        {
+                            State = EHS_BODY;
+                            continue;
+                        }
+                        else if (ContentLength == -1)
+                        {
+                            State = EHS_CHUNK_SIZE;
+                            continue;
+                        }
+                        else
+                        {
+                            event::SEvent e;
+                            e.EventType = event::EET_NETWORK_EVENT;
+                            e.NetworkEvent.Type = event::ENET_HTTP_ERROR;
+                            e.NetworkEvent.Size = -ContentLength;
+                            e.NetworkEvent.Data = (char*)"Error code";
+                            Receiver->OnEvent(e);
+                            State = EHS_IDLE;
+                            closeConnection = true;
+                        }
+                    }
+                    break;
+                }
+                else if (State == EHS_CHUNK_SIZE)
+                {
+                    if (Buffer.size() >= 3)
+                    {
+                        int end = Buffer.findNext("\r\n", 0);
+                        if (end != -1)
+                        {
+                            ContentLength = strtol(Buffer.c_str(), 0, 16);
+                            if (ContentLength == 0)
+                            {
+                                State = EHS_IDLE;
+                                event::SEvent e;
+                                e.EventType = event::EET_NETWORK_EVENT;
+                                e.NetworkEvent.Type = event::ENET_HTTP_DONE;
+                                e.NetworkEvent.Data = (char*)Content.c_str();
+                                Receiver->OnEvent(e);
+                                closeConnection = true;
+                            }
+                            else
+                            {
+                                Buffer = Buffer.subStringToEnd(end + 2);
+                                State = EHS_CHUNK_DATA;
+                                continue;
+                            }
+                        }
+                    }
+                    break;
+                }
+                else if (State == EHS_CHUNK_DATA)
+                {
+                    if (Buffer.size() >= ContentLength + 2)
+                    {
+                        Content.append(Buffer.subString(0, ContentLength));
+                        Buffer = Buffer.subStringToEnd(ContentLength + 2);
+                        State = EHS_CHUNK_SIZE;
+                        continue;
+                    }
+                    break;
+                }
+                else if (State == EHS_BODY)
+                {
+                    if (Buffer.size() >= ContentLength)
+                    {
+                        State = EHS_IDLE;
+                        event::SEvent e;
+                        e.EventType = event::EET_NETWORK_EVENT;
+                        e.NetworkEvent.Type = event::ENET_HTTP_DONE;
+                        e.NetworkEvent.Data = (char*)Buffer.c_str();
+                        Receiver->OnEvent(e);
+                        closeConnection = true;
+                    }
+                    break;
+                }
+            }
+        }
+        break;
+
+    case event::ENET_DISCONNECTED:
+        if (State != EHS_IDLE)
+        {
+            // EventType is left unset, as in both builds
             event::SEvent e;
-            e.EventType = event::EET_NETWORK_EVENT;
             e.NetworkEvent.Type = event::ENET_HTTP_ERROR;
             e.NetworkEvent.Data = (char*)"Interrupted";
             Receiver->OnEvent(e);
         }
-
-        Lock.leave();
-        disconnect();
-        return true;
-    }
+        closeConnection = true;
+        break;
     }
 
     Lock.leave();
+    if (closeConnection)
+        disconnect();
     return true;
 }
 

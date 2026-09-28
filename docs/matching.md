@@ -66,15 +66,35 @@ file).
 | --- | ---: | --- |
 | `ox/io/CMemReadFile.cpp` | 19/19 | Irrlicht 0.7 `IUnknown` → `IReadFile` → `CMemReadFile` |
 | `ox/io/CMemWriteFile.cpp` | 18/18 | `IWriteFile` from Irrlicht 0.7; the class itself is Oxeye's |
+| `ox/net/CHTTPConnectionHandler.cpp` | 18/19 | `OnEvent` differs only in one register choice; function order differs |
 
-Counts include inline methods and base-class destructors emitted as COMDAT copies. Findings:
+Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
+brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
+`SEvent`/`IEventReceiver` (network event only), `IOxDevice`, `INetworkDevice`/`SServerInfo`, and
+declarations of `CCriticalSection` and `CThread`.
 
-- Linux function order within `.text` follows GCC 4.4's output order, not source order; compiling
-  the source in Mac (source) order reproduces it.
+Findings:
+
+- Linux function order within `.text` follows GCC 4.4's `cgraph_postorder` over the whole call graph
+  (callers first, nodes newest first, then reversed), including inline and external nodes. Source
+  order alone does not determine it; the CHTTPConnectionHandler order is still open.
+- GCC's inlining and register allocation depend on the whole object: changing `OnEvent` changed
+  whether `subString` was inlined (through estimated call frequencies) and the registers in `doGet`.
+  Match a unit's biggest function before trusting its neighbours.
 - Single-byte `nop` padding marks the gap between separate input sections (a new object or a COMDAT
   section); within one section the assembler pads with multi-byte nops.
-- Spelling matters and the original is not minimal: `Size < Pos + finalPos` and `finalPos > Size`
-  in the two branches of `CMemWriteFile::seek`, and a max-style `Size = Pos < Size ? Size : Pos`
-  instead of a conditional store, each change the generated code.
+- Spelling matters and the original is not minimal: `Size < Pos + finalPos`, a max-style
+  `Size = Pos < Size ? Size : Pos`, an explicit `return CString<char>(result)` copy in `wideToAnsi`,
+  early returns in `getContentLength`, a `for (;;)` state loop with per-branch `break`/`continue`.
+- The original has bugs that must be kept: `doGet` returns without leaving its lock when busy,
+  `wideToAnsi` frees an array with scalar `delete`, and the "Interrupted" event never sets its type.
 - When a section's known symbols disagree, the earliest one anchors it and the first misplaced
   symbol shows where the lengths diverge: the function just before it differs.
+
+## Per-function placement and learned symbols
+
+Each function of an executable section is compared at its own target address, so function bodies
+can match before the unit's order does; the section is exact only when every function lands at
+base + offset. Functions without a known name (static initializers, GCC clones) take the one FDE of
+their size in the known range. `hv match --learn` adds the addresses of unknown symbols referenced by
+functions that match everywhere else, when every such reference agrees (evidence `reloc:<unit>:<fn>`).

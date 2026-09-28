@@ -330,14 +330,15 @@ public:
     {
         for (int i = startPos; i < used; ++i)
         {
-            const T* a = &array[i];
-            const T* s = str;
-            while (*a == *s)
+            if (array[i] == str[0])
             {
-                ++a;
-                ++s;
-                if (!*s)
-                    return i;
+                int j = 0;
+                while (array[i + j] == str[j])
+                {
+                    ++j;
+                    if (!str[j])
+                        return i;
+                }
             }
         }
 
