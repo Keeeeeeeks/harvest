@@ -1,0 +1,14 @@
+# original game binaries, never committed (see builds.json for pins)
+/orig/
+
+# build outputs
+/build/
+
+# python
+__pycache__/
+.venv/
+*.egg-info/
+.ruff_cache/
+
+# os / editors
+.DS_Store

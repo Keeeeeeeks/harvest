@@ -1,0 +1,77 @@
+{
+  "canonical": "1.18-linux-amd64",
+  "builds": {
+    "1.18-linux-amd64": {
+      "version": "1.18",
+      "platform": "linux",
+      "arch": "amd64",
+      "role": "target",
+      "linked": "2012-05",
+      "compiler": "GCC 4.4.3 (Ubuntu 4.4.3-4ubuntu5)",
+      "package": {
+        "name": "Harvest-1.18_amd64.tar.gz",
+        "size": 55288158,
+        "sha256": "b1f9c66b851e6ae6adac61550e627c8f3c7905159b90c674c3474f925902a0ec"
+      },
+      "images": {
+        "Harvest": {
+          "size": 2537992,
+          "sha256": "ac381fa044f6009e09a29e1e221a51e72e65f0772edd164083857dda863a426a"
+        }
+      }
+    },
+    "1.18-linux-i386": {
+      "version": "1.18",
+      "platform": "linux",
+      "arch": "i386",
+      "role": "reference",
+      "linked": "2012-05",
+      "compiler": "GCC 4.4.3 (Ubuntu 4.4.3-4ubuntu5)",
+      "package": {
+        "name": "Harvest-1.18_i386.tar.gz",
+        "size": 55239262,
+        "sha256": "8315930ed859651eda8be5efeefe4eb6a4442a0c7f9d2098706968648013ffe6"
+      },
+      "images": {
+        "Harvest": {
+          "size": 2359092,
+          "sha256": "153e254830097bb575a6ac949090700846379be3d76e9052603088dd412f674e"
+        }
+      }
+    },
+    "1.18-mac-i386": {
+      "version": "1.18",
+      "platform": "mac",
+      "arch": "i386",
+      "role": "reference",
+      "linked": "2012-04",
+      "compiler": "Apple clang, Xcode 4.x (inferred from __GLOBAL__I_a initializers)",
+      "package": {
+        "name": "harvest_steam_mac32_1.18.app"
+      },
+      "images": {
+        "Harvest Steam": {
+          "size": 4512460,
+          "sha256": "710a90a4f54c4d1a6e53868b0da7c2521d004293a4c40013a366522fb17ee363"
+        }
+      }
+    },
+    "1.18-win-i386": {
+      "version": "1.18",
+      "platform": "win",
+      "arch": "i386",
+      "role": "reference",
+      "linked": "2012-04-18",
+      "compiler": "MSVC 10.0 (16.00.30319)",
+      "package": {
+        "name": "harvest_steam_win32_1.18"
+      },
+      "images": {
+        "Harvest.exe": {
+          "size": 2321920,
+          "sha256": "e93b6a29aa2d4d52c4d50d251e48d4ce74ceb32913d06abea8e6fd9c62744c65"
+        }
+      }
+    }
+  }
+}
