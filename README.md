@@ -58,15 +58,9 @@ command without a terminal. `toolchain/manifest.tsv` lists the image's installed
 - `headers.csv`: the header markers (`N_SOL`) seen inside each source file's debug records: headers
   that contributed emitted code, not the full include graph
 
-## First matching pilot
+## Matching
 
-`just match` compiles three recovered `ox::io::CMemReadFile` methods with the pinned toolchain,
-checks their full Linux amd64 bodies and call references, and rejects deliberately changed
-constant/call variants. Results and objects are written to `build/pilot/`.
-
-The pilot covers 105 bytes: `getRemainingSize`, `seek`, and `read`. Names are checked through
-RTTI and Mac vtable slots; Linux unwind records establish the extents. The `memcpy` relocation
-is resolved and compared against the actual PLT destination. Normalized similarity alone
-cannot pass a match. The class declaration remains partial.
-
-See [the matching pilot](docs/research/matching-pilot.md) for evidence, report fields and limits.
+`just port-symbols` names the target's RTTI, vtables and virtual functions from the Mac vtables into
+`config/1.18-linux-amd64/symbols.tsv`. `just match` compiles every source listed in
+`config/1.18-linux-amd64/units.toml` and compares each object with the Linux executable, section by
+section, with every relocation resolved. See [docs/matching.md](docs/matching.md).

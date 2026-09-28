@@ -1,168 +1,307 @@
-"""Compare complete function bodies after resolving supported ELF relocations."""
+"""Compare a compiled object with the target image, section by section.
 
-import csv
+Each allocated section of the object is placed at a target address: explicitly (units.toml), or
+through the symbols it defines whose target addresses are known (symbols.tsv). Every known symbol
+in a section must agree on the section's address. Relocations are resolved against placed
+sections, known symbols, and the target's PLT and copy-relocated data, then written into the
+object bytes; a placed section matches when those bytes equal the target's over its whole extent.
+
+Merged string and constant sections are not laid out contiguously by the linker, so they are not
+placed; each reference into them is checked by comparing the referenced content instead.
+Nothing is masked: a relocation that cannot be resolved or checked makes its section inexact.
+"""
+
 import hashlib
-import json
-from pathlib import Path
+from dataclasses import dataclass, field
 
-from hv import builds
 from hv.elf import Elf
+
+R_X86_64_64 = 1
+R_X86_64_PC32 = 2
+R_X86_64_PLT32 = 4
+R_X86_64_32 = 10
+R_X86_64_32S = 11
+WIDTHS = {R_X86_64_64: 8, R_X86_64_PC32: 4, R_X86_64_PLT32: 4, R_X86_64_32: 4, R_X86_64_32S: 4}
+PC_RELATIVE = {R_X86_64_PC32, R_X86_64_PLT32}
+
+SHF_ALLOC = 0x2
+SHF_EXECINSTR = 0x4
+SHF_MERGE = 0x10
+SHF_STRINGS = 0x20
+
+# sections that are not part of the image comparison yet
+SKIPPED = {".eh_frame", ".ctors", ".dtors", ".init_array", ".fini_array", ".note.GNU-stack", ".comment"}
 
 
 def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def load_target(config_path: Path):
-    config = json.loads(config_path.read_text())
-    if config["schema"] != 1 or not config["functions"]:
-        raise ValueError("expected a nonempty schema-1 pilot")
-    image = builds.load_builds()[config["build"]].images[config["image"]]
-    if config["image_sha256"] != image.sha256:
-        raise ValueError("pilot image hash differs from builds.json")
-    if problem := builds.check_image(image):
-        raise ValueError(f"{image.path}: {problem}")
-    target = Elf.load(image.path, "ET_EXEC")
-    validate_evidence(config, target)
-    return config, target
+@dataclass
+class Reference:
+    offset: int
+    type: int
+    symbol: str
+    addend: int
+    resolved: bool = False
+    matches: bool = False
+    reason: str = ""
+    destination: int | None = None
+
+    def report(self) -> dict:
+        row = {"offset": self.offset, "type": self.type, "symbol": self.symbol, "addend": self.addend}
+        if self.destination is not None:
+            row["destination"] = hex(self.destination)
+        if self.reason:
+            row["reason"] = self.reason
+        row["matches"] = self.matches
+        return row
 
 
-def validate_evidence(config: dict, target: Elf):
-    """Recheck Linux extents and the RTTI -> vtable -> Mac name chain."""
-    evidence = config["name_evidence"]
-    if evidence["kind"] != "mac-vtable":
-        raise ValueError("unsupported name evidence")
-    reference = builds.load_builds()[evidence["reference_build"]]
-    if evidence["reference_image_sha256"] not in {i.sha256 for i in reference.images.values()}:
-        raise ValueError("reference image pin differs")
-    name_address = int(evidence["type_name_address"], 0)
-    name = evidence["type_name"].encode() + b"\0"
-    if target.read(name_address, len(name)) != name:
-        raise ValueError("RTTI name mismatch")
-    typeinfo = int(evidence["typeinfo_address"], 0)
-    vtable = int(evidence["vtable_address"], 0)
-    if target.word(typeinfo + 8) != name_address:
-        raise ValueError("RTTI name pointer mismatch")
-    if target.word(vtable) != 0 or target.word(vtable + 8) != typeinfo:
-        raise ValueError("primary vtable header mismatch")
-    with (builds.REFERENCE / reference.key / "vtables.csv").open() as f:
-        slots = {
-            int(row["index"]): row["target"]
-            for row in csv.DictReader(f)
-            if row["vtable"] == evidence["vtable_symbol"]
-        }
-    ranges = target.fde_ranges()
-    seen = set()
-    for function in config["functions"]:
-        address, size = int(function["address"], 0), function["size"]
-        if function["symbol"] in seen:
-            raise ValueError("duplicate function symbol")
-        seen.add(function["symbol"])
-        if function["extent"] != "eh_frame" or (address, size) not in ranges:
-            raise ValueError(f"Linux FDE extent mismatch: {function['symbol']}")
-        target.read(address, size, executable=True)
-        word = function["vtable_word"]
-        if word < 2 or target.word(vtable + 8 * word) != address:
-            raise ValueError("Linux vtable slot mismatch")
-        if slots.get(word) != function["symbol"]:
-            raise ValueError("Mac vtable name mismatch")
+@dataclass
+class SectionResult:
+    name: str
+    index: int
+    size: int
+    address: int | None = None
+    placement: str = ""
+    nobits: bool = False
+    exact: bool = False
+    differences: list[int] = field(default_factory=list)
+    references: list[Reference] = field(default_factory=list)
+    functions: list[dict] = field(default_factory=list)
+
+    def report(self) -> dict:
+        row = {"name": self.name, "size": self.size, "placement": self.placement, "exact": self.exact}
+        if self.address is not None:
+            row["address"] = hex(self.address)
+        if self.differences:
+            row["first_difference"] = self.differences[0]
+            row["differing_bytes"] = len(self.differences)
+        bad = [r.report() for r in self.references if not r.matches]
+        if bad:
+            row["bad_references"] = bad
+        row["references"] = len(self.references)
+        if self.functions:
+            row["functions"] = self.functions
+        return row
 
 
-def compare_function(obj: Elf, target: Elf, function: dict, symbols: dict[str, int]) -> dict:
-    name = function["symbol"]
-    address, size = int(function["address"], 0), function["size"]
-    symbol, raw = obj.function(name)
-    expected = target.read(address, size, executable=True)
+class Resolver:
+    """Target addresses of symbols: known symbols, then PLT entries, then copied library data."""
+
+    def __init__(self, target: Elf, known: dict[str, int]):
+        self.known = known
+        self.plt = target.plt_symbols()
+        self.copies = target.copy_symbols()
+
+    def address(self, name: str) -> int | None:
+        for table in (self.known, self.plt, self.copies):
+            if name in table:
+                return table[name]
+        return None
+
+
+def section_symbols(obj: Elf):
+    table = obj.elf.get_section_by_name(".symtab")
+    return list(table.iter_symbols()) if table is not None else []
+
+
+def place_sections(obj: Elf, resolver: Resolver, explicit: dict[str, int]) -> dict[int, tuple[int, str]]:
+    """Section index -> (target address, how it was placed)."""
+    by_section: dict[int, list] = {}
+    for symbol in section_symbols(obj):
+        if isinstance(symbol["st_shndx"], int) and symbol.name and symbol["st_info"]["type"] != "STT_SECTION":
+            by_section.setdefault(symbol["st_shndx"], []).append(symbol)
+    placements = {}
+    names = {}
+    for index, section in enumerate(obj.elf.iter_sections()):
+        names[section.name] = index
+        if not section["sh_flags"] & SHF_ALLOC or section.name in SKIPPED or is_merged(section):
+            continue
+        if not section["sh_size"]:
+            continue
+        bases = {}
+        for symbol in by_section.get(index, []):
+            known = resolver.known.get(symbol.name)
+            if known is not None:
+                bases.setdefault(known - symbol["st_value"], []).append(symbol.name)
+        if len(bases) > 1:
+            detail = "; ".join(f"{base:#x} from {', '.join(n)}" for base, n in bases.items())
+            raise ValueError(f"known symbols disagree on the address of {section.name}: {detail}")
+        if section.name in explicit:
+            address = explicit[section.name]
+            if bases and next(iter(bases)) != address:
+                raise ValueError(f"explicit placement of {section.name} contradicts its known symbols")
+            placements[index] = (address, "explicit")
+        elif bases:
+            ((address, evidence),) = bases.items()
+            placements[index] = (address, "symbols: " + ", ".join(sorted(evidence)[:3]))
+    if unknown := set(explicit) - set(names):
+        raise ValueError(f"explicit placement for sections not in the object: {', '.join(sorted(unknown))}")
+    return placements
+
+
+def is_merged(section) -> bool:
+    return bool(section["sh_flags"] & SHF_MERGE)
+
+
+def check_merged(obj: Elf, target: Elf, section, addend: int, rtype: int, value: int) -> tuple[bool, str]:
+    """Compare the object content a merged-section reference points to with the target's."""
+    data = section.data()
+    if rtype in PC_RELATIVE:
+        # rip-relative operand with no trailing immediate: the referenced offset is addend + 4
+        offset = addend + 4
+    else:
+        offset = addend
+    if not 0 <= offset < len(data):
+        return False, "reference outside merged section"
+    try:
+        if section["sh_flags"] & SHF_STRINGS:
+            end = data.index(b"\0", offset)
+            ours = data[offset:end]
+            return target.cstring(value + (offset - addend)) == ours, "merged string"
+        size = section["sh_entsize"] or 1
+        ours = data[offset : offset + size]
+        return target.read(value + (offset - addend), size) == ours, "merged constant"
+    except ValueError as error:
+        return False, str(error)
+
+
+def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[str, int]) -> dict:
+    resolver = Resolver(target, known)
+    placements = place_sections(obj, resolver, explicit)
+    symbols = section_symbols(obj)
+    sections = list(obj.elf.iter_sections())
+    fdes = target.fde_ranges()
+    results = []
+    unplaced = []
+    for index, section in enumerate(sections):
+        if not section["sh_flags"] & SHF_ALLOC or section.name in SKIPPED:
+            continue
+        if is_merged(section) or not section["sh_size"]:
+            continue
+        if index not in placements:
+            unplaced.append(section.name)
+            continue
+        address, how = placements[index]
+        result = SectionResult(section.name, index, section["sh_size"], address, how)
+        if section["sh_type"] == "SHT_NOBITS":
+            result.nobits = True
+            owner = target.section_at(address)
+            result.exact = owner is not None and owner["sh_type"] == "SHT_NOBITS"
+            results.append(result)
+            continue
+        compare_section(obj, target, section, index, address, placements, resolver, sections, result)
+        if section["sh_flags"] & SHF_EXECINSTR:
+            # FDE extents pin each function's full length, including the section's last one
+            result.functions = function_results(symbols, index, address, result, fdes)
+            result.exact = result.exact and all(f["exact"] for f in result.functions)
+        results.append(result)
+    exact = bool(results) and not unplaced and all(r.exact for r in results)
+    return {
+        "object_sha256": digest(obj.data),
+        "exact": exact,
+        "sections": [r.report() for r in results],
+        "unplaced_sections": unplaced,
+    }
+
+
+def compare_section(obj, target, section, index, address, placements, resolver, sections, result):
+    raw = section.data()
+    try:
+        expected = target.read(address, len(raw))
+    except ValueError as error:
+        result.differences = list(range(len(raw)))
+        result.references.append(Reference(0, 0, "", 0, reason=str(error)))
+        return
     relocated = bytearray(raw)
-    masked = set()
-    references = []
-    unresolved = []
-    start = symbol["st_value"]
-    for relocation, ref in obj.relocations(symbol["st_shndx"]):
-        offset = relocation["r_offset"] - start
-        kind = relocation["r_info_type"]
-        # Only PC32 and PLT32 are implemented. Never silently mask unknown types.
-        width = {1: 8, 2: 4, 4: 4, 10: 4, 11: 4}.get(kind)
-        if offset >= len(raw) or (width is not None and offset + width <= 0):
+    covered: set[int] = set()
+    for relocation, symbol in obj.relocations(index):
+        rtype = relocation["r_info_type"]
+        offset = relocation["r_offset"]
+        name = symbol.name or (
+            sections[symbol["st_shndx"]].name if isinstance(symbol["st_shndx"], int) else ""
+        )
+        ref = Reference(offset, rtype, name, relocation["r_addend"])
+        result.references.append(ref)
+        width = WIDTHS.get(rtype)
+        if width is None:
+            ref.reason = "unsupported relocation type"
             continue
-        if width is None and offset < 0:
-            raise ValueError("unknown relocation before function; cannot establish non-overlap")
-        if offset < 0 or (width is not None and offset + width > len(raw)):
-            raise ValueError("relocation crosses function boundary")
-        detail = {
-            "offset": offset,
-            "type": kind,
-            "symbol": ref.name,
-            "addend": relocation["r_addend"],
-        }
-        if kind not in (2, 4):
-            unresolved.append({**detail, "reason": "unsupported relocation type"})
-            continue
-        if any(i in masked for i in range(offset, offset + 4)):
-            raise ValueError("overlapping relocations")
-        masked.update(range(offset, offset + 4))
-        if ref["st_shndx"] != "SHN_UNDEF":
-            # Self references are safe; other object-local symbols need a placement model.
-            if ref.name == name and ref["st_value"] == start:
-                destination = address
-            else:
-                unresolved.append({**detail, "reason": "defined-symbol placement unsupported"})
-                continue
-        elif ref.name in symbols:
-            destination = symbols[ref.name]
-        else:
-            unresolved.append({**detail, "reason": "no verified target symbol"})
-            continue
+        if offset < 0 or offset + width > len(raw):
+            raise ValueError(f"relocation outside {section.name} at {offset:#x}")
+        if covered & set(range(offset, offset + width)):
+            raise ValueError(f"overlapping relocations in {section.name} at {offset:#x}")
+        covered.update(range(offset, offset + width))
         place = address + offset
-        value = destination + relocation["r_addend"] - place
-        if not -(1 << 31) <= value < (1 << 31):
-            unresolved.append({**detail, "reason": "PC-relative relocation overflow"})
+        field_bytes = expected[offset : offset + width]
+        field_value = int.from_bytes(
+            field_bytes, "little", signed=rtype in PC_RELATIVE or rtype == R_X86_64_32S
+        )
+
+        target_section = sections[symbol["st_shndx"]] if isinstance(symbol["st_shndx"], int) else None
+        if (
+            target_section is not None
+            and is_merged(target_section)
+            and symbol["st_info"]["type"] == "STT_SECTION"
+        ):
+            # value of S + A as the target encodes it
+            absolute = field_value + place if rtype in PC_RELATIVE else field_value
+            ref.resolved = True
+            ref.matches, ref.reason = check_merged(obj, target, target_section, ref.addend, rtype, absolute)
+            relocated[offset : offset + width] = field_bytes if ref.matches else bytes(width)
             continue
-        encoded = value.to_bytes(4, "little", signed=True)
-        relocated[offset : offset + 4] = encoded
-        actual = expected[offset : offset + 4]
-        references.append(
+
+        destination = resolve(symbol, placements, resolver)
+        if destination is None:
+            ref.reason = "no target address for symbol"
+            continue
+        ref.destination = destination
+        value = destination + ref.addend - (place if rtype in PC_RELATIVE else 0)
+        signed = rtype in PC_RELATIVE or rtype == R_X86_64_32S
+        bits = width * 8
+        low, high = (-(1 << (bits - 1)), 1 << (bits - 1)) if signed else (0, 1 << bits)
+        if not low <= value < high:
+            ref.reason = "relocation overflow"
+            continue
+        encoded = value.to_bytes(width, "little", signed=signed)
+        relocated[offset : offset + width] = encoded
+        ref.resolved = True
+        ref.matches = encoded == field_bytes
+        if not ref.matches:
+            ref.reason = "different destination"
+    result.differences = [i for i in range(len(raw)) if relocated[i] != expected[i]]
+    result.exact = not result.differences and all(r.matches for r in result.references)
+
+
+def resolve(symbol, placements, resolver: Resolver) -> int | None:
+    shndx = symbol["st_shndx"]
+    if isinstance(shndx, int):
+        if shndx in placements:
+            return placements[shndx][0] + symbol["st_value"]
+        # defined here in a section placed elsewhere, such as an inline copy the linker discarded
+        return resolver.known.get(symbol.name) if symbol.name else None
+    if shndx == "SHN_UNDEF":
+        return resolver.address(symbol.name)
+    return None
+
+
+def function_results(symbols, index, address, result: SectionResult, fdes) -> list[dict]:
+    bad = [r.offset for r in result.references if not r.matches] + result.differences
+    rows = []
+    for symbol in sorted(
+        (s for s in symbols if s["st_shndx"] == index and s["st_info"]["type"] == "STT_FUNC"),
+        key=lambda s: s["st_value"],
+    ):
+        start, size = symbol["st_value"], symbol["st_size"]
+        rows.append(
             {
-                **detail,
-                "symbol_address": hex(destination),
-                "place": hex(place),
-                "resolved_value": value,
-                "encoded": encoded.hex(),
-                "target_encoded": actual.hex(),
-                "matches_target": actual == encoded,
+                "symbol": symbol.name,
+                "address": hex(address + start),
+                "size": size,
+                "fde": (address + start, size) in fdes,
+                "exact": (address + start, size) in fdes and not any(start <= o < start + size for o in bad),
             }
         )
-    # Position-wise diagnostic, with the denominator including missing/extra bytes.
-    positions = [i for i in range(max(len(raw), len(expected))) if i not in masked]
-    equal = sum(i < len(raw) and i < len(expected) and raw[i] == expected[i] for i in positions)
-    reference_match = not unresolved and all(r["matches_target"] for r in references)
-    return {
-        "symbol": name,
-        "target_range": {"start": hex(address), "end": hex(address + size), "size": size},
-        "object_range": {"section_index": symbol["st_shndx"], "offset": start, "size": len(raw)},
-        "raw_byte_equal": raw == expected,
-        "relocated_byte_equal": not unresolved and bytes(relocated) == expected,
-        "normalized_similarity": equal / len(positions) if positions else None,
-        "normalized_compared_bytes": len(positions),
-        "references_match": reference_match,
-        "references": references,
-        "unresolved_references": unresolved,
-        "body_byte_exact": not unresolved and reference_match and bytes(relocated) == expected,
-        "target_body_sha256": digest(expected),
-        "object_body_sha256": digest(raw),
-        "relocated_body_sha256": digest(relocated) if not unresolved else None,
-    }
-
-
-def compare_object(config: dict, target: Elf, object_path: Path) -> dict:
-    obj = Elf.load(object_path, "ET_REL")
-    symbols = target.plt_symbols()
-    results = [compare_function(obj, target, f, symbols) for f in config["functions"]]
-    return {
-        "schema": 1,
-        "build": config["build"],
-        "image_sha256": digest(target.data),
-        "object_sha256": digest(obj.data),
-        "functions": results,
-        "all_exact": bool(results) and all(r["body_byte_exact"] for r in results),
-    }
+    return rows

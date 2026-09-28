@@ -18,7 +18,5 @@ Rules:
 - Bundled libraries under `daisy/other/extern/` (jpeglib, zlib) and `osx/alut/` are not recovered here:
   the Linux build links the system libraries instead.
 
-The first recovered unit is `ox/io/CMemReadFile.cpp`: three method bodies with 105 exact Linux
-amd64 bytes after call relocation. Its header is a partial layout used for compilation, with
-an opaque base region and unrecovered methods. It is not a complete, instantiable class.
-See `docs/research/matching-pilot.md` for evidence and limits.
+Recovered files are listed in `config/<build>/units.toml` and checked with `just match`;
+see `docs/matching.md`.

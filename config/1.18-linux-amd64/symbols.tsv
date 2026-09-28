@@ -3286,3 +3286,4 @@ address	size	symbol	evidence
 0x622f90	16	_ZTIN2ox3net22CVariablePacketBuilderE	rtti
 0x622fa0	33	_ZTSN2ox3net21CVariablePacketParserE	rtti
 0x622fd0	16	_ZTIN2ox3net21CVariablePacketParserE	rtti
+0x868b28	8	__dso_handle	manual:crtbegin.o data; every static initializer passes it to __cxa_atexit

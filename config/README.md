@@ -1,16 +1,11 @@
 # Target configuration
 
-One directory per matching target, named by its `builds.json` key.
+One directory per matching target, named by its `builds.json` key. For `1.18-linux-amd64`:
 
-`1.18-linux-amd64/` currently contains:
+- `symbols.tsv`: address, size, symbol and evidence for known target symbols. `hv port-symbols`
+  regenerates the `rtti` and `mac-vtable` rows; rows with other evidence, such as `manual:`, are kept.
+- `units.toml`: the recovered source files, with the addresses of object sections that no known
+  symbol places.
+- `flags.json`: compiler image, version and flags.
 
-- `pilot.json`: the pinned image hash, three function names and Linux address/size pairs,
-  source inputs, and the RTTI/vtable/FDE evidence checked by `hv match`.
-- `flags.json`: compiler image/version and `-O2`, validated only for the pilot methods.
-
-The pilot intentionally does not claim complete source-unit splits or global compiler flags.
-As recovery expands, `symbols.txt` will record addresses, sizes, names and their evidence;
-`splits.txt` will record source-file ranges in link order, marking Linux-only paths as inferred.
-Mac reference sizes are never substituted for Linux function extents.
-
-See `docs/research/matching-pilot.md` for reproduction, comparison semantics and limitations.
+See `docs/matching.md` for how these are used.
