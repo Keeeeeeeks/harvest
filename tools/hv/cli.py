@@ -5,10 +5,13 @@ from hv import builds
 
 
 def cmd_verify(args: argparse.Namespace) -> int:
+    known = builds.load_builds()
+    if unknown := [key for key in args.build if key not in known]:
+        print(f"unknown builds: {', '.join(unknown)} (known: {', '.join(known)})", file=sys.stderr)
+        return 2
     failed = 0
-    for build in builds.load_builds().values():
-        if args.build and build.key not in args.build:
-            continue
+    for key in args.build or known:
+        build = known[key]
         for image in build.images.values():
             problem = builds.check_image(image)
             status = "ok" if problem is None else problem
