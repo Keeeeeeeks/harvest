@@ -24,9 +24,9 @@ Rows with other evidence (for example `manual:`) are kept when the generator rer
 
 Every allocated object section is placed at a target address:
 
-- by the symbols it defines that `symbols.tsv` knows. All of them must agree on the section's address,
-  so a single known function places the whole `.text`, and the rest of the section is then checked
-  against it;
+- by the symbols it defines that `symbols.tsv` knows. The earliest one anchors the section, so a
+  single known function places the whole `.text`; every other known symbol must land at its known
+  address, or the section is inexact and the report lists it as misplaced;
 - or explicitly in `units.toml`, for sections with no known symbol (such as `.bss`).
 
 Inline functions, vtables and RTTI that GCC emits as COMDAT sections are placed at the kept copy.
@@ -62,12 +62,19 @@ file).
 
 ## Recovered so far
 
-`ox/io/CMemReadFile.cpp` matches completely: 19 functions (the file's own 12, plus the inline
-`readLine`, `getFileName`, `getModifiedDate` and the `IReadFile`/`IUnknown` destructors), the three
-classes' vtables, typeinfo and names, and the iostream static initializer. The class hierarchy is
-Irrlicht 0.7's `IUnknown` → `IReadFile` with Oxeye's additions. Two findings from it:
+| Unit | Functions | Notes |
+| --- | ---: | --- |
+| `ox/io/CMemReadFile.cpp` | 19/19 | Irrlicht 0.7 `IUnknown` → `IReadFile` → `CMemReadFile` |
+| `ox/io/CMemWriteFile.cpp` | 18/18 | `IWriteFile` from Irrlicht 0.7; the class itself is Oxeye's |
+
+Counts include inline methods and base-class destructors emitted as COMDAT copies. Findings:
 
 - Linux function order within `.text` follows GCC 4.4's output order, not source order; compiling
-  the source in Mac (source) order reproduced it.
+  the source in Mac (source) order reproduces it.
 - Single-byte `nop` padding marks the gap between separate input sections (a new object or a COMDAT
   section); within one section the assembler pads with multi-byte nops.
+- Spelling matters and the original is not minimal: `Size < Pos + finalPos` and `finalPos > Size`
+  in the two branches of `CMemWriteFile::seek`, and a max-style `Size = Pos < Size ? Size : Pos`
+  instead of a conditional store, each change the generated code.
+- When a section's known symbols disagree, the earliest one anchors it and the first misplaced
+  symbol shows where the lengths diverge: the function just before it differs.

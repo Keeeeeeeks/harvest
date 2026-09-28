@@ -68,6 +68,7 @@ class SectionResult:
     nobits: bool = False
     exact: bool = False
     differences: list[int] = field(default_factory=list)
+    misplaced: list[dict] = field(default_factory=list)
     references: list[Reference] = field(default_factory=list)
     functions: list[dict] = field(default_factory=list)
 
@@ -78,6 +79,8 @@ class SectionResult:
         if self.differences:
             row["first_difference"] = self.differences[0]
             row["differing_bytes"] = len(self.differences)
+        if self.misplaced:
+            row["misplaced_symbols"] = self.misplaced
         bad = [r.report() for r in self.references if not r.matches]
         if bad:
             row["bad_references"] = bad
@@ -107,8 +110,15 @@ def section_symbols(obj: Elf):
     return list(table.iter_symbols()) if table is not None else []
 
 
-def place_sections(obj: Elf, resolver: Resolver, explicit: dict[str, int]) -> dict[int, tuple[int, str]]:
-    """Section index -> (target address, how it was placed)."""
+def place_sections(
+    obj: Elf, resolver: Resolver, explicit: dict[str, int]
+) -> dict[int, tuple[int, str, list]]:
+    """Section index -> (target address, how it was placed, symbols whose known address disagrees).
+
+    Explicit placements win; otherwise the earliest known symbol anchors the section, since a
+    length difference only shifts what follows it. A later symbol implying another address marks
+    where the lengths diverge: the code just before it differs.
+    """
     by_section: dict[int, list] = {}
     for symbol in section_symbols(obj):
         if isinstance(symbol["st_shndx"], int) and symbol.name and symbol["st_info"]["type"] != "STT_SECTION":
@@ -121,22 +131,24 @@ def place_sections(obj: Elf, resolver: Resolver, explicit: dict[str, int]) -> di
             continue
         if not section["sh_size"]:
             continue
-        bases = {}
+        implied = []  # (base, offset in section, name)
         for symbol in by_section.get(index, []):
             known = resolver.known.get(symbol.name)
             if known is not None:
-                bases.setdefault(known - symbol["st_value"], []).append(symbol.name)
-        if len(bases) > 1:
-            detail = "; ".join(f"{base:#x} from {', '.join(n)}" for base, n in bases.items())
-            raise ValueError(f"known symbols disagree on the address of {section.name}: {detail}")
+                implied.append((known - symbol["st_value"], symbol["st_value"], symbol.name))
         if section.name in explicit:
-            address = explicit[section.name]
-            if bases and next(iter(bases)) != address:
-                raise ValueError(f"explicit placement of {section.name} contradicts its known symbols")
-            placements[index] = (address, "explicit")
-        elif bases:
-            ((address, evidence),) = bases.items()
-            placements[index] = (address, "symbols: " + ", ".join(sorted(evidence)[:3]))
+            address, how = explicit[section.name], "explicit"
+        elif implied:
+            address, _, anchor = min(implied, key=lambda i: i[1])
+            how = f"symbol: {anchor}"
+        else:
+            continue
+        misplaced = [
+            {"symbol": name, "known": hex(base + offset), "placed": hex(address + offset)}
+            for base, offset, name in sorted(implied, key=lambda i: i[1])
+            if base != address
+        ]
+        placements[index] = (address, how, misplaced)
     if unknown := set(explicit) - set(names):
         raise ValueError(f"explicit placement for sections not in the object: {', '.join(sorted(unknown))}")
     return placements
@@ -184,8 +196,8 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
         if index not in placements:
             unplaced.append(section.name)
             continue
-        address, how = placements[index]
-        result = SectionResult(section.name, index, section["sh_size"], address, how)
+        address, how, misplaced = placements[index]
+        result = SectionResult(section.name, index, section["sh_size"], address, how, misplaced=misplaced)
         if section["sh_type"] == "SHT_NOBITS":
             result.nobits = True
             owner = target.section_at(address)
@@ -197,6 +209,7 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
             # FDE extents pin each function's full length, including the section's last one
             result.functions = function_results(symbols, index, address, result, fdes)
             result.exact = result.exact and all(f["exact"] for f in result.functions)
+        result.exact = result.exact and not misplaced
         results.append(result)
     exact = bool(results) and not unplaced and all(r.exact for r in results)
     return {

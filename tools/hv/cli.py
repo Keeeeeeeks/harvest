@@ -60,6 +60,8 @@ def print_details(result: dict) -> None:
     for section in result["sections"]:
         mark = "ok" if section["exact"] else "DIFF"
         print(f"  {mark:4} {section['name']} @ {section.get('address', '?')} ({section['placement']})")
+        for moved in section.get("misplaced_symbols", []):
+            print(f"         {moved['symbol']} placed at {moved['placed']}, known at {moved['known']}")
         for ref in section.get("bad_references", []):
             print(f"         reference +{ref['offset']:#x} {ref['symbol']}: {ref.get('reason', '')}")
         for function in section.get("functions", []):

@@ -165,11 +165,13 @@ def test_section_without_known_symbol_is_unplaced():
     assert result["unplaced_sections"] == [".text"]
 
 
-def test_explicit_placement_must_agree_with_symbols():
+def test_explicit_placement_contradicting_a_symbol_is_inexact():
     obj = Elf(elf_image(CALL, relocations=[(1, 2, -4, "memcpy")]), "ET_REL")
     known = {NAME: ADDRESS, "memcpy": DESTINATION}
-    with pytest.raises(ValueError, match="contradicts"):
-        compare_object(obj, target_image(), known, {".text": ADDRESS + 16})
+    result = compare_object(obj, target_image(), known, {".text": ADDRESS + 16})
+    assert not result["exact"]
+    (moved,) = text(result)["misplaced_symbols"]
+    assert moved == {"symbol": NAME, "known": hex(ADDRESS), "placed": hex(ADDRESS + 16)}
     with pytest.raises(ValueError, match="not in the object"):
         compare_object(obj, target_image(), known, {".data": ADDRESS})
 
