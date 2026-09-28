@@ -58,6 +58,22 @@ def cmd_import_mac(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_port_symbols(args: argparse.Namespace) -> int:
+    from hv import rtti, symbols
+    from hv.elf import Elf
+
+    build = builds.load_builds()[args.build]
+    (image,) = build.images.values()
+    if problem := builds.check_image(image):
+        print(f"{build.key} {image.name}: {problem}", file=sys.stderr)
+        return 1
+    generated, stats = rtti.port(Elf.load(image.path, "ET_EXEC"), args.reference)
+    merged = symbols.replace_generated(build.key, {"rtti", "mac-vtable"}, generated)
+    print(", ".join(f"{v} {k}" for k, v in stats.items()))
+    print(f"{symbols.path_for(build.key).relative_to(builds.ROOT)}: {len(merged)} symbols")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="hv", description="Harvest decompilation tooling")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -69,6 +85,11 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("import-mac", help="write reference tables from the Mac debug map")
     p.add_argument("build", nargs="?", default="1.18-mac-i386")
     p.set_defaults(func=cmd_import_mac)
+
+    p = sub.add_parser("port-symbols", help="name target RTTI, vtables and virtual functions")
+    p.add_argument("build", nargs="?", default=builds.canonical_build())
+    p.add_argument("--reference", default="1.18-mac-i386")
+    p.set_defaults(func=cmd_port_symbols)
 
     p = sub.add_parser("match", help="compile and compare the Linux amd64 matching pilot")
     p.add_argument("build", nargs="?", default="1.18-linux-amd64", choices=["1.18-linux-amd64"])

@@ -77,6 +77,42 @@ class Elf:
                 for relocation in section.iter_relocations():
                     yield relocation, table.get_symbol(relocation["r_info_sym"])
 
+    def section_at(self, address: int):
+        for section in self.elf.iter_sections():
+            if (
+                section["sh_flags"] & 2
+                and section["sh_addr"] <= address < section["sh_addr"] + section["sh_size"]
+            ):
+                return section
+        return None
+
+    def is_code(self, address: int) -> bool:
+        section = self.section_at(address)
+        return section is not None and bool(section["sh_flags"] & 4)
+
+    def cstring(self, address: int) -> bytes:
+        section = self.section_at(address)
+        if section is None or section["sh_type"] == "SHT_NOBITS":
+            raise ValueError(f"no string data at {address:#x}")
+        data = section.data()
+        start = address - section["sh_addr"]
+        end = data.find(b"\0", start)
+        if end < 0:
+            raise ValueError(f"unterminated string at {address:#x}")
+        return data[start:end]
+
+    def copy_symbols(self) -> dict[str, int]:
+        """Library data copied into the executable by R_X86_64_COPY, by symbol name."""
+        rela = self.elf.get_section_by_name(".rela.dyn")
+        if not isinstance(rela, RelocationSection):
+            return {}
+        table = self.elf.get_section(rela["sh_link"])
+        return {
+            table.get_symbol(r["r_info_sym"]).name: r["r_offset"]
+            for r in rela.iter_relocations()
+            if r["r_info_type"] == 5  # R_X86_64_COPY
+        }
+
     def fde_ranges(self) -> set[tuple[int, int]]:
         return {
             (entry["initial_location"], entry["address_range"])
