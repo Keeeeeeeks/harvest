@@ -59,18 +59,18 @@ reuses old matching credit or shrinks the denominator to the recovered subset.
 
 ## Site registration
 
-The repository is currently private. decomp.dev's registration UI requires a **public repository**
-and GitHub repository admin permissions. Changing visibility is a separate owner decision.
-The report workflow and artifacts work while the repository remains private.
+The public project is registered at [decomp.dev/banteg/harvest](https://decomp.dev/banteg/harvest).
+Its default version is `1.18-linux-amd64`, workflow is `progress.yml`, and category is **All**.
+The site currently offers Windows as its only PC platform category; the report version identifies
+the Linux target explicitly. The project remains hidden from the directory until 0.5% matched code.
 
-Once public and after a successful **push** run on `master`:
+The existing decomp.dev GitHub App installation includes `banteg/harvest` using selected-repository
+access, alongside the existing Crimsonland and Snail Mail repositories. Workflow completion events
+trigger report ingestion. Automatic pull-request comments are disabled.
 
-1. Add `banteg/harvest` to the existing decomp.dev GitHub App installation using selected-repository
-   access. Preserve its other selected repositories.
-2. Register the project through `https://decomp.dev/manage/new`: repository `banteg/harvest`,
-   name `Harvest: Massive Encounter`, platform `PC`, workflow `progress.yml`.
-3. Confirm version `1.18-linux-amd64`, keep the **All** category as default, and check the served
-   totals against `build/progress/report.json`. Pull-request comments need not be enabled.
+Registration imported the successful `master` push report at `910cad47a09e029936700d51b416214af1926e96`:
+995 / 1,998,094 matched code bytes (0.04980%). Subsequent matching changes must refresh the snapshot
+as described above before pushing. A successful default-branch push publishes the next measurement.
 
 Upstream contracts checked against:
 
