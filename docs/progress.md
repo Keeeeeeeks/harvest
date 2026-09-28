@@ -66,7 +66,7 @@ the Linux target explicitly. The project remains hidden from the directory until
 
 The existing decomp.dev GitHub App installation includes `banteg/harvest` using selected-repository
 access, alongside the existing Crimsonland and Snail Mail repositories. Workflow completion events
-trigger report ingestion. Automatic pull-request comments are disabled.
+trigger report ingestion. Automatic pull-request comments are enabled to show progress changes on each PR.
 
 Registration imported the successful `master` push report at `910cad47a09e029936700d51b416214af1926e96`:
 995 / 1,998,094 matched code bytes (0.04980%). Subsequent matching changes must refresh the snapshot
