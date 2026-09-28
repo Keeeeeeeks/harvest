@@ -1,0 +1,30 @@
+[project]
+name = "harvest-decomp"
+version = "0.1.0"
+description = "Tooling for the Harvest: Massive Encounter matching decompilation"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+hv = "hv.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.12"]
+
+[build-system]
+requires = ["uv_build>=0.11,<0.12"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "hv"
+module-root = "tools"
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
