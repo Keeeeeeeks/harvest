@@ -1,0 +1,49 @@
+name: Decompilation progress
+
+on:
+  push:
+    branches: [master, 'feat/decomp-pipeline']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: progress-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  report:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
+        with:
+          version: '0.11.21'
+          python-version: '3.13'
+      - run: uv sync --locked
+      - name: Test and lint tooling (no originals)
+        run: |
+          uv run pytest -q -m 'not originals and not toolchain'
+          uv run ruff check tools tests
+          uv run ruff format --check tools tests
+      - name: Check evidence freshness and export objdiff report
+        run: uv run python -m hv.progress report
+      - name: Validate with objdiff v3.8.1
+        env:
+          URL: https://github.com/encounter/objdiff/releases/download/v3.8.1/objdiff-cli-linux-x86_64
+          SHA256: c8290281e82114bcc1a06ff73061110d3902a177822e750337de2537188e358f
+        run: |
+          curl --fail --location --retry 3 "$URL" --output "$RUNNER_TEMP/objdiff-cli"
+          echo "$SHA256  $RUNNER_TEMP/objdiff-cli" | sha256sum --check --strict
+          chmod +x "$RUNNER_TEMP/objdiff-cli"
+          "$RUNNER_TEMP/objdiff-cli" report changes build/progress/report.json build/progress/report.json --output "$RUNNER_TEMP/changes.json"
+      - name: Upload decomp.dev report
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: 1.18-linux-amd64_report
+          path: build/progress/report.json
+          if-no-files-found: error
+          retention-days: 90

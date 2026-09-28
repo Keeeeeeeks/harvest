@@ -20,6 +20,14 @@ port-symbols:
 match *units:
     uv run hv match {{units}}
 
+# export an objdiff-v2 report from fresh committed evidence (no originals or Docker)
+progress:
+    uv run python -m hv.progress report
+
+# recapture evidence after matching/source/tool changes (needs originals and Docker)
+progress-capture:
+    uv run python -m hv.progress capture
+
 # build the lucid GCC 4.4.3 container
 toolchain:
     docker build --platform linux/amd64 -t {{image}} toolchain
