@@ -1,0 +1,357 @@
+# Irrlicht Engine 0.7
+# Makefile for Linux, created from Bloodshed Win32 Makefile by N.Gebhardt.
+
+CPP  = g++
+LINKOBJ  = CAnimatedMeshMD2.o CAnimatedMeshMS3D.o CAnimatedMeshSceneNode.o CBillboardSceneNode.o CBspTree.o CBspTreeSceneNode.o CCameraMayaSceneNode.o CCameraSceneNode.o CColorConverter.o CDirectX8Texture.o CFileList.o CFileSystem.o CFPSCounter.o CGUIButton.o CGUIEnvironment.o CGUIFileOpenDialog.o CGUIFont.o CGUIImage.o CGUIListBox.o CGUIMeshViewer.o CGUIScrollBar.o CGUISkin.o CGUIStaticText.o CGUIWindow.o CIrrDeviceWin32.o CLightSceneNode.o CLimitReadFile.o CMemoryReadFile.o CMeshSceneNode.o COctTreeSceneNode.o COpenGLTexture.o CQ3LevelMesh.o CReadFile.o CSceneManager.o CSceneNodeAnimatorFlyCircle.o CSceneNodeAnimatorRotation.o CSoftwareTexture.o CStaticMeshOBJ.o CTestSceneNode.o CTRFlat.o CTRFlatWire.o CTRGouraud.o CTRGouraudWire.o CTRTextureFlat.o CTRTextureFlatWire.o CTRTextureGouraud.o CTRTextureGouraudWire.o CVideoDirectX8.o CVideoNull.o CVideoOpenGL.o CVideoSoftware.o CZBuffer.o CZipReader.o Irrlicht.o os.o CCameraFPSSceneNode.o CGeometryCreator.o CSceneNodeAnimatorFlyStraight.o CSceneNodeAnimatorTexture.o CDefaultMeshFormatLoader.o CSkyBoxSceneNode.o CShadowVolumeSceneNode.o C3DSMeshFileLoader.o CSceneCollisionManager.o CIrrDeviceStub.o CParticleSystemSceneNode.o CParticleFadeOutAffector.o CParticleBoxEmitter.o CParticlePointEmitter.o CParticleGravityAffector.o CDummyTransformationSceneNode.o CGUIInOutFader.o CIrrDeviceLinux.o CMeshManipulator.o CMetaTriangleSelector.o COctTreeTriangleSelector.o CSceneNodeAnimatorCollisionResponse.o CSceneNodeAnimatorDelete.o CTriangleBBSelector.o CTriangleSelector.o CVideoModeList.o CWaterSurfaceSceneNode.o CGUIMessageBox.o CGUIModalScreen.o CEmptySceneNode.o CImage.o CImageLoaderBmp.o CImageLoaderJPG.o CImageLoaderPCX.o CImageLoaderPSD.o CImageLoaderTGA.o CLogger.o CTerrainSceneNode.o CDirectX9Texture.o CGUIContextMenu.o CGUIEditBox.o CGUIMenu.o CGUITabControl.o COSOperator.o CSceneNodeAnimatorFollowSpline.o CVideoDirectX9.o CXAnimationPlayer.o CXFileReader.o CXMeshFileLoader.o CTextReader.o CXMLReader.o CWriteFile.o CGUIComboBox.o CGUIToolBar.o CXMLWriter.o CGUICheckBox.o CTextSceneNode.o CD3D9ShaderMaterialRenderer.o CD3D8ShaderMaterialRenderer.o COpenGLShaderMaterialRenderer.o $(RES)
+
+LIBS =  -L"/usr/X11R6/lib" -L"jpeglib" -L"zlib" --no-export-all-symbols --add-stdcall-alias -lGL -lXxf86vm -lz -ljpeg
+CXXINCS = -I"include/"
+BIN  = libIrrlicht.a
+CXXFLAGS = $(CXXINCS) -DIRRLICHT_EXPORTS=1
+
+all: $(LINKOBJ) $(BIN)
+	make -C jpeglib -f makefile.ansi libjpeg.a
+	make -C zlib -f Makefile
+	cp libIrrlicht.a ../../lib/Linux/
+	cp zlib/libz.a ../../lib/Linux
+	cp jpeglib/libjpeg.a ../../lib/Linux
+
+clean:
+	rm -f $(LINKOBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+CAnimatedMeshMD2.o: CAnimatedMeshMD2.cpp
+	$(CPP) -c CAnimatedMeshMD2.cpp -o CAnimatedMeshMD2.o $(CXXFLAGS)
+
+CAnimatedMeshMS3D.o: CAnimatedMeshMS3D.cpp
+	$(CPP) -c CAnimatedMeshMS3D.cpp -o CAnimatedMeshMS3D.o $(CXXFLAGS)
+
+CAnimatedMeshSceneNode.o: CAnimatedMeshSceneNode.cpp
+	$(CPP) -c CAnimatedMeshSceneNode.cpp -o CAnimatedMeshSceneNode.o $(CXXFLAGS)
+
+CBillboardSceneNode.o: CBillboardSceneNode.cpp
+	$(CPP) -c CBillboardSceneNode.cpp -o CBillboardSceneNode.o $(CXXFLAGS)
+
+CBspTree.o: CBspTree.cpp
+	$(CPP) -c CBspTree.cpp -o CBspTree.o $(CXXFLAGS)
+
+CBspTreeSceneNode.o: CBspTreeSceneNode.cpp
+	$(CPP) -c CBspTreeSceneNode.cpp -o CBspTreeSceneNode.o $(CXXFLAGS)
+
+CCameraMayaSceneNode.o: CCameraMayaSceneNode.cpp
+	$(CPP) -c CCameraMayaSceneNode.cpp -o CCameraMayaSceneNode.o $(CXXFLAGS)
+
+CCameraSceneNode.o: CCameraSceneNode.cpp
+	$(CPP) -c CCameraSceneNode.cpp -o CCameraSceneNode.o $(CXXFLAGS)
+
+CColorConverter.o: CColorConverter.cpp
+	$(CPP) -c CColorConverter.cpp -o CColorConverter.o $(CXXFLAGS)
+
+CDirectX8Texture.o: CDirectX8Texture.cpp
+	$(CPP) -c CDirectX8Texture.cpp -o CDirectX8Texture.o $(CXXFLAGS)
+
+CFileList.o: CFileList.cpp
+	$(CPP) -c CFileList.cpp -o CFileList.o $(CXXFLAGS)
+
+CFileSystem.o: CFileSystem.cpp
+	$(CPP) -c CFileSystem.cpp -o CFileSystem.o $(CXXFLAGS)
+
+CFPSCounter.o: CFPSCounter.cpp
+	$(CPP) -c CFPSCounter.cpp -o CFPSCounter.o $(CXXFLAGS)
+
+CGUIButton.o: CGUIButton.cpp
+	$(CPP) -c CGUIButton.cpp -o CGUIButton.o $(CXXFLAGS)
+
+CGUIEnvironment.o: CGUIEnvironment.cpp
+	$(CPP) -c CGUIEnvironment.cpp -o CGUIEnvironment.o $(CXXFLAGS)
+
+CGUIFileOpenDialog.o: CGUIFileOpenDialog.cpp
+	$(CPP) -c CGUIFileOpenDialog.cpp -o CGUIFileOpenDialog.o $(CXXFLAGS)
+
+CGUIFont.o: CGUIFont.cpp
+	$(CPP) -c CGUIFont.cpp -o CGUIFont.o $(CXXFLAGS)
+
+CGUIImage.o: CGUIImage.cpp
+	$(CPP) -c CGUIImage.cpp -o CGUIImage.o $(CXXFLAGS)
+
+CGUIListBox.o: CGUIListBox.cpp
+	$(CPP) -c CGUIListBox.cpp -o CGUIListBox.o $(CXXFLAGS)
+
+CGUIMeshViewer.o: CGUIMeshViewer.cpp
+	$(CPP) -c CGUIMeshViewer.cpp -o CGUIMeshViewer.o $(CXXFLAGS)
+
+CGUIScrollBar.o: CGUIScrollBar.cpp
+	$(CPP) -c CGUIScrollBar.cpp -o CGUIScrollBar.o $(CXXFLAGS)
+
+CGUISkin.o: CGUISkin.cpp
+	$(CPP) -c CGUISkin.cpp -o CGUISkin.o $(CXXFLAGS)
+
+CGUIStaticText.o: CGUIStaticText.cpp
+	$(CPP) -c CGUIStaticText.cpp -o CGUIStaticText.o $(CXXFLAGS)
+
+CGUIWindow.o: CGUIWindow.cpp
+	$(CPP) -c CGUIWindow.cpp -o CGUIWindow.o $(CXXFLAGS)
+
+CIrrDeviceWin32.o: CIrrDeviceWin32.cpp
+	$(CPP) -c CIrrDeviceWin32.cpp -o CIrrDeviceWin32.o $(CXXFLAGS)
+
+CLightSceneNode.o: CLightSceneNode.cpp
+	$(CPP) -c CLightSceneNode.cpp -o CLightSceneNode.o $(CXXFLAGS)
+
+CLimitReadFile.o: CLimitReadFile.cpp
+	$(CPP) -c CLimitReadFile.cpp -o CLimitReadFile.o $(CXXFLAGS)
+
+CMemoryReadFile.o: CMemoryReadFile.cpp
+	$(CPP) -c CMemoryReadFile.cpp -o CMemoryReadFile.o $(CXXFLAGS)
+
+CMeshSceneNode.o: CMeshSceneNode.cpp
+	$(CPP) -c CMeshSceneNode.cpp -o CMeshSceneNode.o $(CXXFLAGS)
+
+COctTreeSceneNode.o: COctTreeSceneNode.cpp
+	$(CPP) -c COctTreeSceneNode.cpp -o COctTreeSceneNode.o $(CXXFLAGS)
+
+COpenGLTexture.o: COpenGLTexture.cpp
+	$(CPP) -c COpenGLTexture.cpp -o COpenGLTexture.o $(CXXFLAGS)
+
+CQ3LevelMesh.o: CQ3LevelMesh.cpp
+	$(CPP) -c CQ3LevelMesh.cpp -o CQ3LevelMesh.o $(CXXFLAGS)
+
+CReadFile.o: CReadFile.cpp
+	$(CPP) -c CReadFile.cpp -o CReadFile.o $(CXXFLAGS)
+
+CSceneManager.o: CSceneManager.cpp
+	$(CPP) -c CSceneManager.cpp -o CSceneManager.o $(CXXFLAGS)
+
+CSceneNodeAnimatorFlyCircle.o: CSceneNodeAnimatorFlyCircle.cpp
+	$(CPP) -c CSceneNodeAnimatorFlyCircle.cpp -o CSceneNodeAnimatorFlyCircle.o $(CXXFLAGS)
+
+CSceneNodeAnimatorRotation.o: CSceneNodeAnimatorRotation.cpp
+	$(CPP) -c CSceneNodeAnimatorRotation.cpp -o CSceneNodeAnimatorRotation.o $(CXXFLAGS)
+
+CSoftwareTexture.o: CSoftwareTexture.cpp
+	$(CPP) -c CSoftwareTexture.cpp -o CSoftwareTexture.o $(CXXFLAGS)
+
+CStaticMeshOBJ.o: CStaticMeshOBJ.cpp
+	$(CPP) -c CStaticMeshOBJ.cpp -o CStaticMeshOBJ.o $(CXXFLAGS)
+
+CTestSceneNode.o: CTestSceneNode.cpp
+	$(CPP) -c CTestSceneNode.cpp -o CTestSceneNode.o $(CXXFLAGS)
+
+CTRFlat.o: CTRFlat.cpp
+	$(CPP) -c CTRFlat.cpp -o CTRFlat.o $(CXXFLAGS)
+
+CTRFlatWire.o: CTRFlatWire.cpp
+	$(CPP) -c CTRFlatWire.cpp -o CTRFlatWire.o $(CXXFLAGS)
+
+CTRGouraud.o: CTRGouraud.cpp
+	$(CPP) -c CTRGouraud.cpp -o CTRGouraud.o $(CXXFLAGS)
+
+CTRGouraudWire.o: CTRGouraudWire.cpp
+	$(CPP) -c CTRGouraudWire.cpp -o CTRGouraudWire.o $(CXXFLAGS)
+
+CTRTextureFlat.o: CTRTextureFlat.cpp
+	$(CPP) -c CTRTextureFlat.cpp -o CTRTextureFlat.o $(CXXFLAGS)
+
+CTRTextureFlatWire.o: CTRTextureFlatWire.cpp
+	$(CPP) -c CTRTextureFlatWire.cpp -o CTRTextureFlatWire.o $(CXXFLAGS)
+
+CTRTextureGouraud.o: CTRTextureGouraud.cpp
+	$(CPP) -c CTRTextureGouraud.cpp -o CTRTextureGouraud.o $(CXXFLAGS)
+
+CTRTextureGouraudWire.o: CTRTextureGouraudWire.cpp
+	$(CPP) -c CTRTextureGouraudWire.cpp -o CTRTextureGouraudWire.o $(CXXFLAGS)
+
+CVideoDirectX8.o: CVideoDirectX8.cpp
+	$(CPP) -c CVideoDirectX8.cpp -o CVideoDirectX8.o $(CXXFLAGS)
+
+CVideoNull.o: CVideoNull.cpp
+	$(CPP) -c CVideoNull.cpp -o CVideoNull.o $(CXXFLAGS)
+
+CVideoOpenGL.o: CVideoOpenGL.cpp
+	$(CPP) -c CVideoOpenGL.cpp -o CVideoOpenGL.o $(CXXFLAGS)
+
+CVideoSoftware.o: CVideoSoftware.cpp
+	$(CPP) -c CVideoSoftware.cpp -o CVideoSoftware.o $(CXXFLAGS)
+
+CZBuffer.o: CZBuffer.cpp
+	$(CPP) -c CZBuffer.cpp -o CZBuffer.o $(CXXFLAGS)
+
+CZipReader.o: CZipReader.cpp
+	$(CPP) -c CZipReader.cpp -o CZipReader.o $(CXXFLAGS)
+
+Irrlicht.o: Irrlicht.cpp
+	$(CPP) -c Irrlicht.cpp -o Irrlicht.o $(CXXFLAGS)
+
+os.o: os.cpp
+	$(CPP) -c os.cpp -o os.o $(CXXFLAGS)
+
+CCameraFPSSceneNode.o: CCameraFPSSceneNode.cpp
+	$(CPP) -c CCameraFPSSceneNode.cpp -o CCameraFPSSceneNode.o $(CXXFLAGS)
+
+CGeometryCreator.o: CGeometryCreator.cpp
+	$(CPP) -c CGeometryCreator.cpp -o CGeometryCreator.o $(CXXFLAGS)
+
+CSceneNodeAnimatorFlyStraight.o: CSceneNodeAnimatorFlyStraight.cpp
+	$(CPP) -c CSceneNodeAnimatorFlyStraight.cpp -o CSceneNodeAnimatorFlyStraight.o $(CXXFLAGS)
+
+CSceneNodeAnimatorTexture.o: CSceneNodeAnimatorTexture.cpp
+	$(CPP) -c CSceneNodeAnimatorTexture.cpp -o CSceneNodeAnimatorTexture.o $(CXXFLAGS)
+
+CDefaultMeshFormatLoader.o: CDefaultMeshFormatLoader.cpp
+	$(CPP) -c CDefaultMeshFormatLoader.cpp -o CDefaultMeshFormatLoader.o $(CXXFLAGS)
+
+CSkyBoxSceneNode.o: CSkyBoxSceneNode.cpp
+	$(CPP) -c CSkyBoxSceneNode.cpp -o CSkyBoxSceneNode.o $(CXXFLAGS)
+
+CShadowVolumeSceneNode.o: CShadowVolumeSceneNode.cpp
+	$(CPP) -c CShadowVolumeSceneNode.cpp -o CShadowVolumeSceneNode.o $(CXXFLAGS)
+
+C3DSMeshFileLoader.o: C3DSMeshFileLoader.cpp
+	$(CPP) -c C3DSMeshFileLoader.cpp -o C3DSMeshFileLoader.o $(CXXFLAGS)
+
+CSceneCollisionManager.o: CSceneCollisionManager.cpp
+	$(CPP) -c CSceneCollisionManager.cpp -o CSceneCollisionManager.o $(CXXFLAGS)
+
+CIrrDeviceStub.o: CIrrDeviceStub.cpp
+	$(CPP) -c CIrrDeviceStub.cpp -o CIrrDeviceStub.o $(CXXFLAGS)
+
+CParticleSystemSceneNode.o: CParticleSystemSceneNode.cpp
+	$(CPP) -c CParticleSystemSceneNode.cpp -o CParticleSystemSceneNode.o $(CXXFLAGS)
+
+CParticleFadeOutAffector.o: CParticleFadeOutAffector.cpp
+	$(CPP) -c CParticleFadeOutAffector.cpp -o CParticleFadeOutAffector.o $(CXXFLAGS)
+
+CParticleBoxEmitter.o: CParticleBoxEmitter.cpp
+	$(CPP) -c CParticleBoxEmitter.cpp -o CParticleBoxEmitter.o $(CXXFLAGS)
+
+CParticlePointEmitter.o: CParticlePointEmitter.cpp
+	$(CPP) -c CParticlePointEmitter.cpp -o CParticlePointEmitter.o $(CXXFLAGS)
+
+CParticleGravityAffector.o: CParticleGravityAffector.cpp
+	$(CPP) -c CParticleGravityAffector.cpp -o CParticleGravityAffector.o $(CXXFLAGS)
+
+CDummyTransformationSceneNode.o: CDummyTransformationSceneNode.cpp
+	$(CPP) -c CDummyTransformationSceneNode.cpp -o CDummyTransformationSceneNode.o $(CXXFLAGS)
+
+CGUIInOutFader.o: CGUIInOutFader.cpp
+	$(CPP) -c CGUIInOutFader.cpp -o CGUIInOutFader.o $(CXXFLAGS)
+
+CIrrDeviceLinux.o: CIrrDeviceLinux.cpp
+	$(CPP) -c CIrrDeviceLinux.cpp -o CIrrDeviceLinux.o $(CXXFLAGS)
+
+CMeshManipulator.o: CMeshManipulator.cpp
+	$(CPP) -c CMeshManipulator.cpp -o CMeshManipulator.o $(CXXFLAGS)
+
+CMetaTriangleSelector.o: CMetaTriangleSelector.cpp
+	$(CPP) -c CMetaTriangleSelector.cpp -o CMetaTriangleSelector.o $(CXXFLAGS)
+
+COctTreeTriangleSelector.o: COctTreeTriangleSelector.cpp
+	$(CPP) -c COctTreeTriangleSelector.cpp -o COctTreeTriangleSelector.o $(CXXFLAGS)
+
+CSceneNodeAnimatorCollisionResponse.o: CSceneNodeAnimatorCollisionResponse.cpp
+	$(CPP) -c CSceneNodeAnimatorCollisionResponse.cpp -o CSceneNodeAnimatorCollisionResponse.o $(CXXFLAGS)
+
+CSceneNodeAnimatorDelete.o: CSceneNodeAnimatorDelete.cpp
+	$(CPP) -c CSceneNodeAnimatorDelete.cpp -o CSceneNodeAnimatorDelete.o $(CXXFLAGS)
+
+CTriangleBBSelector.o: CTriangleBBSelector.cpp
+	$(CPP) -c CTriangleBBSelector.cpp -o CTriangleBBSelector.o $(CXXFLAGS)
+
+CTriangleSelector.o: CTriangleSelector.cpp
+	$(CPP) -c CTriangleSelector.cpp -o CTriangleSelector.o $(CXXFLAGS)
+
+CVideoModeList.o: CVideoModeList.cpp
+	$(CPP) -c CVideoModeList.cpp -o CVideoModeList.o $(CXXFLAGS)
+
+CWaterSurfaceSceneNode.o: CWaterSurfaceSceneNode.cpp
+	$(CPP) -c CWaterSurfaceSceneNode.cpp -o CWaterSurfaceSceneNode.o $(CXXFLAGS)
+
+CGUIMessageBox.o: CGUIMessageBox.cpp
+	$(CPP) -c CGUIMessageBox.cpp -o CGUIMessageBox.o $(CXXFLAGS)
+
+CGUIModalScreen.o: CGUIModalScreen.cpp
+	$(CPP) -c CGUIModalScreen.cpp -o CGUIModalScreen.o $(CXXFLAGS)
+
+CEmptySceneNode.o: CEmptySceneNode.cpp
+	$(CPP) -c CEmptySceneNode.cpp -o CEmptySceneNode.o $(CXXFLAGS)
+
+CImage.o: CImage.cpp
+	$(CPP) -c CImage.cpp -o CImage.o $(CXXFLAGS)
+
+CImageLoaderBmp.o: CImageLoaderBmp.cpp
+	$(CPP) -c CImageLoaderBmp.cpp -o CImageLoaderBmp.o $(CXXFLAGS)
+
+CImageLoaderJPG.o: CImageLoaderJPG.cpp
+	$(CPP) -c CImageLoaderJPG.cpp -o CImageLoaderJPG.o $(CXXFLAGS)
+
+CImageLoaderPCX.o: CImageLoaderPCX.cpp
+	$(CPP) -c CImageLoaderPCX.cpp -o CImageLoaderPCX.o $(CXXFLAGS)
+
+CImageLoaderPSD.o: CImageLoaderPSD.cpp
+	$(CPP) -c CImageLoaderPSD.cpp -o CImageLoaderPSD.o $(CXXFLAGS)
+
+CImageLoaderTGA.o: CImageLoaderTGA.cpp
+	$(CPP) -c CImageLoaderTGA.cpp -o CImageLoaderTGA.o $(CXXFLAGS)
+
+CLogger.o: CLogger.cpp
+	$(CPP) -c CLogger.cpp -o CLogger.o $(CXXFLAGS)
+
+CTerrainSceneNode.o: CTerrainSceneNode.cpp
+	$(CPP) -c CTerrainSceneNode.cpp -o CTerrainSceneNode.o $(CXXFLAGS)
+
+CDirectX9Texture.o: CDirectX9Texture.cpp
+	$(CPP) -c CDirectX9Texture.cpp -o CDirectX9Texture.o $(CXXFLAGS)
+
+CGUIContextMenu.o: CGUIContextMenu.cpp
+	$(CPP) -c CGUIContextMenu.cpp -o CGUIContextMenu.o $(CXXFLAGS)
+
+CGUIEditBox.o: CGUIEditBox.cpp
+	$(CPP) -c CGUIEditBox.cpp -o CGUIEditBox.o $(CXXFLAGS)
+
+CGUIMenu.o: CGUIMenu.cpp
+	$(CPP) -c CGUIMenu.cpp -o CGUIMenu.o $(CXXFLAGS)
+
+CGUITabControl.o: CGUITabControl.cpp
+	$(CPP) -c CGUITabControl.cpp -o CGUITabControl.o $(CXXFLAGS)
+
+COSOperator.o: COSOperator.cpp
+	$(CPP) -c COSOperator.cpp -o COSOperator.o $(CXXFLAGS)
+
+CSceneNodeAnimatorFollowSpline.o: CSceneNodeAnimatorFollowSpline.cpp
+	$(CPP) -c CSceneNodeAnimatorFollowSpline.cpp -o CSceneNodeAnimatorFollowSpline.o $(CXXFLAGS)
+
+CVideoDirectX9.o: CVideoDirectX9.cpp
+	$(CPP) -c CVideoDirectX9.cpp -o CVideoDirectX9.o $(CXXFLAGS)
+
+CXAnimationPlayer.o: CXAnimationPlayer.cpp
+	$(CPP) -c CXAnimationPlayer.cpp -o CXAnimationPlayer.o $(CXXFLAGS)
+
+CXFileReader.o: CXFileReader.cpp
+	$(CPP) -c CXFileReader.cpp -o CXFileReader.o $(CXXFLAGS)
+
+CXMeshFileLoader.o: CXMeshFileLoader.cpp
+	$(CPP) -c CXMeshFileLoader.cpp -o CXMeshFileLoader.o $(CXXFLAGS)
+
+CTextReader.o: CTextReader.cpp
+	$(CPP) -c CTextReader.cpp -o CTextReader.o $(CXXFLAGS)
+
+CXMLReader.o: CXMLReader.cpp
+	$(CPP) -c CXMLReader.cpp -o CXMLReader.o $(CXXFLAGS)
+
+CWriteFile.o: CWriteFile.cpp
+	$(CPP) -c CWriteFile.cpp -o CWriteFile.o $(CXXFLAGS)
+
+CGUIComboBox.o: CGUIComboBox.cpp
+	$(CPP) -c CGUIComboBox.cpp -o CGUIComboBox.o $(CXXFLAGS)
+
+CGUIToolBar.o: CGUIToolBar.cpp
+	$(CPP) -c CGUIToolBar.cpp -o CGUIToolBar.o $(CXXFLAGS)
+
+CXMLWriter.o: CXMLWriter.cpp
+	$(CPP) -c CXMLWriter.cpp -o CXMLWriter.o $(CXXFLAGS)
+
+CGUICheckBox.o: CGUICheckBox.cpp
+	$(CPP) -c CGUICheckBox.cpp -o CGUICheckBox.o $(CXXFLAGS)
