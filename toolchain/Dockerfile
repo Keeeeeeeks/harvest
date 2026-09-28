@@ -31,7 +31,8 @@ RUN echo "deb $MIRROR lucid main universe" > /etc/apt/sources.list \
       cpp-4.4=4.4.3-4ubuntu5 \
       libstdc++6-4.4-dev=4.4.3-4ubuntu5 \
       g++-4.4-multilib=4.4.3-4ubuntu5 \
-      binutils \
+      binutils=2.20.1-3ubuntu5 \
+      libc6-dev=2.11.1-0ubuntu7 \
       make \
       libjpeg62-dev \
       zlib1g-dev \

@@ -40,7 +40,9 @@ Build the toolchain image (needs Docker; on Apple Silicon it runs under x86-64 e
 just toolchain
 ```
 
-`just tc` opens a shell in it with the repository at `/work`; `just tc g++ --version` runs one command.
+`just shell` opens a shell in it with the repository at `/work`; `just tc g++ --version` runs one
+command without a terminal. `toolchain/manifest.tsv` lists the image's installed packages
+(`just toolchain-manifest`); rebuilds from the frozen lucid release pocket should reproduce it.
 
 ## Reference data
 
@@ -48,6 +50,10 @@ just toolchain
 
 - `units.csv`: the 264 source files in link order, with object names and function totals
 - `functions.csv`: 6,406 functions with address, size, source file, ELF-style mangled name and demangled name
-- `symbols.csv`: every defined symbol, including data, vtables and typeinfo
-- `vtables.csv`: every word of each of the 354 vtables, resolved to a symbol
-- `headers.csv`: the headers each source file pulled inline code from
+- `symbols.csv`: every defined symbol, including data, vtables and typeinfo. A symbol gets a source
+  file from its own debug record (matched by address and name, since local names like `_GLOBAL__I_a`
+  repeat across files), or by name for addressless globals that only one file claims.
+- `vtables.csv`: the raw pointer-sized words from each of the 354 vtable symbols up to the next symbol,
+  resolved to symbols. Address points, secondary tables and padding are not classified yet.
+- `headers.csv`: the header markers (`N_SOL`) seen inside each source file's debug records: headers
+  that contributed emitted code, not the full include graph
