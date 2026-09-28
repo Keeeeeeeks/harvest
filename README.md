@@ -18,16 +18,36 @@ src/                 recovered C++, laid out like the original oxeye/ tree
   HarvestFull/       the game (harvest::)
   daisy/             the engine, forked from Irrlicht 0.7 (daisy::)
   ox/                interface headers and core utilities (ox::)
-third_party/         upstream headers the game was compiled against
-toolchain/           container with the original compiler
+third_party/         Irrlicht 0.7 source (reference) and headers the game was compiled against
+toolchain/           Ubuntu 10.04 container with the original GCC 4.4.3
 tools/hv/            Python tooling (`uv run hv ...`)
-docs/                notes and research
+tests/               tests for the tooling
 ```
 
 ## Setup
 
-Put the original builds under `orig/`, laid out as in `builds.json`, then check them:
+The original builds are not in the repository. Put them under `orig/<build>/`: for the Linux builds,
+the unpacked release tarball (the executable plus `bin/` and `harvestClientData/`, so it can run);
+for Mac and Windows, only the executable. Then check them against the pins:
 
 ```bash
-uv run hv verify
+just verify
 ```
+
+Build the toolchain image (needs Docker; on Apple Silicon it runs under x86-64 emulation):
+
+```bash
+just toolchain
+```
+
+`just tc` opens a shell in it with the repository at `/work`; `just tc g++ --version` runs one command.
+
+## Reference data
+
+`reference/1.18-mac-i386/` is generated from the Mac executable by `just import-mac` and is committed:
+
+- `units.csv`: the 264 source files in link order, with object names and function totals
+- `functions.csv`: 6,406 functions with address, size, source file, ELF-style mangled name and demangled name
+- `symbols.csv`: every defined symbol, including data, vtables and typeinfo
+- `vtables.csv`: every word of each of the 354 vtables, resolved to a symbol
+- `headers.csv`: the headers each source file pulled inline code from
