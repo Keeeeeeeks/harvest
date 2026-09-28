@@ -194,7 +194,9 @@ def test_depfile_parsing():
     ]
 
 
-def test_cli_rejects_unknown_unit(capsys):
+def test_cli_rejects_unknown_unit(capsys, monkeypatch):
+    # This argument-validation test does not need a proprietary image.
+    monkeypatch.setattr(builds, "check_image", lambda image: None)
     assert cli.main(["match", "no/such/File.cpp"]) == 2
     assert "not in units.toml" in capsys.readouterr().err
 
