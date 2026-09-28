@@ -9,3 +9,7 @@
 ["ox/io/CMemWriteFile.cpp"]
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x874284
+
+["ox/net/CHTTPConnectionHandler.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x874288
