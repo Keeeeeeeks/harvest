@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 BUILDS_JSON = ROOT / "builds.json"
 ORIG = ROOT / "orig"
+REFERENCE = ROOT / "reference"
 
 
 @dataclass(frozen=True)
