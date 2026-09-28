@@ -1,13 +1,16 @@
 # Target configuration
 
-One directory per matching target, named by its `builds.json` key. For `1.18-linux-amd64`:
+One directory per matching target, named by its `builds.json` key.
 
-- `symbols.txt`: address, size, mangled name, and the evidence behind each name (`mac-vtable`, `string`,
-  `call` or `manual`). Names come from the Mac reference tables and are ported through vtables,
-  strings and calls.
-- `splits.txt`: each source file's address ranges, in link order. Paths the Mac debug map doesn't
-  record are marked as inferred.
-- `flags.json`: compiler flags, global plus any per-file overrides, pinned by compiling
-  known files until they match.
+`1.18-linux-amd64/` currently contains:
 
-None of these exist yet; they are written by `hv` as each step lands.
+- `pilot.json`: the pinned image hash, three function names and Linux address/size pairs,
+  source inputs, and the RTTI/vtable/FDE evidence checked by `hv match`.
+- `flags.json`: compiler image/version and `-O2`, validated only for the pilot methods.
+
+The pilot intentionally does not claim complete source-unit splits or global compiler flags.
+As recovery expands, `symbols.txt` will record addresses, sizes, names and their evidence;
+`splits.txt` will record source-file ranges in link order, marking Linux-only paths as inferred.
+Mac reference sizes are never substituted for Linux function extents.
+
+See `docs/research/matching-pilot.md` for reproduction, comparison semantics and limitations.

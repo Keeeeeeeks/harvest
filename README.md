@@ -57,3 +57,16 @@ command without a terminal. `toolchain/manifest.tsv` lists the image's installed
   resolved to symbols. Address points, secondary tables and padding are not classified yet.
 - `headers.csv`: the header markers (`N_SOL`) seen inside each source file's debug records: headers
   that contributed emitted code, not the full include graph
+
+## First matching pilot
+
+`just match` compiles three recovered `ox::io::CMemReadFile` methods with the pinned toolchain,
+checks their full Linux amd64 bodies and call references, and rejects deliberately changed
+constant/call variants. Results and objects are written to `build/pilot/`.
+
+The pilot covers 105 bytes: `getRemainingSize`, `seek`, and `read`. Names are checked through
+RTTI and Mac vtable slots; Linux unwind records establish the extents. The `memcpy` relocation
+is resolved and compared against the actual PLT destination. Normalized similarity alone
+cannot pass a match. The class declaration remains partial.
+
+See [the matching pilot](docs/research/matching-pilot.md) for evidence, report fields and limits.

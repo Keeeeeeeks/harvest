@@ -1,0 +1,7 @@
+{
+  "image": "harvest-toolchain",
+  "compiler": "g++",
+  "version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+  "flags": ["-O2"],
+  "scope": "CMemReadFile pilot only; these flags reproduce three bodies, not proof of the original global flags"
+}

@@ -12,6 +12,10 @@ verify:
 import-mac:
     uv run hv import-mac
 
+# compile three recovered methods, compare full bodies and reject deliberate mutations
+match:
+    uv run hv match --negative-controls
+
 # build the lucid GCC 4.4.3 container
 toolchain:
     docker build --platform linux/amd64 -t {{image}} toolchain

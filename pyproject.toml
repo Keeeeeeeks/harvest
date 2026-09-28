@@ -4,7 +4,9 @@ version = "0.1.0"
 description = "Tooling for the Harvest: Massive Encounter matching decompilation"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pyelftools>=0.33",
+]
 
 [project.scripts]
 hv = "hv.cli:main"
@@ -28,7 +30,10 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-markers = ["originals: needs the pinned original binaries under orig/ (skipped when absent)"]
+markers = [
+    "originals: needs the pinned original binaries under orig/ (skipped when absent)",
+    "toolchain: compiles with Docker when HARVEST_TEST_TOOLCHAIN=1",
+]
 
 [tool.ruff.lint.isort]
 known-first-party = ["hv"]

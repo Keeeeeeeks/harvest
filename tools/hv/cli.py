@@ -1,7 +1,31 @@
 import argparse
+import subprocess
 import sys
+from pathlib import Path
 
 from hv import builds
+
+
+def cmd_match(args: argparse.Namespace) -> int:
+    from elftools.common.exceptions import ELFError
+
+    from hv import pilot
+
+    report = args.report or builds.ROOT / "build" / "pilot" / "report.json"
+    try:
+        result = pilot.execute(args.build, report, args.object, args.negative_controls)
+    except (ValueError, OSError, KeyError, ELFError, subprocess.CalledProcessError) as error:
+        print(f"match: {error}", file=sys.stderr)
+        if isinstance(error, subprocess.CalledProcessError) and error.stderr:
+            print(error.stderr.rstrip(), file=sys.stderr)
+        return 2
+    for function in result["functions"]:
+        status = "exact" if function["body_byte_exact"] else "different/unresolved"
+        print(f"{status:20} {function['symbol']}")
+    for control in result["negative_controls"]:
+        print(f"control {control['name']}: {'rejected' if control['rejected'] else 'FAILED'}")
+    print(f"report: {report}")
+    return 0 if result["success"] else 1
 
 
 def cmd_verify(args: argparse.Namespace) -> int:
@@ -45,6 +69,13 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("import-mac", help="write reference tables from the Mac debug map")
     p.add_argument("build", nargs="?", default="1.18-mac-i386")
     p.set_defaults(func=cmd_import_mac)
+
+    p = sub.add_parser("match", help="compile and compare the Linux amd64 matching pilot")
+    p.add_argument("build", nargs="?", default="1.18-linux-amd64", choices=["1.18-linux-amd64"])
+    p.add_argument("--object", type=Path, help="compare an existing object without compiling")
+    p.add_argument("--report", type=Path, help="JSON report (default: build/pilot/report.json)")
+    p.add_argument("--negative-controls", action="store_true", help="also compile constant/call mutations")
+    p.set_defaults(func=cmd_match)
 
     args = parser.parse_args(argv)
     return args.func(args)
