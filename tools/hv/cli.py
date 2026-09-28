@@ -36,7 +36,17 @@ def cmd_match(args: argparse.Namespace) -> int:
                 obj, metadata = args.object, {"note": "supplied object; compiler and source not verified"}
             else:
                 obj, metadata = compiler.compile(unit.path, unit.slug)
-            result = match.compare_object(Elf.load(obj, "ET_REL"), target, known, unit.placements)
+            compiled = Elf.load(obj, "ET_REL")
+            result = match.compare_object(compiled, target, known, unit.placements)
+            if args.learn:
+                learned, conflicts = match.learnable(result)
+                if learned:
+                    add_learned(build.key, unit.source, learned, target)
+                    known = symbols.by_name(symbols.load(build.key))
+                    result = match.compare_object(compiled, target, known, unit.placements)
+                    print(f"learned    {len(learned)} symbol addresses from {unit.source}")
+                for name in conflicts:
+                    print(f"conflict   {name}: references imply different addresses", file=sys.stderr)
             result = {"unit": unit.source, "image_sha256": image.sha256, **result, "compilation": metadata}
             report = out / f"{unit.slug}.json"
             report.parent.mkdir(parents=True, exist_ok=True)
@@ -56,6 +66,18 @@ def cmd_match(args: argparse.Namespace) -> int:
     return 1 if failed else 0
 
 
+def add_learned(build: str, source: str, learned: dict, target) -> None:
+    from hv import symbols
+
+    sizes = dict(target.fde_ranges())
+    rows = symbols.load(build)
+    rows += [
+        symbols.Symbol(address, sizes.get(address, 0), name, f"reloc:{source}:{function}")
+        for name, (address, function) in learned.items()
+    ]
+    symbols.save(build, rows)
+
+
 def print_details(result: dict) -> None:
     for section in result["sections"]:
         mark = "ok" if section["exact"] else "DIFF"
@@ -65,7 +87,10 @@ def print_details(result: dict) -> None:
         for ref in section.get("bad_references", []):
             print(f"         reference +{ref['offset']:#x} {ref['symbol']}: {ref.get('reason', '')}")
         for function in section.get("functions", []):
-            if not function["exact"]:
+            if function.get("exact_but_unknown"):
+                unknown = ", ".join(function["candidates"])
+                print(f"         function {function['symbol']} matches except unknown symbols: {unknown}")
+            elif not function["exact"]:
                 print(f"         function {function['symbol']} @ {function['address']} differs")
     for name in result["unplaced_sections"]:
         print(f"  ??   {name}: not placed (add it to units.toml or name a symbol in it)")
@@ -139,6 +164,11 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--build", default=builds.canonical_build())
     p.add_argument("--object", type=Path, help="compare an existing object for one unit")
     p.add_argument("-v", "--verbose", action="store_true", help="list sections of exact units too")
+    p.add_argument(
+        "--learn",
+        action="store_true",
+        help="add addresses of unknown symbols referenced by functions that otherwise match",
+    )
     p.set_defaults(func=cmd_match)
 
     args = parser.parse_args(argv)
