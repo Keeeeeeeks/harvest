@@ -36,6 +36,9 @@ each reference into them is checked by comparing the referenced string or consta
 `.eh_frame`, `.ctors` and similar sections are not compared yet. A section that cannot be placed
 makes the unit inexact.
 
+An allocated `.bss` section must fit completely inside the target's NOBITS section, and every
+known symbol must agree with its placement.
+
 ## Comparison
 
 Relocations are resolved against placed sections, `symbols.tsv`, the target's PLT (decoded through
@@ -67,12 +70,16 @@ PLT, copied library data, our placed sections by offset; `sub_`/`lbl_` otherwise
 function in the same section are resolved in place, as the assembler did for ours. Referenced strings
 that our object also has go into a target copy of our merged string section at the same offsets,
 holding the target's bytes. Nothing is copied from our relocations, so a wrong target stays visible.
+Indexed absolute operands also get relocations. Binary merge elements are checked by the memory
+operand's access width and content, separately from strings; non-allocated metadata such as
+`.comment` cannot supply literals.
 With these objects objdiff scores every function of the exact units at 100%, matching `hv match`.
 
 ## Tests
 
 - `uv run pytest`: synthetic ELF fixtures (call destinations and addends, unknown symbols,
-  unsupported types, overflow, overlaps, changed constants, FDE extents, placement conflicts); with
+  unsupported types, overflow, overlaps, changed constants, FDE extents, BSS bounds and placement
+  conflicts, mutable static substitution, indexed addresses and binary literals); with
   the originals present, RTTI and vtable porting.
 - `HARVEST_TEST_TOOLCHAIN=1 uv run pytest`: compiles `ox/io/CMemReadFile.cpp`, requires an exact
   match, and requires three mutations to fail: a changed constant, `memcpy` changed to `memmove`, and
@@ -156,7 +163,8 @@ by content: the string or constant at the referenced offset must equal the targe
 An inline copy (a COMDAT section) kept from another object reads that object's copy of a file-level
 static, such as a header's `static const int` table, so its reference cannot land in our copy. A
 reference from such a section to a local object is checked by content: the target's object at the
-same place must hold our object's bytes.
+same place must hold our object's bytes. Both copies must be read-only: equal initial bytes do not
+make mutable statics interchangeable.
 
 Exception tables (`.gcc_except_table`) are referenced only from `.eh_frame`, which is not compared.
 Each of our FDEs names its function and its table offset; the target FDE of the placed function

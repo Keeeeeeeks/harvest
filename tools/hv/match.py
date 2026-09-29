@@ -25,6 +25,7 @@ WIDTHS = {R_X86_64_64: 8, R_X86_64_PC32: 4, R_X86_64_PLT32: 4, R_X86_64_32: 4, R
 PC_RELATIVE = {R_X86_64_PC32, R_X86_64_PLT32}
 
 SHF_ALLOC = 0x2
+SHF_WRITE = 0x1
 SHF_EXECINSTR = 0x4
 SHF_MERGE = 0x10
 SHF_STRINGS = 0x20
@@ -342,7 +343,13 @@ def check_merged(target: Elf, section, offset: int, address: int) -> tuple[bool,
 
 def check_local_copy(obj: Elf, target: Elf, shndx: int, offset: int, address: int) -> tuple[bool, str]:
     """Compare the file-level static object holding a section offset with the target's copy, which
-    holds `address` at the same place. Objects with relocations of their own are not comparable."""
+    holds `address` at the same place. Only read-only, relocation-free objects are comparable:
+    equal initial bytes do not make two mutable objects interchangeable."""
+    section = obj.elf.get_section(shndx)
+    if section["sh_type"] != "SHT_PROGBITS" or not section["sh_flags"] & SHF_ALLOC:
+        return False, "different destination"
+    if section["sh_flags"] & SHF_WRITE:
+        return False, "mutable local object"
     holders = [
         s
         for s in obj.elf.get_section_by_name(".symtab").iter_symbols()
@@ -354,9 +361,14 @@ def check_local_copy(obj: Elf, target: Elf, shndx: int, offset: int, address: in
     if len(holders) != 1:
         return False, "different destination"
     start, size = holders[0]["st_value"], holders[0]["st_size"]
+    owner = target.section_at(address - (offset - start))
+    if owner is None or owner["sh_flags"] & SHF_WRITE:
+        return False, "mutable or unmapped target copy"
     if any(start <= r["r_offset"] < start + size for r, _ in obj.relocations(shndx)):
         return False, "different destination"
-    ours = obj.elf.get_section(shndx).data()[start : start + size]
+    ours = section.data()[start : start + size]
+    if len(ours) != size:
+        return False, "truncated local object"
     try:
         return target.read(address - (offset - start), size) == ours, "local copy"
     except ValueError as error:
@@ -387,7 +399,13 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
         if section["sh_type"] == "SHT_NOBITS":
             result.nobits = True
             owner = target.section_at(address)
-            result.exact = owner is not None and owner["sh_type"] == "SHT_NOBITS"
+            result.exact = (
+                owner is not None
+                and owner["sh_type"] == "SHT_NOBITS"
+                and address + result.size <= owner["sh_addr"] + owner["sh_size"]
+                and not misplaced
+                and layout.contiguous
+            )
             results.append(result)
             continue
         compare_section(obj, target, section, index, layout, placements, resolver, sections, result)

@@ -332,7 +332,9 @@ def test_unnamed_function_follows_its_predecessor():
     assert not layout.contiguous
 
 
-def inline_copy_reading_a_static(tmp_path, group, other_table):
+def inline_copy_reading_a_static(
+    tmp_path, group, other_table, *, writable=False, target_writable=False, store=False
+):
     """Our object: an inline function reading a file-level static table through the `.rodata`
     section symbol. The target keeps the linked copy of the function from another object, which
     reads that object's copy of the table, not ours."""
@@ -340,14 +342,16 @@ def inline_copy_reading_a_static(tmp_path, group, other_table):
 
     table = bytes(range(1, 9))
     flags = 0x206 if group else 0x6  # SHF_ALLOC | SHF_EXECINSTR, plus SHF_GROUP for an inline copy
-    code = b"\x8b\x04\x85\0\0\0\0\xc3"  # mov eax, [rax*4 + table]; ret
+    opcode = b"\x89" if store else b"\x8b"
+    code = opcode + b"\x04\x85\0\0\0\0\xc3"  # mov [rax*4 + table], eax (or its load); ret
+    data_section = ".data" if writable else ".rodata"
     sections = [
-        Section(".text._Z3getv", code, flags, relocations=[(3, 11, ".rodata", 0x10)]),  # R_X86_64_32S
-        Section(".rodata", bytes(0x10) + table, 0x2),
+        Section(".text._Z3getv", code, flags, relocations=[(3, 11, data_section, 0x10)]),
+        Section(data_section, bytes(0x10) + table, 0x3 if writable else 0x2),
     ]
     symbols = [
         Symbol("_Z3getv", ".text._Z3getv", 0, len(code), function=True),
-        Symbol("TABLE", ".rodata", 0x10, 8, local=True),
+        Symbol("TABLE", data_section, 0x10, 8, local=True),
     ]
     write_object(tmp_path / "unit.o", sections, symbols)
     obj = Elf.load(tmp_path / "unit.o", "ET_REL")
@@ -363,9 +367,9 @@ def inline_copy_reading_a_static(tmp_path, group, other_table):
         + bytes(8)
         + other_table
     )
-    target = Elf(elf_image(image, kind=2), "ET_EXEC")
+    target = Elf(elf_image(image, kind=2, flags=0x7 if target_writable else 0x6), "ET_EXEC")
     target.fde_ranges = lambda: {(ADDRESS, len(code))}
-    return compare_object(obj, target, {"_Z3getv": ADDRESS}, {".rodata": ADDRESS + 0x10})
+    return compare_object(obj, target, {"_Z3getv": ADDRESS}, {data_section: ADDRESS + 0x10})
 
 
 def function_section(result):
@@ -386,6 +390,50 @@ def test_only_inline_copies_may_read_another_copy_of_a_static(tmp_path):
     result = inline_copy_reading_a_static(tmp_path, False, bytes(range(1, 9)))
     assert not result["exact"]
     assert function_section(result)["bad_references"][0]["reason"] == "different destination"
+
+
+@pytest.mark.parametrize("store", [False, True])
+def test_inline_copy_cannot_substitute_a_mutable_static(tmp_path, store):
+    result = inline_copy_reading_a_static(tmp_path, True, bytes(range(1, 9)), writable=True, store=store)
+    assert not result["exact"]
+    assert function_section(result)["bad_references"][0]["reason"] == "mutable local object"
+
+
+def test_inline_copy_cannot_substitute_a_writable_target_copy(tmp_path):
+    result = inline_copy_reading_a_static(tmp_path, True, bytes(range(1, 9)), target_writable=True)
+    assert not result["exact"]
+    assert function_section(result)["bad_references"][0]["reason"] == "mutable or unmapped target copy"
+
+
+def bss_result(tmp_path, size, address=ADDRESS, known=None):
+    from hv.delink import Section, Symbol, write_object
+
+    # The target has exactly four allocated NOBITS bytes at ADDRESS.
+    data = bytearray(elf_image(bytes(4), kind=2, flags=0x3))
+    shoff = struct.unpack_from("<Q", data, 40)[0]
+    struct.pack_into("<I", data, shoff + 64 + 4, 8)  # SHT_NOBITS
+    target = Elf(bytes(data), "ET_EXEC")
+    write_object(
+        tmp_path / "bss.o",
+        [Section(".bss", bytes(size), 0x3, nobits=True)],
+        [Symbol("g", ".bss", 0, size)],
+    )
+    return compare_object(Elf.load(tmp_path / "bss.o", "ET_REL"), target, known or {}, {".bss": address})
+
+
+@pytest.mark.parametrize(
+    ("size", "offset", "exact"), [(4, 0, True), (5, 0, False), (1, 3, True), (2, 3, False)]
+)
+def test_bss_placement_requires_the_entire_extent(tmp_path, size, offset, exact):
+    assert bss_result(tmp_path, size, ADDRESS + offset)["exact"] == exact
+
+
+def test_bss_placement_must_agree_with_known_symbols(tmp_path):
+    result = bss_result(tmp_path, 1, ADDRESS + 1, {"g": ADDRESS})
+    assert not result["exact"]
+    assert result["sections"][0]["misplaced_symbols"] == [
+        {"symbol": "g", "known": hex(ADDRESS), "placed": hex(ADDRESS + 1)}
+    ]
 
 
 def function_with_exception_table(tmp_path, target_lsda):
