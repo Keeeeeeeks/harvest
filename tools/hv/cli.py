@@ -38,13 +38,16 @@ def cmd_match(args: argparse.Namespace) -> int:
                 obj, metadata = compiler.compile(unit.path, unit.slug)
             compiled = Elf.load(obj, "ET_REL")
             result = match.compare_object(compiled, target, known, unit.placements)
+            # functions that match once their references are learned can prove more addresses
+            while args.learn:
+                learned, conflicts = match.learnable(result, unit.source, known)
+                if not learned:
+                    break
+                add_learned(build.key, learned, target)
+                known = symbols.by_name(symbols.load(build.key))
+                result = match.compare_object(compiled, target, known, unit.placements)
+                print(f"learned    {len(learned)} symbol addresses from {unit.source}")
             if args.learn:
-                learned, conflicts = match.learnable(result)
-                if learned:
-                    add_learned(build.key, unit.source, learned, target)
-                    known = symbols.by_name(symbols.load(build.key))
-                    result = match.compare_object(compiled, target, known, unit.placements)
-                    print(f"learned    {len(learned)} symbol addresses from {unit.source}")
                 for name in conflicts:
                     print(f"conflict   {name}: references imply different addresses", file=sys.stderr)
             result = {"unit": unit.source, "image_sha256": image.sha256, **result, "compilation": metadata}
@@ -68,14 +71,14 @@ def cmd_match(args: argparse.Namespace) -> int:
     return 1 if failed else 0
 
 
-def add_learned(build: str, source: str, learned: dict, target) -> None:
+def add_learned(build: str, learned: dict, target) -> None:
     from hv import symbols
 
     sizes = dict(target.fde_ranges())
     rows = symbols.load(build)
     rows += [
-        symbols.Symbol(address, sizes.get(address, 0), name, f"reloc:{source}:{function}")
-        for name, (address, function) in learned.items()
+        symbols.Symbol(address, sizes.get(address, 0), name, evidence)
+        for name, (address, evidence) in learned.items()
     ]
     symbols.save(build, rows)
 

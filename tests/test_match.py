@@ -262,12 +262,25 @@ def test_unit_matches_and_mutations_are_rejected(linux_target, compiler):
 def test_learning_reports_disagreeing_references_in_one_function():
     function = {
         "symbol": NAME,
+        "exact": False,
+        "global": True,
         "exact_but_unknown": True,
         "candidates": [["helper", "0x402000"], ["helper", "0x403000"], ["other", "0x404000"]],
     }
-    learned, conflicts = match.learnable({"sections": [{"functions": [function]}]})
+    learned, conflicts = match.learnable({"sections": [{"functions": [function]}]}, "u.cpp", {})
     assert conflicts == ["helper"]
-    assert learned == {"other": (0x404000, NAME)}
+    assert learned == {"other": (0x404000, f"reloc:u.cpp:{NAME}")}
+
+
+def test_learning_records_exact_global_functions():
+    functions = [
+        {"symbol": "f", "address": "0x401000", "exact": True, "global": True},
+        {"symbol": "T.1", "address": "0x401010", "exact": True, "global": False},
+        {"symbol": "g", "address": "0x401020", "exact": False, "global": True},
+        {"symbol": "k", "address": "0x401030", "exact": True, "global": True},
+    ]
+    learned, _ = match.learnable({"sections": [{"functions": functions}]}, "u.cpp", {"k": 0x401030})
+    assert learned == {"f": (0x401000, "match:u.cpp")}
 
 
 class FakeSection(dict):

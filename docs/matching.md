@@ -130,4 +130,6 @@ Each function of an executable section is compared at its own target address, so
 can match before the unit's order does; the section is exact only when every function lands at
 base + offset. Functions without a known name (static initializers, GCC clones) take the one FDE of
 their size in the known range. `hv match --learn` adds the addresses of unknown symbols referenced by
-functions that match everywhere else, when every such reference agrees (evidence `reloc:<unit>:<fn>`).
+functions that match everywhere else, when every such reference agrees (evidence `reloc:<unit>:<fn>`),
+and of the unit's own global functions that match exactly (evidence `match:<unit>`), so units that
+call them can resolve those calls.

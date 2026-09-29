@@ -446,6 +446,7 @@ def function_results(symbols, index, layout: Layout, result: SectionResult, fdes
         differs = [o for o in result.differences if o in span]
         bad = [r for r in result.references if not r.matches and r.offset in span]
         row = {"symbol": symbol.name, "address": hex(address), "size": size, "fde": fde}
+        row["global"] = symbol["st_info"]["bind"] != "STB_LOCAL"
         row["exact"] = fde and not differs and not bad
         if not row["exact"] and fde and bad and all(r.candidate is not None for r in bad):
             if not [o for o in differs if o not in unknown_bytes]:
@@ -456,10 +457,14 @@ def function_results(symbols, index, layout: Layout, result: SectionResult, fdes
     return rows
 
 
-def learnable(result: dict) -> tuple[dict[str, tuple[int, str]], list[str]]:
-    """Symbol addresses implied by functions that match except for unknown references.
+def learnable(
+    result: dict, source: str, known: dict[str, int]
+) -> tuple[dict[str, tuple[int, str]], list[str]]:
+    """Symbol addresses a match proves: unknown symbols referenced by functions that match except
+    for those references (evidence `reloc:<unit>:<function>`), and global functions of this unit
+    that match exactly (evidence `match:<unit>`), so other units can reference them.
 
-    Returns {symbol: (address, evidence function)} and the symbols whose implied addresses disagree.
+    Returns {symbol: (address, evidence)} and the symbols whose implied addresses disagree.
     """
     found: dict[str, set[int]] = {}
     evidence: dict[str, str] = {}
@@ -467,6 +472,9 @@ def learnable(result: dict) -> tuple[dict[str, tuple[int, str]], list[str]]:
         for function in section.get("functions", []):
             for name, address in function.get("candidates", []):
                 found.setdefault(name, set()).add(int(address, 16))
-                evidence.setdefault(name, function["symbol"])
+                evidence.setdefault(name, f"reloc:{source}:{function['symbol']}")
+            if function["exact"] and function["global"] and function["symbol"] not in known:
+                found.setdefault(function["symbol"], set()).add(int(function["address"], 16))
+                evidence.setdefault(function["symbol"], f"match:{source}")
     learned = {name: (next(iter(a)), evidence[name]) for name, a in found.items() if len(a) == 1}
     return learned, sorted(name for name, a in found.items() if len(a) > 1)
