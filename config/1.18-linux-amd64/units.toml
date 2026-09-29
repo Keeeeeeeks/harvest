@@ -52,3 +52,7 @@
 ["ox/core/CCipherKey.cpp"]
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x874230
+
+["ox/algo/CSimplePress.cpp"]
+# m_staticIndices, then the std::ios_base::Init object of the iostream static initializer
+".bss" = 0x86c220

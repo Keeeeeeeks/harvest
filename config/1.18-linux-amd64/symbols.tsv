@@ -2160,8 +2160,17 @@ address	size	symbol	evidence
 0x5dd830	32	_ZN2ox4algo12C3dRegulatorD1Ev	mac-vtable:_ZTVN2ox4algo12C3dRegulatorE:2
 0x5ddc30	12	_ZN2ox4algo10CRegulatorD0Ev	mac-vtable:_ZTVN2ox4algo10CRegulatorE:3
 0x5ddc40	36	_ZN2ox4algo12C3dRegulatorD0Ev	mac-vtable:_ZTVN2ox4algo12C3dRegulatorE:3
+0x5ddc70	382	_ZN2ox4algo12CSimplePress12compressDataEPhS2_iS2_	match:ox/algo/CSimplePress.cpp
+0x5dddf0	20	_ZN2ox4algo12CSimplePress8compressEPhS2_i	match:ox/algo/CSimplePress.cpp
+0x5dde10	185	_ZN2ox4algo12CSimplePress14deCompressDataEPhS2_iS2_	match:ox/algo/CSimplePress.cpp
+0x5dded0	20	_ZN2ox4algo12CSimplePress10decompressEPhS2_i	match:ox/algo/CSimplePress.cpp
 0x5ddf20	26	_ZN2ox4algo12CSimplePressD1Ev	mac-vtable:_ZTVN2ox4algo12CSimplePressE:2
+0x5ddf40	26	_ZN2ox4algo12CSimplePressD2Ev	match:ox/algo/CSimplePress.cpp
 0x5ddf60	34	_ZN2ox4algo12CSimplePressD0Ev	mac-vtable:_ZTVN2ox4algo12CSimplePressE:3
+0x5ddf90	41	_ZN2ox4algo12CSimplePressC1Ev	match:ox/algo/CSimplePress.cpp
+0x5ddfc0	41	_ZN2ox4algo12CSimplePressC2Ev	match:ox/algo/CSimplePress.cpp
+0x5ddff0	82	_ZN2ox4algo12CSimplePress14deCompressDataEPhS2_i	match:ox/algo/CSimplePress.cpp
+0x5de050	82	_ZN2ox4algo12CSimplePress12compressDataEPhS2_i	match:ox/algo/CSimplePress.cpp
 0x5de0b0	22	_ZN2ox4algo12CTimeCounterC2Ev	match:ox/algo/CTimeCounter.cpp
 0x5de0d0	22	_ZN2ox4algo12CTimeCounterC1Ev	match:ox/algo/CTimeCounter.cpp
 0x5de0f0	8	_ZN2ox4algo12CTimeCounterD2Ev	match:ox/algo/CTimeCounter.cpp
