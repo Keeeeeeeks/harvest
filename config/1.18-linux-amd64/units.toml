@@ -39,3 +39,7 @@
 ["ox/core/CHiddenFloat.cpp"]
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x874238
+
+["ox/core/CHiddenInt.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x87423c

@@ -14,8 +14,8 @@
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "41f4d47d84a287776141d7dfa138c0a5159bdba13d038dcf7ef2efd5e5c153bd",
-    "config/1.18-linux-amd64/symbols.tsv": "7e5c523ad8696fa5696dc43aa9dff2889a29a5db0511585c17b998c6a8be2d39",
-    "config/1.18-linux-amd64/units.toml": "d69f136523e966afa94b892ffdeda7c48486128e487ad118c89a9c155881af04"
+    "config/1.18-linux-amd64/symbols.tsv": "68477afabfc830a551313d662e14b2c43973f8b0afe2d24437d8a18c36d55ce7",
+    "config/1.18-linux-amd64/units.toml": "f37203d4dcfb14cd0447b81945a8e24f01fe146c2692039245bc0199713ea691"
   },
   "units": [
     {
@@ -2427,6 +2427,211 @@
         },
         "system_headers": 106,
         "object_sha256": "aed05d44e84fa61c3dabd0fe7696c91ebf3a6581d66367b2968b340972f30039"
+      }
+    },
+    {
+      "unit": "ox/core/CHiddenInt.cpp",
+      "object_sha256": "b5ee5f0158ecaed6ccc98aacde0139789441d64a54980986ed26a918cf5a7d9e",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 1342,
+          "placement": "symbol: _ZN2ox4core10CHiddenInt4readEPNS_2io9IReadFileE",
+          "exact": true,
+          "address": "0x5dfbd0",
+          "references": 55,
+          "functions": [
+            {
+              "symbol": "_GLOBAL__I__ZN2ox4core10CHiddenIntD2Ev",
+              "address": "0x5dfbd0",
+              "size": 38,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenInt4readEPNS_2io9IReadFileE",
+              "address": "0x5dfc00",
+              "size": 74,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenInt5writeEPNS_2io10IWriteFileE",
+              "address": "0x5dfc50",
+              "size": 62,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenInt11modifyValueEiii",
+              "address": "0x5dfc90",
+              "size": 127,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenInt11modifyValueEi",
+              "address": "0x5dfd10",
+              "size": 115,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenInt8setValueEi",
+              "address": "0x5dfd90",
+              "size": 98,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenInt8getValueEv",
+              "address": "0x5dfe00",
+              "size": 24,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenIntC1ERKS1_",
+              "address": "0x5dfe20",
+              "size": 111,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenIntC2ERKS1_",
+              "address": "0x5dfe90",
+              "size": 111,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenIntC1Ei",
+              "address": "0x5dff00",
+              "size": 100,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenIntC2Ei",
+              "address": "0x5dff70",
+              "size": 100,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenIntC1Ev",
+              "address": "0x5dffe0",
+              "size": 91,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenIntC2Ev",
+              "address": "0x5e0040",
+              "size": 91,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenIntD0Ev",
+              "address": "0x5e00a0",
+              "size": 38,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenIntD1Ev",
+              "address": "0x5e00d0",
+              "size": 30,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CHiddenIntD2Ev",
+              "address": "0x5e00f0",
+              "size": 30,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x87423c",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN2ox4core10CHiddenIntE",
+          "size": 32,
+          "placement": "symbol: _ZTVN2ox4core10CHiddenIntE",
+          "exact": true,
+          "address": "0x622460",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN2ox4core10CHiddenIntE",
+          "size": 23,
+          "placement": "symbol: _ZTSN2ox4core10CHiddenIntE",
+          "exact": true,
+          "address": "0x622480",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN2ox4core10CHiddenIntE",
+          "size": 16,
+          "placement": "symbol: _ZTIN2ox4core10CHiddenIntE",
+          "exact": true,
+          "address": "0x6224a0",
+          "references": 2
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-MD",
+          "-MF",
+          "/out/ox__core__CHiddenInt.d",
+          "-c",
+          "src/ox/core/CHiddenInt.cpp",
+          "-o",
+          "/out/ox__core__CHiddenInt.o"
+        ],
+        "inputs": {
+          "src/ox/core/CHiddenInt.cpp": "8e1d01b031497441dac9678e3341abdb4ec16a5b651fcf5af533b79346a3cd66",
+          "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
+          "src/ox/core/../algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
+          "src/ox/core/../io/CHelpIO.h": "9f15f3571893957360f27955a42591273af109460696bb9f99b2448aee31551f",
+          "src/ox/core/../io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
+          "src/ox/core/../io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d"
+        },
+        "system_headers": 106,
+        "object_sha256": "b5ee5f0158ecaed6ccc98aacde0139789441d64a54980986ed26a918cf5a7d9e"
       }
     }
   ],
