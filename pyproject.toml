@@ -5,6 +5,7 @@ description = "Tooling for the Harvest: Massive Encounter matching decompilation
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "capstone>=5.0.9",
     "pyelftools>=0.33",
 ]
 

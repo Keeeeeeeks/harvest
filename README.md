@@ -63,4 +63,6 @@ command without a terminal. `toolchain/manifest.tsv` lists the image's installed
 `just port-symbols` names the target's RTTI, vtables and virtual functions from the Mac vtables into
 `config/1.18-linux-amd64/symbols.tsv`. `just match` compiles every source listed in
 `config/1.18-linux-amd64/units.toml` and compares each object with the Linux executable, section by
-section, with every relocation resolved. See [docs/matching.md](docs/matching.md).
+section, with every relocation resolved. It also writes delinked target objects and `objdiff.json` for
+objdiff: `just objdiff-cli` installs the pinned CLI, and `just diff <unit> <symbol>` shows one
+function's differences. See [docs/matching.md](docs/matching.md).

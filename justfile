@@ -12,6 +12,27 @@ verify:
 import-mac:
     uv run hv import-mac
 
+# download the pinned objdiff-cli into build/tools
+objdiff-cli:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    platform="$(uname -sm)"
+    # just may run under Rosetta on Apple Silicon, where uname reports x86_64
+    if [ "$(uname -s)" = Darwin ] && [ "$(sysctl -in hw.optional.arm64)" = 1 ]; then platform="Darwin arm64"; fi
+    case "$platform" in
+      "Darwin arm64") asset=objdiff-cli-macos-arm64; sha=98f8275c27900c4fe2248fce3af37617658be49648fa7dbb5b376371f046dfdb ;;
+      "Linux x86_64") asset=objdiff-cli-linux-x86_64; sha=c8290281e82114bcc1a06ff73061110d3902a177822e750337de2537188e358f ;;
+      *) echo "no pinned objdiff-cli for $(uname -sm)" >&2; exit 1 ;;
+    esac
+    mkdir -p build/tools
+    curl -fsSL -o build/tools/objdiff-cli.tmp "https://github.com/encounter/objdiff/releases/download/v3.8.1/$asset"
+    echo "$sha  build/tools/objdiff-cli.tmp" | shasum -a 256 -c -
+    chmod +x build/tools/objdiff-cli.tmp && mv build/tools/objdiff-cli.tmp build/tools/objdiff-cli
+
+# objdiff one function of a unit, target on the left (run match first)
+diff unit symbol:
+    uv run hv diff {{unit}} {{symbol}}
+
 # name target RTTI, vtables and virtual functions from the Mac vtables
 port-symbols:
     uv run hv port-symbols

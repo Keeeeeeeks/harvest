@@ -51,6 +51,24 @@ differing bytes, per-function results, and compilation provenance (container ima
 version, package manifest hash, command, and hashes of every repository input from GCC's dependency
 file).
 
+## objdiff
+
+`hv match` also writes, for each unit, a target object cut out of the executable
+(`build/objdiff/<build>/target/`), a copy of our object (`.../base/`), and `objdiff.json` at the
+repository root (gitignored), so objdiff's GUI can open the repository as a project. `just objdiff-cli`
+downloads the pinned objdiff-cli 3.8.1 (checksummed) into `build/tools/`, and
+`hv diff <unit> <symbol>` prints the differing instructions of one function, target on the left.
+
+The target object (`tools/hv/delink.py`) holds the target's bytes laid out like our object: the same
+sections, each function at our offset. Its relocations come from the target code: capstone decodes
+every instruction, and each call or jump leaving the function, rip-relative operand and absolute
+address immediate becomes a relocation against the symbol the target references (known symbols, the
+PLT, copied library data, our placed sections by offset; `sub_`/`lbl_` otherwise). Calls to a local
+function in the same section are resolved in place, as the assembler did for ours. Referenced strings
+that our object also has go into a target copy of our merged string section at the same offsets,
+holding the target's bytes. Nothing is copied from our relocations, so a wrong target stays visible.
+With these objects objdiff scores every function of the exact units at 100%, matching `hv match`.
+
 ## Tests
 
 - `uv run pytest`: synthetic ELF fixtures (call destinations and addends, unknown symbols,

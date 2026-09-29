@@ -10,7 +10,7 @@ from hv import builds
 def cmd_match(args: argparse.Namespace) -> int:
     from elftools.common.exceptions import ELFError
 
-    from hv import match, symbols, toolchain, units
+    from hv import match, objdiff, symbols, toolchain, units
     from hv.elf import Elf
 
     try:
@@ -51,6 +51,7 @@ def cmd_match(args: argparse.Namespace) -> int:
             report = out / f"{unit.slug}.json"
             report.parent.mkdir(parents=True, exist_ok=True)
             report.write_text(json.dumps(result, indent=2) + "\n")
+            objdiff.write_unit(build.key, unit, target, compiled, Path(obj), result)
             functions = [f for s in result["sections"] for f in s.get("functions", [])]
             exact_functions = sum(f["exact"] for f in functions)
             status = "exact" if result["exact"] else "different"
@@ -58,6 +59,7 @@ def cmd_match(args: argparse.Namespace) -> int:
             if args.verbose or not result["exact"]:
                 print_details(result)
             failed |= not result["exact"]
+        objdiff.write_project(build.key, units.load(build.key))
     except (ValueError, OSError, KeyError, ELFError, subprocess.CalledProcessError) as error:
         print(f"match: {error}", file=sys.stderr)
         if isinstance(error, subprocess.CalledProcessError) and error.stderr:
@@ -94,6 +96,18 @@ def print_details(result: dict) -> None:
                 print(f"         function {function['symbol']} @ {function['address']} differs")
     for name in result["unplaced_sections"]:
         print(f"  ??   {name}: not placed (add it to units.toml or name a symbol in it)")
+
+
+def cmd_diff(args: argparse.Namespace) -> int:
+    from hv import objdiff
+
+    try:
+        result = objdiff.diff(args.unit.removesuffix(".cpp"), args.symbol)
+        print("\n".join(objdiff.render(result, args.symbol, args.context)))
+    except (ValueError, OSError, subprocess.CalledProcessError) as error:
+        print(f"diff: {error}", file=sys.stderr)
+        return 2
+    return 0
 
 
 def cmd_verify(args: argparse.Namespace) -> int:
@@ -170,6 +184,12 @@ def main(argv: list[str] | None = None) -> int:
         help="add addresses of unknown symbols referenced by functions that otherwise match",
     )
     p.set_defaults(func=cmd_match)
+
+    p = sub.add_parser("diff", help="objdiff one function of a unit, target on the left (run match first)")
+    p.add_argument("unit", help="source under src/, e.g. ox/net/CHTTPConnectionHandler.cpp")
+    p.add_argument("symbol", help="mangled symbol name")
+    p.add_argument("-C", "--context", type=int, default=2, help="rows of context around differences")
+    p.set_defaults(func=cmd_diff)
 
     args = parser.parse_args(argv)
     return args.func(args)

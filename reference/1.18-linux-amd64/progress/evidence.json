@@ -4,7 +4,7 @@
   "image_sha256": "ac381fa044f6009e09a29e1e221a51e72e65f0772edd164083857dda863a426a",
   "measurement_inputs": {
     "builds.json": "4a96339dd7b6db70cd56f50a94db6fab6a2d3843684c2cc3789e0cfc9f5c86ce",
-    "uv.lock": "a17f66074312f4f02777a279c16ea53893b83737ae96d18bf074f882e163dd0d",
+    "uv.lock": "8b7a77a281f5a04a1bc023af1ba705e4ba3b439f10e749c5d134d481e9e4c3c0",
     "toolchain/manifest.tsv": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
     "tools/hv/builds.py": "05428a1bfbab5b76bf9405ce62639af7c2c89482a3eb6705d53eb1a9f1f68d01",
     "tools/hv/elf.py": "04fa3bd75eedfa843f3d76a0a7573d003c7703c0fe8abc7876d73387b33df150",
