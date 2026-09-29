@@ -13,6 +13,8 @@ class CStatistics
 public:
     //! Adds delta to a game statistic; 3 counts the buildings completed.
     void modifyGameStatValue(int stat, int delta);
+    //! Adds delta to a statistic of the current level; 2 counts the minerals mined.
+    void modifyLevelStatValue(int stat, float delta);
 };
 
 extern CStatistics* gp_statistics;

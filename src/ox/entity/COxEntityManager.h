@@ -19,9 +19,9 @@ class ITestBestEntityFunction;
 //! from the id when the manager's entity lists have changed.
 struct SEntityReference
 {
-    //! An empty reference; the id is set by its owner.
+    //! An empty reference.
     SEntityReference()
-        : Entity(0), UpdateCounter(0)
+        : Entity(0), Id(-1), UpdateCounter(0)
     {
     }
 

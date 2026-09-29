@@ -19,6 +19,8 @@ public:
     void hookEnergySparkCreated(int sparkId, entity::CBuildingEntity* building);
     //! Tells the scripts that a construction site has become a building.
     void hookBuildingConstructed(entity::CBuildingEntity* building);
+    void hookCreditsMined(entity::CBuildingEntity* miner, int mineralsId);
+    void hookMinerOutOfMinerals(entity::CBuildingEntity* miner);
 };
 
 extern CLuaManager* gp_luaManager;

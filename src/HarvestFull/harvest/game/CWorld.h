@@ -4,6 +4,7 @@
 #ifndef HARVEST_GAME_CWORLD_H
 #define HARVEST_GAME_CWORLD_H
 
+#include "ox/core/CHiddenInt.h"
 #include "ox/core/CPosition2d.h"
 #include "ox/core/CRect.h"
 #include "ox/core/CVector2d.h"
@@ -53,6 +54,9 @@ public:
 };
 
 extern CWorld* gp_world;
+//! The player's minerals, and a negated copy that catches tampering.
+extern ox::core::CHiddenInt* gp_mineralAmount;
+extern ox::core::CHiddenInt* gp_negatedMineralAmount;
 
 } // end namespace game
 } // end namespace harvest

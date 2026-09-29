@@ -110,7 +110,8 @@ int CConstructionEntity::updateLogic(float frameDelta)
         {
             ox::event::SEvent event;
             event.EventType = ox::event::EET_USER_EVENT;
-            event.UserEvent.UserData1 = ECE_SPARK_PRODUCER_BUILT;
+            event.UserEvent.UserData1 = ECE_TUTORIAL_HINT;
+            // the hint for a completed solar collector
             event.UserEvent.UserData2 = 28;
             event.UserEvent.UserData3 = 0;
             event.UserEvent.UserPointer = 0;
