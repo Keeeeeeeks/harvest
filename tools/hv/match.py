@@ -77,6 +77,7 @@ class SectionResult:
     misplaced: list[dict] = field(default_factory=list)
     references: list[Reference] = field(default_factory=list)
     functions: list[dict] = field(default_factory=list)
+    data_ranges: list[dict] = field(default_factory=list)
 
     def report(self) -> dict:
         row = {"name": self.name, "size": self.size, "placement": self.placement, "exact": self.exact}
@@ -93,6 +94,8 @@ class SectionResult:
         row["references"] = len(self.references)
         if self.functions:
             row["functions"] = self.functions
+        if self.data_ranges:
+            row["data_ranges"] = self.data_ranges
         return row
 
 
@@ -315,33 +318,39 @@ def is_merged(section) -> bool:
     return bool(section["sh_flags"] & SHF_MERGE)
 
 
-def check_merged(target: Elf, section, offset: int, address: int) -> tuple[bool, str]:
-    """Compare the object content at a merged-section offset with the target's at an address."""
+def merged_content(section, offset: int) -> bytes:
+    """The complete merge element (or terminated string) checked by a reference."""
     data = section.data()
     size = section["sh_entsize"] or 1
     if not 0 <= offset < len(data):
-        return False, "reference outside merged section"
+        raise ValueError("reference outside merged section")
+    if offset % size:
+        raise ValueError("reference not aligned to a merged element")
+    if section["sh_flags"] & SHF_STRINGS:
+        end = offset
+        while end + size <= len(data) and data[end : end + size] != bytes(size):
+            end += size
+        if end + size > len(data):
+            raise ValueError("unterminated merged string")
+        return data[offset : end + size]
+    if offset + size > len(data):
+        raise ValueError("incomplete merged constant")
+    return data[offset : offset + size]
+
+
+def check_merged(target: Elf, section, offset: int, address: int) -> tuple[bool, str]:
+    """Compare the object content at a merged-section offset with the target's at an address."""
     try:
-        if offset % size:
-            return False, "reference not aligned to a merged element"
-        if section["sh_flags"] & SHF_STRINGS:
-            # a string of size-byte elements, up to and including the zero element
-            end = offset
-            while end + size <= len(data) and data[end : end + size] != bytes(size):
-                end += size
-            if end + size > len(data):
-                return False, "unterminated merged string"
-            ours = data[offset : end + size]
-            return target.read(address, len(ours)) == ours, "merged string"
-        if offset + size > len(data):
-            return False, "incomplete merged constant"
-        ours = data[offset : offset + size]
-        return target.read(address, size) == ours, "merged constant"
+        ours = merged_content(section, offset)
+        kind = "merged string" if section["sh_flags"] & SHF_STRINGS else "merged constant"
+        return target.read(address, len(ours)) == ours, kind
     except ValueError as error:
         return False, str(error)
 
 
-def check_local_copy(obj: Elf, target: Elf, shndx: int, offset: int, address: int) -> tuple[bool, str]:
+def check_local_copy(
+    obj: Elf, target: Elf, shndx: int, offset: int, address: int, matched_ranges: list | None = None
+) -> tuple[bool, str]:
     """Compare the file-level static object holding a section offset with the target's copy, which
     holds `address` at the same place. Only read-only, relocation-free objects are comparable:
     equal initial bytes do not make two mutable objects interchangeable."""
@@ -370,7 +379,11 @@ def check_local_copy(obj: Elf, target: Elf, shndx: int, offset: int, address: in
     if len(ours) != size:
         return False, "truncated local object"
     try:
-        return target.read(address - (offset - start), size) == ours, "local copy"
+        destination = address - (offset - start)
+        exact = target.read(destination, size) == ours
+        if exact and matched_ranges is not None:
+            matched_ranges.append({"address": hex(destination), "size": size, "kind": "local copy"})
+        return exact, "local copy"
     except ValueError as error:
         return False, str(error)
 
@@ -406,6 +419,8 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
                 and not misplaced
                 and layout.contiguous
             )
+            if result.exact:
+                result.data_ranges.append({"address": hex(address), "size": result.size, "kind": "bss"})
             results.append(result)
             continue
         compare_section(obj, target, section, index, layout, placements, resolver, sections, result)
@@ -414,6 +429,8 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
             result.functions = function_results(symbols, index, layout, result, fdes)
             result.exact = result.exact and all(f["exact"] for f in result.functions)
         result.exact = result.exact and not misplaced and layout.contiguous
+        if result.exact and not section["sh_flags"] & SHF_EXECINSTR:
+            result.data_ranges.append({"address": hex(address), "size": result.size, "kind": "section"})
         results.append(result)
     exact = bool(results) and not unplaced and all(r.exact for r in results)
     return {
@@ -479,6 +496,14 @@ def compare_section(obj, target, section, index, layout, placements, resolver, s
             ours = symbol["st_value"] + ref.addend + bias
             ref.resolved = True
             ref.matches, ref.reason = check_merged(target, target_section, ours, absolute + bias)
+            if ref.matches:
+                result.data_ranges.append(
+                    {
+                        "address": hex(absolute + bias),
+                        "size": len(merged_content(target_section, ours)),
+                        "kind": ref.reason,
+                    }
+                )
             relocated[offset : offset + width] = field_bytes if ref.matches else bytes(width)
             continue
 
@@ -509,7 +534,9 @@ def compare_section(obj, target, section, index, layout, placements, resolver, s
                 # an inline copy kept from another object reads that object's copy of a static
                 pointed = field_value + place + bias if rtype in PC_RELATIVE else field_value
                 ours = symbol["st_value"] + ref.addend + bias
-                ref.matches, ref.reason = check_local_copy(obj, target, symbol["st_shndx"], ours, pointed)
+                ref.matches, ref.reason = check_local_copy(
+                    obj, target, symbol["st_shndx"], ours, pointed, result.data_ranges
+                )
                 if ref.matches:
                     relocated[offset : offset + width] = field_bytes
     result.differences = [i for i in range(len(raw)) if relocated[i] != expected[i] and i not in ignored]

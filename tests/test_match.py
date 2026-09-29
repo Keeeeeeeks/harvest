@@ -96,6 +96,19 @@ def text(result):
     return section
 
 
+def test_data_credit_requires_the_complete_relocated_extent():
+    # An allocated non-executable section records a proof only after the whole section matches.
+    obj = Elf(elf_image(b"\x01\x02\x03\x04", flags=2), "ET_REL")
+    target = Elf(elf_image(b"\x01\x02\x03\x04", kind=2, flags=2), "ET_EXEC")
+    target.fde_ranges = lambda: set()
+    result = compare_object(obj, target, {NAME: ADDRESS}, {})
+    assert text(result)["data_ranges"] == [{"address": hex(ADDRESS), "size": 4, "kind": "section"}]
+    changed = Elf(elf_image(b"\x01\x02\x03\x05", kind=2, flags=2), "ET_EXEC")
+    changed.fde_ranges = lambda: set()
+    result = compare_object(obj, changed, {NAME: ADDRESS}, {})
+    assert not result["exact"] and "data_ranges" not in text(result)
+
+
 @pytest.mark.parametrize("kind", [2, 4])
 def test_call_resolves_to_its_destination(kind):
     result = compare(relocations=[(1, kind, -4, "memcpy")])
