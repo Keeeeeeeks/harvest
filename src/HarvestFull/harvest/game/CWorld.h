@@ -6,6 +6,8 @@
 
 #include "ox/core/CPosition2d.h"
 #include "ox/core/CRect.h"
+#include "ox/core/CVector2d.h"
+#include "ox/core/CVector3d.h"
 
 namespace harvest {
 namespace game {
@@ -24,6 +26,8 @@ static const float WORLD_GRID_OFFSET = getWorldGridOffset();
 class CWorld
 {
 public:
+    virtual ~CWorld();
+
     //! Index of the planet: 0, 1 or 2.
     int getPlanet() const;
 
@@ -33,6 +37,18 @@ public:
     bool hasWorldExpandedAtLeastOnce();
 
     bool mayPlaceObjectHere(const ox::core::CPosition2d<float>& position, bool building);
+
+    //! Adds the wind at a position over the frame to speed.
+    void applyWind(const ox::core::CVector3d<float>& position, ox::core::CVector2d<float>& speed,
+        float frameDelta) const;
+
+private:
+    // The layout is not recovered yet; this keeps Planet at its Linux amd64 offset (0x4c).
+    unsigned char Unrecovered[0x4c - sizeof(void*)];
+
+public:
+    //! Read directly by particles, which only feel wind on planet 1; see getPlanet.
+    int Planet;
 };
 
 extern CWorld* gp_world;

@@ -28,11 +28,19 @@ static const wchar_t* const ALIEN_KEY_NAMES[] =
     L"aliennames:asdf"
 };
 
+//! An alien attacking the player.
 class CAlienEntity : public CEntity
 {
 public:
     CAlienEntity(float x, float y, int alienType);
     virtual ~CAlienEntity();
+
+    virtual void writeEntityData(ox::io::IWriteFile* file);
+    virtual void readEntityData(ox::io::IReadFile* file, int version);
+    virtual int updateLogic(float frameDelta);
+    virtual void render(const ox::core::CPosition2d<float>& camera, const ox::core::CRect<int>& viewPort);
+    virtual void renderGroundLayer(const ox::core::CPosition2d<float>& camera,
+        const ox::core::CRect<int>& viewPort);
 
 private:
     // The layout is not recovered yet; this keeps the Linux amd64 object size (0x2f0).

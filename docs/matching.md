@@ -89,6 +89,8 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `ox/algo/CRand.cpp`, `CSimplePress.cpp`, `CTimeCounter.cpp` | 35/35 | exact |
 | `ox/core/CBasic.cpp`, `CCipherKey.cpp`, `CCriticalSection.cpp`, `CHiddenFloat.cpp`, `CHiddenInt.cpp`, `CThread.cpp` | 61/61 | exact |
 | `HarvestFull/harvest/game/CThreatLevel.cpp` | 76/81 | game modes and waves; five functions differ only in register allocation (and one switch layout) |
+| `ox/entity/COxEntity.cpp` | 25/25 | exact; keeps the 2d constructors' `Position.Y` typo |
+| `HarvestFull/harvest/entity/CHarvestEntity.cpp` | 67/70 | `CEntity`, particles, special effects, spark search; see below for the three left |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
@@ -129,6 +131,16 @@ Findings:
   `wideToAnsi` frees an array with scalar `delete`, and the "Interrupted" event never sets its type.
 - When a section's known symbols disagree, the earliest one anchors it and the first misplaced
   symbol shows where the lengths diverge: the function just before it differs.
+- A return type can show only in other functions: `update`/`updateLogic` return `int`, not `bool`
+  (the target zero-extends `setle` results), and switching it fixed five functions of
+  CHarvestEntity at once, including ones that never touch it.
+- GCC evaluates constructor arguments right to left, so `CPosition2d<int>((int)x, (int)y)` converts
+  y first, while float screen positions built by assigning `pos.X` then `pos.Y` compute x first.
+  Temporaries passed straight into a virtual call are built after the vtable load; named locals
+  before it.
+- CHarvestEntity leftovers: `selectSparkTarget` (the loop's shape and which values live on the
+  stack), `CFindSparkFunctor::testEntity` (identical code, but ours aligns two jump targets) and
+  the `getSellValue` COMDAT, whose kept copy reads another object's `ENTITY_MINERAL_COSTS`.
 
 ## Inferred and merged sections
 

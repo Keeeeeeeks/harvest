@@ -14,8 +14,8 @@
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "442842fdf987e85e5d2a60fa6c6fca039d4e5acb16e36d753b76d8fdb4aabe36",
-    "config/1.18-linux-amd64/symbols.tsv": "f5933f67af03848b1b95b3c6979e1b03746eaea443bdf0563427b9f90c53800e",
-    "config/1.18-linux-amd64/units.toml": "485b0138b1b7ea5bb63fad8ef15a222783017e7a28a6d6f8bca3fb08e558fb51"
+    "config/1.18-linux-amd64/symbols.tsv": "48ed884f8bf580d2304faad616161924229441e572469a13f283a45d436dfd3e",
+    "config/1.18-linux-amd64/units.toml": "4fbce8a13fb2039117877f818ffcab86c019499492e7af8d2de8ff8c360f85b4"
   },
   "units": [
     {
@@ -4940,15 +4940,21 @@
           "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/HarvestFull/harvest/game/CWorld.h": "9e68f378832e3e8b2b71a2eb72ece219738c4e5c0a98e7cd5ef1d6b33196e6a9",
-          "src/HarvestFull/harvest/entity/CAlienEntity.h": "17062425f89d6f5f16a476434af23db0b9c847bd0ff4d19ccc8028dc2c961154",
-          "src/HarvestFull/harvest/entity/CHarvestEntity.h": "6fafa83b38ae3b2945c4f97e575929dc5c54df5f24adae8e5c6f0d4c843911c4",
-          "src/ox/entity/COxEntity.h": "7c9e489517dd52d559a50b715c2c6e2872d268c115b6d9f94f018aa8b8deafa4",
-          "src/ox/video/SColor.h": "7c15e8e1a2a9fec0c168ab2671f9402d6034c7ddca5663759d73afc7a12578a8",
-          "src/HarvestFull/harvest/entity/CEntityManager.h": "1e5c47844f5d49b0e577491abd8cc4d4cf266425e15ad4d33ee660fff11caf43",
+          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
+          "src/ox/core/CVector3d.h": "4099787dfd355a32eab0b991f008b8d3f4e4c92b471fc2617cd6c14810c4d48d",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "8d939e342153c67e40f9d8d7dffd838296055ad307207529c803befc31c9faeb",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.h": "5744a2d215b170b0f150c6fcfebc60285443a0a403f324c9b78c865573e66eae",
+          "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
+          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/entity/../core/CVector3d.h": "4099787dfd355a32eab0b991f008b8d3f4e4c92b471fc2617cd6c14810c4d48d",
+          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "1080e3efbd0be2c2a73adf85d5cbcfc481fa5944ab013d93a4a82d620306ac7f",
           "src/ox/entity/COxEntityManager.h": "e79e609eb23cd4421606bfff91d94a39687074dc4724a2ed93a7e76c00fe11ed",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
-          "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/HarvestFull/harvest/ECustomEvents.h": "421c67e1db24c0c6a9a5fa8c7bb025cd1e77bcecea4e6a3b4ff4228c1cb52b83",
           "src/ox/algo/CArrayFunctions.h": "c1c020c147e23685af15997be3c5df8a5184f8f23c4a9c990de88d3d928ad679",
@@ -4960,8 +4966,1580 @@
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d"
         },
-        "system_headers": 117,
+        "system_headers": 126,
         "object_sha256": "b0c476c31e42bc49282c774aa4571698057f7ce34683d6b94393d22c6e7b71b8"
+      }
+    },
+    {
+      "unit": "ox/entity/COxEntity.cpp",
+      "object_sha256": "3ef857a22a45e01ffee6da49f64b49c930e5c68a68ef1d7d990836b1b6cce096",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 636,
+          "placement": "symbol: _ZN2ox6entity9COxEntityC2Ei",
+          "exact": true,
+          "address": "0x5e1aa0",
+          "references": 20,
+          "functions": [
+            {
+              "symbol": "_ZN2ox6entity9COxEntityC2Ei",
+              "address": "0x5e1aa0",
+              "size": 26,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityC1Ei",
+              "address": "0x5e1ac0",
+              "size": 26,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityC2Eifff",
+              "address": "0x5e1ae0",
+              "size": 30,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityC1Eifff",
+              "address": "0x5e1b00",
+              "size": 30,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityC2EiRKNS_4core11CPosition2dIiEE",
+              "address": "0x5e1b20",
+              "size": 31,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityC1EiRKNS_4core11CPosition2dIiEE",
+              "address": "0x5e1b40",
+              "size": 31,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityC2EiRKNS_4core11CPosition2dIfEE",
+              "address": "0x5e1b60",
+              "size": 27,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityC1EiRKNS_4core11CPosition2dIfEE",
+              "address": "0x5e1b80",
+              "size": 27,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityC2EiRKNS_4core9CVector3dIfEE",
+              "address": "0x5e1ba0",
+              "size": 32,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityC1EiRKNS_4core9CVector3dIfEE",
+              "address": "0x5e1bc0",
+              "size": 32,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityD2Ev",
+              "address": "0x5e1be0",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityD1Ev",
+              "address": "0x5e1bf0",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
+              "address": "0x5e1c00",
+              "size": 4,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntity5setIdEi",
+              "address": "0x5e1c10",
+              "size": 4,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntity10killEntityEv",
+              "address": "0x5e1c20",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntity8isKilledEv",
+              "address": "0x5e1c30",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntity13notifyRemovedEv",
+              "address": "0x5e1c40",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK2ox6entity9COxEntity11getPositionEv",
+              "address": "0x5e1c50",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntity11setPositionEfff",
+              "address": "0x5e1c60",
+              "size": 16,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntity11setPositionERKNS_4core11CPosition2dIiEE",
+              "address": "0x5e1c70",
+              "size": 27,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntity11setPositionERKNS_4core11CPosition2dIfEE",
+              "address": "0x5e1c90",
+              "size": 19,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntity11setPositionERKNS_4core9CVector3dIfEE",
+              "address": "0x5e1cb0",
+              "size": 18,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK2ox6entity9COxEntity14getRenderLayerEv",
+              "address": "0x5e1cd0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN2ox6entity9COxEntityC2Ei",
+              "address": "0x5e1ce0",
+              "size": 38,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity9COxEntityD0Ev",
+              "address": "0x5e1d10",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x87424c",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN2ox6entity9COxEntityE",
+          "size": 120,
+          "placement": "symbol: _ZTVN2ox6entity9COxEntityE",
+          "exact": true,
+          "address": "0x622540",
+          "references": 14
+        },
+        {
+          "name": ".rodata._ZTSN2ox6entity9COxEntityE",
+          "size": 23,
+          "placement": "symbol: _ZTSN2ox6entity9COxEntityE",
+          "exact": true,
+          "address": "0x6225c0",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN2ox6entity9COxEntityE",
+          "size": 16,
+          "placement": "symbol: _ZTIN2ox6entity9COxEntityE",
+          "exact": true,
+          "address": "0x6225e0",
+          "references": 2
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-MD",
+          "-MF",
+          "/out/ox__entity__COxEntity.d",
+          "-c",
+          "src/ox/entity/COxEntity.cpp",
+          "-o",
+          "/out/ox__entity__COxEntity.o"
+        ],
+        "inputs": {
+          "src/ox/entity/COxEntity.cpp": "953125c1239a27ca18a45dbbb2f2e729e03c548e0194b160c5987c5a5d832d91",
+          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/entity/../core/CVector3d.h": "4099787dfd355a32eab0b991f008b8d3f4e4c92b471fc2617cd6c14810c4d48d"
+        },
+        "system_headers": 108,
+        "object_sha256": "3ef857a22a45e01ffee6da49f64b49c930e5c68a68ef1d7d990836b1b6cce096"
+      }
+    },
+    {
+      "unit": "HarvestFull/harvest/entity/CHarvestEntity.cpp",
+      "object_sha256": "e94e26aaf3356dad4b83e27cabf35a63fafaf36696ee223ab76b85f61b7e4eaa",
+      "exact": false,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 7175,
+          "placement": "explicit",
+          "exact": false,
+          "address": "0x432270",
+          "first_difference": 3147,
+          "differing_bytes": 395,
+          "misplaced_symbols": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity15findSparkTargetEiRi",
+              "known": "0x433090",
+              "placed": "0x433060"
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity13notifyRemovedEv",
+              "known": "0x4331b0",
+              "placed": "0x433180"
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntityD0Ev",
+              "known": "0x4331f0",
+              "placed": "0x4331c0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntityD1Ev",
+              "known": "0x433210",
+              "placed": "0x4331e0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntityD2Ev",
+              "known": "0x433220",
+              "placed": "0x4331f0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityD0Ev",
+              "known": "0x433230",
+              "placed": "0x433200"
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityD1Ev",
+              "known": "0x433250",
+              "placed": "0x433220"
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityD2Ev",
+              "known": "0x433260",
+              "placed": "0x433230"
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityD0Ev",
+              "known": "0x433270",
+              "placed": "0x433240"
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityD1Ev",
+              "known": "0x4332c0",
+              "placed": "0x433290"
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityD2Ev",
+              "known": "0x433310",
+              "placed": "0x4332e0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntityC1Eiiff",
+              "known": "0x433360",
+              "placed": "0x433330"
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntityC2Eiiff",
+              "known": "0x4333e0",
+              "placed": "0x4333b0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC1ERKN2ox4core11CPosition2dIfEES7_S7_S7_fPNS2_5video21ISpriteAnimationStateENS8_6SColorE",
+              "known": "0x433460",
+              "placed": "0x433430"
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC2ERKN2ox4core11CPosition2dIfEES7_S7_S7_fPNS2_5video21ISpriteAnimationStateENS8_6SColorE",
+              "known": "0x433550",
+              "placed": "0x433520"
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC1EfffPN2ox5video21ISpriteAnimationStateEffNS3_6SColorE",
+              "known": "0x433640",
+              "placed": "0x433610"
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC2EfffPN2ox5video21ISpriteAnimationStateEffNS3_6SColorE",
+              "known": "0x4336e0",
+              "placed": "0x4336b0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityC1EPN2ox5video14IParticleStateERKNS2_4core9CVector3dIfEE",
+              "known": "0x433780",
+              "placed": "0x433750"
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityC2EPN2ox5video14IParticleStateERKNS2_4core9CVector3dIfEE",
+              "known": "0x4337e0",
+              "placed": "0x4337b0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityC2EfffPN2ox4core9CVector3dIfEEPKc",
+              "known": "0x433840",
+              "placed": "0x433810"
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity17getOperatorStringEv",
+              "known": "0x4339d0",
+              "placed": "0x4339a0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityC1EfffPN2ox4core9CVector3dIfEEPKc",
+              "known": "0x433a50",
+              "placed": "0x433a20"
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity13getInfoStringEv",
+              "known": "0x433be0",
+              "placed": "0x433bb0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity17getMiniStatStringEv",
+              "known": "0x433c60",
+              "placed": "0x433c30"
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity18updateSparkTargetsERN2ox6TArrayIPNS2_6entity9COxEntityEEE",
+              "known": "0x433ce0",
+              "placed": "0x433cb0"
+            }
+          ],
+          "bad_references": [
+            {
+              "offset": 3314,
+              "type": 2,
+              "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
+              "addend": -4,
+              "destination": "0x5e1c00",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 3346,
+              "type": 2,
+              "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
+              "addend": -4,
+              "destination": "0x5e1c00",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 3371,
+              "type": 2,
+              "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
+              "addend": -4,
+              "destination": "0x5e1c00",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 3398,
+              "type": 2,
+              "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
+              "addend": -4,
+              "destination": "0x5e1c00",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 3430,
+              "type": 2,
+              "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
+              "addend": -4,
+              "destination": "0x5e1c00",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 3473,
+              "type": 2,
+              "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
+              "addend": -4,
+              "destination": "0x5e1c00",
+              "reason": "different destination",
+              "matches": false
+            }
+          ],
+          "references": 186,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity13getEntityTypeEv",
+              "address": "0x432270",
+              "size": 4,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity6updateEf",
+              "address": "0x432280",
+              "size": 70,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity12updateSpriteEf",
+              "address": "0x4322d0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity15addToRenderListERKN2ox4core5CRectIfEE",
+              "address": "0x4322e0",
+              "size": 51,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity12renderSpriteERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEEPNS2_5video21ISpriteAnimationStateE",
+              "address": "0x432320",
+              "size": 84,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity17renderSpriteFixedERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEEPNS2_5video21ISpriteAnimationStateE",
+              "address": "0x432380",
+              "size": 91,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity16renderEnergyLineERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEES7_b",
+              "address": "0x4323e0",
+              "size": 236,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity18renderSelfProgressERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEEfNS2_5video6SColorE",
+              "address": "0x4324d0",
+              "size": 220,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity23getCurrentDisplaySpriteEv",
+              "address": "0x4325b0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest6entity15CParticleEntity14getRenderLayerEv",
+              "address": "0x4325c0",
+              "size": 40,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntity6renderERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x4325f0",
+              "size": 135,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntity11updateLogicEf",
+              "address": "0x432680",
+              "size": 23,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntity6renderERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x4326a0",
+              "size": 390,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x432830",
+              "size": 127,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN7harvest6entity7CEntity16gp_spritePackageE",
+              "address": "0x4328b0",
+              "size": 85,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntity11updateLogicEf",
+              "address": "0x432910",
+              "size": 333,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity14readNextEntityEPN2ox2io9IReadFileEi",
+              "address": "0x432a60",
+              "size": 954,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity11writeEntityEPN2ox2io10IWriteFileE",
+              "address": "0x432e20",
+              "size": 135,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity17selectSparkTargetERKN2ox6TArrayIPNS2_6entity9COxEntityEEEiRi",
+              "address": "0x432eb0",
+              "size": 420,
+              "fde": false,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity15findSparkTargetEiRi",
+              "address": "0x433090",
+              "size": 285,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity13notifyRemovedEv",
+              "address": "0x4331b0",
+              "size": 50,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntityD0Ev",
+              "address": "0x4331f0",
+              "size": 25,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntityD1Ev",
+              "address": "0x433210",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntityD2Ev",
+              "address": "0x433220",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityD0Ev",
+              "address": "0x433230",
+              "size": 25,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityD1Ev",
+              "address": "0x433250",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityD2Ev",
+              "address": "0x433260",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityD0Ev",
+              "address": "0x433270",
+              "size": 77,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityD1Ev",
+              "address": "0x4332c0",
+              "size": 69,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityD2Ev",
+              "address": "0x433310",
+              "size": 69,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntityC1Eiiff",
+              "address": "0x433360",
+              "size": 115,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntityC2Eiiff",
+              "address": "0x4333e0",
+              "size": 115,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC1ERKN2ox4core11CPosition2dIfEES7_S7_S7_fPNS2_5video21ISpriteAnimationStateENS8_6SColorE",
+              "address": "0x433460",
+              "size": 240,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC2ERKN2ox4core11CPosition2dIfEES7_S7_S7_fPNS2_5video21ISpriteAnimationStateENS8_6SColorE",
+              "address": "0x433550",
+              "size": 240,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC1EfffPN2ox5video21ISpriteAnimationStateEffNS3_6SColorE",
+              "address": "0x433640",
+              "size": 159,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC2EfffPN2ox5video21ISpriteAnimationStateEffNS3_6SColorE",
+              "address": "0x4336e0",
+              "size": 159,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityC1EPN2ox5video14IParticleStateERKNS2_4core9CVector3dIfEE",
+              "address": "0x433780",
+              "size": 85,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityC2EPN2ox5video14IParticleStateERKNS2_4core9CVector3dIfEE",
+              "address": "0x4337e0",
+              "size": 85,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityC2EfffPN2ox4core9CVector3dIfEEPKc",
+              "address": "0x433840",
+              "size": 398,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity17getOperatorStringEv",
+              "address": "0x4339d0",
+              "size": 125,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntityC1EfffPN2ox4core9CVector3dIfEEPKc",
+              "address": "0x433a50",
+              "size": 398,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity13getInfoStringEv",
+              "address": "0x433be0",
+              "size": 125,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity17getMiniStatStringEv",
+              "address": "0x433c60",
+              "size": 125,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity7CEntity18updateSparkTargetsERN2ox6TArrayIPNS2_6entity9COxEntityEEE",
+              "address": "0x433ce0",
+              "size": 455,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 68,
+          "placement": "symbol: _ZN7harvest6entity7CEntity18gp_particlePackageE",
+          "exact": true,
+          "address": "0x86b688",
+          "references": 0
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10killEntityEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10killEntityEv",
+          "exact": true,
+          "address": "0x416670",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10killEntityEv",
+              "address": "0x416670",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity8isKilledEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity8isKilledEv",
+          "exact": true,
+          "address": "0x416680",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity8isKilledEv",
+              "address": "0x416680",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "size": 6,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "exact": true,
+          "address": "0x416620",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity14getRenderLayerEv",
+              "address": "0x416620",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity7onSparkEPNS0_12CSparkEntityE",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity7onSparkEPNS0_12CSparkEntityE",
+          "exact": true,
+          "address": "0x41b030",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity7onSparkEPNS0_12CSparkEntityE",
+              "address": "0x41b030",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10wantsSparkEv",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10wantsSparkEv",
+          "exact": true,
+          "address": "0x41b040",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10wantsSparkEv",
+              "address": "0x41b040",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "size": 6,
+          "placement": "symbol: _ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "exact": true,
+          "address": "0x416630",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+              "address": "0x416630",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "size": 9,
+          "placement": "symbol: _ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "exact": true,
+          "address": "0x416640",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity14getSparkHeightEv",
+              "address": "0x416640",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity16getCollisionSizeEv",
+          "size": 9,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity16getCollisionSizeEv",
+          "exact": true,
+          "address": "0x416650",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity16getCollisionSizeEv",
+              "address": "0x416650",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity12getSellValueEv",
+          "size": 14,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity12getSellValueEv",
+          "exact": false,
+          "address": "0x416660",
+          "first_difference": 7,
+          "differing_bytes": 3,
+          "bad_references": [
+            {
+              "offset": 7,
+              "type": 11,
+              "symbol": ".rodata",
+              "addend": 160,
+              "destination": "0x5f3220",
+              "reason": "different destination",
+              "matches": false
+            }
+          ],
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity12getSellValueEv",
+              "address": "0x416660",
+              "size": 14,
+              "fde": true,
+              "global": true,
+              "exact": false
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "exact": true,
+          "address": "0x416690",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+              "address": "0x416690",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "exact": true,
+          "address": "0x4166a0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+              "address": "0x4166a0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "exact": true,
+          "address": "0x4166b0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+              "address": "0x4166b0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "exact": true,
+          "address": "0x4166c0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+              "address": "0x4166c0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity15CParticleEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity15CParticleEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+          "exact": true,
+          "address": "0x433ee0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+              "address": "0x433ee0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity15CParticleEntity14readEntityDataEPN2ox2io9IReadFileEi",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity15CParticleEntity14readEntityDataEPN2ox2io9IReadFileEi",
+          "exact": true,
+          "address": "0x433ef0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntity14readEntityDataEPN2ox2io9IReadFileEi",
+              "address": "0x433ef0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity15CParticleEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity15CParticleEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "exact": true,
+          "address": "0x433ed0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x433ed0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity15CParticleEntity7onSparkEPNS0_12CSparkEntityE",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity15CParticleEntity7onSparkEPNS0_12CSparkEntityE",
+          "exact": true,
+          "address": "0x433eb0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntity7onSparkEPNS0_12CSparkEntityE",
+              "address": "0x433eb0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity15CParticleEntity10wantsSparkEv",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity15CParticleEntity10wantsSparkEv",
+          "exact": true,
+          "address": "0x433ec0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity15CParticleEntity10wantsSparkEv",
+              "address": "0x433ec0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity20CSpecialEffectEntity15addToRenderListERKN2ox4core5CRectIfEE",
+          "size": 6,
+          "placement": "symbol: _ZN7harvest6entity20CSpecialEffectEntity15addToRenderListERKN2ox4core5CRectIfEE",
+          "exact": true,
+          "address": "0x433f40",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntity15addToRenderListERKN2ox4core5CRectIfEE",
+              "address": "0x433f40",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity20CSpecialEffectEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity20CSpecialEffectEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+          "exact": true,
+          "address": "0x433f20",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+              "address": "0x433f20",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity20CSpecialEffectEntity14readEntityDataEPN2ox2io9IReadFileEi",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity20CSpecialEffectEntity14readEntityDataEPN2ox2io9IReadFileEi",
+          "exact": true,
+          "address": "0x433f30",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntity14readEntityDataEPN2ox2io9IReadFileEi",
+              "address": "0x433f30",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity20CSpecialEffectEntity7onSparkEPNS0_12CSparkEntityE",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity20CSpecialEffectEntity7onSparkEPNS0_12CSparkEntityE",
+          "exact": true,
+          "address": "0x433f00",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntity7onSparkEPNS0_12CSparkEntityE",
+              "address": "0x433f00",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity20CSpecialEffectEntity10wantsSparkEv",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity20CSpecialEffectEntity10wantsSparkEv",
+          "exact": true,
+          "address": "0x433f10",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity20CSpecialEffectEntity10wantsSparkEv",
+              "address": "0x433f10",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".rodata",
+          "size": 340,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x5f3220",
+          "references": 17
+        },
+        {
+          "name": ".text._ZN7harvest6entity17CSparkListBuilder10testEntityEPN2ox6entity9COxEntityE",
+          "size": 185,
+          "placement": "symbol: _ZN7harvest6entity17CSparkListBuilder10testEntityEPN2ox6entity9COxEntityE",
+          "exact": true,
+          "address": "0x433f50",
+          "references": 4,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity17CSparkListBuilder10testEntityEPN2ox6entity9COxEntityE",
+              "address": "0x433f50",
+              "size": 185,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity17CFindSparkFunctor10testEntityEPN2ox6entity9COxEntityE",
+          "size": 183,
+          "placement": "symbol: _ZN7harvest6entity17CFindSparkFunctor10testEntityEPN2ox6entity9COxEntityE",
+          "exact": false,
+          "address": "0x434010",
+          "first_difference": 32,
+          "differing_bytes": 112,
+          "bad_references": [
+            {
+              "offset": 102,
+              "type": 2,
+              "symbol": "_ZNK2ox6entity9COxEntity11getPositionEv",
+              "addend": -4,
+              "destination": "0x5e1c50",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 135,
+              "type": 2,
+              "symbol": "_ZNK2ox6entity9COxEntity11getPositionEv",
+              "addend": -4,
+              "destination": "0x5e1c50",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 171,
+              "type": 2,
+              "symbol": ".LC3",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x6cd0feae+0x4",
+              "matches": false
+            }
+          ],
+          "references": 5,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity17CFindSparkFunctor10testEntityEPN2ox6entity9COxEntityE",
+              "address": "0x434010",
+              "size": 183,
+              "fde": false,
+              "global": true,
+              "exact": false
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNSt6vectorIPN2ox6entity9COxEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "size": 401,
+          "placement": "symbol: _ZNSt6vectorIPN2ox6entity9COxEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "exact": true,
+          "address": "0x416880",
+          "references": 5,
+          "functions": [
+            {
+              "symbol": "_ZNSt6vectorIPN2ox6entity9COxEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+              "address": "0x416880",
+              "size": 401,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity20CSpecialEffectEntityE",
+          "size": 312,
+          "placement": "symbol: _ZTVN7harvest6entity20CSpecialEffectEntityE",
+          "exact": true,
+          "address": "0x5f3380",
+          "references": 38
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity15CParticleEntityE",
+          "size": 312,
+          "placement": "symbol: _ZTVN7harvest6entity15CParticleEntityE",
+          "exact": true,
+          "address": "0x5f34c0",
+          "references": 38
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity7CEntityE",
+          "size": 312,
+          "placement": "symbol: _ZTVN7harvest6entity7CEntityE",
+          "exact": true,
+          "address": "0x5f3600",
+          "references": 38
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity20CSpecialEffectEntityE",
+          "size": 40,
+          "placement": "symbol: _ZTSN7harvest6entity20CSpecialEffectEntityE",
+          "exact": true,
+          "address": "0x5f3740",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity20CSpecialEffectEntityE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity20CSpecialEffectEntityE",
+          "exact": true,
+          "address": "0x5f3770",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity15CParticleEntityE",
+          "size": 35,
+          "placement": "symbol: _ZTSN7harvest6entity15CParticleEntityE",
+          "exact": true,
+          "address": "0x5f37a0",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity15CParticleEntityE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity15CParticleEntityE",
+          "exact": true,
+          "address": "0x5f37d0",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity7CEntityE",
+          "size": 26,
+          "placement": "symbol: _ZTSN7harvest6entity7CEntityE",
+          "exact": true,
+          "address": "0x5f37f0",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity7CEntityE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity7CEntityE",
+          "exact": true,
+          "address": "0x5f3810",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity17CSparkListBuilderE",
+          "size": 24,
+          "placement": "symbol: _ZTVN7harvest6entity17CSparkListBuilderE",
+          "exact": true,
+          "address": "0x5f3830",
+          "references": 2
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity17CSparkListBuilderE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity17CSparkListBuilderE",
+          "exact": true,
+          "address": "0x5f3850",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity17CSparkListBuilderE",
+          "size": 37,
+          "placement": "symbol: _ZTSN7harvest6entity17CSparkListBuilderE",
+          "exact": true,
+          "address": "0x5f3880",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN2ox6entity19ITestEntityFunctionE",
+          "size": 16,
+          "placement": "symbol: _ZTIN2ox6entity19ITestEntityFunctionE",
+          "exact": true,
+          "address": "0x5f3130",
+          "references": 2
+        },
+        {
+          "name": ".rodata._ZTSN2ox6entity19ITestEntityFunctionE",
+          "size": 34,
+          "placement": "symbol: _ZTSN2ox6entity19ITestEntityFunctionE",
+          "exact": true,
+          "address": "0x5f3160",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN2ox6entity19ITestEntityFunctionE",
+          "size": 24,
+          "placement": "symbol: _ZTVN2ox6entity19ITestEntityFunctionE",
+          "exact": true,
+          "address": "0x5f31d0",
+          "references": 2
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity17CFindSparkFunctorE",
+          "size": 24,
+          "placement": "symbol: _ZTVN7harvest6entity17CFindSparkFunctorE",
+          "exact": true,
+          "address": "0x5f38b0",
+          "references": 2
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity17CFindSparkFunctorE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity17CFindSparkFunctorE",
+          "exact": true,
+          "address": "0x5f38d0",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity17CFindSparkFunctorE",
+          "size": 37,
+          "placement": "symbol: _ZTSN7harvest6entity17CFindSparkFunctorE",
+          "exact": true,
+          "address": "0x5f3900",
+          "references": 0
+        }
+      ],
+      "unplaced_sections": [
+        ".gcc_except_table"
+      ],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-MD",
+          "-MF",
+          "/out/HarvestFull__harvest__entity__CHarvestEntity.d",
+          "-c",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.cpp",
+          "-o",
+          "/out/HarvestFull__harvest__entity__CHarvestEntity.o"
+        ],
+        "inputs": {
+          "src/HarvestFull/harvest/entity/CHarvestEntity.cpp": "8c8921b5902ced4454a021bf9dbfe265b35501464e49de098e0421c7037e5f21",
+          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
+          "src/ox/core/CVector3d.h": "4099787dfd355a32eab0b991f008b8d3f4e4c92b471fc2617cd6c14810c4d48d",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.h": "5744a2d215b170b0f150c6fcfebc60285443a0a403f324c9b78c865573e66eae",
+          "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
+          "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/entity/../core/CVector3d.h": "4099787dfd355a32eab0b991f008b8d3f4e4c92b471fc2617cd6c14810c4d48d",
+          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "8d939e342153c67e40f9d8d7dffd838296055ad307207529c803befc31c9faeb",
+          "src/HarvestFull/harvest/entity/CConstructionEntity.h": "6ce24d5b3e524ea8b2c3ce34d03c6df71492715aff7b36cfe9d11f47eb6e49a8",
+          "src/HarvestFull/harvest/entity/CBuildingEntity.h": "ff56e1d7ea5fa099f396f4499f50bd416255bc3b5b275248c78192eb26a0b9b3",
+          "src/HarvestFull/harvest/entity/CCreativeEntity.h": "0ee872175ac130d45954c8429596cd20b0523c40b4f8fc4053b46ff44cec13a0",
+          "src/HarvestFull/harvest/entity/CDefenseTowerEntity.h": "7300621ef432f7d7f93533ddf8bb0b5def4b5ecfe3c55b57554a22555014d9d4",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "1080e3efbd0be2c2a73adf85d5cbcfc481fa5944ab013d93a4a82d620306ac7f",
+          "src/ox/entity/COxEntityManager.h": "e79e609eb23cd4421606bfff91d94a39687074dc4724a2ed93a7e76c00fe11ed",
+          "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/HarvestFull/harvest/entity/CMineralsEntity.h": "bf9d5962296dac528d7e1e0cc492cf760fd16d21bf6f5c03bd012e94b6f83442",
+          "src/HarvestFull/harvest/entity/CMinerEntity.h": "e6454ea4f6603319b6082cef78ef5d1ee409350be7799e2e9d4ccea634fd9e47",
+          "src/HarvestFull/harvest/entity/CMissileTurretEntity.h": "e7490b1d80dbbd55d500361c1e7c2c93a137b7b59bef34d57d2028f423681933",
+          "src/HarvestFull/harvest/entity/CSparkEntity.h": "d2996c1405660242533cfcb06090ba3b469cb4fb97f6980e7d36877b96e07b03",
+          "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "fdc59397ae857440220258b8355a4c860943cda66ce4c1cb9d8cc42defc64442",
+          "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "f9005ea8ba96840f8f967fc286026b0b1bad3afca417539e5d9f4efcd10f9b7c",
+          "src/ox/entity/ITestEntityFunction.h": "b178c234a2902d6a14e5584e0870db48927a7a02e2fd3d12a01ff408ffa4f9af",
+          "src/ox/io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
+          "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
+          "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/video/IParticlePackage.h": "54ea207a17ac6508c8eb0d38dce95af6c08b07104051c965b41d0b7959fa2027",
+          "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/video/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/video/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/video/IParticleState.h": "c559d0b3c539917d9e81f8917e46c51adccd9be465b7c7c71cb25c1b94a132b1",
+          "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/video/../core/CVector3d.h": "4099787dfd355a32eab0b991f008b8d3f4e4c92b471fc2617cd6c14810c4d48d",
+          "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
+          "src/ox/video/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/video/IVideoDriver.h": "7902574a531ce451183cb8788bee222d1abc759938170ff0094860c3a24aff74",
+          "src/ox/video/../core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83"
+        },
+        "system_headers": 124,
+        "object_sha256": "e94e26aaf3356dad4b83e27cabf35a63fafaf36696ee223ab76b85f61b7e4eaa"
       }
     }
   ],
