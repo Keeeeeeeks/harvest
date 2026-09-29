@@ -90,7 +90,7 @@ def print_details(result: dict) -> None:
             print(f"         reference +{ref['offset']:#x} {ref['symbol']}: {ref.get('reason', '')}")
         for function in section.get("functions", []):
             if function.get("exact_but_unknown"):
-                unknown = ", ".join(function["candidates"])
+                unknown = ", ".join(sorted({name for name, _ in function["candidates"]}))
                 print(f"         function {function['symbol']} matches except unknown symbols: {unknown}")
             elif not function["exact"]:
                 print(f"         function {function['symbol']} @ {function['address']} differs")

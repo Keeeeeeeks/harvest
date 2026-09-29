@@ -238,10 +238,8 @@ def delink_unit(target: Elf, obj: Elf, result: dict, known: list[tuple[int, int,
                     data[where : where + 4] = value.to_bytes(4, "little", signed=True)
                 else:
                     section.relocations.append((where, kind, symbol, addend))
-            sym = ours[name]
-            symbols.append(
-                Symbol(name, osec.name, offset, sym["st_size"], function=True, local=is_local(sym))
-            )
+            # the target's own extent (its FDE), so objdiff sees every target byte
+            symbols.append(Symbol(name, osec.name, offset, size, function=True, local=is_local(ours[name])))
         section.data = bytes(data)
         sections.append(section)
 

@@ -6,7 +6,7 @@ import struct
 
 import pytest
 
-from hv import builds, cli, symbols, toolchain, units
+from hv import builds, cli, match, symbols, toolchain, units
 from hv.elf import Elf
 from hv.match import compare_object
 
@@ -257,3 +257,41 @@ def test_unit_matches_and_mutations_are_rejected(linux_target, compiler):
     for name, edits in mutations.items():
         result = unit_result(compile_variant(compiler, name, edits), linux_target)
         assert not result["exact"], name
+
+
+def test_learning_reports_disagreeing_references_in_one_function():
+    function = {
+        "symbol": NAME,
+        "exact_but_unknown": True,
+        "candidates": [["helper", "0x402000"], ["helper", "0x403000"], ["other", "0x404000"]],
+    }
+    learned, conflicts = match.learnable({"sections": [{"functions": [function]}]})
+    assert conflicts == ["helper"]
+    assert learned == {"other": (0x404000, NAME)}
+
+
+class FakeSection(dict):
+    def __init__(self, data, entsize, flags=0x30):
+        super().__init__(sh_entsize=entsize, sh_flags=flags)
+        self._data = data
+
+    def data(self):
+        return self._data
+
+
+@pytest.mark.parametrize(
+    ("data", "offset", "reason"),
+    [
+        (b"\0\0\0\0", 1, "not aligned"),  # one byte into an empty wide string
+        (b"a\0\0\0b\0\0", 4, "unterminated"),  # the last element is incomplete
+        (b"a\0\0\0", 0, "unterminated"),  # no zero element
+    ],
+)
+def test_merged_string_check_rejects_malformed_references(data, offset, reason):
+    ok, message = match.check_merged(target_image(), FakeSection(data, 4), offset, ADDRESS)
+    assert not ok and reason in message
+
+
+def test_merged_constant_must_be_complete():
+    ok, message = match.check_merged(target_image(), FakeSection(b"\0\0\0\0\0\0", 4, flags=0x10), 4, ADDRESS)
+    assert not ok and "incomplete" in message

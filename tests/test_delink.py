@@ -60,3 +60,20 @@ def test_merged_strings_index_by_content(tmp_path):
     strings = delink.merged_strings(Elf.load(path, "ET_REL"))
     assert strings[b"MemFile\0"] == (".rodata.str1.1", 5)
     assert strings[b"GET \0"] == (".rodata.str1.1", 0)
+
+
+def test_target_symbol_takes_the_target_extent():
+    from test_match import ADDRESS, NAME, elf_image
+
+    from hv.elf import Elf
+
+    # the target function is seven bytes; ours is six
+    target = Elf(elf_image(b"\x90" * 6 + b"\xc3", kind=2), "ET_EXEC")
+    obj = Elf(elf_image(b"\x90" * 5 + b"\xc3"), "ET_REL")
+    result = {"sections": [{"name": ".text", "address": hex(ADDRESS), "functions": [
+        {"symbol": NAME, "address": hex(ADDRESS), "size": 6}]}]}  # fmt: skip
+    sections, symbols = delink.delink_unit(target, obj, result, [], {ADDRESS: 7})
+    (symbol,) = [s for s in symbols if s.name == NAME]
+    assert symbol.size == 7
+    (text,) = [s for s in sections if s.name == ".text"]
+    assert text.data[:7] == b"\x90" * 6 + b"\xc3"

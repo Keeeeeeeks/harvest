@@ -266,13 +266,19 @@ def check_merged(target: Elf, section, offset: int, address: int) -> tuple[bool,
     if not 0 <= offset < len(data):
         return False, "reference outside merged section"
     try:
+        if offset % size:
+            return False, "reference not aligned to a merged element"
         if section["sh_flags"] & SHF_STRINGS:
             # a string of size-byte elements, up to and including the zero element
             end = offset
-            while data[end : end + size] != bytes(size):
+            while end + size <= len(data) and data[end : end + size] != bytes(size):
                 end += size
+            if end + size > len(data):
+                return False, "unterminated merged string"
             ours = data[offset : end + size]
             return target.read(address, len(ours)) == ours, "merged string"
+        if offset + size > len(data):
+            return False, "incomplete merged constant"
         ours = data[offset : offset + size]
         return target.read(address, size) == ours, "merged constant"
     except ValueError as error:
@@ -444,7 +450,8 @@ def function_results(symbols, index, layout: Layout, result: SectionResult, fdes
         if not row["exact"] and fde and bad and all(r.candidate is not None for r in bad):
             if not [o for o in differs if o not in unknown_bytes]:
                 row["exact_but_unknown"] = True
-                row["candidates"] = {r.symbol: hex(r.candidate) for r in bad}
+                # every reference, so learning can see when two of them disagree
+                row["candidates"] = [[r.symbol, hex(r.candidate)] for r in bad]
         rows.append(row)
     return rows
 
@@ -458,7 +465,7 @@ def learnable(result: dict) -> tuple[dict[str, tuple[int, str]], list[str]]:
     evidence: dict[str, str] = {}
     for section in result["sections"]:
         for function in section.get("functions", []):
-            for name, address in function.get("candidates", {}).items():
+            for name, address in function.get("candidates", []):
                 found.setdefault(name, set()).add(int(address, 16))
                 evidence.setdefault(name, function["symbol"])
     learned = {name: (next(iter(a)), evidence[name]) for name, a in found.items() if len(a) == 1}
