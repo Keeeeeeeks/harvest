@@ -2,6 +2,10 @@
   "image": "harvest-toolchain",
   "compiler": "g++",
   "version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
-  "flags": ["-O2"],
+  "flags": [
+    "-O2",
+    "-Isrc",
+    "-Isrc/HarvestFull"
+  ],
   "scope": "reproduces ox/io/CMemReadFile.cpp exactly; not yet confirmed for other units"
 }

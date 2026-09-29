@@ -273,6 +273,54 @@ public:
         used = used + len + 1;
     }
 
+    //! Appends a number in decimal. An Oxeye addition.
+    void append(int number)
+    {
+        if (!number)
+        {
+            append((T)'0');
+            return;
+        }
+
+        // store if negative and make positive
+        bool negative = false;
+        if (number < 0)
+        {
+            number *= -1;
+            negative = true;
+        }
+
+        // temporary buffer for 16 numbers
+        T tmpbuf[16];
+        tmpbuf[15] = 0;
+        int idx = 15;
+
+        // add numbers
+        while (number && idx)
+        {
+            idx--;
+            tmpbuf[idx] = (T)('0' + (number % 10));
+            number = number / 10;
+        }
+
+        // add sign
+        if (negative)
+        {
+            idx--;
+            tmpbuf[idx] = '-';
+        }
+
+        int len = 15 - idx;
+
+        if (used + len + 1 > allocated)
+            reallocate((int)used + (int)len + 1);
+
+        for (int l = 0; l < len + 1; ++l)
+            array[l + used - 1] = tmpbuf[l + idx];
+
+        used = used + len;
+    }
+
     //! Appends a string of the length l to this string.
     void append(const CString<T>& other, int length)
     {

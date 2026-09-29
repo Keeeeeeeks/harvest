@@ -15,7 +15,9 @@ class CHelpIO
 {
 public:
     static int readInt(IReadFile* file);
+    static float readFloat(IReadFile* file);
     static void writeInt(IWriteFile* file, int value);
+    static void writeFloat(IWriteFile* file, float value);
 };
 
 } // end namespace io

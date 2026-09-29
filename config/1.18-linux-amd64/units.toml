@@ -56,3 +56,10 @@
 ["ox/algo/CSimplePress.cpp"]
 # m_staticIndices, then the std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x86c220
+
+["HarvestFull/harvest/game/CThreatLevel.cpp"]
+".text" = 0x45bf40
+# jump tables, WAVE_DEFINITIONS, ALIEN_KEY_NAMES and the ALIEN_LEVELS initializer
+".rodata" = 0x5f7d00
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b93c
