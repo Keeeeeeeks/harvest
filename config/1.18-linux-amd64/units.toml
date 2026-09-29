@@ -91,3 +91,8 @@
 ".text" = 0x4429d0
 # std::ios_base::Init object of the iostream static initializer, then the header statics
 ".bss" = 0x86b8c8
+
+["HarvestFull/harvest/entity/CMineralsEntity.cpp"]
+".text" = 0x435410
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b6d8

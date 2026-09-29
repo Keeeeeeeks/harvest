@@ -14,8 +14,8 @@
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
-    "config/1.18-linux-amd64/symbols.tsv": "389dd5a3a0e98ab87b4285b68b07adb6ff08ccc572111ace2a608cffbbbfcf0f",
-    "config/1.18-linux-amd64/units.toml": "958f845c75cfb408d8a4c3d0f98277e1cf8b729ca5c4af27de2f13a22fd4f1cc"
+    "config/1.18-linux-amd64/symbols.tsv": "7fa0a4cacee95c27ef4fc1a534872e2d3ac2b462c876f5f80995e34840a162b8",
+    "config/1.18-linux-amd64/units.toml": "9fbe80a23cd13e04c25ff86902da5e50ef29d179b8df96330ce7601f5ed2cf6f"
   },
   "units": [
     {
@@ -6491,7 +6491,8 @@
           "src/HarvestFull/harvest/entity/CEntityManager.h": "0c5d118f891bf4a3a64f6d20d67c7ba0fb35d6f4096062ad6744c465984082d2",
           "src/ox/entity/COxEntityManager.h": "2ac15e353a6d7fee513eb98cbbf5169e988470711b6a7697a7a43d24a2276e7a",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
-          "src/HarvestFull/harvest/entity/CMineralsEntity.h": "bf9d5962296dac528d7e1e0cc492cf760fd16d21bf6f5c03bd012e94b6f83442",
+          "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec",
+          "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
           "src/HarvestFull/harvest/entity/CMinerEntity.h": "e6454ea4f6603319b6082cef78ef5d1ee409350be7799e2e9d4ccea634fd9e47",
           "src/HarvestFull/harvest/entity/CMissileTurretEntity.h": "e7490b1d80dbbd55d500361c1e7c2c93a137b7b59bef34d57d2028f423681933",
           "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
@@ -8004,6 +8005,514 @@
         },
         "system_headers": 132,
         "object_sha256": "4d3027a88837547686c471335243ecd2ce1c57b3a8392ff4e0d3f7e980c636d8"
+      }
+    },
+    {
+      "unit": "HarvestFull/harvest/entity/CMineralsEntity.cpp",
+      "object_sha256": "f8bb886f796bae7bcec605f1fcb5376331e110c9eaba3f5c97daaeca073917ca",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 2674,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x435410",
+          "references": 109,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity12updateSpriteEf",
+              "address": "0x435410",
+              "size": 26,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity7onSparkEPNS0_12CSparkEntityE",
+              "address": "0x435430",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity10wantsSparkEv",
+              "address": "0x435440",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity23getCurrentDisplaySpriteEv",
+              "address": "0x435450",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity12setHogStatusEi",
+              "address": "0x435460",
+              "size": 4,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity11getHoggerIdEv",
+              "address": "0x435470",
+              "size": 4,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity6renderERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x435480",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN7harvest6entity15CMineralsEntityC2Effi",
+              "address": "0x435490",
+              "size": 59,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity11updateLogicEf",
+              "address": "0x4354d0",
+              "size": 26,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity13getInfoStringEv",
+              "address": "0x4354f0",
+              "size": 42,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+              "address": "0x435520",
+              "size": 65,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity14withdrawAmountEi",
+              "address": "0x435570",
+              "size": 86,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity9setSpriteEv",
+              "address": "0x4355d0",
+              "size": 398,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity14readEntityDataEPN2ox2io9IReadFileEi",
+              "address": "0x435760",
+              "size": 140,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity20setRemainingMineralsEi",
+              "address": "0x4357f0",
+              "size": 95,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntityD0Ev",
+              "address": "0x435850",
+              "size": 111,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntityD1Ev",
+              "address": "0x4358c0",
+              "size": 103,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntityD2Ev",
+              "address": "0x435930",
+              "size": 103,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntityC1Effi",
+              "address": "0x4359a0",
+              "size": 194,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity20fillAreaWithMineralsERKN2ox4core5CRectIfEEiPNS_4game6CWorldE",
+              "address": "0x435a70",
+              "size": 848,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntityC2Effi",
+              "address": "0x435dc0",
+              "size": 194,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 12,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x86b6d8",
+          "references": 0
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10killEntityEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10killEntityEv",
+          "exact": true,
+          "address": "0x416670",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10killEntityEv",
+              "address": "0x416670",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity8isKilledEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity8isKilledEv",
+          "exact": true,
+          "address": "0x416680",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity8isKilledEv",
+              "address": "0x416680",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "size": 6,
+          "placement": "symbol: _ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "exact": true,
+          "address": "0x416630",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+              "address": "0x416630",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "size": 9,
+          "placement": "symbol: _ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "exact": true,
+          "address": "0x416640",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity14getSparkHeightEv",
+              "address": "0x416640",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity12getSellValueEv",
+          "size": 14,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity12getSellValueEv",
+          "exact": true,
+          "address": "0x416660",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity12getSellValueEv",
+              "address": "0x416660",
+              "size": 14,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "exact": true,
+          "address": "0x416690",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+              "address": "0x416690",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "exact": true,
+          "address": "0x4166a0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+              "address": "0x4166a0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "exact": true,
+          "address": "0x4166b0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+              "address": "0x4166b0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "exact": true,
+          "address": "0x4166c0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+              "address": "0x4166c0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity15CMineralsEntity14getRenderLayerEv",
+          "size": 3,
+          "placement": "symbol: _ZNK7harvest6entity15CMineralsEntity14getRenderLayerEv",
+          "exact": true,
+          "address": "0x435ea0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity15CMineralsEntity14getRenderLayerEv",
+              "address": "0x435ea0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity15CMineralsEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity15CMineralsEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "exact": true,
+          "address": "0x435eb0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity15CMineralsEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x435eb0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity15CMineralsEntity16getCollisionSizeEv",
+          "size": 9,
+          "placement": "symbol: _ZNK7harvest6entity15CMineralsEntity16getCollisionSizeEv",
+          "exact": true,
+          "address": "0x435e90",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity15CMineralsEntity16getCollisionSizeEv",
+              "address": "0x435e90",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".gcc_except_table",
+          "size": 147,
+          "placement": "exception frames",
+          "exact": true,
+          "address": "0x65a16f",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity15CMineralsEntityE",
+          "size": 312,
+          "placement": "symbol: _ZTVN7harvest6entity15CMineralsEntityE",
+          "exact": true,
+          "address": "0x5f3e60",
+          "references": 38
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity15CMineralsEntityE",
+          "size": 35,
+          "placement": "symbol: _ZTSN7harvest6entity15CMineralsEntityE",
+          "exact": true,
+          "address": "0x5f3fa0",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity15CMineralsEntityE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity15CMineralsEntityE",
+          "exact": true,
+          "address": "0x5f3fd0",
+          "references": 3
+        },
+        {
+          "name": ".rodata",
+          "size": 84,
+          "placement": "references",
+          "exact": true,
+          "address": "0x5eff60",
+          "references": 0
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
+          "-MD",
+          "-MF",
+          "/out/HarvestFull__harvest__entity__CMineralsEntity.d",
+          "-c",
+          "src/HarvestFull/harvest/entity/CMineralsEntity.cpp",
+          "-o",
+          "/out/HarvestFull__harvest__entity__CMineralsEntity.o"
+        ],
+        "inputs": {
+          "src/HarvestFull/harvest/entity/CMineralsEntity.cpp": "0e05e373fd3e9ed48246760863e09a9a7080a0ef421b8527198a14d52e111f0a",
+          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
+          "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
+          "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
+          "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "0c5d118f891bf4a3a64f6d20d67c7ba0fb35d6f4096062ad6744c465984082d2",
+          "src/ox/entity/COxEntityManager.h": "2ac15e353a6d7fee513eb98cbbf5169e988470711b6a7697a7a43d24a2276e7a",
+          "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
+          "src/ox/algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
+          "src/ox/core/CBasic.h": "e9aafefa6a4d42a6e06eb77763a11fa1237e4d721ba3ef2c047a4b1a513505f6",
+          "src/ox/io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
+          "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
+          "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
+          "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/video/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/video/ISpritePackage.h": "1c83a8f36232f0523f5904df2e8fc7714228f81d3f8c405d97d71dcce2ad56c5",
+          "src/ox/video/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/video/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903"
+        },
+        "system_headers": 124,
+        "object_sha256": "f8bb886f796bae7bcec605f1fcb5376331e110c9eaba3f5c97daaeca073917ca"
       }
     }
   ],
