@@ -14,8 +14,8 @@
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "41f4d47d84a287776141d7dfa138c0a5159bdba13d038dcf7ef2efd5e5c153bd",
-    "config/1.18-linux-amd64/symbols.tsv": "68477afabfc830a551313d662e14b2c43973f8b0afe2d24437d8a18c36d55ce7",
-    "config/1.18-linux-amd64/units.toml": "f37203d4dcfb14cd0447b81945a8e24f01fe146c2692039245bc0199713ea691"
+    "config/1.18-linux-amd64/symbols.tsv": "cf9ac7c332286e28c656c64b0bcc4951a744cbe974c6df26617df6ef8113c624",
+    "config/1.18-linux-amd64/units.toml": "48be1caffef8ad45082813b1990d446425f1e6560d847deaa9c9af2fe4245a11"
   },
   "units": [
     {
@@ -2632,6 +2632,239 @@
         },
         "system_headers": 106,
         "object_sha256": "b5ee5f0158ecaed6ccc98aacde0139789441d64a54980986ed26a918cf5a7d9e"
+      }
+    },
+    {
+      "unit": "ox/core/CBasic.cpp",
+      "object_sha256": "05593088ddfafdb60c70e8d63ffb0e6ea76ac6c729162410c96056a02144a6d9",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 346,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x5df0f0",
+          "references": 12,
+          "functions": [
+            {
+              "symbol": "_GLOBAL__I__ZN2ox4core6CBasic13getTimeStringEPc",
+              "address": "0x5df0f0",
+              "size": 38,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core6CBasic13getTimeStringEiPc",
+              "address": "0x5df120",
+              "size": 231,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core6CBasic13getTimeStringEPc",
+              "address": "0x5df210",
+              "size": 58,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x87422c",
+          "references": 0
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-MD",
+          "-MF",
+          "/out/ox__core__CBasic.d",
+          "-c",
+          "src/ox/core/CBasic.cpp",
+          "-o",
+          "/out/ox__core__CBasic.o"
+        ],
+        "inputs": {
+          "src/ox/core/CBasic.cpp": "23b6116af2ba8b648a21c75283f6c1a33a6b7a14e412d6db2780c0b77b99effd",
+          "src/ox/core/CBasic.h": "87085f48a878543c93da041006d46b6d47e2fc3fbe4dd272873103ca0110ac16",
+          "src/ox/core/CString.h": "5eb0a22895bdd2152e329b4a0beb3399c6c7b1765cf973deb87cece6abc16dbc"
+        },
+        "system_headers": 100,
+        "object_sha256": "05593088ddfafdb60c70e8d63ffb0e6ea76ac6c729162410c96056a02144a6d9"
+      }
+    },
+    {
+      "unit": "ox/core/CCipherKey.cpp",
+      "object_sha256": "b11260615d85e4147936de87e43fdb4a7acd726159e58fa3e6ae3acff8d4ce84",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 864,
+          "placement": "symbol: _ZNK2ox4core10CCipherKey12getKeyLengthEv",
+          "exact": true,
+          "address": "0x5df250",
+          "references": 27,
+          "functions": [
+            {
+              "symbol": "_ZNK2ox4core10CCipherKey12getKeyLengthEv",
+              "address": "0x5df250",
+              "size": 4,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK2ox4core10CCipherKey6getKeyEv",
+              "address": "0x5df260",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK2ox4core10CCipherKey8printKeyEb",
+              "address": "0x5df270",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN2ox4core10CCipherKeyD2Ev",
+              "address": "0x5df280",
+              "size": 38,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CCipherKeyC1EPKc",
+              "address": "0x5df2b0",
+              "size": 251,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CCipherKeyC2EPKc",
+              "address": "0x5df3b0",
+              "size": 251,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CCipherKeyC1EPKvi",
+              "address": "0x5df4b0",
+              "size": 95,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CCipherKeyC2EPKvi",
+              "address": "0x5df510",
+              "size": 95,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CCipherKeyD0Ev",
+              "address": "0x5df570",
+              "size": 29,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CCipherKeyD1Ev",
+              "address": "0x5df590",
+              "size": 16,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core10CCipherKeyD2Ev",
+              "address": "0x5df5a0",
+              "size": 16,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x874230",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN2ox4core10CCipherKeyE",
+          "size": 32,
+          "placement": "symbol: _ZTVN2ox4core10CCipherKeyE",
+          "exact": true,
+          "address": "0x622340",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN2ox4core10CCipherKeyE",
+          "size": 23,
+          "placement": "symbol: _ZTSN2ox4core10CCipherKeyE",
+          "exact": true,
+          "address": "0x622360",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN2ox4core10CCipherKeyE",
+          "size": 16,
+          "placement": "symbol: _ZTIN2ox4core10CCipherKeyE",
+          "exact": true,
+          "address": "0x622380",
+          "references": 2
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-MD",
+          "-MF",
+          "/out/ox__core__CCipherKey.d",
+          "-c",
+          "src/ox/core/CCipherKey.cpp",
+          "-o",
+          "/out/ox__core__CCipherKey.o"
+        ],
+        "inputs": {
+          "src/ox/core/CCipherKey.cpp": "3defa0fdb543577c26786590aaffc29b7c50254dbe745f277f8a63cdaede7dce",
+          "src/ox/core/CCipherKey.h": "2a4e24e4d2a517b11cbbd30e5027fa11a597eea23e4024791f47e162dbc6ef70"
+        },
+        "system_headers": 102,
+        "object_sha256": "b11260615d85e4147936de87e43fdb4a7acd726159e58fa3e6ae3acff8d4ce84"
       }
     }
   ],

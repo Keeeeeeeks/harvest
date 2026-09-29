@@ -43,3 +43,12 @@
 ["ox/core/CHiddenInt.cpp"]
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x87423c
+
+["ox/core/CBasic.cpp"]
+".text" = 0x5df0f0
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x87422c
+
+["ox/core/CCipherKey.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x874230
