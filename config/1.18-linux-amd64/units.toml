@@ -29,3 +29,13 @@
 ["ox/core/CThread.cpp"]
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x874248
+
+["ox/algo/CRand.cpp"]
+".text" = 0x5dd0d0
+".data" = 0x86b15c
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x86c20c
+
+["ox/core/CHiddenFloat.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x874238
