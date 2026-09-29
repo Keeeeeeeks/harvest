@@ -330,3 +330,59 @@ def test_unnamed_function_follows_its_predecessor():
     # c has a twin FDE of its size, so it keeps following b
     assert layout.address_of(0x60) == 0x1070
     assert not layout.contiguous
+
+
+def inline_copy_reading_a_static(tmp_path, group, other_table):
+    """Our object: an inline function reading a file-level static table through the `.rodata`
+    section symbol. The target keeps the linked copy of the function from another object, which
+    reads that object's copy of the table, not ours."""
+    from hv.delink import Section, Symbol, write_object
+
+    table = bytes(range(1, 9))
+    flags = 0x206 if group else 0x6  # SHF_ALLOC | SHF_EXECINSTR, plus SHF_GROUP for an inline copy
+    code = b"\x8b\x04\x85\0\0\0\0\xc3"  # mov eax, [rax*4 + table]; ret
+    sections = [
+        Section(".text._Z3getv", code, flags, relocations=[(3, 11, ".rodata", 0x10)]),  # R_X86_64_32S
+        Section(".rodata", bytes(0x10) + table, 0x2),
+    ]
+    symbols = [
+        Symbol("_Z3getv", ".text._Z3getv", 0, len(code), function=True),
+        Symbol("TABLE", ".rodata", 0x10, 8, local=True),
+    ]
+    write_object(tmp_path / "unit.o", sections, symbols)
+    obj = Elf.load(tmp_path / "unit.o", "ET_REL")
+    # target: the function, our unit's .rodata at +0x10 and the other object's table at +0x30
+    other = ADDRESS + 0x30
+    image = (
+        code[:3]
+        + other.to_bytes(4, "little")
+        + code[7:]
+        + bytes(8)
+        + bytes(0x10)
+        + table
+        + bytes(8)
+        + other_table
+    )
+    target = Elf(elf_image(image, kind=2), "ET_EXEC")
+    target.fde_ranges = lambda: {(ADDRESS, len(code))}
+    return compare_object(obj, target, {"_Z3getv": ADDRESS}, {".rodata": ADDRESS + 0x10})
+
+
+def function_section(result):
+    return next(s for s in result["sections"] if s["name"].startswith(".text"))
+
+
+def test_inline_copy_may_read_another_objects_copy_of_a_static(tmp_path):
+    assert inline_copy_reading_a_static(tmp_path, True, bytes(range(1, 9)))["exact"]
+
+
+def test_other_copy_of_a_static_must_hold_the_same_bytes(tmp_path):
+    result = inline_copy_reading_a_static(tmp_path, True, bytes(range(2, 10)))
+    assert not result["exact"]
+    assert function_section(result)["bad_references"][0]["reason"] == "local copy"
+
+
+def test_only_inline_copies_may_read_another_copy_of_a_static(tmp_path):
+    result = inline_copy_reading_a_static(tmp_path, False, bytes(range(1, 9)))
+    assert not result["exact"]
+    assert function_section(result)["bad_references"][0]["reason"] == "different destination"

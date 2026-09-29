@@ -28,6 +28,7 @@ SHF_ALLOC = 0x2
 SHF_EXECINSTR = 0x4
 SHF_MERGE = 0x10
 SHF_STRINGS = 0x20
+SHF_GROUP = 0x200
 
 # sections that are not part of the image comparison yet
 SKIPPED = {".eh_frame", ".ctors", ".dtors", ".init_array", ".fini_array", ".note.GNU-stack", ".comment"}
@@ -302,6 +303,29 @@ def check_merged(target: Elf, section, offset: int, address: int) -> tuple[bool,
         return False, str(error)
 
 
+def check_local_copy(obj: Elf, target: Elf, shndx: int, offset: int, address: int) -> tuple[bool, str]:
+    """Compare the file-level static object holding a section offset with the target's copy, which
+    holds `address` at the same place. Objects with relocations of their own are not comparable."""
+    holders = [
+        s
+        for s in obj.elf.get_section_by_name(".symtab").iter_symbols()
+        if s["st_shndx"] == shndx
+        and s["st_info"]["bind"] == "STB_LOCAL"
+        and s["st_info"]["type"] == "STT_OBJECT"
+        and s["st_value"] <= offset < s["st_value"] + s["st_size"]
+    ]
+    if len(holders) != 1:
+        return False, "different destination"
+    start, size = holders[0]["st_value"], holders[0]["st_size"]
+    if any(start <= r["r_offset"] < start + size for r, _ in obj.relocations(shndx)):
+        return False, "different destination"
+    ours = obj.elf.get_section(shndx).data()[start : start + size]
+    try:
+        return target.read(address - (offset - start), size) == ours, "local copy"
+    except ValueError as error:
+        return False, str(error)
+
+
 def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[str, int]) -> dict:
     resolver = Resolver(target, known)
     fdes = target.fde_ranges()
@@ -425,6 +449,13 @@ def compare_section(obj, target, section, index, layout, placements, resolver, s
         ref.matches = encoded == field_bytes
         if not ref.matches:
             ref.reason = "different destination"
+            if section["sh_flags"] & SHF_GROUP and symbol["st_info"]["bind"] == "STB_LOCAL":
+                # an inline copy kept from another object reads that object's copy of a static
+                pointed = field_value + place + bias if rtype in PC_RELATIVE else field_value
+                ours = symbol["st_value"] + ref.addend + bias
+                ref.matches, ref.reason = check_local_copy(obj, target, symbol["st_shndx"], ours, pointed)
+                if ref.matches:
+                    relocated[offset : offset + width] = field_bytes
     result.differences = [i for i in range(len(raw)) if relocated[i] != expected[i] and i not in ignored]
     result.exact = not result.differences and all(r.matches for r in result.references)
 
