@@ -177,6 +177,22 @@ class FakeCompiler:
             "inputs": {"src/unit.cpp": search.sha(data)},
         }
 
+    def compile_many(self, source, items):
+        self.batches = getattr(self, "batches", 0) + 1
+        outcomes = []
+        for name, replacement in items:
+            obj = self.out / (name + ".o")
+            obj.parent.mkdir(parents=True, exist_ok=True)
+            obj.write_bytes(b"compiled")
+            data = replacement.read_bytes()
+            outcomes.append(
+                (
+                    obj,
+                    {"object_sha256": search.sha(b"compiled"), "inputs": {"src/unit.cpp": search.sha(data)}},
+                )
+            )
+        return outcomes
+
 
 @pytest.fixture
 def evaluator(tmp_path, monkeypatch):
@@ -402,3 +418,124 @@ def test_restart_quota_reserves_budget_for_a_new_start(monkeypatch):
     monkeypatch.setattr(search, "neighbors", lambda order: iter([(1, 0, 2), (2, 0, 1)]))
     search.climb(evaluate, initial, 1, 1, 1, lambda c: None, restart_budget=1)
     assert len(calls) == 2
+
+
+def test_prefetch_compiles_a_neighbourhood_in_one_batch_and_evaluate_uses_it(evaluator):
+    e, compiler, _ = evaluator
+    e.prefetch([(1, 0), (0, 1), (1, 0)])
+    assert compiler.batches == 1 and compiler.calls == 0 and e.evaluated == 0 and e.compiled == 2
+    a, b = e.evaluate((1, 0)), e.evaluate((0, 1))
+    assert a and b and compiler.calls == 0 and e.evaluated == 2 and not e.pending
+    assert len((e.run / "trials.jsonl").read_text().splitlines()) == 2
+
+
+def test_prefetch_stays_within_the_budget(evaluator):
+    e, compiler, _ = evaluator
+    e.budget = 1
+    e.prefetch([(1, 0), (0, 1)])
+    assert not getattr(compiler, "batches", 0) and not e.pending
+
+
+def test_batched_compile_failures_are_logged_like_single_ones(evaluator, monkeypatch):
+    e, compiler, _ = evaluator
+    error = subprocess.CalledProcessError(1, ["g++"], stderr="not declared")
+    monkeypatch.setattr(compiler, "compile_many", lambda source, items: [error] * len(items))
+    e.prefetch([(1, 0), (0, 1)])
+    assert e.evaluate((1, 0)) is None
+    assert "not declared" in (e.run / "trials.jsonl").read_text()
+
+
+def test_climb_prefetches_neighbours_in_batches():
+    initial = choice(order=(0, 1, 2, 3))
+    batches = []
+
+    def evaluate(order):
+        return choice(order=order)
+
+    search.climb(evaluate, initial, 0, 0, 0, lambda c: None, prefetch=batches.append, batch=4)
+    assert batches and all(len(b) <= 4 for b in batches)
+    assert len({o for b in batches for o in b}) == sum(map(len, batches))
+
+
+def test_compile_many_uses_canonical_paths_in_a_private_copy(tmp_path, monkeypatch):
+    monkeypatch.setattr(builds, "ROOT", tmp_path)
+    source = tmp_path / "src/unit.cpp"
+    source.parent.mkdir()
+    source.write_bytes(b"original")
+    compiler = toolchain.Compiler.__new__(toolchain.Compiler)
+    compiler.out = tmp_path / "out"
+    compiler.out.mkdir()
+    compiler.flags = {"compiler": "g++", "flags": ["-O2", "-Isrc", "-Ithird_party/lua/include"]}
+    compiler.image_id, compiler.version, compiler.manifest_sha256 = "image", "version", "manifest"
+    good, bad = compiler.out / "good.cpp", compiler.out / "bad.cpp"
+    good.write_bytes(b"good")
+    bad.write_bytes(b"bad")
+    scripts = []
+
+    def run(*args):
+        scripts.append((args, (compiler.out / args[-1].removeprefix("/out/")).read_text()))
+        (compiler.out / "good.status").write_text("0\n")
+        (compiler.out / "good.o").write_bytes(b"object")
+        (compiler.out / "good.d").write_text("/out/good.o: src/unit.cpp\n")
+        (compiler.out / "bad.status").write_text("1\n")
+        (compiler.out / "bad.err").write_text("error: not declared\n")
+        return ""
+
+    monkeypatch.setattr(toolchain, "run", run)
+    (obj, metadata), failure = compiler.compile_many(source, [("good", good), ("bad", bad)], lanes=2)
+    args, script = scripts[0]
+    assert f"{tmp_path}:/repo:ro" in args and "/work:exec" in args
+    assert script.count("cp -a /repo/src src") == 2 and "cp -a /repo/third_party third_party" in script
+    assert "cd /work/0" in script and "cd /work/1" in script and script.rstrip().endswith("wait")
+    assert "cp /out/good.cpp src/unit.cpp" in script and " -c src/unit.cpp " in script
+    assert metadata["inputs"] == {"src/unit.cpp": hashlib.sha256(b"good").hexdigest()}
+    assert metadata["command"] == compiler.compile_command(source, "good")
+    assert isinstance(failure, subprocess.CalledProcessError) and "not declared" in failure.stderr
+    assert not list(compiler.out.glob("batch-*.sh")) and source.read_bytes() == b"original"
+
+
+def test_auto_blocks_select_top_level_function_definitions():
+    source = b"""// header
+#include "x.h"
+
+namespace a {
+namespace b {
+
+static const int TABLE[] = { 1, 2 };
+
+//! A functor.
+class F
+{
+    bool test() { return true; }
+};
+
+int X::y = 0;
+
+//! First.
+X::X(int v)
+    : Y(v)
+{
+    const char* s = "}{";  // }
+}
+
+void X::f()
+{
+    if (true) { }
+}
+
+void X::f(int)
+{
+}
+
+} // end namespace b
+} // end namespace a
+"""
+    spec = search.auto_blocks(source)
+    assert [(b["name"], b["start"], b["end"]) for b in spec["blocks"]] == [
+        ("X::X", 17, 22),
+        ("X::f", 24, 27),
+        ("X::f#2", 29, 31),
+    ]
+    blocks = search.Blocks.load(source, spec)
+    swapped = blocks.render((1, 0, 2)).decode()
+    assert swapped.index("void X::f()") < swapped.index("//! First.") < swapped.index("void X::f(int)")

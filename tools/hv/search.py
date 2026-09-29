@@ -4,6 +4,7 @@ import difflib
 import hashlib
 import json
 import random
+import re
 import subprocess
 import uuid
 from dataclasses import dataclass
@@ -72,6 +73,89 @@ class Blocks:
             parts.extend((self.source[previous:start], self.chunks[index]))
             previous = end
         return b"".join(parts) + self.source[previous:]
+
+
+def code_lines(text: str):
+    """Each line with comments, string and character literals blanked, for brace counting."""
+    out, state = [], None  # None, "block" comment, or the quote of an open literal
+    for line in text.splitlines(keepends=True):
+        code, i = [], 0
+        while i < len(line):
+            c, pair = line[i], line[i : i + 2]
+            if state == "block":
+                if pair == "*/":
+                    state, i = None, i + 2
+                    continue
+            elif state in ('"', "'"):
+                if c == "\\":
+                    i += 2
+                    continue
+                if c == state:
+                    state = None
+            elif pair == "//":
+                break
+            elif pair == "/*":
+                state, i = "block", i + 2
+                continue
+            elif c in ('"', "'"):
+                state = c
+            else:
+                code.append(c)
+            i += 1
+        out.append("".join(code))
+    return out
+
+
+def auto_blocks(source: bytes) -> dict:
+    """A block specification with one block per top-level function definition, with the comment
+    lines directly above it. Namespaces are transparent; data, declarations and classes stay put."""
+    lines = source.decode().splitlines(keepends=True)
+    blocks, stack = [], []
+    lead = start = None
+    header = ""
+    for number, (line, code) in enumerate(zip(lines, code_lines(source.decode()), strict=True), 1):
+        top = all(kind == "namespace" for kind in stack)
+        stripped = line.strip()
+        if top and start is None:
+            if not stripped:
+                lead = None
+            elif stripped.startswith("//") or stripped.startswith("/*") or stripped.startswith("*"):
+                lead = lead or number
+            elif not stripped.startswith("#") and code.strip() and code.strip() != "}":
+                start, header = number, ""
+        for c in code:
+            if c == "{":
+                opens_namespace = all(kind == "namespace" for kind in stack) and header.split()[:1] == [
+                    "namespace"
+                ]
+                stack.append("namespace" if opens_namespace else "code")
+                if opens_namespace:
+                    lead = start = None
+            elif c == "}":
+                kind = stack.pop() if stack else None
+                if kind == "code" and all(k == "namespace" for k in stack) and start is not None:
+                    declaration = header.strip()
+                    words = declaration.split()
+                    if (
+                        "(" in declaration
+                        and "=" not in declaration.split("(")[0]
+                        and not (words and words[0] in ("class", "struct", "union", "enum"))
+                    ):
+                        name = re.search(r"([\w:~]+)\s*\(", declaration).group(1)
+                        taken = sum(b["name"] == name or b["name"].startswith(name + "#") for b in blocks)
+                        blocks.append(
+                            {
+                                "name": f"{name}#{taken + 1}" if taken else name,
+                                "start": lead or start,
+                                "end": number,
+                            }
+                        )
+                    lead = start = None
+            elif start is not None and all(kind == "namespace" for kind in stack):
+                header += c
+        if start is not None and all(kind == "namespace" for kind in stack) and code.strip().endswith(";"):
+            lead = start = None  # a declaration or data definition without a body
+    return {"source_sha256": sha(source), "blocks": blocks}
 
 
 def neighbors(order: tuple[int, ...]):
@@ -157,12 +241,28 @@ class Evaluator:
         self.cache.mkdir(parents=True, exist_ok=True)
         self.sources = {}
         self.objects = {}
+        self.pending = {}  # digest -> batch compilation outcome, not yet evaluated
+        self.stats = {}  # input name -> (size, mtime, inode) when its hash was last verified
         self.evaluated = self.compiled = self.cache_hits = self.object_hits = 0
 
     def fresh(self):
+        """Fail when a repository input changed. Files whose size, mtime and inode are unchanged since
+        their last verified hash are not hashed again."""
         expected = self.context["inputs"]
-        if progress.input_hashes(list(expected)) != expected:
+        stale = []
+        for name in expected:
+            try:
+                stat = (builds.ROOT / name).stat()
+            except FileNotFoundError:
+                raise ValueError(
+                    "repository inputs changed during search; candidate was not applied"
+                ) from None
+            key = (stat.st_size, stat.st_mtime_ns, stat.st_ino)
+            if self.stats.get(name) != key:
+                stale.append((name, key))
+        if stale and progress.input_hashes([n for n, _ in stale]) != {n: expected[n] for n, _ in stale}:
             raise ValueError("repository inputs changed during search; candidate was not applied")
+        self.stats.update(stale)
 
     def compare(self, obj: Path):
         digest = builds.sha256_file(obj)
@@ -185,6 +285,39 @@ class Evaluator:
         ):
             raise ValueError("compilation dependencies differ from the search snapshot")
 
+    def cached(self, digest: str) -> dict | None:
+        entry = self.cache / (digest + ".json")
+        obj = self.cache / (digest + ".o")
+        cached = json.loads(entry.read_text()) if entry.exists() else None
+        if cached and obj.exists() and builds.sha256_file(obj) == cached["compilation"]["object_sha256"]:
+            return cached
+        return None
+
+    def prefetch(self, orders):
+        """Compile the uncached candidates among orders in one container, within the budget left.
+        Their results are evaluated, logged and counted only when evaluate reaches them."""
+        todo = {}
+        for order in orders:
+            source = self.blocks.render(order)
+            digest = sha(source)
+            if digest in self.sources or digest in self.pending or digest in todo or self.cached(digest):
+                continue
+            if self.evaluated + len(self.pending) + len(todo) >= self.budget:
+                break
+            todo[digest] = source
+        if len(todo) < 2:
+            return
+        self.fresh()
+        items = []
+        for digest, source in todo.items():
+            candidate = self.cache / (digest + ".cpp")
+            candidate.write_bytes(source)
+            items.append((str((self.cache / digest).relative_to(self.compiler.out)), candidate))
+        outcomes = self.compiler.compile_many(self.unit.path, items)
+        self.compiled += len(items)
+        self.pending.update(zip(todo, outcomes, strict=True))
+        self.fresh()
+
     def evaluate(self, order):
         source = self.blocks.render(order)
         digest = sha(source)
@@ -195,9 +328,8 @@ class Evaluator:
         self.evaluated += 1
         self.fresh()
         entry = self.cache / (digest + ".json")
-        obj = self.cache / (digest + ".o")
-        cached = json.loads(entry.read_text()) if entry.exists() else None
-        if cached and obj.exists() and builds.sha256_file(obj) == cached["compilation"]["object_sha256"]:
+        cached = self.cached(digest)
+        if cached:
             self.cache_hits += 1
             result, metadata = cached["result"], cached["compilation"]
             self.validate_compilation(metadata, digest)
@@ -205,12 +337,18 @@ class Evaluator:
                 raise ValueError("cached match object identity mismatch")
             self.objects[result["object_sha256"]] = result
         else:
-            candidate = self.cache / (digest + ".cpp")
-            candidate.write_bytes(source)
-            name = str((self.cache / digest).relative_to(self.compiler.out))
-            self.compiled += 1
             try:
-                obj, metadata = self.compiler.compile(self.unit.path, name, source_override=candidate)
+                if digest in self.pending:
+                    outcome = self.pending.pop(digest)
+                    if isinstance(outcome, subprocess.CalledProcessError):
+                        raise outcome
+                    obj, metadata = outcome
+                else:
+                    candidate = self.cache / (digest + ".cpp")
+                    candidate.write_bytes(source)
+                    name = str((self.cache / digest).relative_to(self.compiler.out))
+                    self.compiled += 1
+                    obj, metadata = self.compiler.compile(self.unit.path, name, source_override=candidate)
             except subprocess.CalledProcessError as error:
                 if error.returncode != 1:
                     raise
@@ -234,9 +372,18 @@ class Evaluator:
 
 
 def climb(
-    evaluate, initial: Choice, restarts: int, sideways: int, seed: int, checkpoint, restart_budget=None
+    evaluate,
+    initial: Choice,
+    restarts: int,
+    sideways: int,
+    seed: int,
+    checkpoint,
+    restart_budget=None,
+    prefetch=None,
+    batch=16,
 ):
-    """Greedy one-block moves, bounded neutral steps, then seeded restarts."""
+    """Greedy one-block moves, bounded neutral steps, then seeded restarts. With prefetch, each run
+    of up to batch neighbours is compiled together before they are evaluated in order."""
     rng = random.Random(seed)
     best = current = initial
     visited = {initial.order}
@@ -269,12 +416,14 @@ def climb(
                 options = []
                 orders = list(neighbors(current.order))
                 rng.shuffle(orders)
-                for order in orders:
-                    if order in visited:
-                        continue
+                orders = [o for o in orders if o not in visited]
+                for k, order in enumerate(orders):
                     if restart_budget is not None and attempts >= restart_budget:
                         reason = "budget"
                         break
+                    if prefetch is not None and k % batch == 0:
+                        room = batch if restart_budget is None else min(batch, restart_budget - attempts)
+                        prefetch(orders[k : k + room])
                     visited.add(order)
                     attempts += 1
                     candidate = evaluate(order)
@@ -332,16 +481,27 @@ def save_candidate(run: Path, unit, blocks: Blocks, choice: Choice):
 
 
 def search(
-    unit_name: str, spec_path: Path, build: str, *, budget=100, restarts=2, sideways=3, seed=0, apply=False
+    unit_name: str,
+    spec_path: Path | None,
+    build: str,
+    *,
+    budget=100,
+    restarts=2,
+    sideways=3,
+    seed=0,
+    apply=False,
+    batch=16,
 ):
-    if budget < 1 or restarts < 0 or sideways < 0:
-        raise ValueError("budget must be positive; restarts and sideways must be nonnegative")
+    """Search definition orders of a unit. Without spec_path, every top-level function definition
+    is a block (auto_blocks)."""
+    if budget < 1 or restarts < 0 or sideways < 0 or batch < 1:
+        raise ValueError("budget and batch must be positive; restarts and sideways must be nonnegative")
     selected = [u for u in units.load(build) if u.source == unit_name]
     if not selected:
         raise ValueError(f"not in units.toml: {unit_name}")
     (unit,) = selected
     original = unit.path.read_bytes()
-    spec = json.loads(spec_path.read_text())
+    spec = auto_blocks(original) if spec_path is None else json.loads(spec_path.read_text())
     blocks = Blocks.load(original, spec)
     (image,) = builds.load_builds()[build].images.values()
     if problem := builds.check_image(image):
@@ -383,6 +543,7 @@ def search(
             "restarts": restarts,
             "sideways": sideways,
             "seed": seed,
+            "batch": batch,
         },
     )
     evaluator = Evaluator(
@@ -412,6 +573,8 @@ def search(
         seed,
         checkpoint,
         restart_budget=max(1, budget // (restarts + 1)),
+        prefetch=evaluator.prefetch,
+        batch=batch,
     )
     improved = score(best.result) < score(baseline)
     applied = False

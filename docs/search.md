@@ -1,16 +1,16 @@
 # Definition-order search
 
 `hv search` tests the hypothesis that definition order explains a unit's remaining differences.
-It moves explicitly selected source blocks, compiles at the normal repository path in the pinned
-compiler, and compares with the pinned executable using the same matcher as `hv match`.
-
-Start with the provided packet unit specification:
+It moves source blocks (by default every top-level function definition), compiles at the normal
+repository path in the pinned compiler, and compares with the pinned executable using the same
+matcher as `hv match`.
 
 ```sh
-uv run hv search ox/net/CVariablePacket.cpp \
-  --blocks config/1.18-linux-amd64/search/CVariablePacket.json \
-  --budget 100 --restarts 2 --sideways 3 --seed 0
+uv run hv search ox/net/CVariablePacket.cpp --budget 100 --restarts 2 --sideways 3 --seed 0
 ```
+
+Run `hv match --learn` on a new unit first: the search does not learn symbols, and functions that
+only reference unknown symbols are not credited as exact.
 
 The source stays unchanged by default. Results go under
 `build/search/<build>/<unit-slug>/runs/<run-id>/`:
@@ -27,7 +27,11 @@ this bounded search found no further improvement; it does not establish that the
 
 ## Selecting blocks
 
-Specify named, inclusive, one-based line ranges in JSON:
+`--blocks auto` (the default) makes one block of each top-level function definition, together with
+the comment lines directly above it. Namespaces are transparent; data definitions, declarations and
+classes defined in the file stay in place. For anything else, specify named, inclusive, one-based
+line ranges in JSON and pass the file, as the packet unit's
+`config/1.18-linux-amd64/search/CVariablePacket.json` does:
 
 ```json
 {
@@ -60,13 +64,18 @@ sections, in that order. `exact_but_unknown` functions are reported separately a
 as exact. Symbol learning is not performed.
 
 Candidates compile through a read-only file overlay at `/work/src/<unit>`, with the original flags
-and includes. This preserves `__FILE__` and source-path behavior. Compilation metadata hashes the
+and includes. This preserves `__FILE__` and source-path behavior. Neighbours are compiled `--batch`
+at a time (default 16) in one container, in parallel lanes: each lane copies the source and include
+roots into a private directory and puts its candidate at the unit's own relative path, so command
+lines, `__FILE__` and depfile spellings are those of a canonical compile (nothing records the working
+directory without `-g`). Each batch is still compared and logged candidate by candidate. Compilation metadata hashes the
 overlaid source's actual bytes. The repository mount stays read-only; output goes to the search
 folder. Dependency spellings such as `../core/CString.h` are normalized for freshness checks.
 
 Persistent caches are keyed by candidate source bytes and all source/reference dependencies,
 configuration, compiler identity and matching-tool inputs. Equal object hashes share match results.
-Changed repository inputs abort the run. Each improved winner is compiled and compared again before
+Changed repository inputs abort the run; inputs whose size, mtime and inode are unchanged since their
+last verified hash are not hashed again. Each improved winner is compiled and compared again before
 application; fresh verification must agree with its saved result.
 
 ## Applying a result

@@ -121,13 +121,14 @@ def cmd_search(args: argparse.Namespace) -> int:
     try:
         search.search(
             args.unit,
-            args.blocks,
+            None if args.blocks == "auto" else Path(args.blocks),
             args.build,
             budget=args.budget,
             restarts=args.restarts,
             sideways=args.sideways,
             seed=args.seed,
             apply=args.apply,
+            batch=args.batch,
         )
     except (ValueError, OSError, KeyError, ELFError, subprocess.CalledProcessError) as error:
         print(f"search: {error}", file=sys.stderr)
@@ -212,11 +213,14 @@ def main(argv: list[str] | None = None) -> int:
     )
     p.set_defaults(func=cmd_match)
 
-    p = sub.add_parser("search", help="search explicit definition orders without losing exact matches")
+    p = sub.add_parser("search", help="search definition orders without losing exact matches")
     p.add_argument("unit", help="source under src/ listed in units.toml")
     p.add_argument(
-        "--blocks", type=Path, required=True, help="JSON source hash and named inclusive line ranges"
+        "--blocks",
+        default="auto",
+        help="JSON source hash and named inclusive line ranges, or auto: every top-level function",
     )
+    p.add_argument("--batch", type=int, default=16, help="candidates compiled per container")
     p.add_argument("--build", default=builds.canonical_build())
     p.add_argument("--budget", type=int, default=100, help="maximum unique candidate sources evaluated")
     p.add_argument("--restarts", type=int, default=2, help="maximum seeded random restarts")

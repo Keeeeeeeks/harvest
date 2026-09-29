@@ -1,7 +1,10 @@
 """Compile recovered sources in the pinned toolchain container."""
 
 import json
+import os
+import shlex
 import subprocess
+import uuid
 from pathlib import Path
 
 from hv import builds
@@ -60,9 +63,8 @@ class Compiler:
             return None
         return builds.ROOT / path
 
-    def compile(self, source: Path, name: str, *, source_override: Path | None = None) -> tuple[Path, dict]:
-        obj, depfile = self.out / f"{name}.o", self.out / f"{name}.d"
-        command = [
+    def compile_command(self, source: Path, name: str) -> list[str]:
+        return [
             self.flags["compiler"],
             *self.flags["flags"],
             "-MD",
@@ -73,10 +75,70 @@ class Compiler:
             "-o",
             f"/out/{name}.o",
         ]
+
+    def compile(self, source: Path, name: str, *, source_override: Path | None = None) -> tuple[Path, dict]:
+        command = self.compile_command(source, name)
         override = (source, source_override) if source_override is not None else None
         self.command(*command, source_override=override)
+        return self.out / f"{name}.o", self.metadata(source, name, command, source_override)
+
+    def compile_many(self, source: Path, items: list[tuple[str, Path]], lanes: int | None = None) -> list:
+        """Compile replacements of one repository source in a single container. Items run in parallel
+        lanes; each lane copies the source and include roots into a private directory and puts its
+        replacement at the source's own relative path, so command lines, __FILE__ and depfile spellings
+        match a canonical compile (nothing records the working directory without -g). Returns, per
+        item, (object, metadata) or the CalledProcessError of a failed compilation."""
+        source = source.resolve()
+        relative = source.relative_to(builds.ROOT)
+        roots = {relative.parts[0]} | {
+            Path(flag[2:]).parts[0]
+            for flag in self.flags["flags"]
+            if flag.startswith("-I") and not Path(flag[2:]).is_absolute()
+        }
+        lanes = max(1, min(len(items), lanes or os.cpu_count() or 1))
+        work = [[] for _ in range(lanes)]
+        commands = []
+        for index, (name, replacement) in enumerate(items):
+            replacement = replacement.resolve()
+            if not replacement.is_relative_to(self.out):
+                raise ValueError("batch replacements must be compiler output files")
+            command = self.compile_command(source, name)
+            commands.append(command)
+            work[index % lanes].append(
+                f"if cp {shlex.quote(self.container_path(replacement))} {shlex.quote(str(relative))}; "
+                f"then {shlex.join(command)} 2> /out/{name}.err; echo $? > /out/{name}.status; "
+                f"else echo 125 > /out/{name}.status; fi"
+            )
+        lines = ["set -u"]
+        for lane, steps in enumerate(work):
+            copies = [f"cp -a /repo/{shlex.quote(r)} {shlex.quote(r)}" for r in sorted(roots)]
+            lines.append(f"(mkdir /work/{lane} && cd /work/{lane} && " + " && ".join(copies) + "\n")
+            lines.extend(steps)
+            lines.append(") &")
+        lines.append("wait")
+        script = self.out / f"batch-{uuid.uuid4().hex}.sh"
+        script.write_text("\n".join(lines) + "\n")
+        try:
+            run(
+                "docker", "run", "--rm", "--network=none", "--platform", "linux/amd64",
+                "-v", f"{builds.ROOT}:/repo:ro", "-v", f"{self.out}:/out", "--tmpfs", "/work:exec",
+                "-w", "/work", self.image_id, "sh", self.container_path(script),
+            )  # fmt: skip
+        finally:
+            script.unlink()
+        outcomes = []
+        for (name, replacement), command in zip(items, commands, strict=True):
+            status = int((self.out / f"{name}.status").read_text())
+            if status:
+                error = (self.out / f"{name}.err").read_text()
+                outcomes.append(subprocess.CalledProcessError(status, command, stderr=error))
+            else:
+                outcomes.append((self.out / f"{name}.o", self.metadata(source, name, command, replacement)))
+        return outcomes
+
+    def metadata(self, source: Path, name: str, command: list[str], source_override: Path | None) -> dict:
         inputs, system = {}, []
-        for dependency in parse_depfile(depfile.read_text()):
+        for dependency in parse_depfile((self.out / f"{name}.d").read_text()):
             host = self.host_path(dependency)
             if host is None:
                 system.append(dependency)
@@ -88,16 +150,15 @@ class Compiler:
                     else host
                 )
                 inputs[key] = builds.sha256_file(actual)
-        metadata = {
+        return {
             "container_image_id": self.image_id,
             "compiler_version": self.version,
             "package_manifest_sha256": self.manifest_sha256,
             "command": command,
             "inputs": inputs,
             "system_headers": len(system),
-            "object_sha256": builds.sha256_file(obj),
+            "object_sha256": builds.sha256_file(self.out / f"{name}.o"),
         }
-        return obj, metadata
 
 
 def parse_depfile(text: str) -> list[str]:
