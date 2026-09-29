@@ -5,10 +5,19 @@
 #define HARVEST_GAME_CLUAMANAGER_H
 
 namespace harvest {
+namespace entity {
+class CBuildingEntity;
+} // end namespace entity
+
 namespace game {
 
 //! Runs the Lua scripts of scenarios and the creative mode.
-class CLuaManager;
+class CLuaManager
+{
+public:
+    //! Tells the scripts that a building sent out a spark.
+    void hookEnergySparkCreated(int sparkId, entity::CBuildingEntity* building);
+};
 
 extern CLuaManager* gp_luaManager;
 

@@ -14,8 +14,8 @@
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
-    "config/1.18-linux-amd64/symbols.tsv": "8b07999ffe2ccf7356690313276139715cab657e8b23bf9aee3a15b42327b98e",
-    "config/1.18-linux-amd64/units.toml": "001d52154089c5a2509c71d59a3fc1fd5b9333ac1add7cf0d80c34931aa62144"
+    "config/1.18-linux-amd64/symbols.tsv": "389dd5a3a0e98ab87b4285b68b07adb6ff08ccc572111ace2a608cffbbbfcf0f",
+    "config/1.18-linux-amd64/units.toml": "958f845c75cfb408d8a4c3d0f98277e1cf8b729ca5c4af27de2f13a22fd4f1cc"
   },
   "units": [
     {
@@ -3086,7 +3086,7 @@
           "exact": false,
           "address": "0x45bf40",
           "first_difference": 198,
-          "differing_bytes": 5252,
+          "differing_bytes": 5250,
           "misplaced_symbols": [
             {
               "symbol": "_ZN7harvest4game17CThreatLevelLogic21initAttackSectionAreaEiiiRN2ox4core5CRectIfEE",
@@ -3290,24 +3290,6 @@
               "matches": false
             },
             {
-              "offset": 8231,
-              "type": 2,
-              "symbol": "_ZN7harvest8settings15gp_systemConfigE",
-              "addend": -4,
-              "reason": "no target address for symbol",
-              "candidate": "0x86bc80",
-              "matches": false
-            },
-            {
-              "offset": 8256,
-              "type": 2,
-              "symbol": "_ZN7harvest8settings13CSystemConfig16getLocalizedTextEPKwz",
-              "addend": -4,
-              "reason": "no target address for symbol",
-              "candidate": "0x493080",
-              "matches": false
-            },
-            {
               "offset": 8424,
               "type": 2,
               "symbol": ".LC21",
@@ -3370,8 +3352,8 @@
               "type": 2,
               "symbol": "_ZN7harvest8settings15gp_systemConfigE",
               "addend": -4,
-              "reason": "no target address for symbol",
-              "candidate": "0x5fcae49e",
+              "destination": "0x86bc80",
+              "reason": "different destination",
               "matches": false
             },
             {
@@ -3388,8 +3370,8 @@
               "type": 2,
               "symbol": "_ZN7harvest8settings13CSystemConfig16getLocalizedTextEPKwz",
               "addend": -4,
-              "reason": "no target address for symbol",
-              "candidate": "-0x74ba1bdd",
+              "destination": "0x493080",
+              "reason": "different destination",
               "matches": false
             },
             {
@@ -6514,7 +6496,7 @@
           "src/HarvestFull/harvest/entity/CMissileTurretEntity.h": "e7490b1d80dbbd55d500361c1e7c2c93a137b7b59bef34d57d2028f423681933",
           "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
           "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "fdc59397ae857440220258b8355a4c860943cda66ce4c1cb9d8cc42defc64442",
-          "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "f9005ea8ba96840f8f967fc286026b0b1bad3afca417539e5d9f4efcd10f9b7c",
+          "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "77125a31b58d71b4a0f59372bf5128edb7b1dbb50e58eee42d1cb54b71c4afef",
           "src/ox/entity/ITestEntityFunction.h": "b178c234a2902d6a14e5584e0870db48927a7a02e2fd3d12a01ff408ffa4f9af",
           "src/ox/io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
@@ -7056,7 +7038,7 @@
           "src/HarvestFull/harvest/CHarvestFullMain.h": "d42cdbde7d9b5eb4f7c1a5ce18d92bb320903dab3b185a5deb04b8d02b65ccff",
           "src/HarvestFull/harvest/entity/CBuildableItems.h": "ff8ceb19b847ebe27b865ae27a13086549be07572bd63d82177037353b1b97b3",
           "src/HarvestFull/harvest/entity/CCreativeEntity.h": "00ed7b7cfb005f702cb0f8a2e1d458fb53eed06c53ab536dcc6eecdde95446fe",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "9b78cf8649e660bbbe6a9c395c80b91322d3d7412f4368ff67b2e4234384c705"
+          "src/HarvestFull/harvest/game/CLuaManager.h": "494df5bc8e6fdc7fb4f90d6f6ba8ea26e909ce2fc050bbdc47b67c505115fed9"
         },
         "system_headers": 128,
         "object_sha256": "2cec880ee8fe6454c360249cade4d14cf56f59c1f2003442c21841fcb0b79286"
@@ -7536,6 +7518,492 @@
         },
         "system_headers": 124,
         "object_sha256": "e16db8d876f50bf94b16d6a3658b481260f483d27dff6a89c5a6dd4836366b26"
+      }
+    },
+    {
+      "unit": "HarvestFull/harvest/entity/CSparkProducerEntity.cpp",
+      "object_sha256": "4d3027a88837547686c471335243ecd2ce1c57b3a8392ff4e0d3f7e980c636d8",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 1989,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x4429d0",
+          "references": 94,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntity12updateSpriteEf",
+              "address": "0x4429d0",
+              "size": 26,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntity23getCurrentDisplaySpriteEv",
+              "address": "0x4429f0",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntity6renderERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x442a00",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN7harvest6entity20CSparkProducerEntityC2Eff",
+              "address": "0x442a10",
+              "size": 59,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntity14readEntityDataEPN2ox2io9IReadFileEi",
+              "address": "0x442a50",
+              "size": 160,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+              "address": "0x442af0",
+              "size": 87,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntity13getInfoStringEv",
+              "address": "0x442b50",
+              "size": 64,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntity17getMiniStatStringEv",
+              "address": "0x442b90",
+              "size": 165,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntity7onSparkEPNS0_12CSparkEntityE",
+              "address": "0x442c40",
+              "size": 11,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntity11updateLogicEf",
+              "address": "0x442c50",
+              "size": 448,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntityD0Ev",
+              "address": "0x442e10",
+              "size": 77,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntityD1Ev",
+              "address": "0x442e60",
+              "size": 69,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntityD2Ev",
+              "address": "0x442eb0",
+              "size": 69,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntityC2Eff",
+              "address": "0x442f00",
+              "size": 325,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntityC1Eff",
+              "address": "0x443050",
+              "size": 325,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 12,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x86b8c8",
+          "references": 0
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10killEntityEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10killEntityEv",
+          "exact": true,
+          "address": "0x416670",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10killEntityEv",
+              "address": "0x416670",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity8isKilledEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity8isKilledEv",
+          "exact": true,
+          "address": "0x416680",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity8isKilledEv",
+              "address": "0x416680",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "size": 6,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "exact": true,
+          "address": "0x416620",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity14getRenderLayerEv",
+              "address": "0x416620",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10wantsSparkEv",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10wantsSparkEv",
+          "exact": true,
+          "address": "0x41b040",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10wantsSparkEv",
+              "address": "0x41b040",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "size": 6,
+          "placement": "symbol: _ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "exact": true,
+          "address": "0x416630",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+              "address": "0x416630",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "size": 9,
+          "placement": "symbol: _ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "exact": true,
+          "address": "0x416640",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity14getSparkHeightEv",
+              "address": "0x416640",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity12getSellValueEv",
+          "size": 14,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity12getSellValueEv",
+          "exact": true,
+          "address": "0x416660",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity12getSellValueEv",
+              "address": "0x416660",
+              "size": 14,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "exact": true,
+          "address": "0x416690",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+              "address": "0x416690",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "exact": true,
+          "address": "0x4166a0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+              "address": "0x4166a0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "exact": true,
+          "address": "0x4166b0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+              "address": "0x4166b0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "exact": true,
+          "address": "0x4166c0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+              "address": "0x4166c0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity20CSparkProducerEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity20CSparkProducerEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "exact": true,
+          "address": "0x4431b0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity20CSparkProducerEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x4431b0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity20CSparkProducerEntity16getCollisionSizeEv",
+          "size": 9,
+          "placement": "symbol: _ZNK7harvest6entity20CSparkProducerEntity16getCollisionSizeEv",
+          "exact": true,
+          "address": "0x4431a0",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity20CSparkProducerEntity16getCollisionSizeEv",
+              "address": "0x4431a0",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".gcc_except_table",
+          "size": 140,
+          "placement": "exception frames",
+          "exact": true,
+          "address": "0x65aa93",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity20CSparkProducerEntityE",
+          "size": 312,
+          "placement": "symbol: _ZTVN7harvest6entity20CSparkProducerEntityE",
+          "exact": true,
+          "address": "0x5f52e0",
+          "references": 38
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity20CSparkProducerEntityE",
+          "size": 40,
+          "placement": "symbol: _ZTSN7harvest6entity20CSparkProducerEntityE",
+          "exact": true,
+          "address": "0x5f5420",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity20CSparkProducerEntityE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity20CSparkProducerEntityE",
+          "exact": true,
+          "address": "0x5f5450",
+          "references": 3
+        },
+        {
+          "name": ".rodata",
+          "size": 84,
+          "placement": "references",
+          "exact": true,
+          "address": "0x5eff60",
+          "references": 0
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
+          "-MD",
+          "-MF",
+          "/out/HarvestFull__harvest__entity__CSparkProducerEntity.d",
+          "-c",
+          "src/HarvestFull/harvest/entity/CSparkProducerEntity.cpp",
+          "-o",
+          "/out/HarvestFull__harvest__entity__CSparkProducerEntity.o"
+        ],
+        "inputs": {
+          "src/HarvestFull/harvest/entity/CSparkProducerEntity.cpp": "006f1b062b13a181811d9740a1045071fdc09a2001797cea5a6d596ede4f2ece",
+          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
+          "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "77125a31b58d71b4a0f59372bf5128edb7b1dbb50e58eee42d1cb54b71c4afef",
+          "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
+          "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
+          "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
+          "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
+          "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
+          "third_party/luajit-2.0.0-beta8/include/luaconf.h": "1a401f42e1865b5ffdee60e93d64bfb94bad10703fa03dd61efe76124d888975",
+          "third_party/luajit-2.0.0-beta8/include/lauxlib.h": "a1be3c2d133777c618c2d88fa7cdcb013d5372b0959b77b235cd7de67323cc23",
+          "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
+          "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "0c5d118f891bf4a3a64f6d20d67c7ba0fb35d6f4096062ad6744c465984082d2",
+          "src/ox/entity/COxEntityManager.h": "2ac15e353a6d7fee513eb98cbbf5169e988470711b6a7697a7a43d24a2276e7a",
+          "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "494df5bc8e6fdc7fb4f90d6f6ba8ea26e909ce2fc050bbdc47b67c505115fed9",
+          "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
+          "src/ox/algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
+          "src/ox/io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
+          "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
+          "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
+          "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/video/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/video/ISpritePackage.h": "1c83a8f36232f0523f5904df2e8fc7714228f81d3f8c405d97d71dcce2ad56c5",
+          "src/ox/video/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/video/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903"
+        },
+        "system_headers": 132,
+        "object_sha256": "4d3027a88837547686c471335243ecd2ce1c57b3a8392ff4e0d3f7e980c636d8"
       }
     }
   ],
