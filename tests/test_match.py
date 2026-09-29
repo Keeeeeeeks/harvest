@@ -259,6 +259,26 @@ def test_unit_matches_and_mutations_are_rejected(linux_target, compiler):
         assert not result["exact"], name
 
 
+@pytest.mark.originals
+@pytest.mark.toolchain
+def test_source_overlay_compiles_at_the_canonical_path(linux_target, compiler):
+    source = builds.ROOT / "src" / UNIT
+    original = source.read_bytes()
+    replacement = compiler.out / "overlay.cpp"
+    replacement.write_bytes(original)
+    obj, metadata = compiler.compile(source, "overlay-clean", source_override=replacement)
+    assert unit_result(Elf.load(obj, "ET_REL"), linux_target)["exact"]
+    assert metadata["inputs"][f"src/{UNIT}"] == match.digest(original)
+    assert f"src/{UNIT}" in metadata["command"]
+    mutated = original.replace(b"return Len - Pos;", b"return Len - Pos + 1;")
+    assert mutated != original
+    replacement.write_bytes(mutated)
+    obj, metadata = compiler.compile(source, "overlay-mutated", source_override=replacement)
+    assert not unit_result(Elf.load(obj, "ET_REL"), linux_target)["exact"]
+    assert metadata["inputs"][f"src/{UNIT}"] == match.digest(mutated)
+    assert source.read_bytes() == original
+
+
 def test_learning_reports_disagreeing_references_in_one_function():
     function = {
         "symbol": NAME,

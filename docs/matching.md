@@ -186,6 +186,12 @@ functions that match everywhere else, when every such reference agrees (evidence
 and of the unit's own global functions that match exactly (evidence `match:<unit>`), so units that
 call them can resolve those calls.
 
+## Definition-order search
+
+For bounded definition-order experiments, see [Definition-order search](search.md). `hv search`
+uses explicit source blocks, preserves existing exact matches, saves a candidate patch and verifies
+an improvement before optional application.
+
 ## Shared headers
 
 A recovered unit declares what it uses from classes it does not own (for game code these are mostly

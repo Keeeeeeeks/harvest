@@ -33,11 +33,17 @@ class Compiler:
             raise ValueError("installed packages differ from toolchain/manifest.tsv")
         self.manifest_sha256 = builds.sha256_file(MANIFEST)
 
-    def command(self, *args: str) -> str:
+    def command(self, *args: str, source_override: tuple[Path, Path] | None = None) -> str:
+        mounts = []
+        if source_override is not None:
+            source, replacement = (p.resolve() for p in source_override)
+            if not source.is_relative_to(builds.ROOT) or not replacement.is_relative_to(self.out):
+                raise ValueError("source override must map a repository file to a compiler output file")
+            mounts = ["-v", f"{replacement}:/work/{source.relative_to(builds.ROOT)}:ro"]
         return run(
             "docker", "run", "--rm", "--network=none", "--platform", "linux/amd64",
             "-v", f"{builds.ROOT}:/work:ro", "-v", f"{self.out}:/out", "-w", "/work",
-            self.image_id, *args,
+            *mounts, self.image_id, *args,
         )  # fmt: skip
 
     def container_path(self, path: Path) -> str:
@@ -54,7 +60,7 @@ class Compiler:
             return None
         return builds.ROOT / path
 
-    def compile(self, source: Path, name: str) -> tuple[Path, dict]:
+    def compile(self, source: Path, name: str, *, source_override: Path | None = None) -> tuple[Path, dict]:
         obj, depfile = self.out / f"{name}.o", self.out / f"{name}.d"
         command = [
             self.flags["compiler"],
@@ -67,7 +73,8 @@ class Compiler:
             "-o",
             f"/out/{name}.o",
         ]
-        self.command(*command)
+        override = (source, source_override) if source_override is not None else None
+        self.command(*command, source_override=override)
         inputs, system = {}, []
         for dependency in parse_depfile(depfile.read_text()):
             host = self.host_path(dependency)
@@ -75,7 +82,12 @@ class Compiler:
                 system.append(dependency)
             else:
                 key = str(host.relative_to(builds.ROOT)) if host.is_relative_to(builds.ROOT) else str(host)
-                inputs[key] = builds.sha256_file(host)
+                actual = (
+                    source_override
+                    if source_override is not None and host.resolve() == source.resolve()
+                    else host
+                )
+                inputs[key] = builds.sha256_file(actual)
         metadata = {
             "container_image_id": self.image_id,
             "compiler_version": self.version,
