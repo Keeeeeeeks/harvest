@@ -86,6 +86,9 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `ox/io/CMemWriteFile.cpp` | 18/18 | `IWriteFile` from Irrlicht 0.7; the class itself is Oxeye's |
 | `ox/net/CHTTPConnectionHandler.cpp` | 18/19 | `OnEvent` differs only in one register choice; function order differs |
 | `ox/net/CVariablePacket.cpp` | 32/32 | packet parser and builder; function order differs |
+| `ox/algo/CRand.cpp`, `CSimplePress.cpp`, `CTimeCounter.cpp` | 35/35 | exact |
+| `ox/core/CBasic.cpp`, `CCipherKey.cpp`, `CCriticalSection.cpp`, `CHiddenFloat.cpp`, `CHiddenInt.cpp`, `CThread.cpp` | 61/61 | exact |
+| `HarvestFull/harvest/game/CThreatLevel.cpp` | 76/81 | game modes and waves; five functions differ only in register allocation (and one switch layout) |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
@@ -107,8 +110,18 @@ Findings:
 - GCC's inlining and register allocation depend on the whole object: changing `OnEvent` changed
   whether `subString` was inlined (through estimated call frequencies) and the registers in `doGet`.
   Match a unit's biggest function before trusting its neighbours.
-- Single-byte `nop` padding marks the gap between separate input sections (a new object or a COMDAT
-  section); within one section the assembler pads with multi-byte nops.
+- Runs of single-byte `nop`s mark the gap between separate input sections (a new object or a COMDAT
+  section); within one section the assembler pads with multi-byte nops (a lone 0x90 is either).
+- Each object's iostream static initializer stores its own `.bss` slot, and the slots are consecutive
+  in link order, which gives a unit's boundaries and its `.bss` placement.
+- Register allocation follows the order local variables are declared and whether a value reuses a
+  variable (`level = (level + 1) / 2` rather than a new `count`); when only registers differ, try
+  declaration orders before rewriting logic.
+- GCC's fold moves a plain variable to the right of `==`, so `c == table[i]` still compares
+  `table[i], c`; to get the other operand order compare two locals.
+- Output order moves with where a function is defined even when it is inlined everywhere: the Wave
+  accessors of `CThreatLevel` sit in the Wave section of the file although Mac lists them next to
+  their `CThreatLevel` wrappers.
 - Spelling matters and the original is not minimal: `Size < Pos + finalPos`, a max-style
   `Size = Pos < Size ? Size : Pos`, an explicit `return CString<char>(result)` copy in `wideToAnsi`,
   early returns in `getContentLength`, a `for (;;)` state loop with per-branch `break`/`continue`.
@@ -128,8 +141,25 @@ by content: the string or constant at the referenced offset must equal the targe
 
 Each function of an executable section is compared at its own target address, so function bodies
 can match before the unit's order does; the section is exact only when every function lands at
-base + offset. Functions without a known name (static initializers, GCC clones) take the one FDE of
-their size in the known range. `hv match --learn` adds the addresses of unknown symbols referenced by
+base + offset. Functions without a known name (static initializers, GCC clones) take the target
+function after the one before them when its size fits, else the one FDE of their size in the known
+range, so a length difference in one function does not misplace the rest. `hv match --learn` adds the addresses of unknown symbols referenced by
 functions that match everywhere else, when every such reference agrees (evidence `reloc:<unit>:<fn>`),
 and of the unit's own global functions that match exactly (evidence `match:<unit>`), so units that
 call them can resolve those calls.
+
+## Shared headers
+
+A recovered unit declares what it uses from classes it does not own (for game code these are mostly
+`CWorld`, the entity classes, `CSystemConfig` and the event list) in the header the Mac debug map
+names for that class, marked partial:
+
+- only the members and functions the recovered units use, with virtual functions in vtable order
+  (their names and order come from the ported vtables);
+- sizes that matter to a caller (`new CAlienEntity` allocates 0x2f0 bytes) kept by an explicit
+  `Unrecovered` byte array until the owning unit is recovered;
+- file-level statics that every includer defines (`ENERGY_PROGRESS_COLOR`, the 4096.0 grid offset)
+  in a header, because each object initializes its own copy in its static initializer.
+
+The owning unit replaces the partial declaration when it is recovered. Game sources include from
+the source roots (`-Isrc -Isrc/HarvestFull`, as `ox/...` and `harvest/...`).

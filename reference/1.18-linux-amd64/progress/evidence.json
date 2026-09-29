@@ -13,8 +13,8 @@
     "tools/hv/toolchain.py": "a33df051573292fab8f8ecc395b7b764760eed8218bd485dbbc5ef3902a0e0e9",
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
-    "config/1.18-linux-amd64/flags.json": "1541385ddda3e7f5dfe3fbcd90701349d3b47c137c46f8beb511d9328e0d8467",
-    "config/1.18-linux-amd64/symbols.tsv": "4d79bd71a62e08f6a429a81897e83feabf14873cf477700695aa9d240b1df66d",
+    "config/1.18-linux-amd64/flags.json": "442842fdf987e85e5d2a60fa6c6fca039d4e5acb16e36d753b76d8fdb4aabe36",
+    "config/1.18-linux-amd64/symbols.tsv": "f5933f67af03848b1b95b3c6979e1b03746eaea443bdf0563427b9f90c53800e",
     "config/1.18-linux-amd64/units.toml": "485b0138b1b7ea5bb63fad8ef15a222783017e7a28a6d6f8bca3fb08e558fb51"
   },
   "units": [
@@ -3073,8 +3073,13 @@
           "exact": false,
           "address": "0x45bf40",
           "first_difference": 198,
-          "differing_bytes": 5254,
+          "differing_bytes": 5252,
           "misplaced_symbols": [
+            {
+              "symbol": "_ZN7harvest4game17CThreatLevelLogic21initAttackSectionAreaEiiiRN2ox4core5CRectIfEE",
+              "known": "0x45cf00",
+              "placed": "0x45cf20"
+            },
             {
               "symbol": "_ZN7harvest4game18CThreatLevelNormal6updateEf",
               "known": "0x45d150",
@@ -3101,6 +3106,56 @@
               "placed": "0x45d710"
             },
             {
+              "symbol": "_ZN7harvest4game17CThreatLevelLogicC1Ev",
+              "known": "0x45d870",
+              "placed": "0x45d890"
+            },
+            {
+              "symbol": "_ZN7harvest4game17CThreatLevelLogicC2Ev",
+              "known": "0x45d910",
+              "placed": "0x45d930"
+            },
+            {
+              "symbol": "_ZN7harvest4game20CThreatLevelCreativeC1Ev",
+              "known": "0x45d9b0",
+              "placed": "0x45d9d0"
+            },
+            {
+              "symbol": "_ZN7harvest4game20CThreatLevelCreativeC2Ev",
+              "known": "0x45d9d0",
+              "placed": "0x45d9f0"
+            },
+            {
+              "symbol": "_ZN7harvest4game16CThreatLevelRushC1Ev",
+              "known": "0x45d9f0",
+              "placed": "0x45da10"
+            },
+            {
+              "symbol": "_ZN7harvest4game16CThreatLevelRushC2Ev",
+              "known": "0x45da10",
+              "placed": "0x45da30"
+            },
+            {
+              "symbol": "_ZN7harvest4game18CThreatLevelInsaneC1Ev",
+              "known": "0x45da30",
+              "placed": "0x45da50"
+            },
+            {
+              "symbol": "_ZN7harvest4game18CThreatLevelInsaneC2Ev",
+              "known": "0x45da50",
+              "placed": "0x45da70"
+            },
+            {
+              "symbol": "_ZN7harvest4game18CThreatLevelNormalC1Ev",
+              "known": "0x45da70",
+              "placed": "0x45da90"
+            },
+            {
+              "symbol": "_ZN7harvest4game18CThreatLevelNormalC2Ev",
+              "known": "0x45da90",
+              "placed": "0x45dab0"
+            },
+            {
               "symbol": "_ZN7harvest4game16CThreatLevelWaveD1Ev",
               "known": "0x45dab0",
               "placed": "0x45dad0"
@@ -3119,6 +3174,36 @@
               "symbol": "_ZN7harvest4game16CThreatLevelWave20readGameModeSpecificEPN2ox2io9IReadFileEi",
               "known": "0x45ea50",
               "placed": "0x45ea80"
+            },
+            {
+              "symbol": "_ZN7harvest4game16CThreatLevelWaveC1Ev",
+              "known": "0x45eb40",
+              "placed": "0x45eb70"
+            },
+            {
+              "symbol": "_ZN7harvest4game12CThreatLevel22createLogicForGameModeEv",
+              "known": "0x45ecb0",
+              "placed": "0x45ece0"
+            },
+            {
+              "symbol": "_ZN7harvest4game12CThreatLevel4readEPN2ox2io9IReadFileEi",
+              "known": "0x45edc0",
+              "placed": "0x45edf0"
+            },
+            {
+              "symbol": "_ZN7harvest4game12CThreatLevelC1Ei",
+              "known": "0x45ee50",
+              "placed": "0x45ee80"
+            },
+            {
+              "symbol": "_ZN7harvest4game12CThreatLevelC2Ei",
+              "known": "0x45ee70",
+              "placed": "0x45eea0"
+            },
+            {
+              "symbol": "_ZN7harvest4game16CThreatLevelWaveC2Ev",
+              "known": "0x45ee90",
+              "placed": "0x45eec0"
             }
           ],
           "bad_references": [
@@ -3156,15 +3241,6 @@
               "addend": -4,
               "destination": "0x45c8d0",
               "reason": "different destination",
-              "matches": false
-            },
-            {
-              "offset": 4818,
-              "type": 2,
-              "symbol": "_ZN7harvest4game6CWorld27hasWorldExpandedAtLeastOnceEv",
-              "addend": -4,
-              "reason": "no target address for symbol",
-              "candidate": "0x45fe20",
               "matches": false
             },
             {
@@ -4311,14 +4387,7 @@
               "size": 460,
               "fde": true,
               "global": true,
-              "exact": false,
-              "exact_but_unknown": true,
-              "candidates": [
-                [
-                  "_ZN7harvest4game6CWorld27hasWorldExpandedAtLeastOnceEv",
-                  "0x45fe20"
-                ]
-              ]
+              "exact": true
             },
             {
               "symbol": "_ZN7harvest4game17CThreatLevelLogic20initAttackBorderAreaEiRN2ox4core5CRectIfEE",
@@ -4865,7 +4934,7 @@
           "/out/HarvestFull__harvest__game__CThreatLevel.o"
         ],
         "inputs": {
-          "src/HarvestFull/harvest/game/CThreatLevel.cpp": "28e4f4666a5c2d84221c36bfc8c8d30c93f585316b3b078747165287ad31180e",
+          "src/HarvestFull/harvest/game/CThreatLevel.cpp": "5aa1ce9be21713b24f910cef2121c6cecd89b7305797e8abf054ad0de7e587d4",
           "src/HarvestFull/harvest/game/CThreatLevel.h": "af04d3cc1851ed4c49703dfc3d1399eae4b7667478b305bfa1ad38c70d37849d",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
           "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
@@ -4891,7 +4960,7 @@
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d"
         },
-        "system_headers": 120,
+        "system_headers": 117,
         "object_sha256": "b0c476c31e42bc49282c774aa4571698057f7ce34683d6b94393d22c6e7b71b8"
       }
     }

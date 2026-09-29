@@ -7,5 +7,5 @@
     "-Isrc",
     "-Isrc/HarvestFull"
   ],
-  "scope": "reproduces ox/io/CMemReadFile.cpp exactly; not yet confirmed for other units"
+  "scope": "reproduces every recovered unit; -I only adds the source roots"
 }

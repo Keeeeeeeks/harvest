@@ -1,7 +1,8 @@
 // Recovered for Harvest from the Mac and Linux 1.18 builds; not the original source.
 
 #include "harvest/game/CThreatLevel.h"
-// The object has an iostream static initializer; the header that pulled it in (before the game headers) is not identified yet.
+// The object has an iostream static initializer, set up before the game headers' statics; the
+// header that pulled it in is not identified yet.
 #include <iostream>
 #include "harvest/game/CWorld.h"
 #include "harvest/entity/CAlienEntity.h"
@@ -13,7 +14,6 @@
 #include "ox/core/CBasic.h"
 #include "ox/event/IEventReceiver.h"
 #include "ox/io/CHelpIO.h"
-#include <cstring>
 
 namespace harvest {
 namespace game {
@@ -64,6 +64,7 @@ static const SWaveDefinition WAVE_DEFINITIONS[3][10] =
         { L"Everything", { 20, 10, 0, 0, 15, 0, 5, 0, 5, 0, 0, 0, 0, 0 } }
     }
 };
+
 CThreatLevel::CThreatLevel(int gameMode)
     : Logic(0), GameMode(gameMode)
 {
