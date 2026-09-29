@@ -1,10 +1,75 @@
 # Original build provenance
 
 The Linux amd64 DRM-free release remains the matching target. The Linux i386
-DRM-free release remains a reference. The owner recalls obtaining these through
-the **Indie Royale Summer Bundle**; this is a reported acquisition source, not an
-independently verified attribution. The archive names, sizes and SHA-256 pins are
+DRM-free release remains a reference. The archive names, sizes and SHA-256 pins are
 in [`builds.json`](../builds.json). No Steam download replaces either Linux build.
+
+## DRM-free Linux and the Indie Royale Summer Bundle
+
+The owner recalls obtaining the Linux archives through the **Indie Royale Summer
+Bundle**. The bundle's inclusion of Harvest and its DRM-free Linux offering are
+independently confirmed by the [June 30, 2012 bundle announcement on
+ModDB](https://www.moddb.com/news/the-summer-bundle), which explicitly lists Harvest
+for Windows, Mac and Linux with DRM-free downloads. [Contemporary GamingOnLinux
+coverage](https://www.gamingonlinux.com/2012/06/indie-royale-summer-bundle/) also
+lists Harvest's standalone Linux availability separately from Steam for PC/Mac.
+
+The local archives were rechecked on 2026-09-29:
+
+- `Harvest-1.18_amd64.tar.gz` matches the package SHA-256 in `builds.json`, and its
+  contained executable matches the current amd64 image pin. The executable,
+  README and launcher have tar timestamps of **2012-05-10 11:37:28 UTC**.
+- `Harvest-1.18_i386.tar.gz` likewise matches both package and executable pins.
+  Its executable, README and launcher are dated **2012-05-10 11:37:39 UTC**.
+- Both tarballs record owner `tommaso`; both READMEs identify Oxeye Game Studio,
+  version 1.18 and maintainer Tommaso Checchi.
+
+These details are consistent with the remembered bundle source and predate its
+June launch. However, no independently published bundle checksum or surviving
+download record was found for these exact tarballs. Thus the **bundle and Linux
+offering are confirmed; attribution of these particular archive bytes to that
+distribution remains corroborated owner recollection**, rather than a verified
+chain from the bundle download service. Tar metadata alone cannot identify the
+storefront, and the same release could have been distributed through several.
+
+## Versions and build-date evidence
+
+All five distinct executable images contain the game version string **`v1.18`**.
+The two DRM-free Linux READMEs also explicitly identify version 1.18. The shared
+version label does not imply identical executables or simultaneous builds.
+
+| Image | `v1.18` file offset | Date evidence (UTC) | Interpretation |
+| --- | --- | --- | --- |
+| Windows Steam i386 | `0x18e270` | 2012-04-18 05:26:01 | PE/COFF `TimeDateStamp` = `0x4f8e5069`; recorded image/link timestamp |
+| Mac Steam i386 | `0x1e9d93` | 2012-04-14 13:57:10 through 2012-04-19 02:23:40 | 264 `N_OSO` object-file modification timestamps in the linker debug map; not a final link timestamp |
+| DRM-free Linux amd64 | `0x206fb9` | 2012-05-10 11:37:28 | Executable's modification time stored in the release tarball; packaging evidence, not an embedded link timestamp |
+| DRM-free Linux i386 | `0x1e9905` | 2012-05-10 11:37:39 | Executable's modification time stored in the release tarball; packaging evidence, not an embedded link timestamp |
+| Steam Linux i386 | `0x1f0745` | 2012-10-31 11:38:59 | Steam manifest creation time; exact executable build/link date not established |
+
+The Mac's latest object record is `libdaisy.a(CVideoOpenGL.o)`. Its Steam manifest
+was created on April 25, after the recorded object timestamps. The app's
+`Info.plist` has generic bundle versions `1.0` / `1`, which do not agree with the
+game's embedded `v1.18`; use the latter for the game version. The plist also names
+the LLVM Clang compiler, Xcode build `4C199` and the macOS 10.6 SDK.
+
+The DRM-free ELF images identify `GCC: (Ubuntu 4.4.3-4ubuntu5) 4.4.3`. Steam Linux
+instead includes `4.4.3-4ubuntu5.1` and a GCC prerelease compiler string containing
+`20100116`; that date belongs to the compiler, not the Harvest build. ELF GNU
+build IDs are identifiers, not timestamps:
+
+| ELF image | GNU build ID |
+| --- | --- |
+| DRM-free amd64 | `18bed66b4e178a9cba577c0c5b5c4814ce721152` |
+| DRM-free i386 | `b6225cda3b12f63a3dbd4941f97bbd48ec1f47c9` |
+| Steam i386 | `613d2c33af67f009295bb0348615ac22e3fc6b11` |
+
+No exact link timestamp was found in the inspected Linux ELF headers/notes or
+printable date strings. The coarse Linux `linked` month in `builds.json` should
+therefore be understood as release-package dating, not independent linker evidence.
+The date distinctions above follow the [PE/COFF timestamp
+definition](https://learn.microsoft.com/en-us/windows/win32/debug/pe-format#coff-file-header-object-and-image)
+and LLVM's discussion of [`N_OSO` object modification
+timestamps](https://reviews.llvm.org/D65826).
 
 ## Steam acquisition, 2026-09-29
 
