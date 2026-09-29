@@ -217,28 +217,64 @@ def place_sections(
     return placements
 
 
+def infer_placements(obj: Elf, target: Elf, placements: dict, sections: list) -> None:
+    """Place unplaced data sections that placed code references, from the target's encoded values.
+
+    Each reference implies the referenced section's base: its target value minus the addend and the
+    symbol's offset. A section is placed only when every reference implies the same base; its bytes
+    are then compared like any other placed section.
+    """
+    implied: dict[int, set[int]] = {}
+    for index, (layout, _, _) in list(placements.items()):
+        section = sections[index]
+        if section["sh_type"] == "SHT_NOBITS":
+            continue
+        for relocation, symbol in obj.relocations(index):
+            shndx = symbol["st_shndx"]
+            rtype = relocation["r_info_type"]
+            width = WIDTHS.get(rtype)
+            if not isinstance(shndx, int) or shndx in placements or width is None:
+                continue
+            referenced = sections[shndx]
+            flags = referenced["sh_flags"]
+            if not flags & SHF_ALLOC or flags & SHF_EXECINSTR or is_merged(referenced):
+                continue
+            if referenced.name in SKIPPED or referenced["sh_type"] == "SHT_NOBITS":
+                continue
+            place = layout.address_of(relocation["r_offset"])
+            try:
+                field = target.read(place, width)
+            except ValueError:
+                continue
+            signed = rtype in PC_RELATIVE or rtype == R_X86_64_32S
+            value = int.from_bytes(field, "little", signed=signed)
+            absolute = value + place if rtype in PC_RELATIVE else value
+            implied.setdefault(shndx, set()).add(absolute - relocation["r_addend"] - symbol["st_value"])
+    for shndx, bases in implied.items():
+        if len(bases) == 1:
+            placements[shndx] = (Layout(bases.pop()), "references", [])
+
+
 def is_merged(section) -> bool:
     return bool(section["sh_flags"] & SHF_MERGE)
 
 
-def check_merged(obj: Elf, target: Elf, section, addend: int, rtype: int, value: int) -> tuple[bool, str]:
-    """Compare the object content a merged-section reference points to with the target's."""
+def check_merged(target: Elf, section, offset: int, address: int) -> tuple[bool, str]:
+    """Compare the object content at a merged-section offset with the target's at an address."""
     data = section.data()
-    if rtype in PC_RELATIVE:
-        # rip-relative operand with no trailing immediate: the referenced offset is addend + 4
-        offset = addend + 4
-    else:
-        offset = addend
+    size = section["sh_entsize"] or 1
     if not 0 <= offset < len(data):
         return False, "reference outside merged section"
     try:
         if section["sh_flags"] & SHF_STRINGS:
-            end = data.index(b"\0", offset)
-            ours = data[offset:end]
-            return target.cstring(value + (offset - addend)) == ours, "merged string"
-        size = section["sh_entsize"] or 1
+            # a string of size-byte elements, up to and including the zero element
+            end = offset
+            while data[end : end + size] != bytes(size):
+                end += size
+            ours = data[offset : end + size]
+            return target.read(address, len(ours)) == ours, "merged string"
         ours = data[offset : offset + size]
-        return target.read(value + (offset - addend), size) == ours, "merged constant"
+        return target.read(address, size) == ours, "merged constant"
     except ValueError as error:
         return False, str(error)
 
@@ -249,6 +285,7 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
     placements = place_sections(obj, resolver, explicit, fdes)
     symbols = section_symbols(obj)
     sections = list(obj.elf.iter_sections())
+    infer_placements(obj, target, placements, sections)
     results = []
     unplaced = []
     for index, section in enumerate(sections):
@@ -331,15 +368,14 @@ def compare_section(obj, target, section, index, layout, placements, resolver, s
         )
 
         target_section = sections[symbol["st_shndx"]] if isinstance(symbol["st_shndx"], int) else None
-        if (
-            target_section is not None
-            and is_merged(target_section)
-            and symbol["st_info"]["type"] == "STT_SECTION"
-        ):
-            # value of S + A as the target encodes it
+        if target_section is not None and is_merged(target_section) and symbol["st_shndx"] not in placements:
+            # S + A as the target encodes it; a rip-relative operand without a trailing immediate
+            # points 4 bytes past its addend
+            bias = 4 if rtype in PC_RELATIVE else 0
             absolute = field_value + place if rtype in PC_RELATIVE else field_value
+            ours = symbol["st_value"] + ref.addend + bias
             ref.resolved = True
-            ref.matches, ref.reason = check_merged(obj, target, target_section, ref.addend, rtype, absolute)
+            ref.matches, ref.reason = check_merged(target, target_section, ours, absolute + bias)
             relocated[offset : offset + width] = field_bytes if ref.matches else bytes(width)
             continue
 

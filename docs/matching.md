@@ -85,6 +85,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `ox/io/CMemReadFile.cpp` | 19/19 | Irrlicht 0.7 `IUnknown` → `IReadFile` → `CMemReadFile` |
 | `ox/io/CMemWriteFile.cpp` | 18/18 | `IWriteFile` from Irrlicht 0.7; the class itself is Oxeye's |
 | `ox/net/CHTTPConnectionHandler.cpp` | 18/19 | `OnEvent` differs only in one register choice; function order differs |
+| `ox/net/CVariablePacket.cpp` | 32/32 | packet parser and builder; function order differs |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
@@ -115,6 +116,13 @@ Findings:
   `wideToAnsi` frees an array with scalar `delete`, and the "Interrupted" event never sets its type.
 - When a section's known symbols disagree, the earliest one anchors it and the first misplaced
   symbol shows where the lengths diverge: the function just before it differs.
+
+## Inferred and merged sections
+
+A data section with no known symbol is placed where the references to it from placed code imply,
+when all of them agree, and is then compared byte for byte. References into merged string or
+constant sections (for example `.rodata.str1.1`, or `.rodata.str4.4` for wide strings) are checked
+by content: the string or constant at the referenced offset must equal the target's.
 
 ## Per-function placement and learned symbols
 

@@ -13,3 +13,7 @@
 ["ox/net/CHTTPConnectionHandler.cpp"]
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x874288
+
+["ox/net/CVariablePacket.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x87428c

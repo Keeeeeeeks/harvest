@@ -8,14 +8,14 @@
     "toolchain/manifest.tsv": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
     "tools/hv/builds.py": "05428a1bfbab5b76bf9405ce62639af7c2c89482a3eb6705d53eb1a9f1f68d01",
     "tools/hv/elf.py": "04fa3bd75eedfa843f3d76a0a7573d003c7703c0fe8abc7876d73387b33df150",
-    "tools/hv/match.py": "66f8238ee86ff2b497519bff73f15fb94982a0d6c62919de42b1725c8f670e74",
+    "tools/hv/match.py": "820a8814c0324da376c436976e42410946a47be7c92e5b7fab1dbf914d245b89",
     "tools/hv/symbols.py": "0d9150908ba72df692193dbeabb92d9dc3c43830bab42f029a098da5f5f9e76c",
     "tools/hv/toolchain.py": "a33df051573292fab8f8ecc395b7b764760eed8218bd485dbbc5ef3902a0e0e9",
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "41f4d47d84a287776141d7dfa138c0a5159bdba13d038dcf7ef2efd5e5c153bd",
-    "config/1.18-linux-amd64/symbols.tsv": "7d124792c6e1f489efa5279d456ef9c79e08e2de70aa4005c683049e44548898",
-    "config/1.18-linux-amd64/units.toml": "0c29573be5a0ad0c0b077477c18923594d2368a79e68a78127d369e1de169f20"
+    "config/1.18-linux-amd64/symbols.tsv": "64f0eda9e9d83b13925428f796024d47cdf77fcdc516afa33565696884d0c131",
+    "config/1.18-linux-amd64/units.toml": "1966e3a42f4fb2c814602faa920c1b1b7e5959e1fff8db87b3d09d6369dbeef1"
   },
   "units": [
     {
@@ -663,7 +663,7 @@
           "exact": false,
           "address": "0x5ec670",
           "first_difference": 4580,
-          "differing_bytes": 574,
+          "differing_bytes": 571,
           "misplaced_symbols": [
             {
               "symbol": "_ZN2ox3net22CHTTPConnectionHandlerC1Ev",
@@ -755,8 +755,7 @@
               "type": 10,
               "symbol": ".LC7",
               "addend": 1,
-              "reason": "no target address for symbol",
-              "candidate": "0xc",
+              "reason": "unmapped or truncated range: 0xd+0x2",
               "matches": false
             },
             {
@@ -838,15 +837,6 @@
               "addend": -4,
               "destination": "0x409c20",
               "reason": "different destination",
-              "matches": false
-            },
-            {
-              "offset": 5241,
-              "type": 10,
-              "symbol": ".LC11",
-              "addend": 1,
-              "reason": "no target address for symbol",
-              "candidate": "0x622e2d",
               "matches": false
             },
             {
@@ -1178,6 +1168,396 @@
         },
         "system_headers": 115,
         "object_sha256": "0939af1d882e2e30f77ddec6a5c1aaffe29c0650f73ec15e3059b1a0020b2dab"
+      }
+    },
+    {
+      "unit": "ox/net/CVariablePacket.cpp",
+      "object_sha256": "42729ab436f49920d6625ce00d0ad2c14e35733fe706cae38e6db8f46042056c",
+      "exact": false,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 2612,
+          "placement": "symbol: _ZN2ox3net21CVariablePacketParserC2EPKv",
+          "exact": false,
+          "address": "0x5ee180",
+          "misplaced_symbols": [
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilderD0Ev",
+              "known": "0x5ee8b0",
+              "placed": "0x5ee350"
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParserD0Ev",
+              "known": "0x5ee8e0",
+              "placed": "0x5ee380"
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder10appendDataEPKvi",
+              "known": "0x5ee350",
+              "placed": "0x5ee390"
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder12appendStringERKNS_4core7CStringIcEE",
+              "known": "0x5ee440",
+              "placed": "0x5ee480"
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder10appendByteEh",
+              "known": "0x5ee450",
+              "placed": "0x5ee490"
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder11appendShortEs",
+              "known": "0x5ee470",
+              "placed": "0x5ee4b0"
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder16appendWideStringERKNS_4core7CStringIwEE",
+              "known": "0x5ee490",
+              "placed": "0x5ee4d0"
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder11appendFloatEf",
+              "known": "0x5ee4d0",
+              "placed": "0x5ee510"
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder9appendIntEi",
+              "known": "0x5ee4f0",
+              "placed": "0x5ee530"
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilderC2Ei",
+              "known": "0x5ee510",
+              "placed": "0x5ee590"
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser20fetchFixedWideStringERNS_4core7CStringIwEEi",
+              "known": "0x5ee590",
+              "placed": "0x5ee5d0"
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser16fetchFixedStringERNS_4core7CStringIcEEi",
+              "known": "0x5ee700",
+              "placed": "0x5ee740"
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser10fetchBytesEPhi",
+              "known": "0x5ee860",
+              "placed": "0x5ee8a0"
+            }
+          ],
+          "references": 60,
+          "functions": [
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParserC2EPKv",
+              "address": "0x5ee180",
+              "size": 32,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParserC1EPKv",
+              "address": "0x5ee1a0",
+              "size": 32,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParserD2Ev",
+              "address": "0x5ee1c0",
+              "size": 8,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParserD1Ev",
+              "address": "0x5ee1d0",
+              "size": 8,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser11getPacketIdEv",
+              "address": "0x5ee1e0",
+              "size": 4,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser8fetchIntEv",
+              "address": "0x5ee1f0",
+              "size": 30,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser9fetchByteEv",
+              "address": "0x5ee210",
+              "size": 29,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser10fetchShortEv",
+              "address": "0x5ee230",
+              "size": 31,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser10fetchFloatEv",
+              "address": "0x5ee250",
+              "size": 36,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder9setHeaderEv",
+              "address": "0x5ee280",
+              "size": 12,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder15getPacketLengthEv",
+              "address": "0x5ee290",
+              "size": 4,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder10sendPacketEPNS0_14INetworkDeviceEii",
+              "address": "0x5ee2a0",
+              "size": 42,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder13getPacketDataEv",
+              "address": "0x5ee2d0",
+              "size": 5,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN2ox3net21CVariablePacketParserC2EPKv",
+              "address": "0x5ee2e0",
+              "size": 38,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilderD1Ev",
+              "address": "0x5ee310",
+              "size": 26,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilderD2Ev",
+              "address": "0x5ee330",
+              "size": 26,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilderD0Ev",
+              "address": "0x5ee8b0",
+              "size": 34,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParserD0Ev",
+              "address": "0x5ee8e0",
+              "size": 12,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder10appendDataEPKvi",
+              "address": "0x5ee350",
+              "size": 238,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder12appendStringERKNS_4core7CStringIcEE",
+              "address": "0x5ee440",
+              "size": 11,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder10appendByteEh",
+              "address": "0x5ee450",
+              "size": 29,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder11appendShortEs",
+              "address": "0x5ee470",
+              "size": 29,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder16appendWideStringERKNS_4core7CStringIwEE",
+              "address": "0x5ee490",
+              "size": 61,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder11appendFloatEf",
+              "address": "0x5ee4d0",
+              "size": 30,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilder9appendIntEi",
+              "address": "0x5ee4f0",
+              "size": 28,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilderC1Ei",
+              "address": "0x5ee550",
+              "size": 62,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net22CVariablePacketBuilderC2Ei",
+              "address": "0x5ee510",
+              "size": 62,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser20fetchFixedWideStringERNS_4core7CStringIwEEi",
+              "address": "0x5ee590",
+              "size": 362,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser16fetchFixedStringERNS_4core7CStringIcEEi",
+              "address": "0x5ee700",
+              "size": 351,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser10fetchBytesEPhi",
+              "address": "0x5ee860",
+              "size": 67,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser11fetchStringERNS_4core7CStringIcEE",
+              "address": "0x5ee8f0",
+              "size": 288,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox3net21CVariablePacketParser15fetchWideStringERNS_4core7CStringIwEE",
+              "address": "0x5eea10",
+              "size": 420,
+              "fde": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x87428c",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN2ox3net22CVariablePacketBuilderE",
+          "size": 32,
+          "placement": "symbol: _ZTVN2ox3net22CVariablePacketBuilderE",
+          "exact": true,
+          "address": "0x622f20",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTVN2ox3net21CVariablePacketParserE",
+          "size": 32,
+          "placement": "symbol: _ZTVN2ox3net21CVariablePacketParserE",
+          "exact": true,
+          "address": "0x622f40",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN2ox3net22CVariablePacketBuilderE",
+          "size": 34,
+          "placement": "symbol: _ZTSN2ox3net22CVariablePacketBuilderE",
+          "exact": true,
+          "address": "0x622f60",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN2ox3net22CVariablePacketBuilderE",
+          "size": 16,
+          "placement": "symbol: _ZTIN2ox3net22CVariablePacketBuilderE",
+          "exact": true,
+          "address": "0x622f90",
+          "references": 2
+        },
+        {
+          "name": ".rodata._ZTSN2ox3net21CVariablePacketParserE",
+          "size": 33,
+          "placement": "symbol: _ZTSN2ox3net21CVariablePacketParserE",
+          "exact": true,
+          "address": "0x622fa0",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN2ox3net21CVariablePacketParserE",
+          "size": 16,
+          "placement": "symbol: _ZTIN2ox3net21CVariablePacketParserE",
+          "exact": true,
+          "address": "0x622fd0",
+          "references": 2
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-MD",
+          "-MF",
+          "/out/ox__net__CVariablePacket.d",
+          "-c",
+          "src/ox/net/CVariablePacket.cpp",
+          "-o",
+          "/out/ox__net__CVariablePacket.o"
+        ],
+        "inputs": {
+          "src/ox/net/CVariablePacket.cpp": "a9aedecae23ba03b2ffeb2128064e4164acd38af07231f6215be47c656ff6f96",
+          "src/ox/net/CVariablePacket.h": "6cbd9d7aa0b01daf2ae4ff0cad6639d75f2397d6b861e280bbd997c65543462f",
+          "src/ox/net/../core/CString.h": "5eb0a22895bdd2152e329b4a0beb3399c6c7b1765cf973deb87cece6abc16dbc",
+          "src/ox/net/INetworkDevice.h": "2f29b75e1d69e6568a0c16c58feac3f348f9371c093a5fbf6904b9843111e0d4",
+          "src/ox/net/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f"
+        },
+        "system_headers": 102,
+        "object_sha256": "42729ab436f49920d6625ce00d0ad2c14e35733fe706cae38e6db8f46042056c"
       }
     }
   ],

@@ -2253,10 +2253,37 @@ address	size	symbol	evidence
 0x5ed4e0	695	_ZN2ox3net22CHTTPConnectionHandler16getContentLengthERNS_4core7CStringIcEE	manual:FDE layout of the CHTTPConnectionHandler object (sizes, C2 before C1 as in GCC output)
 0x5ed7a0	1682	_ZN2ox3net22CHTTPConnectionHandler7OnEventERKNS_5event6SEventE	mac-vtable:_ZTVN2ox3net22CHTTPConnectionHandlerE:2
 0x5edf30	585	_ZNK2ox4core7CStringIcE14subStringToEndEi	reloc:ox/net/CHTTPConnectionHandler.cpp:_ZN2ox3net22CHTTPConnectionHandler16getContentLengthERNS_4core7CStringIcEE
+0x5ee180	32	_ZN2ox3net21CVariablePacketParserC2EPKv	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee1a0	32	_ZN2ox3net21CVariablePacketParserC1EPKv	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee1c0	8	_ZN2ox3net21CVariablePacketParserD2Ev	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
 0x5ee1d0	8	_ZN2ox3net21CVariablePacketParserD1Ev	mac-vtable:_ZTVN2ox3net21CVariablePacketParserE:2
+0x5ee1e0	4	_ZN2ox3net21CVariablePacketParser11getPacketIdEv	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee1f0	30	_ZN2ox3net21CVariablePacketParser8fetchIntEv	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee210	29	_ZN2ox3net21CVariablePacketParser9fetchByteEv	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee230	31	_ZN2ox3net21CVariablePacketParser10fetchShortEv	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee250	36	_ZN2ox3net21CVariablePacketParser10fetchFloatEv	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee280	12	_ZN2ox3net22CVariablePacketBuilder9setHeaderEv	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee290	4	_ZN2ox3net22CVariablePacketBuilder15getPacketLengthEv	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee2a0	42	_ZN2ox3net22CVariablePacketBuilder10sendPacketEPNS0_14INetworkDeviceEii	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee2d0	5	_ZN2ox3net22CVariablePacketBuilder13getPacketDataEv	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
 0x5ee310	26	_ZN2ox3net22CVariablePacketBuilderD1Ev	mac-vtable:_ZTVN2ox3net22CVariablePacketBuilderE:2
+0x5ee330	26	_ZN2ox3net22CVariablePacketBuilderD2Ev	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee350	238	_ZN2ox3net22CVariablePacketBuilder10appendDataEPKvi	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee440	11	_ZN2ox3net22CVariablePacketBuilder12appendStringERKNS_4core7CStringIcEE	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee450	29	_ZN2ox3net22CVariablePacketBuilder10appendByteEh	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee470	29	_ZN2ox3net22CVariablePacketBuilder11appendShortEs	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee490	61	_ZN2ox3net22CVariablePacketBuilder16appendWideStringERKNS_4core7CStringIwEE	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee4d0	30	_ZN2ox3net22CVariablePacketBuilder11appendFloatEf	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee4f0	28	_ZN2ox3net22CVariablePacketBuilder9appendIntEi	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee510	62	_ZN2ox3net22CVariablePacketBuilderC2Ei	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee550	62	_ZN2ox3net22CVariablePacketBuilderC1Ei	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee590	362	_ZN2ox3net21CVariablePacketParser20fetchFixedWideStringERNS_4core7CStringIwEEi	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee700	351	_ZN2ox3net21CVariablePacketParser16fetchFixedStringERNS_4core7CStringIcEEi	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5ee860	67	_ZN2ox3net21CVariablePacketParser10fetchBytesEPhi	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
 0x5ee8b0	34	_ZN2ox3net22CVariablePacketBuilderD0Ev	mac-vtable:_ZTVN2ox3net22CVariablePacketBuilderE:3
 0x5ee8e0	12	_ZN2ox3net21CVariablePacketParserD0Ev	mac-vtable:_ZTVN2ox3net21CVariablePacketParserE:3
+0x5ee8f0	288	_ZN2ox3net21CVariablePacketParser11fetchStringERNS_4core7CStringIcEE	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
+0x5eea10	420	_ZN2ox3net21CVariablePacketParser15fetchWideStringERNS_4core7CStringIwEE	manual:FDE layout of the CVariablePacket object, identified from Linux decompilation
 0x5eefa0	0	_ZTVN7harvest21CHarvestSuperReceiverE	rtti
 0x5eefe0	0	_ZTVN7harvest16CHarvestFullMainE	rtti
 0x5ef040	34	_ZTSN7harvest21CHarvestSuperReceiverE	rtti

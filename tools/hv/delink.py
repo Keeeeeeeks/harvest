@@ -210,7 +210,15 @@ def delink_unit(target: Elf, obj: Elf, result: dict, known: list[tuple[int, int,
     sections, symbols = [], []
     for index in sorted({f[3] for f in functions}):
         osec = obj_sections[index]
-        members = [f for f in functions if f[3] == index]
+        # our offsets, unless a longer target function before would overlap: then shift down
+        members, end = [], 0
+        for name, address, size, _, offset in sorted(
+            (f for f in functions if f[3] == index), key=lambda f: f[4]
+        ):
+            offset = max(offset, end)
+            members.append((name, address, size, index, offset))
+            end = offset + size
+        offset_of.update({name: (index, offset) for name, _, _, _, offset in members})
         data = bytearray(max([osec["sh_size"]] + [offset + size for _, _, size, _, offset in members]))
         section = Section(osec.name, b"", SHF_ALLOC | SHF_EXECINSTR, align=osec["sh_addralign"])
         for _, address, size, _, offset in members:
