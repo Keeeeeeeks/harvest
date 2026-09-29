@@ -7,15 +7,15 @@
     "uv.lock": "8b7a77a281f5a04a1bc023af1ba705e4ba3b439f10e749c5d134d481e9e4c3c0",
     "toolchain/manifest.tsv": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
     "tools/hv/builds.py": "05428a1bfbab5b76bf9405ce62639af7c2c89482a3eb6705d53eb1a9f1f68d01",
-    "tools/hv/elf.py": "04fa3bd75eedfa843f3d76a0a7573d003c7703c0fe8abc7876d73387b33df150",
-    "tools/hv/match.py": "84ad97c4fa499e9d521202f336e4d021418ae55632f65c37fd573145140bdff3",
+    "tools/hv/elf.py": "7e773b3cce554510657068b09557377a912007682dd3498613df5e9120f1ef8d",
+    "tools/hv/match.py": "f0cafaaceba507c0db00dfe8c16c857b27386b4d00bd3713892baf6a8324d750",
     "tools/hv/symbols.py": "0d9150908ba72df692193dbeabb92d9dc3c43830bab42f029a098da5f5f9e76c",
     "tools/hv/toolchain.py": "a33df051573292fab8f8ecc395b7b764760eed8218bd485dbbc5ef3902a0e0e9",
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
-    "config/1.18-linux-amd64/flags.json": "442842fdf987e85e5d2a60fa6c6fca039d4e5acb16e36d753b76d8fdb4aabe36",
-    "config/1.18-linux-amd64/symbols.tsv": "48ed884f8bf580d2304faad616161924229441e572469a13f283a45d436dfd3e",
-    "config/1.18-linux-amd64/units.toml": "4fbce8a13fb2039117877f818ffcab86c019499492e7af8d2de8ff8c360f85b4"
+    "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
+    "config/1.18-linux-amd64/symbols.tsv": "a17032f2b3725a696191b46cdebbc3e59a96cfa1d2123f3f4ca639d692f959dd",
+    "config/1.18-linux-amd64/units.toml": "48b41bde418334440c9716b1c2e57ada4946815583e4630fc4cacf84af53c9a6"
   },
   "units": [
     {
@@ -346,6 +346,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__io__CMemReadFile.d",
@@ -674,6 +675,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__io__CMemWriteFile.d",
@@ -1206,6 +1208,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__net__CHTTPConnectionHandler.d",
@@ -1637,6 +1640,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__net__CVariablePacket.d",
@@ -1834,6 +1838,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__algo__CTimeCounter.d",
@@ -1972,6 +1977,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__core__CCriticalSection.d",
@@ -2102,6 +2108,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__core__CThread.d",
@@ -2224,6 +2231,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__algo__CRand.d",
@@ -2426,6 +2434,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__core__CHiddenFloat.d",
@@ -2633,6 +2642,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__core__CHiddenInt.d",
@@ -2712,6 +2722,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__core__CBasic.d",
@@ -2875,6 +2886,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__core__CCipherKey.d",
@@ -3045,6 +3057,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__algo__CSimplePress.d",
@@ -4745,6 +4758,16 @@
           ]
         },
         {
+          "name": ".gcc_except_table",
+          "size": 418,
+          "placement": "exception frames",
+          "exact": false,
+          "address": "0x65b7f2",
+          "first_difference": 199,
+          "differing_bytes": 28,
+          "references": 0
+        },
+        {
           "name": ".rodata._ZTVN7harvest4game20CThreatLevelCreativeE",
           "size": 64,
           "placement": "symbol: _ZTVN7harvest4game20CThreatLevelCreativeE",
@@ -4913,9 +4936,7 @@
           "references": 2
         }
       ],
-      "unplaced_sections": [
-        ".gcc_except_table"
-      ],
+      "unplaced_sections": [],
       "compilation": {
         "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
@@ -4925,6 +4946,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/HarvestFull__harvest__game__CThreatLevel.d",
@@ -5228,6 +5250,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/ox__entity__COxEntity.d",
@@ -6230,6 +6253,14 @@
           "references": 17
         },
         {
+          "name": ".gcc_except_table",
+          "size": 303,
+          "placement": "exception frames",
+          "exact": true,
+          "address": "0x659f6d",
+          "references": 0
+        },
+        {
           "name": ".text._ZN7harvest6entity17CSparkListBuilder10testEntityEPN2ox6entity9COxEntityE",
           "size": 185,
           "placement": "symbol: _ZN7harvest6entity17CSparkListBuilder10testEntityEPN2ox6entity9COxEntityE",
@@ -6428,9 +6459,7 @@
           "references": 0
         }
       ],
-      "unplaced_sections": [
-        ".gcc_except_table"
-      ],
+      "unplaced_sections": [],
       "compilation": {
         "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
@@ -6440,6 +6469,7 @@
           "-O2",
           "-Isrc",
           "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
           "-MD",
           "-MF",
           "/out/HarvestFull__harvest__entity__CHarvestEntity.d",
@@ -6466,8 +6496,15 @@
           "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "8d939e342153c67e40f9d8d7dffd838296055ad307207529c803befc31c9faeb",
           "src/HarvestFull/harvest/entity/CConstructionEntity.h": "6ce24d5b3e524ea8b2c3ce34d03c6df71492715aff7b36cfe9d11f47eb6e49a8",
-          "src/HarvestFull/harvest/entity/CBuildingEntity.h": "ff56e1d7ea5fa099f396f4499f50bd416255bc3b5b275248c78192eb26a0b9b3",
-          "src/HarvestFull/harvest/entity/CCreativeEntity.h": "0ee872175ac130d45954c8429596cd20b0523c40b4f8fc4053b46ff44cec13a0",
+          "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
+          "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
+          "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
+          "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
+          "third_party/luajit-2.0.0-beta8/include/luaconf.h": "1a401f42e1865b5ffdee60e93d64bfb94bad10703fa03dd61efe76124d888975",
+          "third_party/luajit-2.0.0-beta8/include/lauxlib.h": "a1be3c2d133777c618c2d88fa7cdcb013d5372b0959b77b235cd7de67323cc23",
+          "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
+          "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
+          "src/HarvestFull/harvest/entity/CCreativeEntity.h": "00ed7b7cfb005f702cb0f8a2e1d458fb53eed06c53ab536dcc6eecdde95446fe",
           "src/HarvestFull/harvest/entity/CDefenseTowerEntity.h": "7300621ef432f7d7f93533ddf8bb0b5def4b5ecfe3c55b57554a22555014d9d4",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "1080e3efbd0be2c2a73adf85d5cbcfc481fa5944ab013d93a4a82d620306ac7f",
           "src/ox/entity/COxEntityManager.h": "e79e609eb23cd4421606bfff91d94a39687074dc4724a2ed93a7e76c00fe11ed",
@@ -6495,8 +6532,534 @@
           "src/ox/video/IVideoDriver.h": "7902574a531ce451183cb8788bee222d1abc759938170ff0094860c3a24aff74",
           "src/ox/video/../core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83"
         },
-        "system_headers": 124,
+        "system_headers": 132,
         "object_sha256": "15b4ae1b33bfdc9f0f248107f081641622b88b56d09c15ce687b4ccda042fde8"
+      }
+    },
+    {
+      "unit": "HarvestFull/harvest/entity/CBuildingEntity.cpp",
+      "object_sha256": "2cec880ee8fe6454c360249cade4d14cf56f59c1f2003442c21841fcb0b79286",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 1009,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x41ac30",
+          "references": 63,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity15CBuildingEntity20getDeathParticleNameEi",
+              "address": "0x41ac30",
+              "size": 23,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity16CBuildingLuaInfoC2EP9lua_State",
+              "address": "0x41ac50",
+              "size": 16,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity16CBuildingLuaInfoC1EP9lua_State",
+              "address": "0x41ac60",
+              "size": 16,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity16CBuildingLuaInfoD2Ev",
+              "address": "0x41ac70",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity16CBuildingLuaInfoD1Ev",
+              "address": "0x41ac80",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity16CBuildingLuaInfo6removeEP9lua_State",
+              "address": "0x41ac90",
+              "size": 21,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN7harvest6entity16CBuildingLuaInfo9classNameE",
+              "address": "0x41acb0",
+              "size": 59,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity16CBuildingLuaInfo16getDeathParticleEP9lua_State",
+              "address": "0x41acf0",
+              "size": 49,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity16CBuildingLuaInfo11getPositionEP9lua_State",
+              "address": "0x41ad30",
+              "size": 89,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity16CBuildingLuaInfo5getIdEP9lua_State",
+              "address": "0x41ad90",
+              "size": 32,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity16CBuildingLuaInfoD0Ev",
+              "address": "0x41adb0",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CBuildingEntity15getBuildingTypeEv",
+              "address": "0x41adc0",
+              "size": 81,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity16CBuildingLuaInfo15getBuildingTypeEP9lua_State",
+              "address": "0x41ae20",
+              "size": 31,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CBuildingEntityD0Ev",
+              "address": "0x41ae40",
+              "size": 77,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CBuildingEntityD1Ev",
+              "address": "0x41ae90",
+              "size": 69,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CBuildingEntityD2Ev",
+              "address": "0x41aee0",
+              "size": 69,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CBuildingEntityC1Eiiff",
+              "address": "0x41af30",
+              "size": 113,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity15CBuildingEntityC2Eiiff",
+              "address": "0x41afb0",
+              "size": 113,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".data",
+          "size": 144,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x868c40",
+          "references": 10
+        },
+        {
+          "name": ".bss",
+          "size": 12,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x86b634",
+          "references": 0
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10killEntityEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10killEntityEv",
+          "exact": true,
+          "address": "0x416670",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10killEntityEv",
+              "address": "0x416670",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity8isKilledEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity8isKilledEv",
+          "exact": true,
+          "address": "0x416680",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity8isKilledEv",
+              "address": "0x416680",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "size": 6,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "exact": true,
+          "address": "0x416620",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity14getRenderLayerEv",
+              "address": "0x416620",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity7onSparkEPNS0_12CSparkEntityE",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity7onSparkEPNS0_12CSparkEntityE",
+          "exact": true,
+          "address": "0x41b030",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity7onSparkEPNS0_12CSparkEntityE",
+              "address": "0x41b030",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10wantsSparkEv",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10wantsSparkEv",
+          "exact": true,
+          "address": "0x41b040",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10wantsSparkEv",
+              "address": "0x41b040",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "size": 6,
+          "placement": "symbol: _ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "exact": true,
+          "address": "0x416630",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+              "address": "0x416630",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "size": 9,
+          "placement": "symbol: _ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "exact": true,
+          "address": "0x416640",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity14getSparkHeightEv",
+              "address": "0x416640",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity16getCollisionSizeEv",
+          "size": 9,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity16getCollisionSizeEv",
+          "exact": true,
+          "address": "0x416650",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity16getCollisionSizeEv",
+              "address": "0x416650",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity12getSellValueEv",
+          "size": 14,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity12getSellValueEv",
+          "exact": true,
+          "address": "0x416660",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity12getSellValueEv",
+              "address": "0x416660",
+              "size": 14,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "exact": true,
+          "address": "0x416690",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+              "address": "0x416690",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "exact": true,
+          "address": "0x4166a0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+              "address": "0x4166a0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "exact": true,
+          "address": "0x4166b0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+              "address": "0x4166b0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "exact": true,
+          "address": "0x4166c0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+              "address": "0x4166c0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".gcc_except_table",
+          "size": 80,
+          "placement": "exception frames",
+          "exact": true,
+          "address": "0x658749",
+          "references": 0
+        },
+        {
+          "name": ".rodata",
+          "size": 248,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x5f0dc0",
+          "references": 15
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity16CBuildingLuaInfoE",
+          "size": 32,
+          "placement": "symbol: _ZTVN7harvest6entity16CBuildingLuaInfoE",
+          "exact": true,
+          "address": "0x5f0ec0",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity15CBuildingEntityE",
+          "size": 312,
+          "placement": "symbol: _ZTVN7harvest6entity15CBuildingEntityE",
+          "exact": true,
+          "address": "0x5f0ee0",
+          "references": 38
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity15CBuildingEntityE",
+          "size": 35,
+          "placement": "symbol: _ZTSN7harvest6entity15CBuildingEntityE",
+          "exact": true,
+          "address": "0x5f1020",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity15CBuildingEntityE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity15CBuildingEntityE",
+          "exact": true,
+          "address": "0x5f1050",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity16CBuildingLuaInfoE",
+          "size": 36,
+          "placement": "symbol: _ZTSN7harvest6entity16CBuildingLuaInfoE",
+          "exact": true,
+          "address": "0x5f1080",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity16CBuildingLuaInfoE",
+          "size": 16,
+          "placement": "symbol: _ZTIN7harvest6entity16CBuildingLuaInfoE",
+          "exact": true,
+          "address": "0x5f10b0",
+          "references": 2
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
+          "-MD",
+          "-MF",
+          "/out/HarvestFull__harvest__entity__CBuildingEntity.d",
+          "-c",
+          "src/HarvestFull/harvest/entity/CBuildingEntity.cpp",
+          "-o",
+          "/out/HarvestFull__harvest__entity__CBuildingEntity.o"
+        ],
+        "inputs": {
+          "src/HarvestFull/harvest/entity/CBuildingEntity.cpp": "9e9d2314de75da465da3c38f987158697e08c84c971e7242e49c656e1619b782",
+          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
+          "src/ox/core/CVector3d.h": "4099787dfd355a32eab0b991f008b8d3f4e4c92b471fc2617cd6c14810c4d48d",
+          "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.h": "5744a2d215b170b0f150c6fcfebc60285443a0a403f324c9b78c865573e66eae",
+          "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
+          "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/entity/../core/CVector3d.h": "4099787dfd355a32eab0b991f008b8d3f4e4c92b471fc2617cd6c14810c4d48d",
+          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
+          "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
+          "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
+          "third_party/luajit-2.0.0-beta8/include/luaconf.h": "1a401f42e1865b5ffdee60e93d64bfb94bad10703fa03dd61efe76124d888975",
+          "third_party/luajit-2.0.0-beta8/include/lauxlib.h": "a1be3c2d133777c618c2d88fa7cdcb013d5372b0959b77b235cd7de67323cc23",
+          "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
+          "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
+          "src/HarvestFull/harvest/CHarvestFullMain.h": "d42cdbde7d9b5eb4f7c1a5ce18d92bb320903dab3b185a5deb04b8d02b65ccff",
+          "src/HarvestFull/harvest/entity/CBuildableItems.h": "ff8ceb19b847ebe27b865ae27a13086549be07572bd63d82177037353b1b97b3",
+          "src/HarvestFull/harvest/entity/CCreativeEntity.h": "00ed7b7cfb005f702cb0f8a2e1d458fb53eed06c53ab536dcc6eecdde95446fe",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "9b78cf8649e660bbbe6a9c395c80b91322d3d7412f4368ff67b2e4234384c705"
+        },
+        "system_headers": 128,
+        "object_sha256": "2cec880ee8fe6454c360249cade4d14cf56f59c1f2003442c21841fcb0b79286"
       }
     }
   ],

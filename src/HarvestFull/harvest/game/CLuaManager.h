@@ -1,0 +1,18 @@
+// Recovered for Harvest from the Mac and Linux 1.18 builds; not the original source.
+// Partial: only what recovered units use is declared.
+
+#ifndef HARVEST_GAME_CLUAMANAGER_H
+#define HARVEST_GAME_CLUAMANAGER_H
+
+namespace harvest {
+namespace game {
+
+//! Runs the Lua scripts of scenarios and the creative mode.
+class CLuaManager;
+
+extern CLuaManager* gp_luaManager;
+
+} // end namespace game
+} // end namespace harvest
+
+#endif

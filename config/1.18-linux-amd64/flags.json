@@ -5,7 +5,8 @@
   "flags": [
     "-O2",
     "-Isrc",
-    "-Isrc/HarvestFull"
+    "-Isrc/HarvestFull",
+    "-Ithird_party/luajit-2.0.0-beta8/include"
   ],
-  "scope": "reproduces every recovered unit; -I only adds the source roots"
+  "scope": "reproduces every recovered unit; -I only adds the source roots and the Lua headers"
 }

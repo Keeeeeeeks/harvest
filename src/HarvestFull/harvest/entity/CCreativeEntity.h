@@ -23,6 +23,9 @@ public:
     virtual void renderGroundLayer(const ox::core::CPosition2d<float>& camera,
         const ox::core::CRect<int>& viewPort);
 
+    //! The id of the creative building this one is.
+    const char* getBuildingId();
+
 private:
     // The layout is not recovered yet; this keeps the Linux amd64 object size (0xb0).
     unsigned char Unrecovered[0xb0 - sizeof(CBuildingEntity)];

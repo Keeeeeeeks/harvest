@@ -90,6 +90,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `ox/core/CBasic.cpp`, `CCipherKey.cpp`, `CCriticalSection.cpp`, `CHiddenFloat.cpp`, `CHiddenInt.cpp`, `CThread.cpp` | 61/61 | exact |
 | `HarvestFull/harvest/game/CThreatLevel.cpp` | 76/81 | game modes and waves; five functions differ only in register allocation (and one switch layout) |
 | `ox/entity/COxEntity.cpp` | 25/25 | exact; keeps the 2d constructors' `Position.Y` typo |
+| `HarvestFull/harvest/entity/CBuildingEntity.cpp` | 31/31 | exact; the building's Lua view (Lunar method table) |
 | `HarvestFull/harvest/entity/CHarvestEntity.cpp` | 69/70 | `CEntity`, particles, special effects, spark search; `selectSparkTarget` differs in register allocation |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
@@ -156,6 +157,10 @@ An inline copy (a COMDAT section) kept from another object reads that object's c
 static, such as a header's `static const int` table, so its reference cannot land in our copy. A
 reference from such a section to a local object is checked by content: the target's object at the
 same place must hold our object's bytes.
+
+Exception tables (`.gcc_except_table`) are referenced only from `.eh_frame`, which is not compared.
+Each of our FDEs names its function and its table offset; the target FDE of the placed function
+gives the table's address, and the section is placed when every function implies the same base.
 
 ## Per-function placement and learned symbols
 
