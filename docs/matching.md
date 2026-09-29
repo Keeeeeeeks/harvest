@@ -93,9 +93,16 @@ declarations of `CCriticalSection` and `CThread`.
 
 Findings:
 
-- Linux function order within `.text` follows GCC 4.4's `cgraph_postorder` over the whole call graph
-  (callers first, nodes newest first, then reversed), including inline and external nodes. Source
-  order alone does not determine it; the CHTTPConnectionHandler order is still open.
+- Linux function order within `.text` follows GCC 4.4's `cgraph_expand_all_functions`: the reverse
+  of `cgraph_postorder`, which walks the node list newest first and emits callers before callees.
+  Inline copies are prepended to that list as the IPA inliner creates them, and each copy has the
+  function it was inlined into as its only caller, so a function's position follows the time of the
+  *last* inlining decision into it. That order comes from the inliner's badness heap, which depends
+  on the estimated sizes of the inline helpers (`CString`, `SServerInfo`, `wideToAnsi`). Two sources
+  that compile to the same bytes can still order differently, so the order carries information about
+  the exact form of shared inline code. CHTTPConnectionHandler's order is still open: Linux has
+  `C2 C1 joinThread <clone> doGet`, ours `<clone> C1 C2 doGet joinThread` (definition order already
+  follows Mac, which keeps source order). Useful tools: `-fdump-ipa-cgraph -fdump-ipa-inline`.
 - GCC's inlining and register allocation depend on the whole object: changing `OnEvent` changed
   whether `subString` was inlined (through estimated call frequencies) and the registers in `doGet`.
   Match a unit's biggest function before trusting its neighbours.
