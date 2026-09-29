@@ -21,7 +21,13 @@ FROM scratch
 ARG MIRROR
 COPY --from=bootstrap /rootfs /
 COPY --from=bootstrap /usr/share/keyrings/ubuntu-archive-removed-keys.gpg /etc/apt/trusted.gpg
-RUN /debootstrap/debootstrap --second-stage \
+# udev's postinst mknods templates into /lib/udev/devices. A rootless build cannot create device
+# nodes, and a container gets /dev from its runtime anyway, so a temporary /sbin/mknod (ahead of
+# /bin in debootstrap's PATH for maintainer scripts) reports the failure instead of aborting.
+RUN printf '#!/bin/sh\n/bin/mknod "$@" || echo "mknod $*: skipped" >&2\n' > /sbin/mknod \
+ && chmod +x /sbin/mknod \
+ && /debootstrap/debootstrap --second-stage \
+ && rm /sbin/mknod \
  && rm -rf /var/cache/apt/archives/*.deb
 RUN echo "deb $MIRROR lucid main universe" > /etc/apt/sources.list \
  && apt-get update \

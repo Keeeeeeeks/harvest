@@ -40,7 +40,8 @@ builds remain the target and reference; the differing Steam Linux build is archi
 separately. See [docs/provenance.md](docs/provenance.md) for acquisition evidence,
 checksums and download instructions.
 
-Build the toolchain image (needs Docker; on Apple Silicon it runs under x86-64 emulation):
+Build the toolchain image (needs Docker or Podman, including rootless Podman on SELinux hosts; on
+Apple Silicon it runs under x86-64 emulation):
 
 ```bash
 just toolchain

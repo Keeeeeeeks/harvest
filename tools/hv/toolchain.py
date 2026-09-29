@@ -34,8 +34,11 @@ class Compiler:
         self.manifest_sha256 = builds.sha256_file(MANIFEST)
 
     def command(self, *args: str) -> str:
+        # SELinux hosts label the bind mounts as host files that container_t cannot read; the
+        # container is already offline with a read-only repository, so skip labeling, not relabel
         return run(
             "docker", "run", "--rm", "--network=none", "--platform", "linux/amd64",
+            "--security-opt=label=disable",
             "-v", f"{builds.ROOT}:/work:ro", "-v", f"{self.out}:/out", "-w", "/work",
             self.image_id, *args,
         )  # fmt: skip
