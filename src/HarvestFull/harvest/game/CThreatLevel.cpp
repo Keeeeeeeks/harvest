@@ -522,13 +522,13 @@ bool CThreatLevelNormal::update(float frameDelta)
             {
                 if (level >= 10 || (AttackCount.getValue() & 1) == 0)
                 {
-                    int count = level;
+                    // smaller attacks until the world has grown
                     if (!gp_world->hasWorldExpandedAtLeastOnce() && level < 30)
-                        count = (level + 1) / 2;
+                        level = (level + 1) / 2;
 
                     ox::core::CRect<float> area;
                     initAttackSectionArea(Direction, SectionSeed.getValue(), ThreatLevel.getValue(), area);
-                    spawnAliensInArea(area, area, count, AttackCount.getValue());
+                    spawnAliensInArea(area, area, level, AttackCount.getValue());
                 }
             }
 
@@ -657,7 +657,7 @@ CThreatLevelWave::CThreatLevelWave()
 void CThreatLevelWave::updateWaveNames()
 {
     int level = ThreatLevel.getValue();
-    const SWaveDefinition* waves = WAVE_DEFINITIONS[gp_world->getPlanet()];
+    int planet = gp_world->getPlanet();
 
     for (int wave = 0; wave < 10; wave++)
     {
@@ -673,7 +673,7 @@ void CThreatLevelWave::updateWaveNames()
 
         for (int alienType = 0; alienType < 14; alienType++)
         {
-            int count = waves[wave].Aliens[alienType];
+            int count = WAVE_DEFINITIONS[planet][wave].Aliens[alienType];
             if (count <= 0)
                 continue;
 
