@@ -37,6 +37,8 @@ class Compiler:
         self.manifest_sha256 = builds.sha256_file(MANIFEST)
 
     def command(self, *args: str, source_override: tuple[Path, Path] | None = None) -> str:
+        # SELinux hosts label the bind mounts as host files that container_t cannot read; the
+        # container is already offline with a read-only repository, so skip labeling, not relabel
         mounts = []
         if source_override is not None:
             source, replacement = (p.resolve() for p in source_override)
@@ -45,6 +47,7 @@ class Compiler:
             mounts = ["-v", f"{replacement}:/work/{source.relative_to(builds.ROOT)}:ro"]
         return run(
             "docker", "run", "--rm", "--network=none", "--platform", "linux/amd64",
+            "--security-opt=label=disable",
             "-v", f"{builds.ROOT}:/work:ro", "-v", f"{self.out}:/out", "-w", "/work",
             *mounts, self.image_id, *args,
         )  # fmt: skip
@@ -121,6 +124,7 @@ class Compiler:
         try:
             run(
                 "docker", "run", "--rm", "--network=none", "--platform", "linux/amd64",
+                "--security-opt=label=disable",
                 "-v", f"{builds.ROOT}:/repo:ro", "-v", f"{self.out}:/out", "--tmpfs", "/work:exec",
                 "-w", "/work", self.image_id, "sh", self.container_path(script),
             )  # fmt: skip

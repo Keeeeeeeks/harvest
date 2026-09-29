@@ -302,6 +302,7 @@ def test_compiler_overlay_uses_canonical_path_and_hashes_actual_source(tmp_path,
 
     monkeypatch.setattr(toolchain, "run", run)
     _, metadata = compiler.compile(source, "candidate", source_override=candidate)
+    assert "--security-opt=label=disable" in commands[0]
     assert f"{candidate}:/work/src/unit.cpp:ro" in commands[0]
     assert metadata["inputs"] == {"src/unit.cpp": hashlib.sha256(b"candidate").hexdigest()}
     assert metadata["command"][-3] == "src/unit.cpp"
@@ -484,6 +485,7 @@ def test_compile_many_uses_canonical_paths_in_a_private_copy(tmp_path, monkeypat
     monkeypatch.setattr(toolchain, "run", run)
     (obj, metadata), failure = compiler.compile_many(source, [("good", good), ("bad", bad)], lanes=2)
     args, script = scripts[0]
+    assert "--security-opt=label=disable" in args
     assert f"{tmp_path}:/repo:ro" in args and "/work:exec" in args
     assert script.count("cp -a /repo/src src") == 2 and "cp -a /repo/third_party third_party" in script
     assert "cd /work/0" in script and "cd /work/1" in script and script.rstrip().endswith("wait")
