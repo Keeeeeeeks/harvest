@@ -55,12 +55,25 @@ def test_shared_comdat_is_counted_once():
     assert report["measures"]["matched_code"] == "20"
 
 
-def test_inexact_unit_earns_no_credit_even_with_exact_function_bodies():
+def test_inexact_unit_credits_only_its_exact_functions():
     inv, functions, evidence = sample()
-    evidence["units"][0]["exact"] = False
+    unit = evidence["units"][0]
+    unit["exact"] = False
+    unit["sections"][0]["exact"] = False
+    other = {"symbol": "_Z3barv", "address": "0x1020", "size": 40, "fde": True, "exact": False}
+    unit["sections"][0]["functions"].append(other)
     report = progress.make_report(inv, functions, evidence, {}, {})
-    assert report["measures"]["matched_code"] == "0"
-    assert report["measures"]["matched_functions"] == 0
+    assert report["measures"]["matched_code"] == "20"
+    assert report["measures"]["matched_functions"] == 1
+
+
+def test_exact_function_in_inexact_unit_still_needs_its_fde_extent():
+    inv, functions, evidence = sample()
+    unit = evidence["units"][0]
+    unit["exact"] = False
+    unit["sections"][0]["functions"][0]["size"] += 1
+    with pytest.raises(ValueError):
+        progress.make_report(inv, functions, evidence, {}, {})
 
 
 @pytest.mark.parametrize("change", ["extent", "fde", "function", "section", "unplaced"])

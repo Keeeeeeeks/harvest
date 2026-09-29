@@ -199,18 +199,25 @@ def validate(build: str) -> tuple[dict, list[dict], dict]:
 
 
 def measured_functions(functions: list[dict], evidence: dict) -> dict[int, dict]:
+    """Credit each function whose body matched at its own target address.
+
+    A function earns credit when the matcher found its bytes and every reference in it exact and its
+    extent equal to the inventoried FDE, whether or not its unit matched as a whole (the unit can
+    still differ in function order or in other functions). An exact unit must be exact throughout.
+    """
     extents = {f["address"]: f["size"] for f in functions}
     matched = {}
     for unit in evidence["units"]:
-        # Conservative: body credit only from a unit that passed the complete object comparison.
-        if not unit["exact"]:
-            continue
-        if unit["unplaced_sections"] or any(not s["exact"] for s in unit["sections"]):
+        if unit["exact"] and (unit["unplaced_sections"] or any(not s["exact"] for s in unit["sections"])):
             raise ValueError("inconsistent exact-unit evidence")
         for section in unit["sections"]:
             for function in section.get("functions", []):
+                if not function["exact"]:
+                    if unit["exact"]:
+                        raise ValueError("inconsistent exact-unit evidence")
+                    continue
                 address = int(function["address"], 0)
-                if not function["exact"] or not function["fde"] or extents.get(address) != function["size"]:
+                if not function["fde"] or extents.get(address) != function["size"]:
                     raise ValueError("matched function lacks its complete inventoried FDE extent")
                 row = matched.setdefault(address, {"symbol": function["symbol"], "sources": []})
                 if unit["unit"] not in row["sources"]:

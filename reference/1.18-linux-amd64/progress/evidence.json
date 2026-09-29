@@ -12,7 +12,7 @@
     "tools/hv/symbols.py": "0d9150908ba72df692193dbeabb92d9dc3c43830bab42f029a098da5f5f9e76c",
     "tools/hv/toolchain.py": "a33df051573292fab8f8ecc395b7b764760eed8218bd485dbbc5ef3902a0e0e9",
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
-    "tools/hv/progress.py": "8a6edb732ad474854662d48c02bc350a63d26213bb8663354a61059181e60575",
+    "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "41f4d47d84a287776141d7dfa138c0a5159bdba13d038dcf7ef2efd5e5c153bd",
     "config/1.18-linux-amd64/symbols.tsv": "7d124792c6e1f489efa5279d456ef9c79e08e2de70aa4005c683049e44548898",
     "config/1.18-linux-amd64/units.toml": "0c29573be5a0ad0c0b077477c18923594d2368a79e68a78127d369e1de169f20"

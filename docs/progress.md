@@ -17,9 +17,11 @@ It runs on default-branch pushes, pull requests, manual dispatch, and the setup 
 - **Function inventory:** 4,976 nonoverlapping `.eh_frame` FDE ranges, totaling 1,946,920 bytes.
   The remaining 51,174 bytes are retained as unclaimed code, not invented functions or matches.
   This is an unwind-derived inventory, not a claim that every function has an FDE.
-- **Matching credit:** full inventoried function bodies from exact object comparisons only.
-  Units that fail placement, data, reference, or body checks earn no credit, even if some of
-  their function bodies match. No fuzzy/normalized similarity is credited.
+- **Matching credit:** full inventoried function bodies that the matcher found exact at their own
+  target address: every byte and every resolved reference equal, and the extent equal to the
+  function's FDE. A function earns credit even when its unit as a whole does not match yet (for
+  example because GCC ordered the unit's functions differently); an exact unit must be exact in
+  every section and function. No fuzzy/normalized similarity is credited.
 - **Deduplication:** each original address/range earns credit once. Shared inline/COMDAT bodies
   emitted by multiple recovered units do not inflate the numerator.
 - **Completion:** `complete_code` and `complete_units` remain zero because the executable is not
