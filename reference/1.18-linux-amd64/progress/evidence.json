@@ -15,7 +15,7 @@
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "41f4d47d84a287776141d7dfa138c0a5159bdba13d038dcf7ef2efd5e5c153bd",
     "config/1.18-linux-amd64/symbols.tsv": "64f0eda9e9d83b13925428f796024d47cdf77fcdc516afa33565696884d0c131",
-    "config/1.18-linux-amd64/units.toml": "1966e3a42f4fb2c814602faa920c1b1b7e5959e1fff8db87b3d09d6369dbeef1"
+    "config/1.18-linux-amd64/units.toml": "8e732dcf7cf4cd32db7287e177ac5e99717cc9db317f18332419bd2c988cda1c"
   },
   "units": [
     {
@@ -1558,6 +1558,183 @@
         },
         "system_headers": 102,
         "object_sha256": "42729ab436f49920d6625ce00d0ad2c14e35733fe706cae38e6db8f46042056c"
+      }
+    },
+    {
+      "unit": "ox/algo/CTimeCounter.cpp",
+      "object_sha256": "4c576edc619d197505f2f08c44ed642b69d106fa844c1cf29d740ebe68f18f66",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 412,
+          "placement": "symbol: _ZN2ox4algo12CTimeCounterD1Ev",
+          "exact": true,
+          "address": "0x5de0b0",
+          "references": 17,
+          "functions": [
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounterC2Ev",
+              "address": "0x5de0b0",
+              "size": 22,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounterC1Ev",
+              "address": "0x5de0d0",
+              "size": 22,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounterD2Ev",
+              "address": "0x5de0f0",
+              "size": 8,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounterD1Ev",
+              "address": "0x5de100",
+              "size": 8,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounter8putDelayEff",
+              "address": "0x5de110",
+              "size": 16,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounter8setDelayEf",
+              "address": "0x5de120",
+              "size": 11,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounter21overrideStartingValueEf",
+              "address": "0x5de130",
+              "size": 6,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounter13updateCounterEf",
+              "address": "0x5de140",
+              "size": 56,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounter9isStartedEv",
+              "address": "0x5de180",
+              "size": 16,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounter9isDelayedEv",
+              "address": "0x5de190",
+              "size": 16,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounter16getRemainingTimeEv",
+              "address": "0x5de1a0",
+              "size": 6,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounter11getProgressEv",
+              "address": "0x5de1b0",
+              "size": 51,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounter19getInvertedProgressEv",
+              "address": "0x5de1f0",
+              "size": 23,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN2ox4algo12CTimeCounterC2Ev",
+              "address": "0x5de210",
+              "size": 38,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4algo12CTimeCounterD0Ev",
+              "address": "0x5de240",
+              "size": 12,
+              "fde": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x874224",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN2ox4algo12CTimeCounterE",
+          "size": 32,
+          "placement": "symbol: _ZTVN2ox4algo12CTimeCounterE",
+          "exact": true,
+          "address": "0x621f40",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN2ox4algo12CTimeCounterE",
+          "size": 25,
+          "placement": "symbol: _ZTSN2ox4algo12CTimeCounterE",
+          "exact": true,
+          "address": "0x621f60",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN2ox4algo12CTimeCounterE",
+          "size": 16,
+          "placement": "symbol: _ZTIN2ox4algo12CTimeCounterE",
+          "exact": true,
+          "address": "0x621f80",
+          "references": 2
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-MD",
+          "-MF",
+          "/out/ox__algo__CTimeCounter.d",
+          "-c",
+          "src/ox/algo/CTimeCounter.cpp",
+          "-o",
+          "/out/ox__algo__CTimeCounter.o"
+        ],
+        "inputs": {
+          "src/ox/algo/CTimeCounter.cpp": "981190db8ffa9fc078be3408ca523042d63ee62f2c53482eefe30b79985bdcef",
+          "src/ox/algo/CTimeCounter.h": "d1a446ddb0fb426ddc04ba17a3ca69913510c9d907819a9e243f80fde160a959"
+        },
+        "system_headers": 99,
+        "object_sha256": "4c576edc619d197505f2f08c44ed642b69d106fa844c1cf29d740ebe68f18f66"
       }
     }
   ],
