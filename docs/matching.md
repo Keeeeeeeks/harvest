@@ -107,6 +107,8 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `HarvestFull/harvest/entity/CHarvestEntity.cpp` | 69/70 | `CEntity`, particles, special effects, spark search; `selectSparkTarget` differs in register allocation |
 | `HarvestFull/harvest/entity/CPerimeterBomb.cpp` | 24/25 | three-second fuse, radial alien damage, bomb knockback and kill events; `updateLogic` differs only in three loop-compare operand orders |
 | `HarvestFull/harvest/settings/CAlienPriorities.cpp` | 11/11 | weapon targeting weights, range preference, hold-fire and serialization; destructor section placement differs |
+| `HarvestFull/harvest/entity/CDefenseTowerEntity.cpp` | 44/50 | tower chains, damage/range scaling, aim rotation, spark refill, beams and serialization; constructors, link maintenance and the combat loop remain inexact |
+| `HarvestFull/harvest/entity/CMissileTurretEntity.cpp` | 69/76 | missile acceleration, tempest lightning geometry and damage, projectile construction, animations, culling and serialization; turret constructors, target selection and missile/launch combat loops remain inexact |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
@@ -175,6 +177,21 @@ Findings:
 - `selectSparkTarget` is still open: the target fetches the next element before the loop's exit
   test (only a loop that loads it there comes close), and it keeps `this` and `excludeId` in the
   opposite callee-saved registers from ours.
+
+- Defense towers form directed chains. Back-target counts scale range and damage; a chain can
+  reverse toward its end tower. The recovered aim-rotation and spark-refill routines match exactly,
+  but the constructors and `updateLogic` still differ. A constructor with the same FDE size is not
+  an exact match and receives no exact credit.
+- Missile types 0, 1 and 2 are the basic missile, MIRV and Eagle. Basic blasts sort nearby aliens
+  by squared distance and affect at most seven; MIRV selects three targets for tempest blasts;
+  Eagle missiles refresh an entity reference and may retarget. Those flight and launch loops remain
+  inexact. The acceleration/clamp routine, recursive lightning geometry, tempest damage loop,
+  projectile constructors and distance-sorting helpers match exactly.
+- Missile constructor integers are the owner id, missile type and target id. The target is an
+  `SEntityReference` at offset 0x50; its id and update counter are not standalone kill counters.
+- The entity manager has four grid layers. Building searches use layer 0 and alien targeting uses
+  layer 1, whose cells begin at 0x14e8 on Linux amd64. The turret status display uses reload
+  intervals of 10 seconds (basic), 28 seconds (Eagle), and 18 seconds (Tempest).
 
 ## Inferred and merged sections
 

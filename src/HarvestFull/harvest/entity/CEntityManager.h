@@ -74,8 +74,8 @@ private:
     unsigned char Unrecovered[0xa8 - sizeof(ox::entity::COxEntityManager)];
 
 public:
-    //! The entities in each grid cell, indexed y * 18 + x.
-    std::list<CEntity*> Grid[18 * 18];
+    //! Four search layers of grid cells, each indexed y * 18 + x.
+    std::list<CEntity*> Grid[4][18 * 18];
 };
 
 extern CEntityManager* gp_entityManager;

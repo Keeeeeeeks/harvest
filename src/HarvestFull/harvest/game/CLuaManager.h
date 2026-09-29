@@ -19,6 +19,7 @@ public:
     void hookEnergySparkCreated(int sparkId, entity::CBuildingEntity* building);
     //! Tells the scripts that a construction site has become a building.
     void hookBuildingConstructed(entity::CBuildingEntity* building);
+    void hookMissileLaunched(int missileType, entity::CBuildingEntity* turret, int targetId, float x, float y);
     void hookCreditsMined(entity::CBuildingEntity* miner, int mineralsId);
     void hookMinerOutOfMinerals(entity::CBuildingEntity* miner);
     //! A spark died at an overheated energy link.

@@ -45,6 +45,12 @@ public:
         return LowerRightCorner.Y - UpperLeftCorner.Y;
     }
 
+    bool isPointInside(const CPosition2d<T>& position) const
+    {
+        return position.X >= UpperLeftCorner.X && position.Y >= UpperLeftCorner.Y &&
+            position.X < LowerRightCorner.X && position.Y < LowerRightCorner.Y;
+    }
+
     CPosition2d<T> UpperLeftCorner;
     CPosition2d<T> LowerRightCorner;
 };

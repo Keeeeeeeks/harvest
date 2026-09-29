@@ -45,9 +45,18 @@ public:
     //! Applies damage and knockback; returns true when the alien dies.
     bool dealDamage(float& damage, const ox::core::CPosition2d<float>& source, float force, int weapon);
 
+    //! Movement destination at Linux amd64 offset 0x48; the accessor name is ours.
+    const ox::core::CPosition2d<float>& getMovementTarget() const { return MovementTarget; }
+
+    int getAlienType() const { return AlienType; }
+
 private:
     // The layout is not recovered yet; this keeps the Linux amd64 object size (0x2f0).
-    unsigned char Unrecovered[0x2f0 - sizeof(CEntity)];
+    unsigned char Unrecovered[0x48 - 0x24];
+    ox::core::CPosition2d<float> MovementTarget;
+    unsigned char UnrecoveredMovement[0x60 - 0x50];
+    int AlienType;
+    unsigned char UnrecoveredTail[0x2f0 - 0x64];
 };
 
 } // end namespace entity

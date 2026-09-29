@@ -23,6 +23,13 @@ inline T max_(const T a, const T b)
     return a > b ? a : b;
 }
 
+//! Returns the absolute value.
+template <class T>
+inline T abs_(const T a)
+{
+    return a < 0 ? -a : a;
+}
+
 //! Assorted helpers.
 class CBasic
 {

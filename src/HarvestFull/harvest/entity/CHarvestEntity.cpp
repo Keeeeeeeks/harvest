@@ -252,7 +252,7 @@ void CEntity::updateSparkTargets(ox::TArray<ox::entity::COxEntity*>& targets)
     {
         for (int y = minY; y <= maxY; ++y)
         {
-            std::list<CEntity*>& cell = gp_entityManager->Grid[y * 18 + x];
+            std::list<CEntity*>& cell = gp_entityManager->Grid[0][y * 18 + x];
             for (std::list<CEntity*>::iterator it = cell.begin(); it != cell.end(); ++it)
             {
                 if (test->testEntity(*it))
