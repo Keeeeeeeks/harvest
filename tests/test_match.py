@@ -386,3 +386,44 @@ def test_only_inline_copies_may_read_another_copy_of_a_static(tmp_path):
     result = inline_copy_reading_a_static(tmp_path, False, bytes(range(1, 9)))
     assert not result["exact"]
     assert function_section(result)["bad_references"][0]["reason"] == "different destination"
+
+
+def function_with_exception_table(tmp_path, target_lsda):
+    """Our object: one function whose FDE points to its exception table (LSDA). Only the FDE
+    references the table, so it is placed from the target FDE's LSDA pointer."""
+    from hv.delink import Section, Symbol, write_object
+
+    code, lsda = b"\x90\x90\x90\xc3", b"\xff\x03\x05\x01\x00\x00\x00\x00"
+    cie = struct.pack("<II", 12, 0) + bytes(8)
+    fde = struct.pack("<II", 20, len(cie) + 4) + bytes(16)  # CIE pointer, pc_begin, range, LSDA
+    sections = [
+        Section(".text", code, 0x6),
+        Section(".gcc_except_table", lsda, 0x2, align=4),
+        Section(
+            ".eh_frame",
+            cie + fde,
+            0x2,
+            align=8,
+            relocations=[(len(cie) + 8, 2, ".text", 0), (len(cie) + 16, 10, ".gcc_except_table", 0)],
+        ),
+    ]
+    write_object(tmp_path / "unit.o", sections, [Symbol("f", ".text", 0, len(code), function=True)])
+    obj = Elf.load(tmp_path / "unit.o", "ET_REL")
+    target = Elf(elf_image(code + bytes(0x1C) + target_lsda, kind=2), "ET_EXEC")
+    target.fde_ranges = lambda: {(ADDRESS, len(code))}
+    target.fde_lsdas = lambda: {ADDRESS: ADDRESS + 0x20}
+    result = compare_object(obj, target, {"f": ADDRESS}, {})
+    return next(s for s in result["sections"] if s["name"] == ".gcc_except_table")
+
+
+def test_exception_table_is_placed_from_the_target_fde(tmp_path):
+    table = function_with_exception_table(tmp_path, b"\xff\x03\x05\x01\x00\x00\x00\x00")
+    assert (table["address"], table["placement"], table["exact"]) == (
+        hex(ADDRESS + 0x20),
+        "exception frames",
+        True,
+    )
+
+
+def test_placed_exception_table_is_compared(tmp_path):
+    assert not function_with_exception_table(tmp_path, b"\xff\x03\x05\x02\x00\x00\x00\x00")["exact"]

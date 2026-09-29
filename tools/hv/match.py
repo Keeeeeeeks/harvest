@@ -273,6 +273,43 @@ def infer_placements(obj: Elf, target: Elf, placements: dict, sections: list) ->
             placements[shndx] = (Layout(bases.pop()), "references", [])
 
 
+def infer_exception_tables(obj: Elf, target: Elf, placements: dict, sections: list) -> None:
+    """Place exception tables (LSDAs), which only our FDEs reference, from the target FDE of each
+    placed function: its LSDA pointer minus the offset our FDE points to. A table is placed only when
+    every function using it implies the same base."""
+    frames = [i for i, s in enumerate(sections) if s.name == ".eh_frame"]
+    if not frames:
+        return
+    data = sections[frames[0]].data()
+    relocations = [(r["r_offset"], r, s) for r, s in obj.relocations(frames[0])]
+    lsdas = target.fde_lsdas()
+    implied: dict[int, set[int]] = {}
+    offset = 0
+    while offset + 8 <= len(data):
+        length = int.from_bytes(data[offset : offset + 4], "little")
+        if not length:
+            break
+        end = offset + 4 + length
+        if int.from_bytes(data[offset + 4 : offset + 8], "little"):  # an FDE; a CIE has id 0
+            code = lsda = None
+            for at, relocation, symbol in relocations:
+                shndx = symbol["st_shndx"]
+                if not offset <= at < end or not isinstance(shndx, int):
+                    continue
+                where = (shndx, symbol["st_value"] + relocation["r_addend"])
+                if sections[shndx]["sh_flags"] & SHF_EXECINSTR:
+                    code = where
+                elif sections[shndx]["sh_flags"] & SHF_ALLOC:
+                    lsda = where
+            if code and lsda and code[0] in placements and lsda[0] not in placements:
+                pointer = lsdas.get(placements[code[0]][0].address_of(code[1]))
+                implied.setdefault(lsda[0], set()).add(None if pointer is None else pointer - lsda[1])
+        offset = end
+    for shndx, bases in implied.items():
+        if len(bases) == 1 and None not in bases:
+            placements[shndx] = (Layout(bases.pop()), "exception frames", [])
+
+
 def is_merged(section) -> bool:
     return bool(section["sh_flags"] & SHF_MERGE)
 
@@ -333,6 +370,7 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
     symbols = section_symbols(obj)
     sections = list(obj.elf.iter_sections())
     infer_placements(obj, target, placements, sections)
+    infer_exception_tables(obj, target, placements, sections)
     results = []
     unplaced = []
     for index, section in enumerate(sections):
