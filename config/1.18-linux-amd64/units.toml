@@ -52,3 +52,83 @@
 ["ox/core/CCipherKey.cpp"]
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x874230
+
+["ox/algo/CSimplePress.cpp"]
+# m_staticIndices, then the std::ios_base::Init object of the iostream static initializer
+".bss" = 0x86c220
+
+["HarvestFull/harvest/game/CThreatLevel.cpp"]
+".text" = 0x45bf40
+# jump tables, WAVE_DEFINITIONS, ALIEN_KEY_NAMES and the ALIEN_LEVELS initializer
+".rodata" = 0x5f7d00
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b93c
+
+["ox/entity/COxEntity.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x87424c
+
+["HarvestFull/harvest/entity/CHarvestEntity.cpp"]
+".text" = 0x432270
+# jump table, ENTITY_MINERAL_COSTS and ENTITY_SEARCH_LAYERS
+".rodata" = 0x5f3220
+
+["HarvestFull/harvest/entity/CBuildingEntity.cpp"]
+".text" = 0x41ac30
+# CBuildingLuaInfo::className, ENTITY_MINERAL_COSTS and the death particle switch table
+".rodata" = 0x5f0dc0
+# CBuildingLuaInfo::methods
+".data" = 0x868c40
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b634
+
+["HarvestFull/harvest/entity/CSparkEntity.cpp"]
+".text" = 0x440670
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b8b0
+
+["HarvestFull/harvest/entity/CSparkProducerEntity.cpp"]
+".text" = 0x4429d0
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b8c8
+
+["HarvestFull/harvest/entity/CMineralsEntity.cpp"]
+".text" = 0x435410
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b6d8
+
+["HarvestFull/harvest/entity/CConstructionEntity.cpp"]
+".text" = 0x41b050
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b640
+
+["HarvestFull/harvest/entity/CMinerEntity.cpp"]
+".text" = 0x4340c0
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b6cc
+
+["HarvestFull/harvest/entity/CSparkMoverEntity.cpp"]
+".text" = 0x440ec0
+# g_useLargeSparkDeathParticle, the std::ios_base::Init object of the iostream static initializer,
+# then the header statics
+".bss" = 0x86b8bc
+
+["HarvestFull/harvest/entity/CPerimeterBomb.cpp"]
+".text" = 0x43ab60
+# std::ios_base::Init object, WORLD_GRID_OFFSET, then ENERGY_PROGRESS_COLOR
+".bss" = 0x86b6f0
+
+["HarvestFull/harvest/settings/CAlienPriorities.cpp"]
+".text" = 0x48a4a0
+# g_attackPriorities[5], std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR
+".bss" = 0x86bae0
+
+["HarvestFull/harvest/entity/CDefenseTowerEntity.cpp"]
+".text" = 0x41e4c0
+# std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR
+".bss" = 0x86b658
+
+["HarvestFull/harvest/entity/CMissileTurretEntity.cpp"]
+".text" = 0x435ec0
+# std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR
+".bss" = 0x86b6e4

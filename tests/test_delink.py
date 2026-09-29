@@ -1,9 +1,12 @@
 import io
+import struct
 
+import pytest
 from elftools.elf.elffile import ELFFile
 from elftools.elf.relocation import RelocationSection
 
 from hv import delink
+from hv.elf import Elf
 
 
 def read(path):
@@ -77,3 +80,102 @@ def test_target_symbol_takes_the_target_extent():
     assert symbol.size == 7
     (text,) = [s for s in sections if s.name == ".text"]
     assert text.data[:7] == b"\x90" * 6 + b"\xc3"
+
+
+def target_with_rodata(tmp_path, code, data):
+    from test_match import ADDRESS, DESTINATION
+
+    path = tmp_path / "target.elf"
+    delink.write_object(path, [delink.Section(".text", code, 0x6), delink.Section(".rodata", data, 0x2)], [])
+    raw = bytearray(path.read_bytes())
+    struct.pack_into("<H", raw, 16, 2)  # ET_EXEC
+    shoff = struct.unpack_from("<Q", raw, 40)[0]
+    for index, address in ((1, ADDRESS), (2, DESTINATION)):
+        struct.pack_into("<Q", raw, shoff + index * 64 + 16, address)
+    target = Elf(bytes(raw), "ET_EXEC")
+    target.fde_ranges = lambda: {(ADDRESS, len(code))}
+    return target
+
+
+@pytest.mark.parametrize("opcode", [b"\x8b\x04\x85", b"\x48\x8b\x04\xc5"])
+def test_indexed_absolute_address_recovers_the_table_relocation(tmp_path, opcode):
+    from test_match import ADDRESS, DESTINATION
+
+    code = opcode + DESTINATION.to_bytes(4, "little") + b"\xc3"
+    target = target_with_rodata(tmp_path, code, bytes(8))
+    namer = delink.Namer(target, [(DESTINATION, 8, "TABLE")], {}, [], {})
+    assert delink.code_relocations(target, ADDRESS, code, namer) == [
+        (len(opcode), delink.R_X86_64_32S, "TABLE", 0)
+    ]
+
+
+def test_metadata_strings_are_not_literal_candidates(tmp_path):
+    delink.write_object(tmp_path / "comment.o", [delink.Section(".comment", b"\0GCC\0", 0x30)], [])
+    assert delink.merged_strings(Elf.load(tmp_path / "comment.o", "ET_REL")) == {}
+
+
+def test_unknown_binary_literal_keeps_the_largest_access_width(tmp_path):
+    from test_match import DESTINATION
+
+    data = bytes(range(8))
+    target = target_with_rodata(tmp_path, b"\xc3", data)
+    namer = delink.Namer(target, [], {}, [], {})
+    assert namer.name(DESTINATION, 8) == namer.name(DESTINATION, 4)
+    assert namer.literals[DESTINATION] == data
+
+
+@pytest.mark.parametrize("changed", [False, True])
+def test_indexed_static_copy_requires_the_entire_table_to_match(tmp_path, changed):
+    from test_match import DESTINATION
+
+    table = bytes(range(8))
+    data = table[:-1] + b"\xff" if changed else table
+    target = target_with_rodata(tmp_path, b"\xc3", data)
+    namer = delink.Namer(target, [], {}, [], {}, copies={"TABLE": table})
+    name, offset = namer.name(DESTINATION, 4)
+    assert offset == 0
+    assert name == (f"lbl_{DESTINATION:x}" if changed else "TABLE")
+
+
+@pytest.mark.parametrize("value", [bytes(4), struct.pack("<f", 1.0)])
+def test_float_access_keeps_its_binary_value_and_merge_type(tmp_path, value):
+    from test_match import ADDRESS, DESTINATION
+
+    from hv.match import compare_object
+
+    # ucomiss xmm0, [rip + zero]; ret. An allocated empty string and .comment must not
+    # turn the first zero byte of this float into a one-byte string literal.
+    code = b"\x0f\x2e\x05" + bytes(4) + b"\xc3"
+    sections = [
+        delink.Section(".text", code, 0x6, relocations=[(3, delink.R_X86_64_PC32, ".LC0", -4)]),
+        delink.Section(".rodata.cst4", bytes(4), 0x12, align=4, entsize=4),
+        delink.Section(".rodata.str1.1", b"\0", 0x32, align=1),
+        delink.Section(".comment", b"\0GCC\0", 0x30, align=1),
+    ]
+    delink.write_object(
+        tmp_path / "float.o",
+        sections,
+        [
+            delink.Symbol("f", ".text", 0, len(code), function=True),
+            delink.Symbol(".LC0", ".rodata.cst4", 0, local=True),
+        ],
+    )
+    obj = Elf.load(tmp_path / "float.o", "ET_REL")
+    linked = code[:3] + (DESTINATION - ADDRESS - 7).to_bytes(4, "little", signed=True) + code[7:]
+    target = target_with_rodata(tmp_path, linked, value)
+    result = compare_object(obj, target, {"f": ADDRESS}, {})
+    assert result["exact"] == (value == bytes(4))
+    sections, syms = delink.delink_unit(target, obj, result, [], {ADDRESS: len(code)})
+    expected = ".rodata.cst4" if value == bytes(4) else ".rodata.lit"
+    assert {s.name for s in sections} == {".text", expected}
+    data = next(s for s in sections if s.name == expected)
+    assert data.data == value
+    assert not data.flags & delink.SHF_STRINGS
+    delink.write_object(tmp_path / "delinked.o", sections, syms)
+    exported = Elf.load(tmp_path / "delinked.o", "ET_REL")
+    if value == bytes(4):
+        assert exported.elf.get_section_by_name(expected)["sh_entsize"] == 4
+    [(relocation, symbol)] = list(exported.relocations(1))
+    assert relocation["r_addend"] == -4
+    name = symbol.name or exported.elf.get_section(symbol["st_shndx"]).name
+    assert name == (expected if value == bytes(4) else f"lbl_{DESTINATION:x}")

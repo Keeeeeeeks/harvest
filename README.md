@@ -73,3 +73,7 @@ command without a terminal. `toolchain/manifest.tsv` lists the image's installed
 section, with every relocation resolved. It also writes delinked target objects and `objdiff.json` for
 objdiff: `just objdiff-cli` installs the pinned CLI, and `just diff <unit> <symbol>` shows one
 function's differences. See [docs/matching.md](docs/matching.md).
+
+`hv search <unit>` performs bounded definition-order experiments over the unit's functions, with cached
+canonical compilations, saved patches and a guard against losing exact matches. See
+[docs/search.md](docs/search.md) for block selection, batching and optional application.

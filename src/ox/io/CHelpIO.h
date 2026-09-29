@@ -6,6 +6,7 @@
 
 #include "IReadFile.h"
 #include "IWriteFile.h"
+#include "../core/CString.h"
 
 namespace ox {
 namespace io {
@@ -15,7 +16,11 @@ class CHelpIO
 {
 public:
     static int readInt(IReadFile* file);
+    static float readFloat(IReadFile* file);
     static void writeInt(IWriteFile* file, int value);
+    static void writeFloat(IWriteFile* file, float value);
+    static void readString(IReadFile* file, core::CString<char>& value);
+    static void writeString(IWriteFile* file, const core::CString<char>& value);
 };
 
 } // end namespace io

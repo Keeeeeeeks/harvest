@@ -25,9 +25,11 @@ WIDTHS = {R_X86_64_64: 8, R_X86_64_PC32: 4, R_X86_64_PLT32: 4, R_X86_64_32: 4, R
 PC_RELATIVE = {R_X86_64_PC32, R_X86_64_PLT32}
 
 SHF_ALLOC = 0x2
+SHF_WRITE = 0x1
 SHF_EXECINSTR = 0x4
 SHF_MERGE = 0x10
 SHF_STRINGS = 0x20
+SHF_GROUP = 0x200
 
 # sections that are not part of the image comparison yet
 SKIPPED = {".eh_frame", ".ctors", ".dtors", ".init_array", ".fini_array", ".note.GNU-stack", ".comment"}
@@ -75,6 +77,7 @@ class SectionResult:
     misplaced: list[dict] = field(default_factory=list)
     references: list[Reference] = field(default_factory=list)
     functions: list[dict] = field(default_factory=list)
+    data_ranges: list[dict] = field(default_factory=list)
 
     def report(self) -> dict:
         row = {"name": self.name, "size": self.size, "placement": self.placement, "exact": self.exact}
@@ -91,6 +94,8 @@ class SectionResult:
         row["references"] = len(self.references)
         if self.functions:
             row["functions"] = self.functions
+        if self.data_ranges:
+            row["data_ranges"] = self.data_ranges
         return row
 
 
@@ -139,15 +144,19 @@ def layout_functions(section_index: int, base: int, symbols, resolver: Resolver,
     """Place each function of an executable section at its own target address.
 
     A function goes to its known address. One without a name in symbols.tsv (a static initializer,
-    a compiler clone) follows the section base when an FDE of its size starts there, or else goes
-    to the one unclaimed FDE of its size among the known functions' range. The section is
-    contiguous when every function lands at base + offset: its order and lengths match the target's.
+    a compiler clone) goes to the target function right after the one before it when that has its
+    size, or where an FDE of its size starts at the section base plus its offset, or else to the one
+    unclaimed FDE of its size among the known functions' range. Failing all of those it still takes
+    the target function after the one before it, so a length difference earlier in the section does
+    not shift the rest. The section
+    is contiguous when every function lands at base + offset: its order and lengths match the target's.
     """
     functions = sorted(
         (s for s in symbols if s["st_shndx"] == section_index and s["st_info"]["type"] == "STT_FUNC"),
         key=lambda s: s["st_value"],
     )
     layout = Layout(base)
+    fde_sizes = dict(fdes)
     known = {s.name: resolver.known[s.name] for s in functions if s.name in resolver.known}
     if known:
         low = min(known.values())
@@ -160,10 +169,23 @@ def layout_functions(section_index: int, base: int, symbols, resolver: Resolver,
         address = known.get(symbol.name)
         if address is None:
             candidates = [a for a, n in free if n == size]
-            if (base + start, size) in fdes or len(candidates) != 1:
+            following = base + start
+            if layout.segments:
+                # the target function that comes next after the one before it
+                previous_start, previous_end, previous_address = layout.segments[-1]
+                extent = fde_sizes.get(previous_address, previous_end - previous_start)
+                following = min(
+                    (a for a in fde_sizes if a >= previous_address + extent),
+                    default=previous_address + start - previous_start,
+                )
+            if (following, size) in fdes:
+                address = following
+            elif (base + start, size) in fdes:
                 address = base + start
-            else:
+            elif len(candidates) == 1:
                 address = candidates[0]
+            else:
+                address = following
             free = [(a, n) for a, n in free if a != address]
         layout.segments.append((start, start + size, address))
     return layout
@@ -255,32 +277,113 @@ def infer_placements(obj: Elf, target: Elf, placements: dict, sections: list) ->
             placements[shndx] = (Layout(bases.pop()), "references", [])
 
 
+def infer_exception_tables(obj: Elf, target: Elf, placements: dict, sections: list) -> None:
+    """Place exception tables (LSDAs), which only our FDEs reference, from the target FDE of each
+    placed function: its LSDA pointer minus the offset our FDE points to. A table is placed only when
+    every function using it implies the same base."""
+    frames = [i for i, s in enumerate(sections) if s.name == ".eh_frame"]
+    if not frames:
+        return
+    data = sections[frames[0]].data()
+    relocations = [(r["r_offset"], r, s) for r, s in obj.relocations(frames[0])]
+    lsdas = target.fde_lsdas()
+    implied: dict[int, set[int]] = {}
+    offset = 0
+    while offset + 8 <= len(data):
+        length = int.from_bytes(data[offset : offset + 4], "little")
+        if not length:
+            break
+        end = offset + 4 + length
+        if int.from_bytes(data[offset + 4 : offset + 8], "little"):  # an FDE; a CIE has id 0
+            code = lsda = None
+            for at, relocation, symbol in relocations:
+                shndx = symbol["st_shndx"]
+                if not offset <= at < end or not isinstance(shndx, int):
+                    continue
+                where = (shndx, symbol["st_value"] + relocation["r_addend"])
+                if sections[shndx]["sh_flags"] & SHF_EXECINSTR:
+                    code = where
+                elif sections[shndx]["sh_flags"] & SHF_ALLOC:
+                    lsda = where
+            if code and lsda and code[0] in placements and lsda[0] not in placements:
+                pointer = lsdas.get(placements[code[0]][0].address_of(code[1]))
+                implied.setdefault(lsda[0], set()).add(None if pointer is None else pointer - lsda[1])
+        offset = end
+    for shndx, bases in implied.items():
+        if len(bases) == 1 and None not in bases:
+            placements[shndx] = (Layout(bases.pop()), "exception frames", [])
+
+
 def is_merged(section) -> bool:
     return bool(section["sh_flags"] & SHF_MERGE)
 
 
-def check_merged(target: Elf, section, offset: int, address: int) -> tuple[bool, str]:
-    """Compare the object content at a merged-section offset with the target's at an address."""
+def merged_content(section, offset: int) -> bytes:
+    """The complete merge element (or terminated string) checked by a reference."""
     data = section.data()
     size = section["sh_entsize"] or 1
     if not 0 <= offset < len(data):
-        return False, "reference outside merged section"
+        raise ValueError("reference outside merged section")
+    if offset % size:
+        raise ValueError("reference not aligned to a merged element")
+    if section["sh_flags"] & SHF_STRINGS:
+        end = offset
+        while end + size <= len(data) and data[end : end + size] != bytes(size):
+            end += size
+        if end + size > len(data):
+            raise ValueError("unterminated merged string")
+        return data[offset : end + size]
+    if offset + size > len(data):
+        raise ValueError("incomplete merged constant")
+    return data[offset : offset + size]
+
+
+def check_merged(target: Elf, section, offset: int, address: int) -> tuple[bool, str]:
+    """Compare the object content at a merged-section offset with the target's at an address."""
     try:
-        if offset % size:
-            return False, "reference not aligned to a merged element"
-        if section["sh_flags"] & SHF_STRINGS:
-            # a string of size-byte elements, up to and including the zero element
-            end = offset
-            while end + size <= len(data) and data[end : end + size] != bytes(size):
-                end += size
-            if end + size > len(data):
-                return False, "unterminated merged string"
-            ours = data[offset : end + size]
-            return target.read(address, len(ours)) == ours, "merged string"
-        if offset + size > len(data):
-            return False, "incomplete merged constant"
-        ours = data[offset : offset + size]
-        return target.read(address, size) == ours, "merged constant"
+        ours = merged_content(section, offset)
+        kind = "merged string" if section["sh_flags"] & SHF_STRINGS else "merged constant"
+        return target.read(address, len(ours)) == ours, kind
+    except ValueError as error:
+        return False, str(error)
+
+
+def check_local_copy(
+    obj: Elf, target: Elf, shndx: int, offset: int, address: int, matched_ranges: list | None = None
+) -> tuple[bool, str]:
+    """Compare the file-level static object holding a section offset with the target's copy, which
+    holds `address` at the same place. Only read-only, relocation-free objects are comparable:
+    equal initial bytes do not make two mutable objects interchangeable."""
+    section = obj.elf.get_section(shndx)
+    if section["sh_type"] != "SHT_PROGBITS" or not section["sh_flags"] & SHF_ALLOC:
+        return False, "different destination"
+    if section["sh_flags"] & SHF_WRITE:
+        return False, "mutable local object"
+    holders = [
+        s
+        for s in obj.elf.get_section_by_name(".symtab").iter_symbols()
+        if s["st_shndx"] == shndx
+        and s["st_info"]["bind"] == "STB_LOCAL"
+        and s["st_info"]["type"] == "STT_OBJECT"
+        and s["st_value"] <= offset < s["st_value"] + s["st_size"]
+    ]
+    if len(holders) != 1:
+        return False, "different destination"
+    start, size = holders[0]["st_value"], holders[0]["st_size"]
+    owner = target.section_at(address - (offset - start))
+    if owner is None or owner["sh_flags"] & SHF_WRITE:
+        return False, "mutable or unmapped target copy"
+    if any(start <= r["r_offset"] < start + size for r, _ in obj.relocations(shndx)):
+        return False, "different destination"
+    ours = section.data()[start : start + size]
+    if len(ours) != size:
+        return False, "truncated local object"
+    try:
+        destination = address - (offset - start)
+        exact = target.read(destination, size) == ours
+        if exact and matched_ranges is not None:
+            matched_ranges.append({"address": hex(destination), "size": size, "kind": "local copy"})
+        return exact, "local copy"
     except ValueError as error:
         return False, str(error)
 
@@ -292,6 +395,7 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
     symbols = section_symbols(obj)
     sections = list(obj.elf.iter_sections())
     infer_placements(obj, target, placements, sections)
+    infer_exception_tables(obj, target, placements, sections)
     results = []
     unplaced = []
     for index, section in enumerate(sections):
@@ -308,7 +412,15 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
         if section["sh_type"] == "SHT_NOBITS":
             result.nobits = True
             owner = target.section_at(address)
-            result.exact = owner is not None and owner["sh_type"] == "SHT_NOBITS"
+            result.exact = (
+                owner is not None
+                and owner["sh_type"] == "SHT_NOBITS"
+                and address + result.size <= owner["sh_addr"] + owner["sh_size"]
+                and not misplaced
+                and layout.contiguous
+            )
+            if result.exact:
+                result.data_ranges.append({"address": hex(address), "size": result.size, "kind": "bss"})
             results.append(result)
             continue
         compare_section(obj, target, section, index, layout, placements, resolver, sections, result)
@@ -317,6 +429,8 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
             result.functions = function_results(symbols, index, layout, result, fdes)
             result.exact = result.exact and all(f["exact"] for f in result.functions)
         result.exact = result.exact and not misplaced and layout.contiguous
+        if result.exact and not section["sh_flags"] & SHF_EXECINSTR:
+            result.data_ranges.append({"address": hex(address), "size": result.size, "kind": "section"})
         results.append(result)
     exact = bool(results) and not unplaced and all(r.exact for r in results)
     return {
@@ -382,6 +496,14 @@ def compare_section(obj, target, section, index, layout, placements, resolver, s
             ours = symbol["st_value"] + ref.addend + bias
             ref.resolved = True
             ref.matches, ref.reason = check_merged(target, target_section, ours, absolute + bias)
+            if ref.matches:
+                result.data_ranges.append(
+                    {
+                        "address": hex(absolute + bias),
+                        "size": len(merged_content(target_section, ours)),
+                        "kind": ref.reason,
+                    }
+                )
             relocated[offset : offset + width] = field_bytes if ref.matches else bytes(width)
             continue
 
@@ -408,6 +530,15 @@ def compare_section(obj, target, section, index, layout, placements, resolver, s
         ref.matches = encoded == field_bytes
         if not ref.matches:
             ref.reason = "different destination"
+            if section["sh_flags"] & SHF_GROUP and symbol["st_info"]["bind"] == "STB_LOCAL":
+                # an inline copy kept from another object reads that object's copy of a static
+                pointed = field_value + place + bias if rtype in PC_RELATIVE else field_value
+                ours = symbol["st_value"] + ref.addend + bias
+                ref.matches, ref.reason = check_local_copy(
+                    obj, target, symbol["st_shndx"], ours, pointed, result.data_ranges
+                )
+                if ref.matches:
+                    relocated[offset : offset + width] = field_bytes
     result.differences = [i for i in range(len(raw)) if relocated[i] != expected[i] and i not in ignored]
     result.exact = not result.differences and all(r.matches for r in result.references)
 

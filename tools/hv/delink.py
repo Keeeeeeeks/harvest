@@ -13,7 +13,8 @@ Symbols are named from this unit's placed symbols, then symbols.tsv, the PLT and
 An address inside one of our placed data sections (such as `.bss`) becomes a reference to that
 section, as in our object. A referenced string that our object also has in a merged string section
 goes into a target copy of that section at the same offset, holding the target's bytes, so both
-sides reference `.rodata.str1.1+offset`. Other literals go into `.rodata.lit`; unnamed code becomes
+sides reference `.rodata.str1.1+offset`. Binary merge elements are matched by access width and
+content, and keep their merge type. Other literals go into `.rodata.lit`; unnamed code becomes
 sub_<addr> and unnamed data lbl_<addr>.
 """
 
@@ -44,6 +45,7 @@ class Section:
     align: int = 16
     relocations: list[tuple[int, int, str, int]] = field(default_factory=list)  # offset, type, symbol, addend
     nobits: bool = False
+    entsize: int = 0
 
 
 @dataclass
@@ -66,6 +68,8 @@ class Namer:
         local: dict[int, str],
         placed: list[tuple[int, int, str]],
         strings: dict[bytes, tuple[str, int]],
+        constants: dict[bytes, tuple[str, int]] | None = None,
+        copies: dict[str, bytes] | None = None,
     ):
         """known: (address, size, name), size 0 running to the next known symbol; placed: our data
         sections as (start, end, name); strings: our merged strings by content -> (section, offset)."""
@@ -80,6 +84,8 @@ class Namer:
         self.text = range(text["sh_addr"], text["sh_addr"] + text["sh_size"])
         self.placed = placed
         self.strings = strings
+        self.constants = constants or {}
+        self.copies = copies or {}
         self.merged: dict[str, dict[int, bytes]] = {}  # our merged section -> offset -> target bytes
         self.literals: dict[int, bytes] = {}
         # data symbols, for addresses inside them (a vtable's address point, a copied vtable)
@@ -92,7 +98,7 @@ class Namer:
             self.data.append((address, end, name))
         self.starts = [a for a, _, _ in self.data]
 
-    def name(self, address: int) -> tuple[str, int]:
+    def name(self, address: int, size: int | None = None) -> tuple[str, int]:
         """(symbol or section, addend) for a target address."""
         if address in self.by_address:
             return self.by_address[address], 0
@@ -104,20 +110,41 @@ class Namer:
         i = bisect.bisect_right(self.starts, address) - 1
         if i >= 0 and address < self.data[i][1]:
             return self.data[i][2], address - self.data[i][0]
-        literal = self.literal(address)
+        owner = self.target.section_at(address)
+        if size is not None and owner is not None and not owner["sh_flags"] & 1:
+            # A kept inline function can reference another object's copy of a local constant
+            # table. Name it only when the entire target table equals the target definition
+            # exported in this unit, not just the single indexed element's access width.
+            copies = []
+            for name, data in self.copies.items():
+                try:
+                    if len(data) >= size and self.target.read(address, len(data)) == data:
+                        copies.append(name)
+                except ValueError:
+                    continue
+            if len(copies) == 1:
+                return copies[0], 0
+        literal = self.literal(address, size)
         if literal is not None:
-            if literal in self.strings:
-                section, offset = self.strings[literal]
+            # A memory operand supplies its access width. Read its binary value rather than
+            # interpreting, for example, the first zero byte of a float as an empty C string.
+            candidates = self.constants if size is not None else self.strings
+            if literal in candidates:
+                section, offset = candidates[literal]
                 self.merged.setdefault(section, {})[offset] = literal
                 return section, offset
-            self.literals[address] = literal
+            # Different instructions may read different widths at the same address.
+            if len(literal) > len(self.literals.get(address, b"")):
+                self.literals[address] = literal
         return f"lbl_{address:x}", 0
 
-    def literal(self, address: int) -> bytes | None:
+    def literal(self, address: int, size: int | None = None) -> bytes | None:
         section = self.target.section_at(address)
         if section is None or section.name != ".rodata":
             return None
         try:
+            if size is not None:
+                return self.target.read(address, size)
             return self.target.cstring(address) + b"\0"
         except ValueError:
             return None
@@ -127,15 +154,36 @@ def merged_strings(obj: Elf) -> dict[bytes, tuple[str, int]]:
     """Every zero-terminated string of our merged string sections, by content."""
     strings: dict[bytes, tuple[str, int]] = {}
     for section in obj.elf.iter_sections():
-        if section["sh_flags"] & (SHF_MERGE | SHF_STRINGS) != SHF_MERGE | SHF_STRINGS:
+        flags = SHF_ALLOC | SHF_MERGE | SHF_STRINGS
+        if section["sh_flags"] & flags != flags:
             continue
         data = section.data()
+        size = section["sh_entsize"] or 1
         start = 0
         while start < len(data):
-            end = data.index(b"\0", start) + 1
-            strings.setdefault(data[start:end], (section.name, start))
-            start = end
+            end = start
+            while end + size <= len(data) and data[end : end + size] != bytes(size):
+                end += size
+            if end + size > len(data):
+                raise ValueError(f"unterminated merged string in {section.name}")
+            strings.setdefault(data[start : end + size], (section.name, start))
+            start = end + size
     return strings
+
+
+def merged_constants(obj: Elf) -> dict[bytes, tuple[str, int]]:
+    """Allocated binary merge elements, indexed separately from strings."""
+    constants = {}
+    for section in obj.elf.iter_sections():
+        if section["sh_flags"] & (SHF_ALLOC | SHF_MERGE | SHF_STRINGS) != SHF_ALLOC | SHF_MERGE:
+            continue
+        size = section["sh_entsize"]
+        data = section.data()
+        if not size or len(data) % size:
+            raise ValueError(f"invalid merged constants in {section.name}")
+        for offset in range(0, len(data), size):
+            constants.setdefault(data[offset : offset + size], (section.name, offset))
+    return constants
 
 
 def mapped(target: Elf, value: int) -> bool:
@@ -164,11 +212,13 @@ def code_relocations(target: Elf, address: int, code: bytes, namer: Namer):
             elif op.type == x86.X86_OP_MEM and op.mem.base == x86.X86_REG_RIP:
                 destination = tail_end + op.mem.disp
                 field = offset + insn.disp_offset
-                name, addend = namer.name(destination)
+                size = None if insn.id == x86.X86_INS_LEA else op.size
+                name, addend = namer.name(destination, size)
                 relocations.append((field, R_X86_64_PC32, name, addend - (tail_end - (address + field))))
-            elif op.type == x86.X86_OP_MEM and op.mem.base == 0 and op.mem.index == 0 and insn.disp_size == 4:
+            elif op.type == x86.X86_OP_MEM and op.mem.base == 0 and insn.disp_size == 4:
                 if mapped(target, op.mem.disp):
-                    name, addend = namer.name(op.mem.disp)
+                    size = None if insn.id == x86.X86_INS_LEA else op.size
+                    name, addend = namer.name(op.mem.disp, size)
                     relocations.append((offset + insn.disp_offset, R_X86_64_32S, name, addend))
             elif op.type == x86.X86_OP_IMM and insn.imm_size == 4 and mapped(target, op.imm & 0xFFFFFFFF):
                 value = op.imm & 0xFFFFFFFF
@@ -204,7 +254,26 @@ def delink_unit(target: Elf, obj: Elf, result: dict, known: list[tuple[int, int,
             local[address] = function["symbol"]
             size = fdes.get(address, function["size"])
             functions.append((function["symbol"], address, size, sym["st_shndx"], sym["st_value"]))
-    namer = Namer(target, known, local, placed, merged_strings(obj))
+    copies = {}
+    for index, section in data_sections:
+        if section["sh_flags"] & 1 or section["sh_type"] != "SHT_PROGBITS":
+            continue
+        for symbol in symtab.iter_symbols():
+            if (
+                symbol["st_shndx"] != index
+                or not is_local(symbol)
+                or symbol["st_info"]["type"] != "STT_OBJECT"
+                or not symbol["st_size"]
+            ):
+                continue
+            start, size = symbol["st_value"], symbol["st_size"]
+            owner = target.section_at(placed_at[section.name] + start)
+            if owner is None or owner["sh_flags"] & 1:
+                continue
+            if any(start <= r["r_offset"] < start + size for r, _ in obj.relocations(index)):
+                continue
+            copies[symbol.name] = target.read(placed_at[section.name] + start, size)
+    namer = Namer(target, known, local, placed, merged_strings(obj), merged_constants(obj), copies)
     offset_of = {name: (index, offset) for name, _, _, index, offset in functions}
 
     sections, symbols = [], []
@@ -264,20 +333,27 @@ def delink_unit(target: Elf, obj: Elf, result: dict, known: list[tuple[int, int,
             if sym["st_shndx"] == index and sym.name and sym["st_info"]["type"] != "STT_SECTION":
                 symbols.append(Symbol(sym.name, osec.name, sym["st_value"], sym["st_size"]))
 
-    # target strings at the offsets our merged sections hold them
+    # Target merge elements at the offsets our merged sections hold them, with their original type.
     for osec in obj_sections:
         if osec.name in namer.merged:
             data = bytearray(osec["sh_size"])
             for offset, text in namer.merged[osec.name].items():
                 data[offset : offset + len(text)] = text
-            flags = SHF_ALLOC | SHF_MERGE | SHF_STRINGS
-            sections.append(Section(osec.name, bytes(data), flags, align=osec["sh_addralign"]))
+            sections.append(
+                Section(
+                    osec.name,
+                    bytes(data),
+                    osec["sh_flags"],
+                    align=osec["sh_addralign"],
+                    entsize=osec["sh_entsize"],
+                )
+            )
     if namer.literals:
         blob = bytearray()
         for address, text in sorted(namer.literals.items()):
             symbols.append(Symbol(f"lbl_{address:x}", ".rodata.lit", len(blob), len(text)))
             blob += text
-        sections.append(Section(".rodata.lit", bytes(blob), SHF_ALLOC | SHF_MERGE | SHF_STRINGS, align=1))
+        sections.append(Section(".rodata.lit", bytes(blob), SHF_ALLOC, align=1))
     return sections, symbols
 
 
@@ -325,7 +401,8 @@ def write_object(path: Path, sections: list[Section], symbols: list[Symbol]) -> 
     headers, blobs, sizes = [], [], []  # (name, type, flags, link, info, align, entsize), payload, size
     for s in sections:
         kind = SHT_NOBITS if s.nobits else SHT_PROGBITS
-        headers.append((s.name, kind, s.flags, 0, 0, s.align, 1 if s.flags & SHF_STRINGS else 0))
+        entsize = s.entsize or (1 if s.flags & SHF_STRINGS else 0)
+        headers.append((s.name, kind, s.flags, 0, 0, s.align, entsize))
         blobs.append(b"" if s.nobits else clear_fields(s))
         sizes.append(len(s.data))
     symtab_index = len(sections) + 1

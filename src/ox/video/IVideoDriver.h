@@ -1,0 +1,134 @@
+// Recovered for Harvest from the Mac and Linux 1.18 builds; not the original source.
+// Partial: the virtual interface follows the Mac vtable (names from daisy::video::CVideoNull) up to
+// draw2DLineFloat; the slots after it are not declared. Return types follow Irrlicht 0.7
+// include/IVideoDriver.h where it has the function and are not verified otherwise.
+
+#ifndef OX_VIDEO_IVIDEODRIVER_H
+#define OX_VIDEO_IVIDEODRIVER_H
+
+#include "../IUnknown.h"
+#include "../core/CDimension2d.h"
+#include "../core/CPosition2d.h"
+#include "../core/CRect.h"
+#include "../core/CVector3d.h"
+#include "SColor.h"
+
+namespace ox {
+namespace io {
+class IReadFile;
+} // end namespace io
+
+namespace core {
+class CMatrix4;
+template <class T> class CTriangle3d;
+template <class T> class CAabbox3d;
+} // end namespace core
+
+namespace video {
+
+class IImage;
+class IParticlePackage;
+class ISpritePackage;
+class ITexture;
+struct S3DVertex;
+struct S3DVertex2TCoords;
+struct SColorArray;
+struct SMaterial;
+
+//! Features a driver can be asked about. The enumerators are not recovered.
+enum E_VIDEO_DRIVER_FEATURE
+{
+};
+
+//! Geometry transformation states. The enumerators are not recovered.
+enum E_TRANSFORMATION_STATE
+{
+};
+
+//! Texture color formats. The enumerators are not recovered.
+enum ECOLOR_FORMAT
+{
+};
+
+//! Performs the 2d and 3d drawing and owns textures, sprite packages and particle packages.
+class IVideoDriver : public IUnknown
+{
+public:
+    virtual bool beginScene(bool backBuffer, bool zBuffer, SColor color) = 0;
+    virtual void clearScreen(bool zBuffer, SColor color) = 0;
+    virtual bool endScene() = 0;
+    virtual bool queryFeature(E_VIDEO_DRIVER_FEATURE feature) = 0;
+    virtual void setTransform(E_TRANSFORMATION_STATE state, const core::CMatrix4& mat) = 0;
+    virtual core::CMatrix4 getTransform(E_TRANSFORMATION_STATE state) = 0;
+    virtual void setMaterial(const SMaterial& material) = 0;
+    virtual void useMaterialShaderFor2D(bool enabled) = 0;
+    virtual void flushRender() = 0;
+
+    virtual ITexture* getTexture(const char* filename) = 0;
+    virtual ITexture* getTexture(io::IReadFile* file) = 0;
+    virtual ITexture* addTexture(const core::CDimension2d<int>& size, const char* name, ECOLOR_FORMAT format) = 0;
+    virtual ITexture* addTexture(const char* name, IImage* image) = 0;
+    virtual void removeTexture(ITexture* texture) = 0;
+    virtual void removeTexture(const char* name) = 0;
+    virtual void removeAllTextures() = 0;
+    virtual int getNumTextures() = 0;
+
+    virtual ISpritePackage* getSpritePackage(const char* filename, bool load) = 0;
+    virtual void removeSpritePackage(const char* filename) = 0;
+    virtual void removeAllSpritePackages() = 0;
+    virtual IParticlePackage* getParticlePackage(const char* filename) = 0;
+    virtual void removeParticlePackage(const char* filename) = 0;
+    virtual void removeAllParticlePackages() = 0;
+
+    virtual void makeColorKeyTexture(ITexture* texture, SColor color) = 0;
+    virtual void makeColorKeyTexture(ITexture* texture, core::CPosition2d<int> colorKeyPixelPos) = 0;
+    virtual ITexture* createRenderTargetTexture(const core::CDimension2d<int>& size) = 0;
+    virtual ITexture* createScreenTexture(const core::CDimension2d<int>& size) = 0;
+    virtual void setRenderTarget(ITexture* texture, bool clearBackBuffer, bool clearZBuffer, SColor color) = 0;
+    virtual void setViewPort(const core::CRect<int>& area) = 0;
+    virtual const core::CRect<int>& getViewPort() const = 0;
+
+    virtual void drawIndexedTriangleList(const S3DVertex* vertices, int vertexCount,
+        const unsigned short* indexList, int triangleCount) = 0;
+    virtual void drawIndexedTriangleList(const S3DVertex2TCoords* vertices, int vertexCount,
+        const unsigned short* indexList, int triangleCount) = 0;
+    virtual void drawIndexedTriangleFan(const S3DVertex* vertices, int vertexCount,
+        const unsigned short* indexList, int triangleCount) = 0;
+    virtual void drawIndexedTriangleFan(const S3DVertex2TCoords* vertices, int vertexCount,
+        const unsigned short* indexList, int triangleCount) = 0;
+    virtual void draw3DLine(const core::CVector3d<float>& start, const core::CVector3d<float>& end,
+        SColor color) = 0;
+    virtual void draw3DTriangle(const core::CTriangle3d<float>& triangle, SColor color) = 0;
+    virtual void draw3DBox(core::CAabbox3d<float> box, SColor color) = 0;
+
+    virtual void draw2DImage(ITexture* texture, const core::CPosition2d<int>& destPos) = 0;
+    virtual void draw2DImage(ITexture* texture, const core::CPosition2d<int>& destPos,
+        const core::CRect<int>& sourceRect, const core::CRect<int>* clipRect, SColor color,
+        bool useAlphaChannelOfTexture) = 0;
+    virtual void drawScaled2DImage(ITexture* texture, const core::CPosition2d<float>& destPos,
+        const core::CRect<int>& sourceRect, float scale, SColor color, bool useAlphaChannelOfTexture) = 0;
+    virtual void draw2DImage(ITexture* texture, const core::CPosition2d<int>& destPos,
+        const core::CRect<int>& sourceRect, const core::CRect<int>* clipRect, SColor* colors,
+        bool useAlphaChannelOfTexture) = 0;
+    virtual void draw2DImage(ITexture* texture, const core::CPosition2d<int>& corner1,
+        const core::CPosition2d<int>& corner2, const core::CPosition2d<int>& corner3,
+        const core::CPosition2d<int>& corner4, const core::CRect<int>& sourceRect, SColor* colors,
+        bool useAlphaChannelOfTexture) = 0;
+    virtual void draw2DImage(ITexture* texture, const core::CPosition2d<float>& corner1,
+        const core::CPosition2d<float>& corner2, const core::CPosition2d<float>& corner3,
+        const core::CPosition2d<float>& corner4, const core::CRect<int>& sourceRect,
+        const SColorArray* colors, bool useAlphaChannelOfTexture) = 0;
+    virtual void draw2DRectangle(SColor color, const core::CRect<int>& pos, const core::CRect<int>* clip) = 0;
+    virtual void draw2DTriangleList(ITexture* texture, core::CPosition2d<float>* positions,
+        core::CPosition2d<float>* textureCoords, SColor* colors, int* indices, int vertexCount,
+        int triangleCount) = 0;
+    virtual void draw2DLine(const core::CPosition2d<int>& start, const core::CPosition2d<int>& end,
+        SColor color) = 0;
+    virtual void draw2DLineFloat(const core::CPosition2d<float>& start, const core::CPosition2d<float>& end,
+        SColor color) = 0;
+};
+
+} // end namespace video
+} // end namespace ox
+
+#endif

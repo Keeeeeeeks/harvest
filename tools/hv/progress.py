@@ -9,9 +9,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-from hv import builds, units
+from hv import builds, metrics, units
 
-SCHEMA = 1
+SCHEMA = 2
 
 
 def sha(data: bytes) -> str:
@@ -29,7 +29,18 @@ def measurement_paths(build: str) -> list[str]:
         "toolchain/manifest.tsv",
         *[
             f"tools/hv/{name}.py"
-            for name in ("builds", "elf", "match", "symbols", "toolchain", "units", "progress")
+            for name in (
+                "builds",
+                "elf",
+                "match",
+                "symbols",
+                "toolchain",
+                "units",
+                "progress",
+                "metrics",
+                "objdiff",
+                "delink",
+            )
         ],
         *[f"config/{build}/{name}" for name in ("flags.json", "symbols.tsv", "units.toml")],
     ]
@@ -56,6 +67,17 @@ def inventory(target, image) -> tuple[dict, str]:
         for s in target.elf.iter_sections()
         if s["sh_flags"] & 6 == 6 and s["sh_size"]
     ]
+    data_sections = [
+        {
+            "name": s.name,
+            "address": s["sh_addr"],
+            "size": s["sh_size"],
+            "type": s["sh_type"],
+            "sha256": sha(s.data()),
+        }
+        for s in target.elf.iter_sections()
+        if s["sh_flags"] & 2 and not s["sh_flags"] & 4 and s["sh_size"]
+    ]
     rows = []
     end = 0
     for address, size in sorted(target.fde_ranges()):
@@ -77,6 +99,9 @@ def inventory(target, image) -> tuple[dict, str]:
         "image_sha256": image.sha256,
         "scope": "all allocated executable ELF sections; FDE bodies plus all remaining bytes",
         "sections": sections,
+        "data_sections": data_sections,
+        "data_scope": "all allocated non-executable ELF sections, including BSS and linker metadata",
+        "total_data": sum(s["size"] for s in data_sections),
         "functions_sha256": sha(table.encode()),
         "total_code": sum(s["size"] for s in sections),
         "total_functions": len(rows),
@@ -117,6 +142,9 @@ def capture(build: str) -> dict:
         result = match.compare_object(Elf.load(obj, "ET_REL"), target, known, unit.placements)
         results.append({"unit": unit.source, **result, "compilation": metadata})
         print(f"{'exact' if result['exact'] else 'different':10} {unit.source}")
+    fuzzy = metrics.fuzzy_capture(
+        target, [(s.address, s.size, s.name) for s in symbols.load(build)], selected, results, out
+    )
     if input_hashes(measurement_paths(build)) != before or input_hashes(source_names) != source_before:
         raise ValueError("measurement inputs changed during capture")
     evidence = {
@@ -125,6 +153,8 @@ def capture(build: str) -> dict:
         "image_sha256": image.sha256,
         "measurement_inputs": before,
         "units": results,
+        "fuzzy": fuzzy,
+        "link": {"status": "unavailable", "reason": "no executable link step; compiled objects only"},
     }
     # Originals and compiled objects stay local. Only metadata and measured outcomes are committed.
     dest = paths(build)
@@ -170,6 +200,17 @@ def validate(build: str) -> tuple[dict, list[dict], dict]:
         flags = json.loads((builds.ROOT / "config" / build / "flags.json").read_text())
         if compilation["compiler_version"] != flags["version"]:
             raise ValueError("compiler version mismatch")
+    if (
+        evidence["fuzzy"]["version"] != "3.8.1"
+        or evidence["fuzzy"]["sha256"] not in metrics.OBJDIFF_HASHES
+        or evidence["fuzzy"]["config"] != {"functionRelocDiffs": "data_value"}
+    ):
+        raise ValueError("fuzzy measurement tool/config mismatch")
+    if evidence["link"] != {
+        "status": "unavailable",
+        "reason": "no executable link step; compiled objects only",
+    }:
+        raise ValueError("unsupported linked evidence")
     sections = {s["name"]: s for s in inv["sections"]}
     ordered = sorted(sections.values(), key=lambda s: s["address"])
     if len(sections) != len(inv["sections"]) or not ordered:
@@ -195,6 +236,16 @@ def validate(build: str) -> tuple[dict, list[dict], dict]:
         end = address + size
     if len(functions) != inv["total_functions"] or sum(s["size"] for s in ordered) != inv["total_code"]:
         raise ValueError("inventory totals disagree")
+    data = inv["data_sections"]
+    end = 0
+    for section in sorted([*ordered, *data], key=lambda s: s["address"]):
+        if section["size"] <= 0 or section["address"] < end:
+            raise ValueError("invalid/overlapping code/data sections")
+        end = section["address"] + section["size"]
+    if len({s["name"] for s in data}) != len(data) or sum(s["size"] for s in data) != inv["total_data"]:
+        raise ValueError("data inventory totals disagree")
+    metrics.validate_fuzzy(functions, evidence)
+    metrics.data_ranges(inv, evidence)
     return inv, functions, evidence
 
 
@@ -225,16 +276,27 @@ def measured_functions(functions: list[dict], evidence: dict) -> dict[int, dict]
     return matched
 
 
-def measures(code: int, matched: int, functions: int, matched_functions: int, unit_count: int) -> dict:
+def measures(
+    code: int,
+    matched: int,
+    functions: int,
+    matched_functions: int,
+    unit_count: int,
+    *,
+    fuzzy_code: float | None = None,
+    data: int = 0,
+    matched_data: int = 0,
+) -> dict:
     percent = 100 * matched / code if code else 0
+    fuzzy_code = matched if fuzzy_code is None else fuzzy_code
     return {
-        "fuzzy_match_percent": percent,
+        "fuzzy_match_percent": 100 * (fuzzy_code + matched_data) / (code + data) if code + data else 0,
         "total_code": str(code),
         "matched_code": str(matched),
         "matched_code_percent": percent,
-        "total_data": "0",
-        "matched_data": "0",
-        "matched_data_percent": 0,
+        "total_data": str(data),
+        "matched_data": str(matched_data),
+        "matched_data_percent": 100 * matched_data / data if data else 0,
         "total_functions": functions,
         "matched_functions": matched_functions,
         "matched_functions_percent": 100 * matched_functions / functions if functions else 0,
@@ -251,25 +313,37 @@ def make_report(
     inv: dict, functions: list[dict], evidence: dict, names: dict[int, str], demangled: dict[str, str]
 ) -> dict:
     matched = measured_functions(functions, evidence)
+    fuzzy = metrics.fuzzy_functions(functions, evidence)
+    data = metrics.data_ranges(inv, evidence)
+    fuzzy_code = 0.0
     report_units = []
     covered = dict.fromkeys((s["name"] for s in inv["sections"]), 0)
     for function in functions:
         address, size = function["address"], function["size"]
         proof = matched.get(address)
-        symbol = proof["symbol"] if proof else names.get(address, f"sub_{address:x}")
+        score = fuzzy.get(address)
+        percent = 100 if proof else score["percent"] if score else 0
+        fuzzy_code += size * percent / 100
+        symbol = (
+            proof["symbol"] if proof else score["symbol"] if score else names.get(address, f"sub_{address:x}")
+        )
         display = demangled.get(symbol, symbol)
         metadata = {"complete": False, "progress_categories": ["functions"]}
         if proof:
             metadata["source_path"] = f"src/{proof['sources'][0]}"
+        elif score:
+            metadata["source_path"] = f"src/{score['source']}"
         report_units.append(
             {
                 "name": f"{display} @ {address:#x}",
-                "measures": measures(size, size if proof else 0, 1, int(bool(proof)), 1),
+                "measures": measures(
+                    size, size if proof else 0, 1, int(bool(proof)), 1, fuzzy_code=size * percent / 100
+                ),
                 "functions": [
                     {
                         "name": symbol,
                         "size": str(size),
-                        "fuzzy_match_percent": 100 if proof else 0,
+                        "fuzzy_match_percent": percent,
                         "metadata": {"demangled_name": display, "virtual_address": str(address)},
                     }
                 ],
@@ -290,19 +364,70 @@ def make_report(
             )
     matched_code = sum(f["size"] for f in functions if f["address"] in matched)
     function_code = sum(f["size"] for f in functions)
+    data_units = []
+    for section in inv.get("data_sections", []):
+        spans = data[section["name"]]
+        cursor = section["address"]
+        for start, end in [*spans, (cursor + section["size"], cursor + section["size"])]:
+            if start > cursor:
+                size = start - cursor
+                data_units.append(
+                    {
+                        "name": f"Unclaimed {section['name']} data @ {cursor:#x}",
+                        "measures": measures(0, 0, 0, 0, 1, data=size),
+                        "metadata": {"complete": False, "progress_categories": ["data"]},
+                    }
+                )
+            if end > start:
+                size = end - start
+                data_units.append(
+                    {
+                        "name": f"Matched {section['name']} data @ {start:#x}",
+                        "measures": measures(0, 0, 0, 0, 1, data=size, matched_data=size),
+                        "sections": [
+                            {
+                                "name": section["name"],
+                                "size": str(size),
+                                "fuzzy_match_percent": 100,
+                                "metadata": {"virtual_address": str(start)},
+                            }
+                        ],
+                        "metadata": {"complete": False, "progress_categories": ["data"]},
+                    }
+                )
+            cursor = end
+    matched_data = sum(end - start for spans in data.values() for start, end in spans)
+    total_data = inv.get("total_data", 0)
     return {
         "version": 2,
         "measures": measures(
-            inv["total_code"], matched_code, len(functions), len(matched), len(report_units) + len(gaps)
+            inv["total_code"],
+            matched_code,
+            len(functions),
+            len(matched),
+            len(report_units) + len(gaps) + len(data_units),
+            fuzzy_code=fuzzy_code,
+            data=total_data,
+            matched_data=matched_data,
         ),
-        "units": report_units + gaps,
+        "units": report_units + gaps + data_units,
         "categories": [
             {
                 "id": "functions",
                 "name": "FDE function bodies",
                 "measures": measures(
-                    function_code, matched_code, len(functions), len(matched), len(report_units)
+                    function_code,
+                    matched_code,
+                    len(functions),
+                    len(matched),
+                    len(report_units),
+                    fuzzy_code=fuzzy_code,
                 ),
+            },
+            {
+                "id": "data",
+                "name": "Allocated data (including BSS and linker metadata)",
+                "measures": measures(0, 0, 0, 0, len(data_units), data=total_data, matched_data=matched_data),
             },
             {
                 "id": "unclaimed",
@@ -343,6 +468,11 @@ def main(argv: list[str] | None = None) -> int:
         print(
             f"{m['matched_code']}/{m['total_code']} bytes ({m['matched_code_percent']:.5f}%), "
             f"{m['matched_functions']}/{m['total_functions']} functions -> {args.output}"
+        )
+        print(
+            f"fuzzy {m['fuzzy_match_percent']:.5f}%; "
+            f"data {m['matched_data']}/{m['total_data']} ({m['matched_data_percent']:.5f}%); "
+            "linked code 0%, linked data 0% (no executable link step)"
         )
     except (OSError, ValueError, KeyError, subprocess.CalledProcessError) as error:
         print(f"progress: {error}", file=sys.stderr)

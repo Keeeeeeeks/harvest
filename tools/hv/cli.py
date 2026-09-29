@@ -113,6 +113,31 @@ def cmd_diff(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_search(args: argparse.Namespace) -> int:
+    from elftools.common.exceptions import ELFError
+
+    from hv import search
+
+    try:
+        search.search(
+            args.unit,
+            None if args.blocks == "auto" else Path(args.blocks),
+            args.build,
+            budget=args.budget,
+            restarts=args.restarts,
+            sideways=args.sideways,
+            seed=args.seed,
+            apply=args.apply,
+            batch=args.batch,
+        )
+    except (ValueError, OSError, KeyError, ELFError, subprocess.CalledProcessError) as error:
+        print(f"search: {error}", file=sys.stderr)
+        if isinstance(error, subprocess.CalledProcessError) and error.stderr:
+            print(error.stderr.rstrip(), file=sys.stderr)
+        return 2
+    return 0
+
+
 def cmd_verify(args: argparse.Namespace) -> int:
     known = builds.load_builds()
     if unknown := [key for key in args.build if key not in known]:
@@ -187,6 +212,24 @@ def main(argv: list[str] | None = None) -> int:
         help="add addresses of unknown symbols referenced by functions that otherwise match",
     )
     p.set_defaults(func=cmd_match)
+
+    p = sub.add_parser("search", help="search definition orders without losing exact matches")
+    p.add_argument("unit", help="source under src/ listed in units.toml")
+    p.add_argument(
+        "--blocks",
+        default="auto",
+        help="JSON source hash and named inclusive line ranges, or auto: every top-level function",
+    )
+    p.add_argument("--batch", type=int, default=16, help="candidates compiled per container")
+    p.add_argument("--build", default=builds.canonical_build())
+    p.add_argument("--budget", type=int, default=100, help="maximum unique candidate sources evaluated")
+    p.add_argument("--restarts", type=int, default=2, help="maximum seeded random restarts")
+    p.add_argument("--sideways", type=int, default=3, help="maximum consecutive neutral moves")
+    p.add_argument("--seed", type=int, default=0)
+    p.add_argument(
+        "--apply", action="store_true", help="apply an improved candidate after fresh canonical verification"
+    )
+    p.set_defaults(func=cmd_search)
 
     p = sub.add_parser("diff", help="objdiff one function of a unit, target on the left (run match first)")
     p.add_argument("unit", help="source under src/, e.g. ox/net/CHTTPConnectionHandler.cpp")

@@ -2,6 +2,11 @@
   "image": "harvest-toolchain",
   "compiler": "g++",
   "version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
-  "flags": ["-O2"],
-  "scope": "reproduces ox/io/CMemReadFile.cpp exactly; not yet confirmed for other units"
+  "flags": [
+    "-O2",
+    "-Isrc",
+    "-Isrc/HarvestFull",
+    "-Ithird_party/luajit-2.0.0-beta8/include"
+  ],
+  "scope": "reproduces every recovered unit; -I only adds the source roots and the Lua headers"
 }
