@@ -8,7 +8,7 @@
     "toolchain/manifest.tsv": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
     "tools/hv/builds.py": "05428a1bfbab5b76bf9405ce62639af7c2c89482a3eb6705d53eb1a9f1f68d01",
     "tools/hv/elf.py": "04fa3bd75eedfa843f3d76a0a7573d003c7703c0fe8abc7876d73387b33df150",
-    "tools/hv/match.py": "c92905a0e9f44bc3797e095a50b97f4857cfb8bdc7cebec0beb8ea102ddc274c",
+    "tools/hv/match.py": "84ad97c4fa499e9d521202f336e4d021418ae55632f65c37fd573145140bdff3",
     "tools/hv/symbols.py": "0d9150908ba72df692193dbeabb92d9dc3c43830bab42f029a098da5f5f9e76c",
     "tools/hv/toolchain.py": "a33df051573292fab8f8ecc395b7b764760eed8218bd485dbbc5ef3902a0e0e9",
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
@@ -5249,147 +5249,147 @@
     },
     {
       "unit": "HarvestFull/harvest/entity/CHarvestEntity.cpp",
-      "object_sha256": "e94e26aaf3356dad4b83e27cabf35a63fafaf36696ee223ab76b85f61b7e4eaa",
+      "object_sha256": "15b4ae1b33bfdc9f0f248107f081641622b88b56d09c15ce687b4ccda042fde8",
       "exact": false,
       "sections": [
         {
           "name": ".text",
-          "size": 7175,
+          "size": 7191,
           "placement": "explicit",
           "exact": false,
           "address": "0x432270",
           "first_difference": 3147,
-          "differing_bytes": 395,
+          "differing_bytes": 419,
           "misplaced_symbols": [
             {
               "symbol": "_ZN7harvest6entity7CEntity15findSparkTargetEiRi",
               "known": "0x433090",
-              "placed": "0x433060"
+              "placed": "0x433070"
             },
             {
               "symbol": "_ZN7harvest6entity7CEntity13notifyRemovedEv",
               "known": "0x4331b0",
-              "placed": "0x433180"
+              "placed": "0x433190"
             },
             {
               "symbol": "_ZN7harvest6entity7CEntityD0Ev",
               "known": "0x4331f0",
-              "placed": "0x4331c0"
+              "placed": "0x4331d0"
             },
             {
               "symbol": "_ZN7harvest6entity7CEntityD1Ev",
               "known": "0x433210",
-              "placed": "0x4331e0"
+              "placed": "0x4331f0"
             },
             {
               "symbol": "_ZN7harvest6entity7CEntityD2Ev",
               "known": "0x433220",
-              "placed": "0x4331f0"
+              "placed": "0x433200"
             },
             {
               "symbol": "_ZN7harvest6entity20CSpecialEffectEntityD0Ev",
               "known": "0x433230",
-              "placed": "0x433200"
+              "placed": "0x433210"
             },
             {
               "symbol": "_ZN7harvest6entity20CSpecialEffectEntityD1Ev",
               "known": "0x433250",
-              "placed": "0x433220"
+              "placed": "0x433230"
             },
             {
               "symbol": "_ZN7harvest6entity20CSpecialEffectEntityD2Ev",
               "known": "0x433260",
-              "placed": "0x433230"
+              "placed": "0x433240"
             },
             {
               "symbol": "_ZN7harvest6entity15CParticleEntityD0Ev",
               "known": "0x433270",
-              "placed": "0x433240"
+              "placed": "0x433250"
             },
             {
               "symbol": "_ZN7harvest6entity15CParticleEntityD1Ev",
               "known": "0x4332c0",
-              "placed": "0x433290"
+              "placed": "0x4332a0"
             },
             {
               "symbol": "_ZN7harvest6entity15CParticleEntityD2Ev",
               "known": "0x433310",
-              "placed": "0x4332e0"
+              "placed": "0x4332f0"
             },
             {
               "symbol": "_ZN7harvest6entity7CEntityC1Eiiff",
               "known": "0x433360",
-              "placed": "0x433330"
+              "placed": "0x433340"
             },
             {
               "symbol": "_ZN7harvest6entity7CEntityC2Eiiff",
               "known": "0x4333e0",
-              "placed": "0x4333b0"
+              "placed": "0x4333c0"
             },
             {
               "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC1ERKN2ox4core11CPosition2dIfEES7_S7_S7_fPNS2_5video21ISpriteAnimationStateENS8_6SColorE",
               "known": "0x433460",
-              "placed": "0x433430"
+              "placed": "0x433440"
             },
             {
               "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC2ERKN2ox4core11CPosition2dIfEES7_S7_S7_fPNS2_5video21ISpriteAnimationStateENS8_6SColorE",
               "known": "0x433550",
-              "placed": "0x433520"
+              "placed": "0x433530"
             },
             {
               "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC1EfffPN2ox5video21ISpriteAnimationStateEffNS3_6SColorE",
               "known": "0x433640",
-              "placed": "0x433610"
+              "placed": "0x433620"
             },
             {
               "symbol": "_ZN7harvest6entity20CSpecialEffectEntityC2EfffPN2ox5video21ISpriteAnimationStateEffNS3_6SColorE",
               "known": "0x4336e0",
-              "placed": "0x4336b0"
+              "placed": "0x4336c0"
             },
             {
               "symbol": "_ZN7harvest6entity15CParticleEntityC1EPN2ox5video14IParticleStateERKNS2_4core9CVector3dIfEE",
               "known": "0x433780",
-              "placed": "0x433750"
+              "placed": "0x433760"
             },
             {
               "symbol": "_ZN7harvest6entity15CParticleEntityC2EPN2ox5video14IParticleStateERKNS2_4core9CVector3dIfEE",
               "known": "0x4337e0",
-              "placed": "0x4337b0"
+              "placed": "0x4337c0"
             },
             {
               "symbol": "_ZN7harvest6entity15CParticleEntityC2EfffPN2ox4core9CVector3dIfEEPKc",
               "known": "0x433840",
-              "placed": "0x433810"
+              "placed": "0x433820"
             },
             {
               "symbol": "_ZN7harvest6entity7CEntity17getOperatorStringEv",
               "known": "0x4339d0",
-              "placed": "0x4339a0"
+              "placed": "0x4339b0"
             },
             {
               "symbol": "_ZN7harvest6entity15CParticleEntityC1EfffPN2ox4core9CVector3dIfEEPKc",
               "known": "0x433a50",
-              "placed": "0x433a20"
+              "placed": "0x433a30"
             },
             {
               "symbol": "_ZN7harvest6entity7CEntity13getInfoStringEv",
               "known": "0x433be0",
-              "placed": "0x433bb0"
+              "placed": "0x433bc0"
             },
             {
               "symbol": "_ZN7harvest6entity7CEntity17getMiniStatStringEv",
               "known": "0x433c60",
-              "placed": "0x433c30"
+              "placed": "0x433c40"
             },
             {
               "symbol": "_ZN7harvest6entity7CEntity18updateSparkTargetsERN2ox6TArrayIPNS2_6entity9COxEntityEEE",
               "known": "0x433ce0",
-              "placed": "0x433cb0"
+              "placed": "0x433cc0"
             }
           ],
           "bad_references": [
             {
-              "offset": 3314,
+              "offset": 3335,
               "type": 2,
               "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
               "addend": -4,
@@ -5398,7 +5398,7 @@
               "matches": false
             },
             {
-              "offset": 3346,
+              "offset": 3367,
               "type": 2,
               "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
               "addend": -4,
@@ -5407,16 +5407,7 @@
               "matches": false
             },
             {
-              "offset": 3371,
-              "type": 2,
-              "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
-              "addend": -4,
-              "destination": "0x5e1c00",
-              "reason": "different destination",
-              "matches": false
-            },
-            {
-              "offset": 3398,
+              "offset": 3396,
               "type": 2,
               "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
               "addend": -4,
@@ -5434,7 +5425,16 @@
               "matches": false
             },
             {
-              "offset": 3473,
+              "offset": 3462,
+              "type": 2,
+              "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
+              "addend": -4,
+              "destination": "0x5e1c00",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 3505,
               "type": 2,
               "symbol": "_ZNK2ox6entity9COxEntity5getIdEv",
               "addend": -4,
@@ -5592,7 +5592,7 @@
             {
               "symbol": "_ZN7harvest6entity7CEntity17selectSparkTargetERKN2ox6TArrayIPNS2_6entity9COxEntityEEEiRi",
               "address": "0x432eb0",
-              "size": 420,
+              "size": 444,
               "fde": false,
               "global": true,
               "exact": false
@@ -5955,21 +5955,8 @@
           "name": ".text._ZNK7harvest6entity7CEntity12getSellValueEv",
           "size": 14,
           "placement": "symbol: _ZNK7harvest6entity7CEntity12getSellValueEv",
-          "exact": false,
+          "exact": true,
           "address": "0x416660",
-          "first_difference": 7,
-          "differing_bytes": 3,
-          "bad_references": [
-            {
-              "offset": 7,
-              "type": 11,
-              "symbol": ".rodata",
-              "addend": 160,
-              "destination": "0x5f3220",
-              "reason": "different destination",
-              "matches": false
-            }
-          ],
           "references": 1,
           "functions": [
             {
@@ -5978,7 +5965,7 @@
               "size": 14,
               "fde": true,
               "global": true,
-              "exact": false
+              "exact": true
             }
           ]
         },
@@ -6262,49 +6249,19 @@
         },
         {
           "name": ".text._ZN7harvest6entity17CFindSparkFunctor10testEntityEPN2ox6entity9COxEntityE",
-          "size": 183,
+          "size": 175,
           "placement": "symbol: _ZN7harvest6entity17CFindSparkFunctor10testEntityEPN2ox6entity9COxEntityE",
-          "exact": false,
+          "exact": true,
           "address": "0x434010",
-          "first_difference": 32,
-          "differing_bytes": 112,
-          "bad_references": [
-            {
-              "offset": 102,
-              "type": 2,
-              "symbol": "_ZNK2ox6entity9COxEntity11getPositionEv",
-              "addend": -4,
-              "destination": "0x5e1c50",
-              "reason": "different destination",
-              "matches": false
-            },
-            {
-              "offset": 135,
-              "type": 2,
-              "symbol": "_ZNK2ox6entity9COxEntity11getPositionEv",
-              "addend": -4,
-              "destination": "0x5e1c50",
-              "reason": "different destination",
-              "matches": false
-            },
-            {
-              "offset": 171,
-              "type": 2,
-              "symbol": ".LC3",
-              "addend": -4,
-              "reason": "unmapped or truncated range: -0x6cd0feae+0x4",
-              "matches": false
-            }
-          ],
           "references": 5,
           "functions": [
             {
               "symbol": "_ZN7harvest6entity17CFindSparkFunctor10testEntityEPN2ox6entity9COxEntityE",
               "address": "0x434010",
-              "size": 183,
-              "fde": false,
+              "size": 175,
+              "fde": true,
               "global": true,
-              "exact": false
+              "exact": true
             }
           ]
         },
@@ -6492,7 +6449,7 @@
           "/out/HarvestFull__harvest__entity__CHarvestEntity.o"
         ],
         "inputs": {
-          "src/HarvestFull/harvest/entity/CHarvestEntity.cpp": "8c8921b5902ced4454a021bf9dbfe265b35501464e49de098e0421c7037e5f21",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.cpp": "bc7e11319efc9ab81cf616b854342a52a6ea1fa58c17cb645668fe07c554ce87",
           "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
@@ -6539,7 +6496,7 @@
           "src/ox/video/../core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83"
         },
         "system_headers": 124,
-        "object_sha256": "e94e26aaf3356dad4b83e27cabf35a63fafaf36696ee223ab76b85f61b7e4eaa"
+        "object_sha256": "15b4ae1b33bfdc9f0f248107f081641622b88b56d09c15ce687b4ccda042fde8"
       }
     }
   ],

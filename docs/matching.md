@@ -90,7 +90,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `ox/core/CBasic.cpp`, `CCipherKey.cpp`, `CCriticalSection.cpp`, `CHiddenFloat.cpp`, `CHiddenInt.cpp`, `CThread.cpp` | 61/61 | exact |
 | `HarvestFull/harvest/game/CThreatLevel.cpp` | 76/81 | game modes and waves; five functions differ only in register allocation (and one switch layout) |
 | `ox/entity/COxEntity.cpp` | 25/25 | exact; keeps the 2d constructors' `Position.Y` typo |
-| `HarvestFull/harvest/entity/CHarvestEntity.cpp` | 67/70 | `CEntity`, particles, special effects, spark search; see below for the three left |
+| `HarvestFull/harvest/entity/CHarvestEntity.cpp` | 69/70 | `CEntity`, particles, special effects, spark search; `selectSparkTarget` differs in register allocation |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
@@ -138,9 +138,12 @@ Findings:
   y first, while float screen positions built by assigning `pos.X` then `pos.Y` compute x first.
   Temporaries passed straight into a virtual call are built after the vtable load; named locals
   before it.
-- CHarvestEntity leftovers: `selectSparkTarget` (the loop's shape and which values live on the
-  stack), `CFindSparkFunctor::testEntity` (identical code, but ours aligns two jump targets) and
-  the `getSellValue` COMDAT, whose kept copy reads another object's `ENTITY_MINERAL_COSTS`.
+- Branch structure moves alignment padding: `CFindSparkFunctor::testEntity` compiled to the same
+  instructions with its three tests in one `if`, but only a separate `wantsSpark` test gave the
+  target's (absent) jump-target alignment.
+- `selectSparkTarget` is still open: the target fetches the next element before the loop's exit
+  test (only a loop that loads it there comes close), and it keeps `this` and `excludeId` in the
+  opposite callee-saved registers from ours.
 
 ## Inferred and merged sections
 
@@ -148,6 +151,11 @@ A data section with no known symbol is placed where the references to it from pl
 when all of them agree, and is then compared byte for byte. References into merged string or
 constant sections (for example `.rodata.str1.1`, or `.rodata.str4.4` for wide strings) are checked
 by content: the string or constant at the referenced offset must equal the target's.
+
+An inline copy (a COMDAT section) kept from another object reads that object's copy of a file-level
+static, such as a header's `static const int` table, so its reference cannot land in our copy. A
+reference from such a section to a local object is checked by content: the target's object at the
+same place must hold our object's bytes.
 
 ## Per-function placement and learned symbols
 

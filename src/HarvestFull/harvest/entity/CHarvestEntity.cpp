@@ -68,7 +68,9 @@ public:
 
     virtual bool testEntity(ox::entity::COxEntity* entity)
     {
-        if (entity->getId() == Id || entity->getId() == ExcludeId || !((CEntity*)entity)->wantsSpark())
+        if (entity->getId() == Id || entity->getId() == ExcludeId)
+            return false;
+        if (!((CEntity*)entity)->wantsSpark())
             return false;
 
         float dx = Position.X - entity->getPosition().X;
@@ -275,22 +277,16 @@ int CEntity::selectSparkTarget(const ox::TArray<ox::entity::COxEntity*>& targets
     }
 
     int start = index % targets.size();
-    int current = start;
-    CEntity* target = 0;
     int otherId = 0;
     bool foundOther = false;
     bool foundExcluded = false;
+    CEntity* entity = (CEntity*)targets[start];
+    ++index;
 
-    do
+    for (;;)
     {
-        CEntity* entity = (CEntity*)targets[current];
-        ++index;
-
         if (entity->wantsSpark() && entity->getId() != excludeId && entity->acceptsSparkFrom(getId()))
-        {
-            target = entity;
-            break;
-        }
+            return entity->getId();
 
         if (entity->getId() != excludeId)
         {
@@ -303,12 +299,13 @@ int CEntity::selectSparkTarget(const ox::TArray<ox::entity::COxEntity*>& targets
         else
             foundExcluded = true;
 
-        current = index % targets.size();
+        int current = index % targets.size();
+        entity = (CEntity*)targets[current];
+        if (current == start)
+            break;
+        ++index;
     }
-    while (current != start);
 
-    if (target)
-        return target->getId();
     if (foundExcluded)
         return excludeId;
     if (foundOther)
