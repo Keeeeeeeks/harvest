@@ -42,6 +42,9 @@ public:
     virtual void renderGroundLayer(const ox::core::CPosition2d<float>& camera,
         const ox::core::CRect<int>& viewPort);
 
+    //! Applies damage and knockback; returns true when the alien dies.
+    bool dealDamage(float& damage, const ox::core::CPosition2d<float>& source, float force, int weapon);
+
 private:
     // The layout is not recovered yet; this keeps the Linux amd64 object size (0x2f0).
     unsigned char Unrecovered[0x2f0 - sizeof(CEntity)];

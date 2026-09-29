@@ -105,6 +105,8 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `HarvestFull/harvest/entity/CMineralsEntity.cpp` | 33/33 | exact; mineral deposits and the level scatter |
 | `HarvestFull/harvest/entity/CSparkEntity.cpp` | 27/27 | exact; a spark homing on its target building through an `SEntityReference` |
 | `HarvestFull/harvest/entity/CHarvestEntity.cpp` | 69/70 | `CEntity`, particles, special effects, spark search; `selectSparkTarget` differs in register allocation |
+| `HarvestFull/harvest/entity/CPerimeterBomb.cpp` | 24/25 | three-second fuse, radial alien damage, bomb knockback and kill events; `updateLogic` differs only in three loop-compare operand orders |
+| `HarvestFull/harvest/settings/CAlienPriorities.cpp` | 11/11 | weapon targeting weights, range preference, hold-fire and serialization; destructor section placement differs |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
@@ -157,6 +159,14 @@ Findings:
   target's (absent) jump-target alignment.
 - A wrong virtual return type can be invisible in its own unit: `onSpark` returns the spark's next
   target id (or -1, or 0), which only CSparkEntity showed.
+- `CPerimeterBombExplosion` moves before damping its speed. It detonates after three seconds, or
+  when a bomb that has exceeded speed 10 leaves the movable world. Alien damage falls linearly
+  with squared distance within radius 200; nearby bombs receive a radial push within radius 100.
+  Event 21/20 requires 20 kills; event 21/11 requires six kills and a bomb that has moved.
+- `CAlienPriorities` defaults all 14 weights to 2, with range preference and hold-fire disabled.
+  Hold-fire is loaded only from save version 30 onward. Its comma parser leaves unprovided weights
+  unchanged, includes the terminating character in the final substring, and parses an empty final
+  token as zero. The native comparison is `start <= text.size()`, not a strict inequality.
 - Multi-string constructors (CMinerEntity, CSparkMoverEntity) differ only in the first inlined
   `CString` copy loop, whose compare operands are swapped (`cmp len, i; jge` in the target). Single
   string constructors match, so this is likely which inliner pass inlined that first copy.

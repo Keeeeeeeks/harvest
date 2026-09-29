@@ -39,6 +39,7 @@ public:
     bool hasWorldExpandedAtLeastOnce();
 
     bool mayPlaceObjectHere(const ox::core::CPosition2d<float>& position, bool building);
+    bool mayMoveHere(const ox::core::CPosition2d<float>& position);
 
     //! Adds the wind at a position over the frame to speed.
     void applyWind(const ox::core::CVector3d<float>& position, ox::core::CVector2d<float>& speed,

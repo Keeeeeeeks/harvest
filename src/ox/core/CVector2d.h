@@ -1,7 +1,7 @@
 // Copyright (C) 2002-2004 Nikolaus Gebhardt
 // Adapted from Irrlicht 0.7 include/vector2d.h (license: third_party/irrlicht-0.7/include/irrlicht.h).
 // Recovered for Harvest's ox::core namespace; not the original source. Partial: the geometry
-// helpers after getLength are not recovered yet.
+// helpers other than getLength and normalize are not recovered yet.
 
 #ifndef OX_CORE_CVECTOR2D_H
 #define OX_CORE_CVECTOR2D_H
@@ -52,6 +52,18 @@ public:
 
     //! Returns the length of the vector
     double getLength() const { return sqrt(X * X + Y * Y); }
+
+    //! Normalizes the vector, leaving a zero vector unchanged.
+    CVector2d<T>& normalize()
+    {
+        T length = (T)getLength();
+        if (length == 0)
+            return *this;
+        length = (T)1.0 / length;
+        X *= length;
+        Y *= length;
+        return *this;
+    }
 
     T X, Y;
 };
