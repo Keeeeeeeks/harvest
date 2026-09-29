@@ -308,3 +308,25 @@ def test_merged_string_check_rejects_malformed_references(data, offset, reason):
 def test_merged_constant_must_be_complete():
     ok, message = match.check_merged(target_image(), FakeSection(b"\0\0\0\0\0\0", 4, flags=0x10), 4, ADDRESS)
     assert not ok and "incomplete" in message
+
+
+class FakeSymbol(dict):
+    def __init__(self, name, value, size):
+        super().__init__(st_shndx=1, st_info={"type": "STT_FUNC"}, st_value=value, st_size=size)
+        self.name = name
+
+
+class FakeResolver:
+    def __init__(self, known):
+        self.known = known
+
+
+def test_unnamed_function_follows_its_predecessor():
+    # ours: a (0x40), b (0x20); the target's a is 0x10 longer, so b sits 0x10 later than base + 0x40
+    symbols = [FakeSymbol("a", 0x0, 0x40), FakeSymbol("b", 0x40, 0x20), FakeSymbol("c", 0x60, 0x20)]
+    fdes = {(0x1000, 0x50), (0x1050, 0x20), (0x1070, 0x20)}
+    layout = match.layout_functions(1, 0x1000, symbols, FakeResolver({"a": 0x1000}), fdes)
+    assert layout.address_of(0x40) == 0x1050
+    # c has a twin FDE of its size, so it keeps following b
+    assert layout.address_of(0x60) == 0x1070
+    assert not layout.contiguous

@@ -139,15 +139,19 @@ def layout_functions(section_index: int, base: int, symbols, resolver: Resolver,
     """Place each function of an executable section at its own target address.
 
     A function goes to its known address. One without a name in symbols.tsv (a static initializer,
-    a compiler clone) follows the section base when an FDE of its size starts there, or else goes
-    to the one unclaimed FDE of its size among the known functions' range. The section is
-    contiguous when every function lands at base + offset: its order and lengths match the target's.
+    a compiler clone) goes where an FDE of its size starts at the section base plus its offset, or
+    to the target function right after the one before it when that has its size, or else to the one
+    unclaimed FDE of its size among the known functions' range. Failing all of those it still takes
+    the target function after the one before it, so a length difference earlier in the section does
+    not shift the rest. The section
+    is contiguous when every function lands at base + offset: its order and lengths match the target's.
     """
     functions = sorted(
         (s for s in symbols if s["st_shndx"] == section_index and s["st_info"]["type"] == "STT_FUNC"),
         key=lambda s: s["st_value"],
     )
     layout = Layout(base)
+    fde_sizes = dict(fdes)
     known = {s.name: resolver.known[s.name] for s in functions if s.name in resolver.known}
     if known:
         low = min(known.values())
@@ -160,8 +164,19 @@ def layout_functions(section_index: int, base: int, symbols, resolver: Resolver,
         address = known.get(symbol.name)
         if address is None:
             candidates = [a for a, n in free if n == size]
-            if (base + start, size) in fdes or len(candidates) != 1:
+            following = base + start
+            if layout.segments:
+                # the target function that comes next after the one before it
+                previous_start, previous_end, previous_address = layout.segments[-1]
+                extent = fde_sizes.get(previous_address, previous_end - previous_start)
+                following = min(
+                    (a for a in fde_sizes if a >= previous_address + extent),
+                    default=previous_address + start - previous_start,
+                )
+            if (base + start, size) in fdes:
                 address = base + start
+            elif (following, size) in fdes or len(candidates) != 1:
+                address = following
             else:
                 address = candidates[0]
             free = [(a, n) for a, n in free if a != address]
