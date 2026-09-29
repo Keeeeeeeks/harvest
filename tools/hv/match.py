@@ -139,8 +139,8 @@ def layout_functions(section_index: int, base: int, symbols, resolver: Resolver,
     """Place each function of an executable section at its own target address.
 
     A function goes to its known address. One without a name in symbols.tsv (a static initializer,
-    a compiler clone) goes where an FDE of its size starts at the section base plus its offset, or
-    to the target function right after the one before it when that has its size, or else to the one
+    a compiler clone) goes to the target function right after the one before it when that has its
+    size, or where an FDE of its size starts at the section base plus its offset, or else to the one
     unclaimed FDE of its size among the known functions' range. Failing all of those it still takes
     the target function after the one before it, so a length difference earlier in the section does
     not shift the rest. The section
@@ -173,12 +173,14 @@ def layout_functions(section_index: int, base: int, symbols, resolver: Resolver,
                     (a for a in fde_sizes if a >= previous_address + extent),
                     default=previous_address + start - previous_start,
                 )
-            if (base + start, size) in fdes:
-                address = base + start
-            elif (following, size) in fdes or len(candidates) != 1:
+            if (following, size) in fdes:
                 address = following
-            else:
+            elif (base + start, size) in fdes:
+                address = base + start
+            elif len(candidates) == 1:
                 address = candidates[0]
+            else:
+                address = following
             free = [(a, n) for a, n in free if a != address]
         layout.segments.append((start, start + size, address))
     return layout
