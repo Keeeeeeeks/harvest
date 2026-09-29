@@ -1,0 +1,30 @@
+{
+  "app": 15400,
+  "branch": "public",
+  "observed_build": 22768,
+  "acquired": "2026-09-29",
+  "downloader_version": "3.4.0",
+  "depots": {
+    "15401": {
+      "platform": "windows",
+      "manifest": "1176538588865510955",
+      "created_utc": "2012-04-19T18:17:02+00:00",
+      "files": 181,
+      "bytes": 113235552
+    },
+    "15402": {
+      "platform": "macos",
+      "manifest": "5086176818670982542",
+      "created_utc": "2012-04-25T00:19:04+00:00",
+      "files": 188,
+      "bytes": 146845221
+    },
+    "15403": {
+      "platform": "linux",
+      "manifest": "927912754689293811",
+      "created_utc": "2012-10-31T11:38:59+00:00",
+      "files": 175,
+      "bytes": 104122389
+    }
+  }
+}

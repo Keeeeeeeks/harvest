@@ -34,6 +34,12 @@ for Mac and Windows, only the executable. Then check them against the pins:
 just verify
 ```
 
+The Windows and Mac images can be downloaded from pinned Steam manifests with
+`uv run python tools/download-steam.py YOUR_STEAM_USERNAME --install`. The DRM-free Linux
+builds remain the target and reference; the differing Steam Linux build is archived
+separately. See [docs/provenance.md](docs/provenance.md) for acquisition evidence,
+checksums and download instructions.
+
 Build the toolchain image (needs Docker; on Apple Silicon it runs under x86-64 emulation):
 
 ```bash
