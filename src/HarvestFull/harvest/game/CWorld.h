@@ -30,6 +30,7 @@ public:
 
     //! Index of the planet: 0, 1 or 2.
     int getPlanet() const;
+    int getGameMode() const;
 
     //! The area the player may currently build in.
     const ox::core::CRect<float>& getActualGameFieldSize() const;

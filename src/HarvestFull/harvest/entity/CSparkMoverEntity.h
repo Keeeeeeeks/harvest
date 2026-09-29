@@ -23,6 +23,14 @@ public:
     virtual void renderGroundLayer(const ox::core::CPosition2d<float>& camera,
         const ox::core::CRect<int>& viewPort);
 
+    virtual void handleDoubleClickSelection();
+
+    //! Sends the mover's sparks to a construction site; the flag is not recovered yet.
+    void setSparkTargetId(int id, bool);
+    //! Whether the player has given the mover a waypoint.
+    bool isWaypointed();
+    int getWaypointId();
+
 private:
     // The layout is not recovered yet; this keeps the Linux amd64 object size (0x128).
     unsigned char Unrecovered[0x128 - sizeof(CBuildingEntity)];

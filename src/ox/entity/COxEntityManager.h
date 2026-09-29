@@ -6,6 +6,7 @@
 
 #include "../TArray.h"
 #include "../core/CRect.h"
+#include <list>
 
 namespace ox {
 namespace entity {
@@ -47,6 +48,7 @@ public:
     //! the entity lists changed. An empty reference is looked up only when `locate` is set.
     void updateReference(SEntityReference& reference, int layer, bool locate);
     int getUpdateCounter() const;
+    const std::list<COxEntity*>& getEntityList(int layer) const;
 };
 
 } // end namespace entity

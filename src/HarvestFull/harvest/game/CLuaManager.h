@@ -17,6 +17,8 @@ class CLuaManager
 public:
     //! Tells the scripts that a building sent out a spark.
     void hookEnergySparkCreated(int sparkId, entity::CBuildingEntity* building);
+    //! Tells the scripts that a construction site has become a building.
+    void hookBuildingConstructed(entity::CBuildingEntity* building);
 };
 
 extern CLuaManager* gp_luaManager;

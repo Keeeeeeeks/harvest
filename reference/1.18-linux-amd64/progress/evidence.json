@@ -14,8 +14,8 @@
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
-    "config/1.18-linux-amd64/symbols.tsv": "7fa0a4cacee95c27ef4fc1a534872e2d3ac2b462c876f5f80995e34840a162b8",
-    "config/1.18-linux-amd64/units.toml": "9fbe80a23cd13e04c25ff86902da5e50ef29d179b8df96330ce7601f5ed2cf6f"
+    "config/1.18-linux-amd64/symbols.tsv": "0a85f826ffb72acc1cfb5441e7e26efb27873551cf76ef37167689c1fdeba766",
+    "config/1.18-linux-amd64/units.toml": "63ba0fec4d0f4c1b07c6570f71639f94fb5a42abe78909fe1225631153fe2675"
   },
   "units": [
     {
@@ -1220,7 +1220,7 @@
         "inputs": {
           "src/ox/net/CHTTPConnectionHandler.cpp": "6fe52bd7f89097128ddadc279116ea87a8c88f519598d3de39a06ce4d7cf7c5c",
           "src/ox/net/CHTTPConnectionHandler.h": "e2186dc016ece3cac85cac00699bfc6586a28c6d1fabdc0620b2c72216b6d9ca",
-          "src/ox/net/../event/IEventReceiver.h": "1afcf76eb5e49c92aa62325338f0b69d4121b4f3dd04a777929cb9daea6e42af",
+          "src/ox/net/../event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
           "src/ox/net/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
           "src/ox/net/../core/CCriticalSection.h": "f39fa1edf4d20b60b52728a5c7afa063f4994db48bc8696f0ee691b3288a8b09",
           "src/ox/net/INetworkDevice.h": "2f29b75e1d69e6568a0c16c58feac3f348f9371c093a5fbf6904b9843111e0d4",
@@ -2447,10 +2447,11 @@
           "src/ox/core/CHiddenFloat.cpp": "d2205b61b1e19a25eb4f3f5f798b8b16cb7f5285bb51c599602074e1556405df",
           "src/ox/core/CHiddenFloat.h": "5030941eba704edd2d4d8d9e1236d29af77b85b05df0bbea1dd33b0c1d38b1e9",
           "src/ox/core/../algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
-          "src/ox/core/../io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
+          "src/ox/core/../io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
           "src/ox/core/../io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/core/../io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
-          "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d"
+          "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/core/../io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903"
         },
         "system_headers": 106,
         "object_sha256": "aed05d44e84fa61c3dabd0fe7696c91ebf3a6581d66367b2968b340972f30039"
@@ -2655,10 +2656,11 @@
           "src/ox/core/CHiddenInt.cpp": "8e1d01b031497441dac9678e3341abdb4ec16a5b651fcf5af533b79346a3cd66",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
           "src/ox/core/../algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
-          "src/ox/core/../io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
+          "src/ox/core/../io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
           "src/ox/core/../io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/core/../io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
-          "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d"
+          "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/core/../io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903"
         },
         "system_headers": 106,
         "object_sha256": "b5ee5f0158ecaed6ccc98aacde0139789441d64a54980986ed26a918cf5a7d9e"
@@ -3243,8 +3245,8 @@
               "type": 2,
               "symbol": "_ZN2ox5event17gp_subscriberListE",
               "addend": -4,
-              "reason": "no target address for symbol",
-              "candidate": "-0x2f712466",
+              "destination": "0x874258",
+              "reason": "different destination",
               "matches": false
             },
             {
@@ -4944,7 +4946,7 @@
           "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/HarvestFull/harvest/game/CWorld.h": "7c18a6ee3cd0f18f9ec760222c0f68c8e3ecff606165ef82a8f601901d0f644a",
           "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "8d939e342153c67e40f9d8d7dffd838296055ad307207529c803befc31c9faeb",
@@ -4957,18 +4959,19 @@
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "0c5d118f891bf4a3a64f6d20d67c7ba0fb35d6f4096062ad6744c465984082d2",
-          "src/ox/entity/COxEntityManager.h": "2ac15e353a6d7fee513eb98cbbf5169e988470711b6a7697a7a43d24a2276e7a",
+          "src/ox/entity/COxEntityManager.h": "d5978dd1554055ec0afb811891e747080097b51fbbeaba67174cd802c7e62032",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
-          "src/HarvestFull/harvest/ECustomEvents.h": "421c67e1db24c0c6a9a5fa8c7bb025cd1e77bcecea4e6a3b4ff4228c1cb52b83",
+          "src/HarvestFull/harvest/ECustomEvents.h": "31988e30ccda8d8b8826e199ffc2414eea63f17ca028ef1cde055dae09666419",
           "src/ox/algo/CArrayFunctions.h": "c1c020c147e23685af15997be3c5df8a5184f8f23c4a9c990de88d3d928ad679",
           "src/ox/algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
           "src/ox/core/CBasic.h": "e9aafefa6a4d42a6e06eb77763a11fa1237e4d721ba3ef2c047a4b1a513505f6",
-          "src/ox/event/IEventReceiver.h": "1afcf76eb5e49c92aa62325338f0b69d4121b4f3dd04a777929cb9daea6e42af",
-          "src/ox/io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
+          "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
+          "src/ox/io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
-          "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d"
+          "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903"
         },
         "system_headers": 126,
         "object_sha256": "b0c476c31e42bc49282c774aa4571698057f7ce34683d6b94393d22c6e7b71b8"
@@ -6462,7 +6465,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CHarvestEntity.cpp": "bc7e11319efc9ab81cf616b854342a52a6ea1fa58c17cb645668fe07c554ce87",
-          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/HarvestFull/harvest/game/CWorld.h": "7c18a6ee3cd0f18f9ec760222c0f68c8e3ecff606165ef82a8f601901d0f644a",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
@@ -6477,7 +6480,7 @@
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "8d939e342153c67e40f9d8d7dffd838296055ad307207529c803befc31c9faeb",
-          "src/HarvestFull/harvest/entity/CConstructionEntity.h": "6ce24d5b3e524ea8b2c3ce34d03c6df71492715aff7b36cfe9d11f47eb6e49a8",
+          "src/HarvestFull/harvest/entity/CConstructionEntity.h": "635ea9bc480e3f4c219bf89302b155d07b2c3fcc55e9306cd3df782b5bc68219",
           "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
@@ -6489,20 +6492,21 @@
           "src/HarvestFull/harvest/entity/CCreativeEntity.h": "00ed7b7cfb005f702cb0f8a2e1d458fb53eed06c53ab536dcc6eecdde95446fe",
           "src/HarvestFull/harvest/entity/CDefenseTowerEntity.h": "7300621ef432f7d7f93533ddf8bb0b5def4b5ecfe3c55b57554a22555014d9d4",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "0c5d118f891bf4a3a64f6d20d67c7ba0fb35d6f4096062ad6744c465984082d2",
-          "src/ox/entity/COxEntityManager.h": "2ac15e353a6d7fee513eb98cbbf5169e988470711b6a7697a7a43d24a2276e7a",
+          "src/ox/entity/COxEntityManager.h": "d5978dd1554055ec0afb811891e747080097b51fbbeaba67174cd802c7e62032",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
           "src/HarvestFull/harvest/entity/CMinerEntity.h": "e6454ea4f6603319b6082cef78ef5d1ee409350be7799e2e9d4ccea634fd9e47",
           "src/HarvestFull/harvest/entity/CMissileTurretEntity.h": "e7490b1d80dbbd55d500361c1e7c2c93a137b7b59bef34d57d2028f423681933",
           "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
-          "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "fdc59397ae857440220258b8355a4c860943cda66ce4c1cb9d8cc42defc64442",
+          "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "1d673eb0201fc63e6282428bd38f77947edd0bb5550f8a00bb720bdf12f84b18",
           "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "77125a31b58d71b4a0f59372bf5128edb7b1dbb50e58eee42d1cb54b71c4afef",
           "src/ox/entity/ITestEntityFunction.h": "b178c234a2902d6a14e5584e0870db48927a7a02e2fd3d12a01ff408ffa4f9af",
-          "src/ox/io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
+          "src/ox/io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
           "src/ox/video/IParticlePackage.h": "54ea207a17ac6508c8eb0d38dce95af6c08b07104051c965b41d0b7959fa2027",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/video/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
@@ -7014,7 +7018,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CBuildingEntity.cpp": "9e9d2314de75da465da3c38f987158697e08c84c971e7242e49c656e1619b782",
-          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/HarvestFull/harvest/game/CWorld.h": "7c18a6ee3cd0f18f9ec760222c0f68c8e3ecff606165ef82a8f601901d0f644a",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
@@ -7037,9 +7041,10 @@
           "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
           "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
           "src/HarvestFull/harvest/CHarvestFullMain.h": "d42cdbde7d9b5eb4f7c1a5ce18d92bb320903dab3b185a5deb04b8d02b65ccff",
-          "src/HarvestFull/harvest/entity/CBuildableItems.h": "ff8ceb19b847ebe27b865ae27a13086549be07572bd63d82177037353b1b97b3",
+          "src/HarvestFull/harvest/entity/CBuildableItems.h": "d3240e969951ee9c3854165e5f81ed8823a921dcb0a964e91e3e586cfd9cad9f",
+          "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
           "src/HarvestFull/harvest/entity/CCreativeEntity.h": "00ed7b7cfb005f702cb0f8a2e1d458fb53eed06c53ab536dcc6eecdde95446fe",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "494df5bc8e6fdc7fb4f90d6f6ba8ea26e909ce2fc050bbdc47b67c505115fed9"
+          "src/HarvestFull/harvest/game/CLuaManager.h": "207915d5f7dcadf13350999240410b323783b47f20ec9d7ae0c7c37d659aa3a5"
         },
         "system_headers": 128,
         "object_sha256": "2cec880ee8fe6454c360249cade4d14cf56f59c1f2003442c21841fcb0b79286"
@@ -7486,7 +7491,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CSparkEntity.cpp": "08ca4862b473c2df39c5d8754276aa1f57b06ddeae763e6b9378d797738cc0fa",
-          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/HarvestFull/harvest/game/CWorld.h": "7c18a6ee3cd0f18f9ec760222c0f68c8e3ecff606165ef82a8f601901d0f644a",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
@@ -7501,13 +7506,14 @@
           "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
-          "src/ox/entity/COxEntityManager.h": "2ac15e353a6d7fee513eb98cbbf5169e988470711b6a7697a7a43d24a2276e7a",
+          "src/ox/entity/COxEntityManager.h": "d5978dd1554055ec0afb811891e747080097b51fbbeaba67174cd802c7e62032",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "0c5d118f891bf4a3a64f6d20d67c7ba0fb35d6f4096062ad6744c465984082d2",
-          "src/ox/io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
+          "src/ox/io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
@@ -7960,7 +7966,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CSparkProducerEntity.cpp": "006f1b062b13a181811d9740a1045071fdc09a2001797cea5a6d596ede4f2ece",
-          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/HarvestFull/harvest/game/CWorld.h": "7c18a6ee3cd0f18f9ec760222c0f68c8e3ecff606165ef82a8f601901d0f644a",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
@@ -7984,16 +7990,17 @@
           "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
           "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "0c5d118f891bf4a3a64f6d20d67c7ba0fb35d6f4096062ad6744c465984082d2",
-          "src/ox/entity/COxEntityManager.h": "2ac15e353a6d7fee513eb98cbbf5169e988470711b6a7697a7a43d24a2276e7a",
+          "src/ox/entity/COxEntityManager.h": "d5978dd1554055ec0afb811891e747080097b51fbbeaba67174cd802c7e62032",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "494df5bc8e6fdc7fb4f90d6f6ba8ea26e909ce2fc050bbdc47b67c505115fed9",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "207915d5f7dcadf13350999240410b323783b47f20ec9d7ae0c7c37d659aa3a5",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
-          "src/ox/io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
+          "src/ox/io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
@@ -8476,7 +8483,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CMineralsEntity.cpp": "0e05e373fd3e9ed48246760863e09a9a7080a0ef421b8527198a14d52e111f0a",
-          "src/HarvestFull/harvest/game/CWorld.h": "63721627cccaaddc20e0a3994132dcc144d032d174acddd84ff9059b2e3c09ee",
+          "src/HarvestFull/harvest/game/CWorld.h": "7c18a6ee3cd0f18f9ec760222c0f68c8e3ecff606165ef82a8f601901d0f644a",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
@@ -8493,15 +8500,16 @@
           "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "0c5d118f891bf4a3a64f6d20d67c7ba0fb35d6f4096062ad6744c465984082d2",
-          "src/ox/entity/COxEntityManager.h": "2ac15e353a6d7fee513eb98cbbf5169e988470711b6a7697a7a43d24a2276e7a",
+          "src/ox/entity/COxEntityManager.h": "d5978dd1554055ec0afb811891e747080097b51fbbeaba67174cd802c7e62032",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
           "src/ox/core/CBasic.h": "e9aafefa6a4d42a6e06eb77763a11fa1237e4d721ba3ef2c047a4b1a513505f6",
-          "src/ox/io/CHelpIO.h": "a84a577bcda2c7304c6acaaa31bfb764e0ecf3e2250fe751e87e3130f3f4b085",
+          "src/ox/io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
@@ -8513,6 +8521,501 @@
         },
         "system_headers": 124,
         "object_sha256": "f8bb886f796bae7bcec605f1fcb5376331e110c9eaba3f5c97daaeca073917ca"
+      }
+    },
+    {
+      "unit": "HarvestFull/harvest/entity/CConstructionEntity.cpp",
+      "object_sha256": "f35201535ad0524aaa01fdf7a0a6e34bf91c897785d1456bbe6793462ced2d43",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 3442,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x41b050",
+          "references": 133,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity13getBuildingIdEv",
+              "address": "0x41b050",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity12updateSpriteEf",
+              "address": "0x41b060",
+              "size": 26,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity7onSparkEPNS0_12CSparkEntityE",
+              "address": "0x41b080",
+              "size": 23,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity10wantsSparkEv",
+              "address": "0x41b0a0",
+              "size": 10,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity23getCurrentDisplaySpriteEv",
+              "address": "0x41b0b0",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity6renderERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x41b0c0",
+              "size": 131,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN7harvest6entity19CConstructionEntityC2EffPKc",
+              "address": "0x41b150",
+              "size": 59,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+              "address": "0x41b190",
+              "size": 79,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity26handleDoubleClickSelectionEv",
+              "address": "0x41b1e0",
+              "size": 313,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity13getInfoStringEv",
+              "address": "0x41b320",
+              "size": 59,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity11updateLogicEf",
+              "address": "0x41b360",
+              "size": 570,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntityD1Ev",
+              "address": "0x41b5a0",
+              "size": 120,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntityD2Ev",
+              "address": "0x41b620",
+              "size": 120,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity9setSpriteEPKcS3_",
+              "address": "0x41b6a0",
+              "size": 348,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity13setEntityInfoEv",
+              "address": "0x41b800",
+              "size": 256,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity14readEntityDataEPN2ox2io9IReadFileEi",
+              "address": "0x41b900",
+              "size": 232,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntityC2EffPKc",
+              "address": "0x41b9f0",
+              "size": 418,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntityD0Ev",
+              "address": "0x41bba0",
+              "size": 128,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntityC1EffPKc",
+              "address": "0x41bc20",
+              "size": 418,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 12,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x86b640",
+          "references": 0
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10killEntityEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10killEntityEv",
+          "exact": true,
+          "address": "0x416670",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10killEntityEv",
+              "address": "0x416670",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity8isKilledEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity8isKilledEv",
+          "exact": true,
+          "address": "0x416680",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity8isKilledEv",
+              "address": "0x416680",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "size": 6,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "exact": true,
+          "address": "0x416620",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity14getRenderLayerEv",
+              "address": "0x416620",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "size": 6,
+          "placement": "symbol: _ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "exact": true,
+          "address": "0x416630",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+              "address": "0x416630",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "size": 9,
+          "placement": "symbol: _ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "exact": true,
+          "address": "0x416640",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity14getSparkHeightEv",
+              "address": "0x416640",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "exact": true,
+          "address": "0x416690",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+              "address": "0x416690",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "exact": true,
+          "address": "0x4166b0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+              "address": "0x4166b0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "exact": true,
+          "address": "0x4166c0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+              "address": "0x4166c0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity19CConstructionEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity19CConstructionEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "exact": true,
+          "address": "0x41bdf0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity19CConstructionEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x41bdf0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity19CConstructionEntity16getCollisionSizeEv",
+          "size": 6,
+          "placement": "symbol: _ZNK7harvest6entity19CConstructionEntity16getCollisionSizeEv",
+          "exact": true,
+          "address": "0x41bdd0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity19CConstructionEntity16getCollisionSizeEv",
+              "address": "0x41bdd0",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity19CConstructionEntity12getSellValueEv",
+          "size": 4,
+          "placement": "symbol: _ZNK7harvest6entity19CConstructionEntity12getSellValueEv",
+          "exact": true,
+          "address": "0x41bde0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity19CConstructionEntity12getSellValueEv",
+              "address": "0x41bde0",
+              "size": 4,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".rodata",
+          "size": 136,
+          "placement": "references",
+          "exact": true,
+          "address": "0x5f1130",
+          "references": 17
+        },
+        {
+          "name": ".gcc_except_table",
+          "size": 200,
+          "placement": "exception frames",
+          "exact": true,
+          "address": "0x658799",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity19CConstructionEntityE",
+          "size": 312,
+          "placement": "symbol: _ZTVN7harvest6entity19CConstructionEntityE",
+          "exact": true,
+          "address": "0x5f11c0",
+          "references": 38
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity19CConstructionEntityE",
+          "size": 39,
+          "placement": "symbol: _ZTSN7harvest6entity19CConstructionEntityE",
+          "exact": true,
+          "address": "0x5f1300",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity19CConstructionEntityE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity19CConstructionEntityE",
+          "exact": true,
+          "address": "0x5f1330",
+          "references": 3
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
+          "-MD",
+          "-MF",
+          "/out/HarvestFull__harvest__entity__CConstructionEntity.d",
+          "-c",
+          "src/HarvestFull/harvest/entity/CConstructionEntity.cpp",
+          "-o",
+          "/out/HarvestFull__harvest__entity__CConstructionEntity.o"
+        ],
+        "inputs": {
+          "src/HarvestFull/harvest/entity/CConstructionEntity.cpp": "3d070cbd4b12c0044c424af9cf5c57edaa0a283797931da5cd091dbc07cda650",
+          "src/HarvestFull/harvest/game/CWorld.h": "7c18a6ee3cd0f18f9ec760222c0f68c8e3ecff606165ef82a8f601901d0f644a",
+          "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
+          "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/HarvestFull/harvest/entity/CConstructionEntity.h": "635ea9bc480e3f4c219bf89302b155d07b2c3fcc55e9306cd3df782b5bc68219",
+          "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
+          "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
+          "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
+          "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
+          "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
+          "third_party/luajit-2.0.0-beta8/include/luaconf.h": "1a401f42e1865b5ffdee60e93d64bfb94bad10703fa03dd61efe76124d888975",
+          "third_party/luajit-2.0.0-beta8/include/lauxlib.h": "a1be3c2d133777c618c2d88fa7cdcb013d5372b0959b77b235cd7de67323cc23",
+          "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
+          "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
+          "src/HarvestFull/harvest/ECustomEvents.h": "31988e30ccda8d8b8826e199ffc2414eea63f17ca028ef1cde055dae09666419",
+          "src/HarvestFull/harvest/entity/CBuildableItems.h": "d3240e969951ee9c3854165e5f81ed8823a921dcb0a964e91e3e586cfd9cad9f",
+          "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
+          "src/HarvestFull/harvest/entity/CCreativeEntity.h": "00ed7b7cfb005f702cb0f8a2e1d458fb53eed06c53ab536dcc6eecdde95446fe",
+          "src/HarvestFull/harvest/entity/CDefenseTowerEntity.h": "7300621ef432f7d7f93533ddf8bb0b5def4b5ecfe3c55b57554a22555014d9d4",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "0c5d118f891bf4a3a64f6d20d67c7ba0fb35d6f4096062ad6744c465984082d2",
+          "src/ox/entity/COxEntityManager.h": "d5978dd1554055ec0afb811891e747080097b51fbbeaba67174cd802c7e62032",
+          "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/HarvestFull/harvest/entity/CMinerEntity.h": "e6454ea4f6603319b6082cef78ef5d1ee409350be7799e2e9d4ccea634fd9e47",
+          "src/HarvestFull/harvest/entity/CMissileTurretEntity.h": "e7490b1d80dbbd55d500361c1e7c2c93a137b7b59bef34d57d2028f423681933",
+          "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "1d673eb0201fc63e6282428bd38f77947edd0bb5550f8a00bb720bdf12f84b18",
+          "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "77125a31b58d71b4a0f59372bf5128edb7b1dbb50e58eee42d1cb54b71c4afef",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "207915d5f7dcadf13350999240410b323783b47f20ec9d7ae0c7c37d659aa3a5",
+          "src/HarvestFull/harvest/game/CStatistics.h": "73f930bca51169a40f5896e0b8177c36fcb0c005be56152e56637c806d389efb",
+          "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
+          "src/ox/core/CMath.h": "b465c368d6277860f2cad6e48af982ef07f0b38f19de3858bf947b9059532b8d",
+          "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
+          "src/ox/io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
+          "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
+          "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
+          "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/video/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/video/ISpritePackage.h": "1c83a8f36232f0523f5904df2e8fc7714228f81d3f8c405d97d71dcce2ad56c5",
+          "src/ox/video/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/video/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/video/IVideoDriver.h": "7902574a531ce451183cb8788bee222d1abc759938170ff0094860c3a24aff74",
+          "src/ox/video/../core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83"
+        },
+        "system_headers": 132,
+        "object_sha256": "f35201535ad0524aaa01fdf7a0a6e34bf91c897785d1456bbe6793462ced2d43"
       }
     }
   ],

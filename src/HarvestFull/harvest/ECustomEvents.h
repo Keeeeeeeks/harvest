@@ -10,7 +10,9 @@ namespace harvest {
 enum ECUSTOM_EVENT
 {
     //! The first attack of a threat level has been spawned.
-    ECE_ATTACK_STARTED = 7
+    ECE_ATTACK_STARTED = 7,
+    //! A solar collector was completed in the normal game mode.
+    ECE_SPARK_PRODUCER_BUILT = 22
 };
 
 } // end namespace harvest

@@ -49,6 +49,8 @@ struct SEvent
         {
             int UserData1;
             int UserData2;
+            int UserData3;
+            void* UserPointer;
         } UserEvent;
 
         // Other event structs are not recovered yet. The Linux amd64 SEvent is 48 bytes, and
