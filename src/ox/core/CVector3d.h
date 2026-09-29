@@ -79,6 +79,20 @@ public:
         return (vx * vx + vy * vy + vz * vz);
     }
 
+    //! Normalizes the vector.
+    CVector3d<T>& normalize()
+    {
+        T l = (T)getLength();
+        if (l == 0)
+            return *this;
+
+        l = (T)1.0 / l;
+        X *= l;
+        Y *= l;
+        Z *= l;
+        return *this;
+    }
+
     CVector3d<T> crossProduct(const CVector3d<T>& p) const
     {
         return CVector3d<T>(Y * p.Z - Z * p.Y, Z * p.X - X * p.Z, X * p.Y - Y * p.X);

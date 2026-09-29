@@ -92,7 +92,9 @@ public:
         const ox::core::CRect<int>& viewPort, float progress, ox::video::SColor color);
     virtual ox::video::ISpriteAnimationState* getCurrentDisplaySprite();
 
-    virtual bool onSpark(CSparkEntity* spark) { return false; }
+    //! Takes a spark that arrived; returns the id the spark goes on to, -1 to send it back to its
+    //! source, or 0 when the spark is used up.
+    virtual int onSpark(CSparkEntity* spark) { return 0; }
     virtual bool wantsSpark() { return false; }
     virtual bool acceptsSparkFrom(int id) { return true; }
     virtual float getSparkHeight() { return 11.0f; }
@@ -153,7 +155,7 @@ public:
     virtual void renderGroundLayer(const ox::core::CPosition2d<float>& camera,
         const ox::core::CRect<int>& viewPort) {}
 
-    virtual bool onSpark(CSparkEntity* spark) { return false; }
+    virtual int onSpark(CSparkEntity* spark) { return 0; }
     virtual bool wantsSpark() { return false; }
 
 private:
@@ -184,7 +186,7 @@ public:
     virtual void renderGroundLayer(const ox::core::CPosition2d<float>& camera,
         const ox::core::CRect<int>& viewPort);
 
-    virtual bool onSpark(CSparkEntity* spark) { return false; }
+    virtual int onSpark(CSparkEntity* spark) { return 0; }
     virtual bool wantsSpark() { return false; }
 
 private:

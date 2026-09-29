@@ -98,6 +98,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `HarvestFull/harvest/game/CThreatLevel.cpp` | 76/81 | game modes and waves; five functions differ only in register allocation (and one switch layout) |
 | `ox/entity/COxEntity.cpp` | 25/25 | exact; keeps the 2d constructors' `Position.Y` typo |
 | `HarvestFull/harvest/entity/CBuildingEntity.cpp` | 31/31 | exact; the building's Lua view (Lunar method table) |
+| `HarvestFull/harvest/entity/CSparkEntity.cpp` | 27/27 | exact; a spark homing on its target building through an `SEntityReference` |
 | `HarvestFull/harvest/entity/CHarvestEntity.cpp` | 69/70 | `CEntity`, particles, special effects, spark search; `selectSparkTarget` differs in register allocation |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
@@ -149,6 +150,8 @@ Findings:
 - Branch structure moves alignment padding: `CFindSparkFunctor::testEntity` compiled to the same
   instructions with its three tests in one `if`, but only a separate `wantsSpark` test gave the
   target's (absent) jump-target alignment.
+- A wrong virtual return type can be invisible in its own unit: `onSpark` returns the spark's next
+  target id (or -1, or 0), which only CSparkEntity showed.
 - `selectSparkTarget` is still open: the target fetches the next element before the loop's exit
   test (only a loop that loads it there comes close), and it keeps `this` and `excludeId` in the
   opposite callee-saved registers from ours.

@@ -23,6 +23,9 @@ public:
     int calculateGridCoordinateClamp(float coordinate);
     void addGridEntity(CEntity* entity, int searchLayer);
     void removeGridEntity(CEntity* entity, const ox::core::CVector3d<float>& position, int searchLayer);
+    //! The grid cell index of a position.
+    int calculateGridPosition(const ox::core::CVector3d<float>& position);
+    CEntity* locateEntityInGrid(int id, int gridPosition, int layer);
 
 private:
     // The layout is not recovered yet; this keeps Grid at its Linux amd64 offset (0xa8).
@@ -34,6 +37,8 @@ public:
 };
 
 extern CEntityManager* gp_entityManager;
+//! The id the next spark gets.
+extern int g_nextEntityId;
 
 } // end namespace entity
 } // end namespace harvest
