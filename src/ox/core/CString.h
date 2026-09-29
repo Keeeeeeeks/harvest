@@ -278,7 +278,12 @@ public:
     {
         if (!number)
         {
-            append((T)'0');
+            if (used + 1 > allocated)
+                reallocate((int)used + 1);
+
+            array[used - 1] = (T)'0';
+            array[used] = 0;
+            ++used;
             return;
         }
 
@@ -315,10 +320,10 @@ public:
         if (used + len + 1 > allocated)
             reallocate((int)used + (int)len + 1);
 
-        for (int l = 0; l < len + 1; ++l)
-            array[l + used - 1] = tmpbuf[l + idx];
+        for (unsigned int i = idx; i < 16; ++i)
+            array[used + i - idx - 1] = tmpbuf[i];
 
-        used = used + len;
+        used += len;
     }
 
     //! Appends a string of the length l to this string.

@@ -239,11 +239,13 @@ bool CThreatLevel::alienIsPresentOnThisWave(int planet, int wave, int alienType)
 
 bool CThreatLevel::spawnNextWaveAttack(int wave, ox::core::CString<wchar_t>& message)
 {
-    if (GameMode == EGM_WAVE && Logic)
-        return ((CThreatLevelWave*)Logic)->spawnNextWaveAttack(wave, message);
+    if (GameMode != EGM_WAVE || !Logic)
+    {
+        message = L"Not Wave game mode!";
+        return false;
+    }
 
-    message = L"Not Wave game mode!";
-    return false;
+    return ((CThreatLevelWave*)Logic)->spawnNextWaveAttack(wave, message);
 }
 
 const wchar_t* CThreatLevel::getWaveDescription(int wave)
@@ -317,9 +319,9 @@ void CThreatLevelLogic::initAttackSectionArea(int direction, int section, int th
 {
     area = gp_world->getActualGameFieldSize();
 
+    float width = threatLevel * 20.0f + 300.0f;
     int sectionsX = (int)(area.getWidth() / 512.0f + 0.5f);
     int sectionsY = (int)(area.getHeight() / 512.0f + 0.5f);
-    float width = threatLevel * 20.0f + 300.0f;
 
     switch (direction)
     {
@@ -743,7 +745,7 @@ bool CThreatLevelWave::update(float frameDelta)
     {
         time -= 0.025f;
 
-        int index = ox::algo::CRand::rand() % WaitingAliens.size();
+        int index = ox::algo::CRand::rand() % (int)WaitingAliens.size();
         std::list<SWaitingAlien>::iterator it = ox::algo::advanceIterator(WaitingAliens.begin(), index);
 
         ox::core::CRect<float> area;
