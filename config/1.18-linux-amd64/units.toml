@@ -21,3 +21,11 @@
 ["ox/algo/CTimeCounter.cpp"]
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x874224
+
+["ox/core/CCriticalSection.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x874234
+
+["ox/core/CThread.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x874248

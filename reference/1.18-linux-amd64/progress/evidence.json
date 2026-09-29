@@ -15,7 +15,7 @@
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "41f4d47d84a287776141d7dfa138c0a5159bdba13d038dcf7ef2efd5e5c153bd",
     "config/1.18-linux-amd64/symbols.tsv": "64f0eda9e9d83b13925428f796024d47cdf77fcdc516afa33565696884d0c131",
-    "config/1.18-linux-amd64/units.toml": "8e732dcf7cf4cd32db7287e177ac5e99717cc9db317f18332419bd2c988cda1c"
+    "config/1.18-linux-amd64/units.toml": "88e3db134e4d5279a0d10c7d76827342d19888916d252e6df5dce8c2483770c8"
   },
   "units": [
     {
@@ -1157,12 +1157,12 @@
           "src/ox/net/CHTTPConnectionHandler.h": "e2186dc016ece3cac85cac00699bfc6586a28c6d1fabdc0620b2c72216b6d9ca",
           "src/ox/net/../event/IEventReceiver.h": "b465eea779026167f7686387081661fdbf34a4bc6903ffa7b1fcfc232afd0b5b",
           "src/ox/net/../core/CString.h": "5eb0a22895bdd2152e329b4a0beb3399c6c7b1765cf973deb87cece6abc16dbc",
-          "src/ox/net/../core/CCriticalSection.h": "38f965f943eeb22231241963df54f1a58b1a4317459d44afa35f79fa11c9198a",
+          "src/ox/net/../core/CCriticalSection.h": "f39fa1edf4d20b60b52728a5c7afa063f4994db48bc8696f0ee691b3288a8b09",
           "src/ox/net/INetworkDevice.h": "2f29b75e1d69e6568a0c16c58feac3f348f9371c093a5fbf6904b9843111e0d4",
           "src/ox/net/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/net/../IOxDevice.h": "cc963fe39f6d75fa7343119780d5547ca017c65a93276bff58697d579d334e79",
           "src/ox/net/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
-          "src/ox/net/../core/CThread.h": "149b8b43a7f37e338109c27e6856f77fb706e4fe9f35ee81c2a03e45452fbd8c",
+          "src/ox/net/../core/CThread.h": "25e5b4252bd09654f47a9a7cc9f89b36b41c37818f4be32ade879f9e796a4775",
           "src/ox/net/../core/CStringFunctions.h": "46d7ae641dc23fcbbe742df74f090b27c4623091b9b8da1a859c0eaf9090af73",
           "src/ox/net/../core/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa"
         },
@@ -1735,6 +1735,255 @@
         },
         "system_headers": 99,
         "object_sha256": "4c576edc619d197505f2f08c44ed642b69d106fa844c1cf29d740ebe68f18f66"
+      }
+    },
+    {
+      "unit": "ox/core/CCriticalSection.cpp",
+      "object_sha256": "8ab30ee9ce017001878dfc8c7095b9cea4a91bb6e08d15c688168f5179820769",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 194,
+          "placement": "symbol: _ZN2ox4core16CCriticalSection5leaveEv",
+          "exact": true,
+          "address": "0x5df5b0",
+          "references": 19,
+          "functions": [
+            {
+              "symbol": "_GLOBAL__I__ZN2ox4core16CCriticalSectionC2Ev",
+              "address": "0x5df5b0",
+              "size": 38,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core16CCriticalSection5leaveEv",
+              "address": "0x5df5e0",
+              "size": 9,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core16CCriticalSection5enterEv",
+              "address": "0x5df5f0",
+              "size": 9,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core16CCriticalSectionD1Ev",
+              "address": "0x5df600",
+              "size": 16,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core16CCriticalSectionD2Ev",
+              "address": "0x5df610",
+              "size": 16,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core16CCriticalSectionD0Ev",
+              "address": "0x5df620",
+              "size": 29,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core16CCriticalSectionC1Ev",
+              "address": "0x5df640",
+              "size": 18,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core16CCriticalSectionC2Ev",
+              "address": "0x5df660",
+              "size": 18,
+              "fde": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x874234",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN2ox4core16CCriticalSectionE",
+          "size": 32,
+          "placement": "symbol: _ZTVN2ox4core16CCriticalSectionE",
+          "exact": true,
+          "address": "0x6223a0",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN2ox4core16CCriticalSectionE",
+          "size": 29,
+          "placement": "symbol: _ZTSN2ox4core16CCriticalSectionE",
+          "exact": true,
+          "address": "0x6223c0",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN2ox4core16CCriticalSectionE",
+          "size": 16,
+          "placement": "symbol: _ZTIN2ox4core16CCriticalSectionE",
+          "exact": true,
+          "address": "0x6223e0",
+          "references": 2
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-MD",
+          "-MF",
+          "/out/ox__core__CCriticalSection.d",
+          "-c",
+          "src/ox/core/CCriticalSection.cpp",
+          "-o",
+          "/out/ox__core__CCriticalSection.o"
+        ],
+        "inputs": {
+          "src/ox/core/CCriticalSection.cpp": "8fd9ec91130dad153979b9fd9fe158c829c6334afa34e68049695b44daf315b9",
+          "src/ox/core/CCriticalSection.h": "f39fa1edf4d20b60b52728a5c7afa063f4994db48bc8696f0ee691b3288a8b09"
+        },
+        "system_headers": 99,
+        "object_sha256": "8ab30ee9ce017001878dfc8c7095b9cea4a91bb6e08d15c688168f5179820769"
+      }
+    },
+    {
+      "unit": "ox/core/CThread.cpp",
+      "object_sha256": "10b139b39e386519bcda32afd65f5e4328910b4efda966204319b292c769e85f",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 220,
+          "placement": "symbol: _ZN2ox4core7CThreadD1Ev",
+          "exact": true,
+          "address": "0x5e19c0",
+          "references": 18,
+          "functions": [
+            {
+              "symbol": "_GLOBAL__I__ZN2ox4core7CThreadC2EPFvPvES2_",
+              "address": "0x5e19c0",
+              "size": 38,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core7CThreadD1Ev",
+              "address": "0x5e19f0",
+              "size": 18,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core7CThreadD2Ev",
+              "address": "0x5e1a10",
+              "size": 18,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core7CThreadD0Ev",
+              "address": "0x5e1a30",
+              "size": 31,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core7CThread5sleepEj",
+              "address": "0x5e1a50",
+              "size": 11,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core7CThreadC1EPFvPvES2_",
+              "address": "0x5e1a60",
+              "size": 28,
+              "fde": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4core7CThreadC2EPFvPvES2_",
+              "address": "0x5e1a80",
+              "size": 28,
+              "fde": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x874248",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN2ox4core7CThreadE",
+          "size": 32,
+          "placement": "symbol: _ZTVN2ox4core7CThreadE",
+          "exact": true,
+          "address": "0x6224e0",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTSN2ox4core7CThreadE",
+          "size": 19,
+          "placement": "symbol: _ZTSN2ox4core7CThreadE",
+          "exact": true,
+          "address": "0x622500",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN2ox4core7CThreadE",
+          "size": 16,
+          "placement": "symbol: _ZTIN2ox4core7CThreadE",
+          "exact": true,
+          "address": "0x622520",
+          "references": 2
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-MD",
+          "-MF",
+          "/out/ox__core__CThread.d",
+          "-c",
+          "src/ox/core/CThread.cpp",
+          "-o",
+          "/out/ox__core__CThread.o"
+        ],
+        "inputs": {
+          "src/ox/core/CThread.cpp": "e4827e679ff13c4ba2f1e38c5beeee165d836db6cc189d79aa8f3a9d1f12a36e",
+          "src/ox/core/CThread.h": "25e5b4252bd09654f47a9a7cc9f89b36b41c37818f4be32ade879f9e796a4775"
+        },
+        "system_headers": 99,
+        "object_sha256": "10b139b39e386519bcda32afd65f5e4328910b4efda966204319b292c769e85f"
       }
     }
   ],

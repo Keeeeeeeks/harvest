@@ -1,4 +1,4 @@
-// Recovered for Harvest from the Linux 1.18 build; not the original source.
+// Recovered for Harvest from the Mac and Linux 1.18 builds; not the original source.
 
 #ifndef OX_CORE_CCRITICALSECTION_H
 #define OX_CORE_CCRITICALSECTION_H
