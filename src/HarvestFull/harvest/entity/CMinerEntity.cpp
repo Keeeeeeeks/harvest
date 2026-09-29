@@ -23,7 +23,7 @@ namespace entity {
 
 CMineralGatherEntity::CMineralGatherEntity(float x, float y)
     : CBuildingEntity(g_nextEntityId++, 4, x, y), Active(false), MiningTime(0), Cooldown(0), IdleTimer(0),
-      OutOfMinerals(false), MineralsMined(0), MiningParticle(0)
+      OutOfMinerals(false), MineralsMined(0), MiningParticle(0), Beam(5.0f)
 {
     Sprite = gp_spritePackage->addNewAnimationState(ox::core::CString<char>("MineralGatherer"));
     Beam.Beam = gp_spritePackage->addNewAnimationState(ox::core::CString<char>("MiningLaser"));

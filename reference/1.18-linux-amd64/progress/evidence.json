@@ -14,8 +14,8 @@
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
-    "config/1.18-linux-amd64/symbols.tsv": "85a2b0f4a456aa815fa5f88bb5489a83bbedfe72b380efa32176fa6062ea6666",
-    "config/1.18-linux-amd64/units.toml": "bf20ef404be9f5d0f6ce8de61fb841b5acb7f3a9c603d574e000551ba4e5a4ef"
+    "config/1.18-linux-amd64/symbols.tsv": "d4ecdaa47295887c569490db5407e5d0f1e24b12a1226ee0ae0a5f2fdc82fbee",
+    "config/1.18-linux-amd64/units.toml": "e733df0eeea88fcc4d33e92847a6370d358720a770298e6f361dc90f7de738b2"
   },
   "units": [
     {
@@ -4958,7 +4958,7 @@
           "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
-          "src/HarvestFull/harvest/entity/CEntityManager.h": "02ccda57575c0f8c71d9e7de2944c79a1638ddff3dd8ed7bbee7ae6c06770ad7",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "d4ad625620f43f6d486abb2f8817fddc1e7415c4fa2a5829933f9918a38efc0b",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
@@ -6497,7 +6497,7 @@
           "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
           "src/HarvestFull/harvest/entity/CCreativeEntity.h": "00ed7b7cfb005f702cb0f8a2e1d458fb53eed06c53ab536dcc6eecdde95446fe",
           "src/HarvestFull/harvest/entity/CDefenseTowerEntity.h": "7300621ef432f7d7f93533ddf8bb0b5def4b5ecfe3c55b57554a22555014d9d4",
-          "src/HarvestFull/harvest/entity/CEntityManager.h": "02ccda57575c0f8c71d9e7de2944c79a1638ddff3dd8ed7bbee7ae6c06770ad7",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "d4ad625620f43f6d486abb2f8817fddc1e7415c4fa2a5829933f9918a38efc0b",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
@@ -6509,7 +6509,7 @@
           "src/HarvestFull/harvest/entity/CMinerEntity.h": "a0a191b1185eb9ee3ce6778e71ed513fef2986165586cf3f88a35affb2046e07",
           "src/HarvestFull/harvest/entity/CMissileTurretEntity.h": "e7490b1d80dbbd55d500361c1e7c2c93a137b7b59bef34d57d2028f423681933",
           "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
-          "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "1d673eb0201fc63e6282428bd38f77947edd0bb5550f8a00bb720bdf12f84b18",
+          "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "f12399c9f256759e67f949027bc8ba4cccc07ad2d399d0e84dc9cad03a8c392e",
           "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "77125a31b58d71b4a0f59372bf5128edb7b1dbb50e58eee42d1cb54b71c4afef",
           "src/ox/entity/ITestEntityFunction.h": "b178c234a2902d6a14e5584e0870db48927a7a02e2fd3d12a01ff408ffa4f9af",
           "src/ox/io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
@@ -7049,7 +7049,7 @@
           "src/HarvestFull/harvest/CHarvestFullMain.h": "d42cdbde7d9b5eb4f7c1a5ce18d92bb320903dab3b185a5deb04b8d02b65ccff",
           "src/HarvestFull/harvest/entity/CBuildableItems.h": "d3240e969951ee9c3854165e5f81ed8823a921dcb0a964e91e3e586cfd9cad9f",
           "src/HarvestFull/harvest/entity/CCreativeEntity.h": "00ed7b7cfb005f702cb0f8a2e1d458fb53eed06c53ab536dcc6eecdde95446fe",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "ab9a4a31e558c8c1b35b0016f97fee152cad9caaeedaa76ea11ce9f6c01943cf"
+          "src/HarvestFull/harvest/game/CLuaManager.h": "fa4891da619d5d5faecbfa865d7a9cb26f2d84e555aeee67df447b8bddf97c49"
         },
         "system_headers": 128,
         "object_sha256": "2cec880ee8fe6454c360249cade4d14cf56f59c1f2003442c21841fcb0b79286"
@@ -7514,7 +7514,7 @@
           "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
-          "src/HarvestFull/harvest/entity/CEntityManager.h": "02ccda57575c0f8c71d9e7de2944c79a1638ddff3dd8ed7bbee7ae6c06770ad7",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "d4ad625620f43f6d486abb2f8817fddc1e7415c4fa2a5829933f9918a38efc0b",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
@@ -7996,7 +7996,7 @@
           "third_party/luajit-2.0.0-beta8/include/lauxlib.h": "a1be3c2d133777c618c2d88fa7cdcb013d5372b0959b77b235cd7de67323cc23",
           "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
           "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
-          "src/HarvestFull/harvest/entity/CEntityManager.h": "02ccda57575c0f8c71d9e7de2944c79a1638ddff3dd8ed7bbee7ae6c06770ad7",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "d4ad625620f43f6d486abb2f8817fddc1e7415c4fa2a5829933f9918a38efc0b",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
@@ -8005,7 +8005,7 @@
           "src/ox/video/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "ab9a4a31e558c8c1b35b0016f97fee152cad9caaeedaa76ea11ce9f6c01943cf",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "fa4891da619d5d5faecbfa865d7a9cb26f2d84e555aeee67df447b8bddf97c49",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
           "src/ox/io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
@@ -8506,7 +8506,7 @@
           "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
-          "src/HarvestFull/harvest/entity/CEntityManager.h": "02ccda57575c0f8c71d9e7de2944c79a1638ddff3dd8ed7bbee7ae6c06770ad7",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "d4ad625620f43f6d486abb2f8817fddc1e7415c4fa2a5829933f9918a38efc0b",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
@@ -8993,7 +8993,7 @@
           "src/HarvestFull/harvest/entity/CBuildableItems.h": "d3240e969951ee9c3854165e5f81ed8823a921dcb0a964e91e3e586cfd9cad9f",
           "src/HarvestFull/harvest/entity/CCreativeEntity.h": "00ed7b7cfb005f702cb0f8a2e1d458fb53eed06c53ab536dcc6eecdde95446fe",
           "src/HarvestFull/harvest/entity/CDefenseTowerEntity.h": "7300621ef432f7d7f93533ddf8bb0b5def4b5ecfe3c55b57554a22555014d9d4",
-          "src/HarvestFull/harvest/entity/CEntityManager.h": "02ccda57575c0f8c71d9e7de2944c79a1638ddff3dd8ed7bbee7ae6c06770ad7",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "d4ad625620f43f6d486abb2f8817fddc1e7415c4fa2a5829933f9918a38efc0b",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
@@ -9003,9 +9003,9 @@
           "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CMinerEntity.h": "a0a191b1185eb9ee3ce6778e71ed513fef2986165586cf3f88a35affb2046e07",
           "src/HarvestFull/harvest/entity/CMissileTurretEntity.h": "e7490b1d80dbbd55d500361c1e7c2c93a137b7b59bef34d57d2028f423681933",
-          "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "1d673eb0201fc63e6282428bd38f77947edd0bb5550f8a00bb720bdf12f84b18",
+          "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "f12399c9f256759e67f949027bc8ba4cccc07ad2d399d0e84dc9cad03a8c392e",
           "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "77125a31b58d71b4a0f59372bf5128edb7b1dbb50e58eee42d1cb54b71c4afef",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "ab9a4a31e558c8c1b35b0016f97fee152cad9caaeedaa76ea11ce9f6c01943cf",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "fa4891da619d5d5faecbfa865d7a9cb26f2d84e555aeee67df447b8bddf97c49",
           "src/HarvestFull/harvest/game/CStatistics.h": "d65b2601071fcde02869b779dfa8ea3ff5163d4aa27955fac3c23af66ebe6c32",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CMath.h": "b465c368d6277860f2cad6e48af982ef07f0b38f19de3858bf947b9059532b8d",
@@ -9800,7 +9800,7 @@
           "/out/HarvestFull__harvest__entity__CMinerEntity.o"
         ],
         "inputs": {
-          "src/HarvestFull/harvest/entity/CMinerEntity.cpp": "82c7470b0298f1ae1743f585bb3bb171be315040d5e3934808dd74109a09b52d",
+          "src/HarvestFull/harvest/entity/CMinerEntity.cpp": "461b4ec851211efb7b3e01ea5858ae0c097b231917b94247109dfbede6a27b21",
           "src/HarvestFull/harvest/game/CWorld.h": "c66e78ed8c2372fe173a493a9e892706f15792efea0cd4cda8b166bf0de70cd7",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
@@ -9825,7 +9825,7 @@
           "third_party/luajit-2.0.0-beta8/include/lauxlib.h": "a1be3c2d133777c618c2d88fa7cdcb013d5372b0959b77b235cd7de67323cc23",
           "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
           "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
-          "src/HarvestFull/harvest/entity/CEntityManager.h": "02ccda57575c0f8c71d9e7de2944c79a1638ddff3dd8ed7bbee7ae6c06770ad7",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "d4ad625620f43f6d486abb2f8817fddc1e7415c4fa2a5829933f9918a38efc0b",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
@@ -9835,7 +9835,7 @@
           "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/ECustomEvents.h": "850b5d66ce8a9e45974ac3a9e7c4572b3ed8bb8a14da43f74789e7759a8fb89b",
           "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "ab9a4a31e558c8c1b35b0016f97fee152cad9caaeedaa76ea11ce9f6c01943cf",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "fa4891da619d5d5faecbfa865d7a9cb26f2d84e555aeee67df447b8bddf97c49",
           "src/HarvestFull/harvest/game/CStatistics.h": "d65b2601071fcde02869b779dfa8ea3ff5163d4aa27955fac3c23af66ebe6c32",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CBasic.h": "e9aafefa6a4d42a6e06eb77763a11fa1237e4d721ba3ef2c047a4b1a513505f6",
@@ -9853,6 +9853,884 @@
         },
         "system_headers": 132,
         "object_sha256": "dd571e607dfad31a0ced542545be1a4ffebe553092ae8f0e8ebb54ee826ecb76"
+      }
+    },
+    {
+      "unit": "HarvestFull/harvest/entity/CSparkMoverEntity.cpp",
+      "object_sha256": "e26786cf004f5b8cedc377c7e3c9ccab96a433e0b29861c5cbe8eb7505b8111d",
+      "exact": false,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 6870,
+          "placement": "explicit",
+          "exact": false,
+          "address": "0x440ec0",
+          "first_difference": 323,
+          "differing_bytes": 732,
+          "misplaced_symbols": [
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity31handleSelectionDraggedToNothingEv",
+              "known": "0x441030",
+              "placed": "0x440ed0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity12isWaypointedEv",
+              "known": "0x441060",
+              "placed": "0x440ef0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity17isAlienWaypointedEv",
+              "known": "0x441070",
+              "placed": "0x440f00"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity12updateSpriteEf",
+              "known": "0x440ed0",
+              "placed": "0x440f10"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity16acceptsSparkFromEi",
+              "known": "0x440f80",
+              "placed": "0x440fc0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity12isOverheatedEv",
+              "known": "0x440fa0",
+              "placed": "0x440fe0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity16setSparkTargetIdEib",
+              "known": "0x441050",
+              "placed": "0x440ff0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity26handleDoubleClickSelectionEv",
+              "known": "0x441490",
+              "placed": "0x441480"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+              "known": "0x4415a0",
+              "placed": "0x441590"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity17getMiniStatStringEv",
+              "known": "0x441600",
+              "placed": "0x4415f0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity13getInfoStringEv",
+              "known": "0x441640",
+              "placed": "0x441630"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity21updateTargetReferenceEv",
+              "known": "0x4416a0",
+              "placed": "0x441690"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity7onSparkEPNS0_12CSparkEntityE",
+              "known": "0x441720",
+              "placed": "0x441710"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity11updateLogicEf",
+              "known": "0x441a90",
+              "placed": "0x441a80"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity6renderERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "known": "0x441d20",
+              "placed": "0x441d10"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "known": "0x441df0",
+              "placed": "0x441de0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntityC1Eff",
+              "known": "0x441e30",
+              "placed": "0x442230"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntityD0Ev",
+              "known": "0x442650",
+              "placed": "0x442640"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntityD1Ev",
+              "known": "0x442770",
+              "placed": "0x442760"
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntityD2Ev",
+              "known": "0x442890",
+              "placed": "0x442880"
+            }
+          ],
+          "bad_references": [
+            {
+              "offset": 2385,
+              "type": 2,
+              "symbol": "_ZN7harvest4game11CLuaManager24hookEnergyLinkOverheatedEPNS_6entity15CBuildingEntityE",
+              "addend": -4,
+              "reason": "no target address for symbol",
+              "candidate": "-0x7477e7db",
+              "matches": false
+            },
+            {
+              "offset": 2404,
+              "type": 2,
+              "symbol": ".LC19",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0xc4ba4b7+0x4",
+              "matches": false
+            },
+            {
+              "offset": 2453,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity21updateTargetReferenceEv",
+              "addend": -4,
+              "destination": "0x4416a0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2555,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity7CEntity18updateSparkTargetsERN2ox6TArrayIPNS2_6entity9COxEntityEEE",
+              "addend": -4,
+              "destination": "0x433ce0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2563,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity25selectRequiredSparkTargetEv",
+              "addend": -4,
+              "destination": "0x4413c0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2579,
+              "type": 2,
+              "symbol": ".LC16",
+              "addend": -4,
+              "reason": "merged constant",
+              "matches": false
+            },
+            {
+              "offset": 2619,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity7CEntity18updateSparkTargetsERN2ox6TArrayIPNS2_6entity9COxEntityEEE",
+              "addend": -4,
+              "destination": "0x433ce0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2627,
+              "type": 2,
+              "symbol": "_ZNK7harvest6entity12CSparkEntity11getSourceIdEv",
+              "addend": -4,
+              "destination": "0x440690",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2644,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity7CEntity17selectSparkTargetERKN2ox6TArrayIPNS2_6entity9COxEntityEEEiRi",
+              "addend": -4,
+              "reason": "no target address for symbol",
+              "candidate": "0x441928",
+              "matches": false
+            },
+            {
+              "offset": 2705,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity16gp_entityManagerE",
+              "addend": -4,
+              "destination": "0x86b670",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2726,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2747,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity23CPerimeterBombExplosionC1Eff",
+              "addend": -4,
+              "reason": "no target address for symbol",
+              "candidate": "0x148f299e",
+              "matches": false
+            },
+            {
+              "offset": 2762,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity16gp_entityManagerE",
+              "addend": -4,
+              "destination": "0x86b670",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2772,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity16gp_entityManagerE",
+              "addend": -4,
+              "destination": "0x86b670",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2789,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2799,
+              "type": 10,
+              "symbol": ".rodata.str1.1",
+              "addend": 11,
+              "reason": "unmapped or truncated range: 0xff3fffc+0xf",
+              "matches": false
+            },
+            {
+              "offset": 2809,
+              "type": 2,
+              "symbol": ".LC4",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x98ae5d4+0x4",
+              "matches": false
+            },
+            {
+              "offset": 2825,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity15CParticleEntityC1EfffPN2ox4core9CVector3dIfEEPKc",
+              "addend": -4,
+              "destination": "0x433a50",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2840,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity16gp_entityManagerE",
+              "addend": -4,
+              "destination": "0x86b670",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2850,
+              "type": 2,
+              "symbol": "_ZN2ox5event17gp_subscriberListE",
+              "addend": -4,
+              "destination": "0x874258",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2908,
+              "type": 2,
+              "symbol": "_ZN7harvest4game13gp_luaManagerE",
+              "addend": -4,
+              "destination": "0x86b900",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 2932,
+              "type": 2,
+              "symbol": "_ZN7harvest4game11CLuaManager21hookEnergyLinkChargedEff",
+              "addend": -4,
+              "reason": "no target address for symbol",
+              "candidate": "0x10372a8b",
+              "matches": false
+            }
+          ],
+          "references": 224,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity23getCurrentDisplaySpriteEv",
+              "address": "0x440ec0",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity31handleSelectionDraggedToNothingEv",
+              "address": "0x441030",
+              "size": 32,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity12isWaypointedEv",
+              "address": "0x441060",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity17isAlienWaypointedEv",
+              "address": "0x441070",
+              "size": 15,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity12updateSpriteEf",
+              "address": "0x440ed0",
+              "size": 166,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity16acceptsSparkFromEi",
+              "address": "0x440f80",
+              "size": 20,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity12isOverheatedEv",
+              "address": "0x440fa0",
+              "size": 16,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity16setSparkTargetIdEib",
+              "address": "0x441050",
+              "size": 15,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity21clearWaypointsForwardEv",
+              "address": "0x440fb0",
+              "size": 119,
+              "fde": true,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity13getWaypointIdEv",
+              "address": "0x441080",
+              "size": 4,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN7harvest6entity28g_useLargeSparkDeathParticleE",
+              "address": "0x441090",
+              "size": 59,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity14readEntityDataEPN2ox2io9IReadFileEi",
+              "address": "0x4410d0",
+              "size": 162,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+              "address": "0x441180",
+              "size": 107,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity13startChargingEv",
+              "address": "0x4411f0",
+              "size": 268,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity30handleSelectionDraggedToEntityEPNS0_7CEntityE",
+              "address": "0x441300",
+              "size": 186,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity25selectRequiredSparkTargetEv",
+              "address": "0x4413c0",
+              "size": 190,
+              "fde": false,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity26handleDoubleClickSelectionEv",
+              "address": "0x441490",
+              "size": 257,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+              "address": "0x4415a0",
+              "size": 82,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity17getMiniStatStringEv",
+              "address": "0x441600",
+              "size": 62,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity13getInfoStringEv",
+              "address": "0x441640",
+              "size": 92,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity21updateTargetReferenceEv",
+              "address": "0x4416a0",
+              "size": 118,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity7onSparkEPNS0_12CSparkEntityE",
+              "address": "0x441720",
+              "size": 866,
+              "fde": true,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity11updateLogicEf",
+              "address": "0x441a90",
+              "size": 644,
+              "fde": true,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity6renderERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x441d20",
+              "size": 205,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x441df0",
+              "size": 59,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntityC2Eff",
+              "address": "0x441e30",
+              "size": 1026,
+              "fde": true,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntityC1Eff",
+              "address": "0x441e30",
+              "size": 1026,
+              "fde": true,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntityD0Ev",
+              "address": "0x442650",
+              "size": 286,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntityD1Ev",
+              "address": "0x442770",
+              "size": 278,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntityD2Ev",
+              "address": "0x442890",
+              "size": 278,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 12,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x86b8bc",
+          "references": 0
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10killEntityEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10killEntityEv",
+          "exact": true,
+          "address": "0x416670",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10killEntityEv",
+              "address": "0x416670",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity8isKilledEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity8isKilledEv",
+          "exact": true,
+          "address": "0x416680",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity8isKilledEv",
+              "address": "0x416680",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "size": 6,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "exact": true,
+          "address": "0x416620",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity14getRenderLayerEv",
+              "address": "0x416620",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "size": 9,
+          "placement": "symbol: _ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "exact": true,
+          "address": "0x416640",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity14getSparkHeightEv",
+              "address": "0x416640",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity12getSellValueEv",
+          "size": 14,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity12getSellValueEv",
+          "exact": true,
+          "address": "0x416660",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity12getSellValueEv",
+              "address": "0x416660",
+              "size": 14,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity11SEnergyBeamD1Ev",
+          "size": 66,
+          "placement": "symbol: _ZN7harvest6entity11SEnergyBeamD1Ev",
+          "exact": true,
+          "address": "0x42a2e0",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity11SEnergyBeamD1Ev",
+              "address": "0x42a2e0",
+              "size": 66,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity17CSparkMoverEntity10wantsSparkEv",
+          "size": 6,
+          "placement": "symbol: _ZN7harvest6entity17CSparkMoverEntity10wantsSparkEv",
+          "exact": true,
+          "address": "0x4429c0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity17CSparkMoverEntity10wantsSparkEv",
+              "address": "0x4429c0",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity17CSparkMoverEntity16getCollisionSizeEv",
+          "size": 9,
+          "placement": "symbol: _ZNK7harvest6entity17CSparkMoverEntity16getCollisionSizeEv",
+          "exact": true,
+          "address": "0x4429b0",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity17CSparkMoverEntity16getCollisionSizeEv",
+              "address": "0x4429b0",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN2ox4core7CStringIcED1Ev",
+          "size": 18,
+          "placement": "symbol: _ZN2ox4core7CStringIcED1Ev",
+          "exact": true,
+          "address": "0x409c20",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN2ox4core7CStringIcED1Ev",
+              "address": "0x409c20",
+              "size": 18,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity11SEnergyBeamD0Ev",
+          "size": 65,
+          "placement": "symbol: _ZN7harvest6entity11SEnergyBeamD0Ev",
+          "exact": true,
+          "address": "0x42a340",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity11SEnergyBeamD0Ev",
+              "address": "0x42a340",
+              "size": 65,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity17CSparkMoverEntityE",
+          "size": 312,
+          "placement": "symbol: _ZTVN7harvest6entity17CSparkMoverEntityE",
+          "exact": true,
+          "address": "0x5f4fc0",
+          "references": 38
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity17CSparkMoverEntityE",
+          "size": 37,
+          "placement": "symbol: _ZTSN7harvest6entity17CSparkMoverEntityE",
+          "exact": true,
+          "address": "0x5f5100",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity17CSparkMoverEntityE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity17CSparkMoverEntityE",
+          "exact": true,
+          "address": "0x5f5130",
+          "references": 3
+        },
+        {
+          "name": ".rodata",
+          "size": 84,
+          "placement": "references",
+          "exact": true,
+          "address": "0x5eff60",
+          "references": 0
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity11SEnergyBeamE",
+          "size": 32,
+          "placement": "symbol: _ZTVN7harvest6entity11SEnergyBeamE",
+          "exact": true,
+          "address": "0x5f23a0",
+          "references": 3
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity11SEnergyBeamE",
+          "size": 16,
+          "placement": "symbol: _ZTIN7harvest6entity11SEnergyBeamE",
+          "exact": true,
+          "address": "0x5f23c0",
+          "references": 2
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity11SEnergyBeamE",
+          "size": 31,
+          "placement": "symbol: _ZTSN7harvest6entity11SEnergyBeamE",
+          "exact": true,
+          "address": "0x5f23d0",
+          "references": 0
+        }
+      ],
+      "unplaced_sections": [
+        ".gcc_except_table"
+      ],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
+          "-MD",
+          "-MF",
+          "/out/HarvestFull__harvest__entity__CSparkMoverEntity.d",
+          "-c",
+          "src/HarvestFull/harvest/entity/CSparkMoverEntity.cpp",
+          "-o",
+          "/out/HarvestFull__harvest__entity__CSparkMoverEntity.o"
+        ],
+        "inputs": {
+          "src/HarvestFull/harvest/entity/CSparkMoverEntity.cpp": "9ef2843806f6fc1b1a849e2cf023cb916f82876e58e56e34060ae8bcc3a8bf6c",
+          "src/HarvestFull/harvest/game/CWorld.h": "c66e78ed8c2372fe173a493a9e892706f15792efea0cd4cda8b166bf0de70cd7",
+          "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
+          "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/core/CVector2d.h": "0dc39cecdac389a8c19d4ac71531d8fe76277cd795242b6a38916fba912b00ec",
+          "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "f12399c9f256759e67f949027bc8ba4cccc07ad2d399d0e84dc9cad03a8c392e",
+          "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
+          "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
+          "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
+          "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
+          "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
+          "third_party/luajit-2.0.0-beta8/include/luaconf.h": "1a401f42e1865b5ffdee60e93d64bfb94bad10703fa03dd61efe76124d888975",
+          "third_party/luajit-2.0.0-beta8/include/lauxlib.h": "a1be3c2d133777c618c2d88fa7cdcb013d5372b0959b77b235cd7de67323cc23",
+          "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
+          "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "d4ad625620f43f6d486abb2f8817fddc1e7415c4fa2a5829933f9918a38efc0b",
+          "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
+          "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
+          "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/video/../core/CRect.h": "04827bb435fe281ab24b1f2c7d5d82f8fee05d866c024a57b90269f64916fd95",
+          "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/HarvestFull/harvest/ECustomEvents.h": "850b5d66ce8a9e45974ac3a9e7c4572b3ed8bb8a14da43f74789e7759a8fb89b",
+          "src/HarvestFull/harvest/entity/CPerimeterBomb.h": "f6733338545e771b89e3fb33a2ee22065062ef2f4bb6ab9d4383256854045f8a",
+          "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "fa4891da619d5d5faecbfa865d7a9cb26f2d84e555aeee67df447b8bddf97c49",
+          "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
+          "src/ox/core/CBasic.h": "e9aafefa6a4d42a6e06eb77763a11fa1237e4d721ba3ef2c047a4b1a513505f6",
+          "src/ox/core/CMath.h": "b465c368d6277860f2cad6e48af982ef07f0b38f19de3858bf947b9059532b8d",
+          "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
+          "src/ox/io/CHelpIO.h": "fd3ea1895f026439dde9c3536f4db16b411e4376dada723d86e02b31d276b629",
+          "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
+          "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/video/IParticlePackage.h": "54ea207a17ac6508c8eb0d38dce95af6c08b07104051c965b41d0b7959fa2027",
+          "src/ox/video/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/video/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/video/IParticleState.h": "c559d0b3c539917d9e81f8917e46c51adccd9be465b7c7c71cb25c1b94a132b1",
+          "src/ox/video/ISpritePackage.h": "1c83a8f36232f0523f5904df2e8fc7714228f81d3f8c405d97d71dcce2ad56c5"
+        },
+        "system_headers": 132,
+        "object_sha256": "e26786cf004f5b8cedc377c7e3c9ccab96a433e0b29861c5cbe8eb7505b8111d"
       }
     }
   ],

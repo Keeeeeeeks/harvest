@@ -21,6 +21,11 @@ public:
     void hookBuildingConstructed(entity::CBuildingEntity* building);
     void hookCreditsMined(entity::CBuildingEntity* miner, int mineralsId);
     void hookMinerOutOfMinerals(entity::CBuildingEntity* miner);
+    //! A spark died at an overheated energy link.
+    void hookEnergyLinkOverheated(entity::CBuildingEntity* link);
+    void hookEnergyLinkCharging(entity::CBuildingEntity* link);
+    //! An energy link finished charging and exploded at x, y.
+    void hookEnergyLinkCharged(float x, float y);
 };
 
 extern CLuaManager* gp_luaManager;

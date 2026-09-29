@@ -99,6 +99,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `ox/entity/COxEntity.cpp` | 25/25 | exact; keeps the 2d constructors' `Position.Y` typo |
 | `HarvestFull/harvest/entity/CBuildingEntity.cpp` | 31/31 | exact; the building's Lua view (Lunar method table) |
 | `HarvestFull/harvest/entity/CSparkProducerEntity.cpp` | 28/28 | exact; the solar collector |
+| `HarvestFull/harvest/entity/CSparkMoverEntity.cpp` | 34/40 | energy links: waypoints, heat, overcharge; `onSpark` block layout and a few register choices differ |
 | `HarvestFull/harvest/entity/CMinerEntity.cpp` | 31/35 | the mineral harvester and its energy beam; `getInfoString` block order, one `updateLogic` tail and a loop-compare operand order in the constructor differ |
 | `HarvestFull/harvest/entity/CConstructionEntity.cpp` | 30/30 | exact; construction sites and calling spark movers |
 | `HarvestFull/harvest/entity/CMineralsEntity.cpp` | 33/33 | exact; mineral deposits and the level scatter |
@@ -156,6 +157,11 @@ Findings:
   target's (absent) jump-target alignment.
 - A wrong virtual return type can be invisible in its own unit: `onSpark` returns the spark's next
   target id (or -1, or 0), which only CSparkEntity showed.
+- Multi-string constructors (CMinerEntity, CSparkMoverEntity) differ only in the first inlined
+  `CString` copy loop, whose compare operands are swapped (`cmp len, i; jge` in the target). Single
+  string constructors match, so this is likely which inliner pass inlined that first copy.
+- A unit's `.bss` can start with a variable it defines before the iostream slot:
+  CSparkMoverEntity defines `g_useLargeSparkDeathParticle` there.
 - `selectSparkTarget` is still open: the target fetches the next element before the loop's exit
   test (only a loop that loads it there comes close), and it keeps `this` and `excludeId` in the
   opposite callee-saved registers from ours.

@@ -19,8 +19,8 @@ class CEntity;
 //! A beam drawn from Start to End with sprites at both ends, above all entities.
 struct SEnergyBeam
 {
-    SEnergyBeam()
-        : Width(5.0f), Color(0xffffffff), Beam(0), StartSprite(0), StartScale(1.0f), EndSprite(0),
+    SEnergyBeam(float width)
+        : Width(width), Color(0xffffffff), Beam(0), StartSprite(0), StartScale(1.0f), EndSprite(0),
           EndScale(1.0f)
     {
     }
@@ -64,6 +64,10 @@ public:
         int entityType);
     //! Queues a beam to be drawn above all entities this frame.
     void insertTopLevelEnergyBeam(SEnergyBeam* beam);
+    void renderEnergyBeam(SEnergyBeam* beam, const ox::core::CPosition2d<float>& camera,
+        const ox::core::CRect<int>& viewPort);
+    //! The entity the player clicks at a world position.
+    CEntity* findClickableEntity(const ox::core::CPosition2d<float>& position);
 
 private:
     // The layout is not recovered yet; this keeps Grid at its Linux amd64 offset (0xa8).
