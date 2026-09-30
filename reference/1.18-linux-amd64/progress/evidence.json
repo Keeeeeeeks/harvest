@@ -14,8 +14,8 @@
     "tools/hv/units.py": "2f71fb16f1daffbc46e613e3cb0dd1995ae88f4d61eedc8560a15eb625e197d6",
     "tools/hv/progress.py": "c6f44e24a4de3ceda4332b5f520219793381626ec887a42ad5f1550131c829b9",
     "config/1.18-linux-amd64/flags.json": "41f4d47d84a287776141d7dfa138c0a5159bdba13d038dcf7ef2efd5e5c153bd",
-    "config/1.18-linux-amd64/symbols.tsv": "cf9ac7c332286e28c656c64b0bcc4951a744cbe974c6df26617df6ef8113c624",
-    "config/1.18-linux-amd64/units.toml": "48be1caffef8ad45082813b1990d446425f1e6560d847deaa9c9af2fe4245a11"
+    "config/1.18-linux-amd64/symbols.tsv": "50525a130958c0a3b4c7fe8038f62791a8e7ea9e96f0084c56944dd2c8d8e0fe",
+    "config/1.18-linux-amd64/units.toml": "b86a41906d18f4d3adc23a24978d43673977dc191ced6ffa8ab857b79b848081"
   },
   "units": [
     {
@@ -338,7 +338,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -664,7 +664,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -1194,7 +1194,7 @@
         ".text._ZN2ox4core7CStringIcE6appendERKS2_"
       ],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -1212,7 +1212,7 @@
           "src/ox/net/CHTTPConnectionHandler.cpp": "6fe52bd7f89097128ddadc279116ea87a8c88f519598d3de39a06ce4d7cf7c5c",
           "src/ox/net/CHTTPConnectionHandler.h": "e2186dc016ece3cac85cac00699bfc6586a28c6d1fabdc0620b2c72216b6d9ca",
           "src/ox/net/../event/IEventReceiver.h": "b465eea779026167f7686387081661fdbf34a4bc6903ffa7b1fcfc232afd0b5b",
-          "src/ox/net/../core/CString.h": "5eb0a22895bdd2152e329b4a0beb3399c6c7b1765cf973deb87cece6abc16dbc",
+          "src/ox/net/../core/CString.h": "ed2abd638cca14879dcc54e23ebc06eff9d3242a162c7ad4d3e68020740556c7",
           "src/ox/net/../core/CCriticalSection.h": "f39fa1edf4d20b60b52728a5c7afa063f4994db48bc8696f0ee691b3288a8b09",
           "src/ox/net/INetworkDevice.h": "2f29b75e1d69e6568a0c16c58feac3f348f9371c093a5fbf6904b9843111e0d4",
           "src/ox/net/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -1623,7 +1623,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -1640,7 +1640,7 @@
         "inputs": {
           "src/ox/net/CVariablePacket.cpp": "a9aedecae23ba03b2ffeb2128064e4164acd38af07231f6215be47c656ff6f96",
           "src/ox/net/CVariablePacket.h": "6cbd9d7aa0b01daf2ae4ff0cad6639d75f2397d6b861e280bbd997c65543462f",
-          "src/ox/net/../core/CString.h": "5eb0a22895bdd2152e329b4a0beb3399c6c7b1765cf973deb87cece6abc16dbc",
+          "src/ox/net/../core/CString.h": "ed2abd638cca14879dcc54e23ebc06eff9d3242a162c7ad4d3e68020740556c7",
           "src/ox/net/INetworkDevice.h": "2f29b75e1d69e6568a0c16c58feac3f348f9371c093a5fbf6904b9843111e0d4",
           "src/ox/net/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f"
         },
@@ -1818,7 +1818,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -1954,7 +1954,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -2082,7 +2082,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -2202,7 +2202,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -2402,7 +2402,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -2420,10 +2420,12 @@
           "src/ox/core/CHiddenFloat.cpp": "d2205b61b1e19a25eb4f3f5f798b8b16cb7f5285bb51c599602074e1556405df",
           "src/ox/core/CHiddenFloat.h": "5030941eba704edd2d4d8d9e1236d29af77b85b05df0bbea1dd33b0c1d38b1e9",
           "src/ox/core/../algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
-          "src/ox/core/../io/CHelpIO.h": "9f15f3571893957360f27955a42591273af109460696bb9f99b2448aee31551f",
+          "src/ox/core/../io/CHelpIO.h": "83785946785456bff5b9b8343e511a39834e3df69fb441901205394962693a70",
           "src/ox/core/../io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/core/../io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
-          "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d"
+          "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/core/../io/../core/CString.h": "ed2abd638cca14879dcc54e23ebc06eff9d3242a162c7ad4d3e68020740556c7",
+          "src/ox/core/../io/IFileSystem.h": "966284bbb4b7c00145041c2855a2f494fdd53b397f1308bc9f05ed49ae755668"
         },
         "system_headers": 106,
         "object_sha256": "aed05d44e84fa61c3dabd0fe7696c91ebf3a6581d66367b2968b340972f30039"
@@ -2607,7 +2609,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -2625,10 +2627,12 @@
           "src/ox/core/CHiddenInt.cpp": "8e1d01b031497441dac9678e3341abdb4ec16a5b651fcf5af533b79346a3cd66",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
           "src/ox/core/../algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
-          "src/ox/core/../io/CHelpIO.h": "9f15f3571893957360f27955a42591273af109460696bb9f99b2448aee31551f",
+          "src/ox/core/../io/CHelpIO.h": "83785946785456bff5b9b8343e511a39834e3df69fb441901205394962693a70",
           "src/ox/core/../io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/core/../io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
-          "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d"
+          "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/core/../io/../core/CString.h": "ed2abd638cca14879dcc54e23ebc06eff9d3242a162c7ad4d3e68020740556c7",
+          "src/ox/core/../io/IFileSystem.h": "966284bbb4b7c00145041c2855a2f494fdd53b397f1308bc9f05ed49ae755668"
         },
         "system_headers": 106,
         "object_sha256": "b5ee5f0158ecaed6ccc98aacde0139789441d64a54980986ed26a918cf5a7d9e"
@@ -2684,7 +2688,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -2701,7 +2705,7 @@
         "inputs": {
           "src/ox/core/CBasic.cpp": "23b6116af2ba8b648a21c75283f6c1a33a6b7a14e412d6db2780c0b77b99effd",
           "src/ox/core/CBasic.h": "87085f48a878543c93da041006d46b6d47e2fc3fbe4dd272873103ca0110ac16",
-          "src/ox/core/CString.h": "5eb0a22895bdd2152e329b4a0beb3399c6c7b1765cf973deb87cece6abc16dbc"
+          "src/ox/core/CString.h": "ed2abd638cca14879dcc54e23ebc06eff9d3242a162c7ad4d3e68020740556c7"
         },
         "system_headers": 100,
         "object_sha256": "05593088ddfafdb60c70e8d63ffb0e6ea76ac6c729162410c96056a02144a6d9"
@@ -2845,7 +2849,7 @@
       ],
       "unplaced_sections": [],
       "compilation": {
-        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
         "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
         "command": [
@@ -2865,6 +2869,219 @@
         },
         "system_headers": 102,
         "object_sha256": "b11260615d85e4147936de87e43fdb4a7acd726159e58fa3e6ae3acff8d4ce84"
+      }
+    },
+    {
+      "unit": "ox/io/CHelpIO.cpp",
+      "object_sha256": "49b49033e96b209d69a58d659912f3335c164314dd5164ef7209c44c9f2e57b7",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 4645,
+          "placement": "symbol: _ZN2ox2io7CHelpIO7readIntEPNS0_9IReadFileE",
+          "exact": true,
+          "address": "0x5eaf90",
+          "references": 71,
+          "functions": [
+            {
+              "symbol": "_ZN2ox2io7CHelpIO7readIntEPNS0_9IReadFileE",
+              "address": "0x5eaf90",
+              "size": 37,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO8readUIntEPNS0_9IReadFileE",
+              "address": "0x5eafc0",
+              "size": 37,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO9readFloatEPNS0_9IReadFileE",
+              "address": "0x5eaff0",
+              "size": 39,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO8readByteEPNS0_9IReadFileE",
+              "address": "0x5eb020",
+              "size": 35,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO9readShortEPNS0_9IReadFileE",
+              "address": "0x5eb050",
+              "size": 37,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO10readUShortEPNS0_9IReadFileE",
+              "address": "0x5eb080",
+              "size": 37,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO8writeIntEPNS0_10IWriteFileEi",
+              "address": "0x5eb0b0",
+              "size": 29,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO9writeUIntEPNS0_10IWriteFileEj",
+              "address": "0x5eb0d0",
+              "size": 29,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO10writeFloatEPNS0_10IWriteFileEf",
+              "address": "0x5eb0f0",
+              "size": 31,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO9writeByteEPNS0_10IWriteFileEh",
+              "address": "0x5eb110",
+              "size": 30,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO10writeShortEPNS0_10IWriteFileEs",
+              "address": "0x5eb130",
+              "size": 30,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO11writeUShortEPNS0_10IWriteFileEt",
+              "address": "0x5eb150",
+              "size": 30,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO11writeStringEPNS0_10IWriteFileERKNS_4core7CStringIcEE",
+              "address": "0x5eb170",
+              "size": 78,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO15writeWideStringEPNS0_10IWriteFileERKNS_4core7CStringIwEEb",
+              "address": "0x5eb1c0",
+              "size": 94,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN2ox2io7CHelpIO7readIntEPNS0_9IReadFileE",
+              "address": "0x5eb220",
+              "size": 38,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO20readStringWithLengthEPNS0_9IReadFileERNS_4core7CStringIcEE",
+              "address": "0x5eb250",
+              "size": 277,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO14readWideStringEPNS0_9IReadFileERNS_4core7CStringIwEE",
+              "address": "0x5eb370",
+              "size": 927,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO10readStringEPNS0_9IReadFileERNS_4core7CStringIcEE",
+              "address": "0x5eb710",
+              "size": 886,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox2io7CHelpIO19getNextFreeFilenameEPNS0_11IFileSystemEPKcS5_",
+              "address": "0x5eba90",
+              "size": 1829,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x87427c",
+          "references": 0
+        },
+        {
+          "name": ".gcc_except_table",
+          "size": 103,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x666e8b",
+          "references": 0
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:dddf9c6bf9f920fd96952d42db07229b318126b700ba1ae3e22a535f8acc32fb",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-MD",
+          "-MF",
+          "/out/ox__io__CHelpIO.d",
+          "-c",
+          "src/ox/io/CHelpIO.cpp",
+          "-o",
+          "/out/ox__io__CHelpIO.o"
+        ],
+        "inputs": {
+          "src/ox/io/CHelpIO.cpp": "aa060f55d53f54a01e37ccbf93fea9debe0235d0ae6d31bc6981587910874a91",
+          "src/ox/io/CHelpIO.h": "83785946785456bff5b9b8343e511a39834e3df69fb441901205394962693a70",
+          "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
+          "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/io/../core/CString.h": "ed2abd638cca14879dcc54e23ebc06eff9d3242a162c7ad4d3e68020740556c7",
+          "src/ox/io/IFileSystem.h": "966284bbb4b7c00145041c2855a2f494fdd53b397f1308bc9f05ed49ae755668"
+        },
+        "system_headers": 106,
+        "object_sha256": "49b49033e96b209d69a58d659912f3335c164314dd5164ef7209c44c9f2e57b7"
       }
     }
   ],

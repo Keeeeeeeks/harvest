@@ -50,6 +50,12 @@ just toolchain
 command without a terminal. `toolchain/manifest.tsv` lists the image's installed packages
 (`just toolchain-manifest`); rebuilds from the frozen lucid release pocket should reproduce it.
 
+Package installation uses a build-only timing library (`toolchain/legacy-time.c`) to
+bypass Lucid libc's legacy vsyscall path, which can fault under QEMU. It calls the
+x86-64 Linux timing syscalls directly and is removed before matching. The compiler
+and runtime packages are unchanged; `hv match` still checks the compiler version and
+the complete package manifest before compilation.
+
 ## Reference data
 
 `reference/1.18-mac-i386/` is generated from the Mac executable by `just import-mac` and is committed:

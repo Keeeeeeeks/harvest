@@ -20,6 +20,12 @@ toolchain container and compares the object with the target image, section by se
 
 Rows with other evidence (for example `manual:`) are kept when the generator reruns.
 
+Mac virtual-slot names need instruction-level validation when the layouts differ. Linux's
+`CFileSystem` inserts a path-cache-clearing virtual at slot 12, shifting subsequent Mac names by
+one. Manual rows correct those shifted names. The inserted method's original name is unavailable;
+the recovered interface uses the descriptive name `clearCachedFilePaths`. `existFile` is Linux
+slot 17 (`vptr + 0x78`), not Mac slot 16.
+
 ## Placement
 
 Every allocated object section is placed at a target address:
@@ -86,11 +92,28 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `ox/io/CMemWriteFile.cpp` | 18/18 | `IWriteFile` from Irrlicht 0.7; the class itself is Oxeye's |
 | `ox/net/CHTTPConnectionHandler.cpp` | 18/19 | `OnEvent` differs only in one register choice; function order differs |
 | `ox/net/CVariablePacket.cpp` | 32/32 | packet parser and builder; function order differs |
+| `ox/io/CHelpIO.cpp` | 19/19 | Complete unit: numeric and string I/O, free-filename selection, static initializer; all compared sections match |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
 `SEvent`/`IEventReceiver` (network event only), `IOxDevice`, `INetworkDevice`/`SServerInfo`, and
 declarations of `CCriticalSection` and `CThread`.
+
+The complete `CHelpIO` unit matches `.text` at `0x5eaf90`, `.bss` at `0x87427c`, and its
+103-byte `.gcc_except_table` at `0x666e8b`. Exception-table placement is independently pinned by
+the `readWideString` FDE's LSDA pointer and the unique occurrence of the complete table's bytes.
+Numeric reads initialize their values to zero and ignore the read result. Narrow and wide string
+readers append 255-character chunks; wide-string writes truncate each `wchar_t` to 16 bits rather
+than encode supplementary Unicode characters. A nonpositive length prefix leaves the destination
+string unchanged. Filename selection starts at `00` and skips existing names.
+
+The behavior smoke linked the matched helper object with the recovered memory-file classes in the
+pinned Linux GCC 4.4.3 container, without the build-only timing library. It checked numeric wire
+bytes, EOF and short reads, string lengths around both 255- and 510-character chunk boundaries,
+terminated and unterminated strings, 16-bit wide-character truncation, counted strings with
+embedded NULs, and zero/negative/maximum decimal appends. A disk-backed filename smoke selected
+`00` in an empty directory, then `11` after creating files `00` through `10`. The complete game
+was not executed.
 
 Findings:
 

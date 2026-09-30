@@ -52,3 +52,9 @@
 ["ox/core/CCipherKey.cpp"]
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x874230
+
+["ox/io/CHelpIO.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x87427c
+# LSDA of readWideString; the complete 103-byte table matches at this unique address.
+".gcc_except_table" = 0x666e8b
