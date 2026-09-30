@@ -2726,8 +2726,14 @@ address	size	symbol	evidence
 0x5ea080	329	_ZN2ox4game9CGameMain6updateEv	mac-vtable:_ZTVN7harvest16CHarvestFullMainE:7
 0x5ea1d0	57	_ZN2ox4game9CGameMainD0Ev	mac-vtable:_ZTVN2ox4game9CGameMainE:3
 0x5ea310	981	_ZN2ox4game9CGameMain10checkFilesEPPc	mac-vtable:_ZTVN7harvest16CHarvestFullMainE:9
+0x5ea6f0	56	_ZN2ox4game10CGameStateC2Ev	match:ox/game/CGameState.cpp
+0x5ea730	56	_ZN2ox4game10CGameStateC1Ev	match:ox/game/CGameState.cpp
+0x5ea770	159	_ZN2ox4game10CGameState9daisyInitEPNS_9IOxDeviceE	match:ox/game/CGameState.cpp
 0x5ea810	22	_ZN2ox4game10CGameState9firstInitEPNS_9IOxDeviceE	mac-vtable:_ZTVN2ox4game10CGameStateE:5
+0x5ea830	10	_ZN2ox4game10CGameState16returnFailedInitEPc	match:ox/game/CGameState.cpp
+0x5ea840	5	_ZN2ox4game10CGameState15getErrorMessageEv	match:ox/game/CGameState.cpp
 0x5ea880	12	_ZN2ox4game10CGameStateD1Ev	mac-vtable:_ZTVN2ox4game10CGameStateE:3
+0x5ea890	12	_ZN2ox4game10CGameStateD2Ev	match:ox/game/CGameState.cpp
 0x5ea8a0	25	_ZN2ox4game10CGameStateD0Ev	mac-vtable:_ZTVN2ox4game10CGameStateE:4
 0x5eabc0	227	_ZN2ox3gui11IGUIElement6removeEv	mac-vtable:_ZTVN5daisy3gui15CGUIEnvironmentE:61
 0x5eacc0	341	_ZN2ox3gui11IGUIElementD1Ev	mac-vtable:_ZTVN2ox3gui11IGUIElementE:2
