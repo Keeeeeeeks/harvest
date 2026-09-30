@@ -26,8 +26,9 @@ struct SBuildingInfoItem
     float CollisionSize;
     unsigned char Unrecovered3[0x90 - 0x6c];
     //! The sprite package of a creative building.
-    const char* SpritePackage;
-    unsigned char Unrecovered4[0x18];
+    ox::core::CString<char> SpritePackage;
+    //! The animation of the finished creative building.
+    ox::core::CString<char> BuildingSpriteName;
     const char* SpriteName;
 };
 

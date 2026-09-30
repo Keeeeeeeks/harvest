@@ -147,3 +147,8 @@
 ".text" = 0x43b430
 # Race state and learned targets, iostream and game-header statics, then LAP_CHECKPOINTS.
 ".bss" = 0x86b700
+
+["HarvestFull/harvest/entity/CCreativeEntity.cpp"]
+".text" = 0x41be00
+# std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR.
+".bss" = 0x86b64c

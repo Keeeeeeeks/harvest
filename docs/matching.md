@@ -112,6 +112,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `HarvestFull/harvest/entity/CAlienEntity.cpp` | 55/66 | alien layout, constructors, save/load, Lua control, damage modifiers and knockback, tiny/looker/stealer movement, five sprite sets; remaining AI, rendering and three large sprite setup routines are reconstructed but inexact |
 | `HarvestFull/harvest/entity/CDropshipEntity.cpp` | 53/55 | ship and bullet construction, turning, missile/gun target selection, rendering, projectile flight and splash damage; the seven-state flight/combat routine and 77-sprite loader remain inexact |
 | `HarvestFull/harvest/entity/CShuttleEntity.cpp` | 40/44 | race placement and sorting, steering AI, checkpoints, rendering and state accessors; constructor register allocation, recovery movement and AI training remain inexact |
+| `HarvestFull/harvest/entity/CCreativeEntity.cpp` | 52/55 | creative buildings, Lua energy/color/progress/sprite controls, private-table serialization, constructors and rendering; the metadata loader and two empty display strings differ only in register or loop-compare choices |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,

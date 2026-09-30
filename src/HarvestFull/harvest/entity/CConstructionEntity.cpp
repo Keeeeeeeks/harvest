@@ -56,7 +56,7 @@ void CConstructionEntity::setEntityInfo()
     Name = info->Name;
 
     if (EntityType == 16)
-        setSprite(info->SpritePackage, info->SpriteName);
+        setSprite(info->SpritePackage.c_str(), info->SpriteName);
     else
         setSprite(0, info->SpriteName);
 }

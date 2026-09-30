@@ -5,11 +5,14 @@
 #define HARVEST_GAME_CLUAMANAGER_H
 
 #include "ox/core/CVector3d.h"
+#include "ox/core/CString.h"
+#include "lua.hpp"
 
 namespace harvest {
 namespace entity {
 class CBuildingEntity;
 class CAlienEntity;
+class CCreativeEntity;
 } // end namespace entity
 
 namespace game {
@@ -18,6 +21,8 @@ namespace game {
 class CLuaManager
 {
 public:
+    void hookCreativeInit(const ox::core::CString<char>& id, entity::CCreativeEntity* building);
+    void hookCreativeUpdate(const ox::core::CString<char>& id, entity::CCreativeEntity* building, float frameDelta);
     //! Tells the scripts that a building sent out a spark.
     void hookAlienDeath(int alienType, const ox::core::CVector3d<float>& position);
     void hookBuildingDestroyed(const char* buildingType, float x, float y, entity::CAlienEntity* alien);
@@ -35,6 +40,8 @@ public:
 };
 
 extern CLuaManager* gp_luaManager;
+extern lua_State* gp_luaState;
+ox::core::CString<char> extractLuaPath(lua_State* L);
 
 } // end namespace game
 } // end namespace harvest
