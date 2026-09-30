@@ -40,7 +40,8 @@ builds remain the target and reference; the differing Steam Linux build is archi
 separately. See [docs/provenance.md](docs/provenance.md) for acquisition evidence,
 checksums and download instructions.
 
-Build the toolchain image (needs Docker; on Apple Silicon it runs under x86-64 emulation):
+Build the toolchain image (needs Docker or Podman, including rootless Podman on SELinux hosts; on
+Apple Silicon it runs under x86-64 emulation):
 
 ```bash
 just toolchain
@@ -78,3 +79,7 @@ the complete package manifest before compilation.
 section, with every relocation resolved. It also writes delinked target objects and `objdiff.json` for
 objdiff: `just objdiff-cli` installs the pinned CLI, and `just diff <unit> <symbol>` shows one
 function's differences. See [docs/matching.md](docs/matching.md).
+
+`hv search <unit>` performs bounded definition-order experiments over the unit's functions, with cached
+canonical compilations, saved patches and a guard against losing exact matches. See
+[docs/search.md](docs/search.md) for block selection, batching and optional application.

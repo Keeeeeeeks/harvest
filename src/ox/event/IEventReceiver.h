@@ -1,7 +1,7 @@
 // Copyright (C) 2002-2004 Nikolaus Gebhardt
 // Adapted from Irrlicht 0.7 include/IEventReceiver.h (license: third_party/irrlicht-0.7/include/irrlicht.h).
 // Recovered for Harvest's ox::event namespace; not the original source. Partial: only the network
-// event is recovered.
+// and user events are recovered.
 
 #ifndef OX_EVENT_IEVENTRECEIVER_H
 #define OX_EVENT_IEVENTRECEIVER_H
@@ -11,8 +11,10 @@ namespace event {
 
 enum EEVENT_TYPE
 {
-    //! A network device event (the only event type recovered so far).
-    EET_NETWORK_EVENT = 5
+    //! A network device event.
+    EET_NETWORK_EVENT = 5,
+    //! A game-defined event, in SEvent::UserEvent.
+    EET_USER_EVENT = 7
 };
 
 //! Network device events, in SEvent::NetworkEvent.Type.
@@ -43,6 +45,14 @@ struct SEvent
             char* Data;
         } NetworkEvent;
 
+        struct
+        {
+            int UserData1;
+            int UserData2;
+            int UserData3;
+            void* UserPointer;
+        } UserEvent;
+
         // Other event structs are not recovered yet. The Linux amd64 SEvent is 48 bytes, and
         // CHTTPConnectionHandler::OnEvent keeps several on the stack, so the union keeps that size.
         void* unrecovered[5];
@@ -70,6 +80,23 @@ public:
 private:
     CEventSubscriberList* SubscriberList;
 };
+
+//! Forwards events to its subscribers. Partial: the subscriber storage is not recovered yet.
+class CEventSubscriberList : public IEventReceiver
+{
+public:
+    CEventSubscriberList();
+
+    virtual bool OnEvent(const SEvent& event);
+
+    virtual ~CEventSubscriberList();
+
+    void addSubscriber(IEventReceiver* receiver);
+    void removeSubscriber(IEventReceiver* receiver);
+};
+
+//! The subscriber list that game events are posted to.
+extern CEventSubscriberList* gp_subscriberList;
 
 } // end namespace event
 } // end namespace ox

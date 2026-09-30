@@ -9,6 +9,27 @@
 namespace ox {
 namespace core {
 
+//! Returns the smaller of two values.
+template <class T>
+inline const T min_(const T a, const T b)
+{
+    return a < b ? a : b;
+}
+
+//! Returns the larger of two values.
+template <class T>
+inline T max_(const T a, const T b)
+{
+    return a > b ? a : b;
+}
+
+//! Returns the absolute value.
+template <class T>
+inline T abs_(const T a)
+{
+    return a < 0 ? -a : a;
+}
+
 //! Assorted helpers.
 class CBasic
 {

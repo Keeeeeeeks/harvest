@@ -1,0 +1,4 @@
+-xc++
+-Isrc
+-Isrc/HarvestFull
+-Ithird_party/luajit-2.0.0-beta8/include

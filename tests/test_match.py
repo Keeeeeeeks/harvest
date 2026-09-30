@@ -96,6 +96,19 @@ def text(result):
     return section
 
 
+def test_data_credit_requires_the_complete_relocated_extent():
+    # An allocated non-executable section records a proof only after the whole section matches.
+    obj = Elf(elf_image(b"\x01\x02\x03\x04", flags=2), "ET_REL")
+    target = Elf(elf_image(b"\x01\x02\x03\x04", kind=2, flags=2), "ET_EXEC")
+    target.fde_ranges = lambda: set()
+    result = compare_object(obj, target, {NAME: ADDRESS}, {})
+    assert text(result)["data_ranges"] == [{"address": hex(ADDRESS), "size": 4, "kind": "section"}]
+    changed = Elf(elf_image(b"\x01\x02\x03\x05", kind=2, flags=2), "ET_EXEC")
+    changed.fde_ranges = lambda: set()
+    result = compare_object(obj, changed, {NAME: ADDRESS}, {})
+    assert not result["exact"] and "data_ranges" not in text(result)
+
+
 @pytest.mark.parametrize("kind", [2, 4])
 def test_call_resolves_to_its_destination(kind):
     result = compare(relocations=[(1, kind, -4, "memcpy")])
@@ -259,6 +272,26 @@ def test_unit_matches_and_mutations_are_rejected(linux_target, compiler):
         assert not result["exact"], name
 
 
+@pytest.mark.originals
+@pytest.mark.toolchain
+def test_source_overlay_compiles_at_the_canonical_path(linux_target, compiler):
+    source = builds.ROOT / "src" / UNIT
+    original = source.read_bytes()
+    replacement = compiler.out / "overlay.cpp"
+    replacement.write_bytes(original)
+    obj, metadata = compiler.compile(source, "overlay-clean", source_override=replacement)
+    assert unit_result(Elf.load(obj, "ET_REL"), linux_target)["exact"]
+    assert metadata["inputs"][f"src/{UNIT}"] == match.digest(original)
+    assert f"src/{UNIT}" in metadata["command"]
+    mutated = original.replace(b"return Len - Pos;", b"return Len - Pos + 1;")
+    assert mutated != original
+    replacement.write_bytes(mutated)
+    obj, metadata = compiler.compile(source, "overlay-mutated", source_override=replacement)
+    assert not unit_result(Elf.load(obj, "ET_REL"), linux_target)["exact"]
+    assert metadata["inputs"][f"src/{UNIT}"] == match.digest(mutated)
+    assert source.read_bytes() == original
+
+
 def test_learning_reports_disagreeing_references_in_one_function():
     function = {
         "symbol": NAME,
@@ -308,3 +341,170 @@ def test_merged_string_check_rejects_malformed_references(data, offset, reason):
 def test_merged_constant_must_be_complete():
     ok, message = match.check_merged(target_image(), FakeSection(b"\0\0\0\0\0\0", 4, flags=0x10), 4, ADDRESS)
     assert not ok and "incomplete" in message
+
+
+class FakeSymbol(dict):
+    def __init__(self, name, value, size):
+        super().__init__(st_shndx=1, st_info={"type": "STT_FUNC"}, st_value=value, st_size=size)
+        self.name = name
+
+
+class FakeResolver:
+    def __init__(self, known):
+        self.known = known
+
+
+def test_unnamed_function_follows_its_predecessor():
+    # ours: a (0x40), b (0x20); the target's a is 0x10 longer, so b sits 0x10 later than base + 0x40
+    symbols = [FakeSymbol("a", 0x0, 0x40), FakeSymbol("b", 0x40, 0x20), FakeSymbol("c", 0x60, 0x20)]
+    fdes = {(0x1000, 0x50), (0x1050, 0x20), (0x1070, 0x20)}
+    layout = match.layout_functions(1, 0x1000, symbols, FakeResolver({"a": 0x1000}), fdes)
+    assert layout.address_of(0x40) == 0x1050
+    # c has a twin FDE of its size, so it keeps following b
+    assert layout.address_of(0x60) == 0x1070
+    assert not layout.contiguous
+
+
+def inline_copy_reading_a_static(
+    tmp_path, group, other_table, *, writable=False, target_writable=False, store=False
+):
+    """Our object: an inline function reading a file-level static table through the `.rodata`
+    section symbol. The target keeps the linked copy of the function from another object, which
+    reads that object's copy of the table, not ours."""
+    from hv.delink import Section, Symbol, write_object
+
+    table = bytes(range(1, 9))
+    flags = 0x206 if group else 0x6  # SHF_ALLOC | SHF_EXECINSTR, plus SHF_GROUP for an inline copy
+    opcode = b"\x89" if store else b"\x8b"
+    code = opcode + b"\x04\x85\0\0\0\0\xc3"  # mov [rax*4 + table], eax (or its load); ret
+    data_section = ".data" if writable else ".rodata"
+    sections = [
+        Section(".text._Z3getv", code, flags, relocations=[(3, 11, data_section, 0x10)]),
+        Section(data_section, bytes(0x10) + table, 0x3 if writable else 0x2),
+    ]
+    symbols = [
+        Symbol("_Z3getv", ".text._Z3getv", 0, len(code), function=True),
+        Symbol("TABLE", data_section, 0x10, 8, local=True),
+    ]
+    write_object(tmp_path / "unit.o", sections, symbols)
+    obj = Elf.load(tmp_path / "unit.o", "ET_REL")
+    # target: the function, our unit's .rodata at +0x10 and the other object's table at +0x30
+    other = ADDRESS + 0x30
+    image = (
+        code[:3]
+        + other.to_bytes(4, "little")
+        + code[7:]
+        + bytes(8)
+        + bytes(0x10)
+        + table
+        + bytes(8)
+        + other_table
+    )
+    target = Elf(elf_image(image, kind=2, flags=0x7 if target_writable else 0x6), "ET_EXEC")
+    target.fde_ranges = lambda: {(ADDRESS, len(code))}
+    return compare_object(obj, target, {"_Z3getv": ADDRESS}, {data_section: ADDRESS + 0x10})
+
+
+def function_section(result):
+    return next(s for s in result["sections"] if s["name"].startswith(".text"))
+
+
+def test_inline_copy_may_read_another_objects_copy_of_a_static(tmp_path):
+    assert inline_copy_reading_a_static(tmp_path, True, bytes(range(1, 9)))["exact"]
+
+
+def test_other_copy_of_a_static_must_hold_the_same_bytes(tmp_path):
+    result = inline_copy_reading_a_static(tmp_path, True, bytes(range(2, 10)))
+    assert not result["exact"]
+    assert function_section(result)["bad_references"][0]["reason"] == "local copy"
+
+
+def test_only_inline_copies_may_read_another_copy_of_a_static(tmp_path):
+    result = inline_copy_reading_a_static(tmp_path, False, bytes(range(1, 9)))
+    assert not result["exact"]
+    assert function_section(result)["bad_references"][0]["reason"] == "different destination"
+
+
+@pytest.mark.parametrize("store", [False, True])
+def test_inline_copy_cannot_substitute_a_mutable_static(tmp_path, store):
+    result = inline_copy_reading_a_static(tmp_path, True, bytes(range(1, 9)), writable=True, store=store)
+    assert not result["exact"]
+    assert function_section(result)["bad_references"][0]["reason"] == "mutable local object"
+
+
+def test_inline_copy_cannot_substitute_a_writable_target_copy(tmp_path):
+    result = inline_copy_reading_a_static(tmp_path, True, bytes(range(1, 9)), target_writable=True)
+    assert not result["exact"]
+    assert function_section(result)["bad_references"][0]["reason"] == "mutable or unmapped target copy"
+
+
+def bss_result(tmp_path, size, address=ADDRESS, known=None):
+    from hv.delink import Section, Symbol, write_object
+
+    # The target has exactly four allocated NOBITS bytes at ADDRESS.
+    data = bytearray(elf_image(bytes(4), kind=2, flags=0x3))
+    shoff = struct.unpack_from("<Q", data, 40)[0]
+    struct.pack_into("<I", data, shoff + 64 + 4, 8)  # SHT_NOBITS
+    target = Elf(bytes(data), "ET_EXEC")
+    write_object(
+        tmp_path / "bss.o",
+        [Section(".bss", bytes(size), 0x3, nobits=True)],
+        [Symbol("g", ".bss", 0, size)],
+    )
+    return compare_object(Elf.load(tmp_path / "bss.o", "ET_REL"), target, known or {}, {".bss": address})
+
+
+@pytest.mark.parametrize(
+    ("size", "offset", "exact"), [(4, 0, True), (5, 0, False), (1, 3, True), (2, 3, False)]
+)
+def test_bss_placement_requires_the_entire_extent(tmp_path, size, offset, exact):
+    assert bss_result(tmp_path, size, ADDRESS + offset)["exact"] == exact
+
+
+def test_bss_placement_must_agree_with_known_symbols(tmp_path):
+    result = bss_result(tmp_path, 1, ADDRESS + 1, {"g": ADDRESS})
+    assert not result["exact"]
+    assert result["sections"][0]["misplaced_symbols"] == [
+        {"symbol": "g", "known": hex(ADDRESS), "placed": hex(ADDRESS + 1)}
+    ]
+
+
+def function_with_exception_table(tmp_path, target_lsda):
+    """Our object: one function whose FDE points to its exception table (LSDA). Only the FDE
+    references the table, so it is placed from the target FDE's LSDA pointer."""
+    from hv.delink import Section, Symbol, write_object
+
+    code, lsda = b"\x90\x90\x90\xc3", b"\xff\x03\x05\x01\x00\x00\x00\x00"
+    cie = struct.pack("<II", 12, 0) + bytes(8)
+    fde = struct.pack("<II", 20, len(cie) + 4) + bytes(16)  # CIE pointer, pc_begin, range, LSDA
+    sections = [
+        Section(".text", code, 0x6),
+        Section(".gcc_except_table", lsda, 0x2, align=4),
+        Section(
+            ".eh_frame",
+            cie + fde,
+            0x2,
+            align=8,
+            relocations=[(len(cie) + 8, 2, ".text", 0), (len(cie) + 16, 10, ".gcc_except_table", 0)],
+        ),
+    ]
+    write_object(tmp_path / "unit.o", sections, [Symbol("f", ".text", 0, len(code), function=True)])
+    obj = Elf.load(tmp_path / "unit.o", "ET_REL")
+    target = Elf(elf_image(code + bytes(0x1C) + target_lsda, kind=2), "ET_EXEC")
+    target.fde_ranges = lambda: {(ADDRESS, len(code))}
+    target.fde_lsdas = lambda: {ADDRESS: ADDRESS + 0x20}
+    result = compare_object(obj, target, {"f": ADDRESS}, {})
+    return next(s for s in result["sections"] if s["name"] == ".gcc_except_table")
+
+
+def test_exception_table_is_placed_from_the_target_fde(tmp_path):
+    table = function_with_exception_table(tmp_path, b"\xff\x03\x05\x01\x00\x00\x00\x00")
+    assert (table["address"], table["placement"], table["exact"]) == (
+        hex(ADDRESS + 0x20),
+        "exception frames",
+        True,
+    )
+
+
+def test_placed_exception_table_is_compared(tmp_path):
+    assert not function_with_exception_table(tmp_path, b"\xff\x03\x05\x02\x00\x00\x00\x00")["exact"]

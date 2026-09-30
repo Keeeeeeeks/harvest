@@ -273,6 +273,59 @@ public:
         used = used + len + 1;
     }
 
+    //! Appends a number in decimal. An Oxeye addition.
+    void append(int number)
+    {
+        if (!number)
+        {
+            if (used + 1 > allocated)
+                reallocate((int)used + 1);
+
+            array[used - 1] = (T)'0';
+            array[used] = 0;
+            ++used;
+            return;
+        }
+
+        // store if negative and make positive
+        bool negative = false;
+        if (number < 0)
+        {
+            number *= -1;
+            negative = true;
+        }
+
+        // temporary buffer for 16 numbers
+        T tmpbuf[16];
+        tmpbuf[15] = 0;
+        int idx = 15;
+
+        // add numbers
+        while (number && idx)
+        {
+            idx--;
+            tmpbuf[idx] = (T)('0' + (number % 10));
+            number = number / 10;
+        }
+
+        // add sign
+        if (negative)
+        {
+            idx--;
+            tmpbuf[idx] = '-';
+        }
+
+        int len = 15 - idx;
+
+        if (used + len + 1 > allocated)
+            reallocate((int)used + (int)len + 1);
+
+        for (unsigned int i = idx; i < 16; ++i)
+            array[used + i - idx - 1] = tmpbuf[i];
+
+        used += len;
+    }
+
     //! Appends a string of the length l to this string.
     void append(const CString<T>& other, int length)
     {
@@ -294,49 +347,6 @@ public:
             array[l + used] = other[l];
 
         used = used + len;
-    }
-
-    //! Appends an integer in decimal.
-    void append(int number)
-    {
-        if (!number)
-        {
-            if (used + 1 > allocated)
-                reallocate(used + 1);
-            array[used - 1] = (T)'0';
-            array[used] = 0;
-            used += 1;
-        }
-        else
-        {
-            bool negative = false;
-            if (number < 0)
-            {
-                number *= -1;
-                negative = true;
-            }
-            char tmpbuf[16];
-            tmpbuf[15] = 0;
-            int idx = 15;
-            while (number && idx)
-            {
-                idx--;
-                tmpbuf[idx] = (char)('0' + (number % 10));
-                number = number / 10;
-            }
-            if (negative)
-            {
-                idx--;
-                tmpbuf[idx] = '-';
-            }
-
-            int len = 15 - idx;
-            if (used + len + 1 > allocated)
-                reallocate(used + len + 1);
-            for (unsigned int l = idx; l < 16; ++l)
-                array[l + used - 1 - idx] = (T)tmpbuf[l];
-            used += len;
-        }
     }
 
     //! Reserves some memory.

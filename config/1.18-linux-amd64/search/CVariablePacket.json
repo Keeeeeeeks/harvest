@@ -1,0 +1,130 @@
+{
+  "source_sha256": "a9aedecae23ba03b2ffeb2128064e4164acd38af07231f6215be47c656ff6f96",
+  "blocks": [
+    {
+      "name": "parser-ctor",
+      "start": 12,
+      "end": 17
+    },
+    {
+      "name": "parser-dtor",
+      "start": 19,
+      "end": 21
+    },
+    {
+      "name": "getPacketId",
+      "start": 23,
+      "end": 26
+    },
+    {
+      "name": "fetchInt",
+      "start": 28,
+      "end": 36
+    },
+    {
+      "name": "fetchByte",
+      "start": 38,
+      "end": 46
+    },
+    {
+      "name": "fetchShort",
+      "start": 48,
+      "end": 56
+    },
+    {
+      "name": "fetchFloat",
+      "start": 58,
+      "end": 66
+    },
+    {
+      "name": "fetchBytes",
+      "start": 68,
+      "end": 75
+    },
+    {
+      "name": "fetchString",
+      "start": 77,
+      "end": 84
+    },
+    {
+      "name": "fetchFixedString",
+      "start": 86,
+      "end": 97
+    },
+    {
+      "name": "fetchWideString",
+      "start": 99,
+      "end": 112
+    },
+    {
+      "name": "fetchFixedWideString",
+      "start": 114,
+      "end": 126
+    },
+    {
+      "name": "builder-ctor",
+      "start": 128,
+      "end": 135
+    },
+    {
+      "name": "appendData",
+      "start": 137,
+      "end": 165
+    },
+    {
+      "name": "builder-dtor",
+      "start": 167,
+      "end": 170
+    },
+    {
+      "name": "setHeader",
+      "start": 172,
+      "end": 175
+    },
+    {
+      "name": "getPacketLength",
+      "start": 177,
+      "end": 180
+    },
+    {
+      "name": "sendPacket",
+      "start": 182,
+      "end": 189
+    },
+    {
+      "name": "getPacketData",
+      "start": 191,
+      "end": 194
+    },
+    {
+      "name": "appendInt",
+      "start": 196,
+      "end": 199
+    },
+    {
+      "name": "appendFloat",
+      "start": 201,
+      "end": 204
+    },
+    {
+      "name": "appendShort",
+      "start": 206,
+      "end": 210
+    },
+    {
+      "name": "appendByte",
+      "start": 212,
+      "end": 215
+    },
+    {
+      "name": "appendString",
+      "start": 217,
+      "end": 220
+    },
+    {
+      "name": "appendWideString",
+      "start": 222,
+      "end": 231
+    }
+  ]
+}

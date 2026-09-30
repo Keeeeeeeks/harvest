@@ -86,15 +86,19 @@ class Elf:
             if r["r_info_type"] == 5  # R_X86_64_COPY
         }
 
+    def fdes(self) -> list[FDE]:
+        if not hasattr(self, "_fdes"):
+            dwarf = self.elf.get_dwarf_info()
+            entries = dwarf.EH_CFI_entries() if dwarf.has_EH_CFI() else []
+            self._fdes = [entry for entry in entries if isinstance(entry, FDE)]
+        return self._fdes
+
     def fde_ranges(self) -> set[tuple[int, int]]:
-        dwarf = self.elf.get_dwarf_info()
-        if not dwarf.has_EH_CFI():
-            return set()
-        return {
-            (entry["initial_location"], entry["address_range"])
-            for entry in self.elf.get_dwarf_info().EH_CFI_entries()
-            if isinstance(entry, FDE)
-        }
+        return {(entry["initial_location"], entry["address_range"]) for entry in self.fdes()}
+
+    def fde_lsdas(self) -> dict[int, int]:
+        """The exception table (LSDA) of each function that has one, by function address."""
+        return {e["initial_location"]: e.lsda_pointer for e in self.fdes() if e.lsda_pointer is not None}
 
     def plt_symbols(self) -> dict[str, int]:
         """Resolve each legacy x86-64 PLT entry through its GOT relocation."""

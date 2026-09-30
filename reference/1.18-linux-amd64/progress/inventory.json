@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "build": "1.18-linux-amd64",
   "image": "Harvest",
   "image_sha256": "ac381fa044f6009e09a29e1e221a51e72e65f0772edd164083857dda863a426a",
@@ -30,6 +30,171 @@
       "sha256": "f81375eeb0ea9a380d6195cc096ccf03d5fd7627352ae1a6324858f2275d508d"
     }
   ],
+  "data_sections": [
+    {
+      "name": ".interp",
+      "address": 4194872,
+      "size": 28,
+      "type": "SHT_PROGBITS",
+      "sha256": "9097c98ea70f6f3b01d50145eb72bf55ad1f4e9713bccf27bd6405d6254eed00"
+    },
+    {
+      "name": ".note.ABI-tag",
+      "address": 4194900,
+      "size": 32,
+      "type": "SHT_NOTE",
+      "sha256": "a4db859d6c9ba5c56f2253dbad9d69a7fdcbaa5a4a6e833f7cf9600ea17f1bba"
+    },
+    {
+      "name": ".note.gnu.build-id",
+      "address": 4194932,
+      "size": 36,
+      "type": "SHT_NOTE",
+      "sha256": "05adf9c4d7bab4bb662f1deb7f667268fcb609bb4b15eeed0aa87792d5cf658f"
+    },
+    {
+      "name": ".hash",
+      "address": 4194968,
+      "size": 2556,
+      "type": "SHT_HASH",
+      "sha256": "06e0028c89f9194980b4aa9eb5b8bccadf4d5474c41409023a8ac1cf06935ac2"
+    },
+    {
+      "name": ".gnu.hash",
+      "address": 4197528,
+      "size": 216,
+      "type": "SHT_GNU_HASH",
+      "sha256": "f892ac5821ef8229f8c8adead2583751c8da94e6bd4aa28086160ba39472dd19"
+    },
+    {
+      "name": ".dynsym",
+      "address": 4197744,
+      "size": 8976,
+      "type": "SHT_DYNSYM",
+      "sha256": "00fc700249283678e242e2c9c89336fb3a4a3374743dcd44fbe74e85782a9c2e"
+    },
+    {
+      "name": ".dynstr",
+      "address": 4206720,
+      "size": 6699,
+      "type": "SHT_STRTAB",
+      "sha256": "64c6c0298dddd799cf88519a598307a24c5d72b5ea36c098f654aefdfea13273"
+    },
+    {
+      "name": ".gnu.version",
+      "address": 4213420,
+      "size": 748,
+      "type": "SHT_GNU_versym",
+      "sha256": "3ea56724861c3f26b169069ca62f3eb4e88e8c539b6a0af1e56b5818b2f49aec"
+    },
+    {
+      "name": ".gnu.version_r",
+      "address": 4214168,
+      "size": 208,
+      "type": "SHT_GNU_verneed",
+      "sha256": "006c5aee16ec961561e2e355cbb8f3fc5a6bd6b0a0dc20a88378c961ad58795b"
+    },
+    {
+      "name": ".rela.dyn",
+      "address": 4214376,
+      "size": 264,
+      "type": "SHT_RELA",
+      "sha256": "4c9e55a3687de64a0d3caa15c38860766cbbeb65822058bd707e2bc443d2171f"
+    },
+    {
+      "name": ".rela.plt",
+      "address": 4214640,
+      "size": 8544,
+      "type": "SHT_RELA",
+      "sha256": "d71bd12a449f4362d7162009e230ba6606d6140ecffe9ebbd2d9816c190a480d"
+    },
+    {
+      "name": ".rodata",
+      "address": 6221312,
+      "size": 213472,
+      "type": "SHT_PROGBITS",
+      "sha256": "c3bdd50a5f85983e0095b54c138e8614c68195d419e7336694cf82b7bf1e3906"
+    },
+    {
+      "name": ".eh_frame_hdr",
+      "address": 6434784,
+      "size": 39820,
+      "type": "SHT_PROGBITS",
+      "sha256": "212e9f7d99586c6b868f0b02dd7217d05e0048117e7a3ad2a0dba56a60eee95d"
+    },
+    {
+      "name": ".eh_frame",
+      "address": 6474608,
+      "size": 175540,
+      "type": "SHT_PROGBITS",
+      "sha256": "87bcbdc01ee60850e674f94b985a096d0b5c53c80e0484b626c37c89246fb1aa"
+    },
+    {
+      "name": ".gcc_except_table",
+      "address": 6650148,
+      "size": 63591,
+      "type": "SHT_PROGBITS",
+      "sha256": "e3aa1608de69be749016e9581807012943378f8c127d7fe4297203a53311027d"
+    },
+    {
+      "name": ".ctors",
+      "address": 8812136,
+      "size": 1648,
+      "type": "SHT_PROGBITS",
+      "sha256": "ff5e95786c6670e76fe838cc082abc7a284d2c794054bcea83be4fff2b976350"
+    },
+    {
+      "name": ".dtors",
+      "address": 8813784,
+      "size": 16,
+      "type": "SHT_PROGBITS",
+      "sha256": "60c69a3e87bf5c4f1e546bec45f262690bcf5494c4ecac2616bf2f731afa152a"
+    },
+    {
+      "name": ".jcr",
+      "address": 8813800,
+      "size": 8,
+      "type": "SHT_PROGBITS",
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+      "name": ".dynamic",
+      "address": 8813808,
+      "size": 752,
+      "type": "SHT_DYNAMIC",
+      "sha256": "cc108eaef3ae27881763a120387c3138f50d485aa6fbabeb414c8b7c55090061"
+    },
+    {
+      "name": ".got",
+      "address": 8814560,
+      "size": 8,
+      "type": "SHT_PROGBITS",
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+      "name": ".got.plt",
+      "address": 8814568,
+      "size": 2872,
+      "type": "SHT_PROGBITS",
+      "sha256": "19154313670111250fbbdc8772030682bce8e829042859c8d2f08d8dd28c8337"
+    },
+    {
+      "name": ".data",
+      "address": 8817440,
+      "size": 9792,
+      "type": "SHT_PROGBITS",
+      "sha256": "d1e27546738306cf5c23c7356ba5cbdb60ca80bf257c8ac800fb5ccd579d25d5"
+    },
+    {
+      "name": ".bss",
+      "address": 8827232,
+      "size": 37176,
+      "type": "SHT_NOBITS",
+      "sha256": "546c1db678c4042a1b3e09c9a1d32bc3e3e4a891ad3ed60d62edfc8cb8fc3333"
+    }
+  ],
+  "data_scope": "all allocated non-executable ELF sections, including BSS and linker metadata",
+  "total_data": 573002,
   "functions_sha256": "0fa7a96dce4c584ea796245d7c0d7f3d2e59aba033f04e01268a39b9069a8171",
   "total_code": 1998094,
   "total_functions": 4976

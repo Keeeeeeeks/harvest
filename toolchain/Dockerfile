@@ -11,29 +11,25 @@ ARG MIRROR
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends debootstrap ubuntu-keyring \
  && rm -rf /var/lib/apt/lists/*
-# Unpack the pinned release packages before configuring them in the Lucid rootfs.
+# only unpack here; the second stage runs inside the lucid image, because lucid's maintainer
+# scripts crash when run through chroot from the emulated bootstrap container
 RUN debootstrap --foreign --variant=minbase --arch=amd64 --include=gpgv \
       --keyring=/usr/share/keyrings/ubuntu-archive-removed-keys.gpg \
       lucid /rootfs "$MIRROR"
 
-# Lucid's time functions can fault on the legacy vsyscall page under QEMU.
-# Build a dependency-free syscall bridge with the bootstrap compiler, use it only
-# during package installation, and discard it from the final compiler environment.
-FROM bootstrap AS configured
-RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends gcc \
- && rm -rf /var/lib/apt/lists/*
-COPY legacy-time.c /tmp/legacy-time.c
-RUN gcc -shared -fPIC -nostdlib -o /rootfs/legacy-time.so /tmp/legacy-time.c \
- && LD_PRELOAD=/legacy-time.so chroot /rootfs /debootstrap/debootstrap --second-stage
-
 FROM scratch
 ARG MIRROR
-COPY --from=configured /rootfs /
-COPY --from=configured /usr/share/keyrings/ubuntu-archive-removed-keys.gpg /etc/apt/trusted.gpg
-RUN rm -rf /var/cache/apt/archives/*.deb
-RUN LD_PRELOAD=/legacy-time.so \
-      sh -c 'echo "deb $1 lucid main universe" > /etc/apt/sources.list \
+COPY --from=bootstrap /rootfs /
+COPY --from=bootstrap /usr/share/keyrings/ubuntu-archive-removed-keys.gpg /etc/apt/trusted.gpg
+# udev's postinst mknods templates into /lib/udev/devices. A rootless build cannot create device
+# nodes, and a container gets /dev from its runtime anyway, so a temporary /sbin/mknod (ahead of
+# /bin in debootstrap's PATH for maintainer scripts) reports the failure instead of aborting.
+RUN printf '#!/bin/sh\n/bin/mknod "$@" || echo "mknod $*: skipped" >&2\n' > /sbin/mknod \
+ && chmod +x /sbin/mknod \
+ && /debootstrap/debootstrap --second-stage \
+ && rm /sbin/mknod \
+ && rm -rf /var/cache/apt/archives/*.deb
+RUN echo "deb $MIRROR lucid main universe" > /etc/apt/sources.list \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       g++-4.4=4.4.3-4ubuntu5 \
@@ -57,8 +53,7 @@ RUN LD_PRELOAD=/legacy-time.so \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
  && ln -s /usr/bin/gcc-4.4 /usr/local/bin/gcc \
- && ln -s /usr/bin/g++-4.4 /usr/local/bin/g++' sh "$MIRROR" \
- && rm /legacy-time.so
+ && ln -s /usr/bin/g++-4.4 /usr/local/bin/g++
 
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 WORKDIR /work

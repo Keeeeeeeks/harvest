@@ -58,3 +58,124 @@
 ".bss" = 0x87427c
 # LSDA of readWideString; the complete 103-byte table matches at this unique address.
 ".gcc_except_table" = 0x666e8b
+
+["ox/algo/CSimplePress.cpp"]
+# m_staticIndices, then the std::ios_base::Init object of the iostream static initializer
+".bss" = 0x86c220
+
+["HarvestFull/harvest/game/CThreatLevel.cpp"]
+".text" = 0x45bf40
+# jump tables, WAVE_DEFINITIONS, ALIEN_KEY_NAMES and the ALIEN_LEVELS initializer
+".rodata" = 0x5f7d00
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b93c
+
+["ox/entity/COxEntity.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x87424c
+
+["HarvestFull/harvest/entity/CHarvestEntity.cpp"]
+".text" = 0x432270
+# jump table, ENTITY_MINERAL_COSTS and ENTITY_SEARCH_LAYERS
+".rodata" = 0x5f3220
+
+["HarvestFull/harvest/entity/CBuildingEntity.cpp"]
+".text" = 0x41ac30
+# CBuildingLuaInfo::className, ENTITY_MINERAL_COSTS and the death particle switch table
+".rodata" = 0x5f0dc0
+# CBuildingLuaInfo::methods
+".data" = 0x868c40
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b634
+
+["HarvestFull/harvest/entity/CSparkEntity.cpp"]
+".text" = 0x440670
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b8b0
+
+["HarvestFull/harvest/entity/CSparkProducerEntity.cpp"]
+".text" = 0x4429d0
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b8c8
+
+["HarvestFull/harvest/entity/CMineralsEntity.cpp"]
+".text" = 0x435410
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b6d8
+
+["HarvestFull/harvest/entity/CConstructionEntity.cpp"]
+".text" = 0x41b050
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b640
+
+["HarvestFull/harvest/entity/CMinerEntity.cpp"]
+".text" = 0x4340c0
+# std::ios_base::Init object of the iostream static initializer, then the header statics
+".bss" = 0x86b6cc
+
+["HarvestFull/harvest/entity/CSparkMoverEntity.cpp"]
+".text" = 0x440ec0
+# g_useLargeSparkDeathParticle, the std::ios_base::Init object of the iostream static initializer,
+# then the header statics
+".bss" = 0x86b8bc
+
+["HarvestFull/harvest/entity/CPerimeterBomb.cpp"]
+".text" = 0x43ab60
+# std::ios_base::Init object, WORLD_GRID_OFFSET, then ENERGY_PROGRESS_COLOR
+".bss" = 0x86b6f0
+
+["HarvestFull/harvest/settings/CAlienPriorities.cpp"]
+".text" = 0x48a4a0
+# g_attackPriorities[5], std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR
+".bss" = 0x86bae0
+
+["HarvestFull/harvest/entity/CDefenseTowerEntity.cpp"]
+".text" = 0x41e4c0
+# std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR
+".bss" = 0x86b658
+
+["HarvestFull/harvest/entity/CMissileTurretEntity.cpp"]
+".text" = 0x435ec0
+# std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR
+".bss" = 0x86b6e4
+
+["HarvestFull/harvest/entity/CAlienEntity.cpp"]
+".text" = 0x40a2d0
+# Chant timer/index, iostream and game-header statics, then g_alienNames[14].
+".bss" = 0x86b520
+
+["HarvestFull/harvest/entity/CDropshipEntity.cpp"]
+".text" = 0x42a530
+# std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR
+".bss" = 0x86b664
+
+["HarvestFull/harvest/entity/CShuttleEntity.cpp"]
+".text" = 0x43b430
+# Race state and learned targets, iostream and game-header statics, then LAP_CHECKPOINTS.
+".bss" = 0x86b700
+
+["HarvestFull/harvest/entity/CCreativeEntity.cpp"]
+".text" = 0x41be00
+# std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR.
+".bss" = 0x86b64c
+
+["HarvestFull/harvest/entity/CEntityManager.cpp"]
+".text" = 0x430390
+# Construction switch followed by building eligibility tables.
+".rodata" = 0x5f2d70
+# gp_entityManager, iostream initializer, WORLD_GRID_OFFSET and ENERGY_PROGRESS_COLOR.
+".bss" = 0x86b670
+
+["ox/entity/COxEntityManager.cpp"]
+".text" = 0x5e1d20
+# std::ios_base::Init object.
+".bss" = 0x874250
+
+["HarvestFull/harvest/game/CWorld.cpp"]
+".text" = 0x45fdd0
+# World and mineral globals, iostream, game-header statics, STARTING_AREA.
+".bss" = 0x86b950
+
+["HarvestFull/harvest/game/CStatistics.cpp"]
+".text" = 0x45a040
+".bss" = 0x86b920

@@ -51,15 +51,26 @@ progress-capture:
 
 # build the lucid GCC 4.4.3 container
 toolchain:
-    docker build --platform linux/amd64 -t {{image}} toolchain
+    #!/usr/bin/env bash
+    set -euo pipefail
+    flags=()
+    # only Podman reports these fields, and only Podman's build takes the flags below
+    if security="$(docker info --format '{{{{.Host.Security.Rootless}} {{{{.Host.Security.SELinuxEnabled}}' 2>/dev/null)"; then
+      read -r rootless selinux <<< "$security"
+      # debootstrap falls back to bind-mounting /dev nodes when it cannot mknod them
+      if [ "$rootless" = true ]; then flags+=(--cap-add=SYS_ADMIN); fi
+      # lucid's libselinux still thinks SELinux is on, and container_t denies its setfscreatecon
+      if [ "$selinux" = true ]; then flags+=(--security-opt=label=disable); fi
+    fi
+    docker build ${flags[@]+"${flags[@]}"} --platform linux/amd64 -t {{image}} toolchain
 
 # interactive shell in the toolchain container, repo at /work
 shell:
-    docker run --rm -it --platform linux/amd64 -v "{{justfile_directory()}}:/work" {{image}} bash
+    docker run --rm -it --platform linux/amd64 --security-opt=label=disable -v "{{justfile_directory()}}:/work" {{image}} bash
 
 # run a command in the toolchain container without a tty, repo at /work
 tc +cmd:
-    docker run --rm --platform linux/amd64 -v "{{justfile_directory()}}:/work" {{image}} {{cmd}}
+    docker run --rm --platform linux/amd64 --security-opt=label=disable -v "{{justfile_directory()}}:/work" {{image}} {{cmd}}
 
 # record the toolchain image's installed packages
 toolchain-manifest:

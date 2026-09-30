@@ -1,7 +1,8 @@
 # decomp.dev progress pipeline
 
 `just progress-capture` compiles every recovered unit against the pinned original in the local
-Docker toolchain and saves measurements under `reference/1.18-linux-amd64/progress/`. Commit the
+Docker toolchain, measures native objdiff similarity, and saves measurements under
+`reference/1.18-linux-amd64/progress/`. Install the pinned scorer with `just objdiff-cli` first. Commit the
 three generated files with the source change. `just progress` validates those measurements against
 the current checkout and writes `build/progress/report.json` without needing originals or Docker.
 
@@ -21,13 +22,32 @@ It runs on default-branch pushes, pull requests, manual dispatch, and the setup 
   target address: every byte and every resolved reference equal, and the extent equal to the
   function's FDE. A function earns credit even when its unit as a whole does not match yet (for
   example because GCC ordered the unit's functions differently); an exact unit must be exact in
-  every section and function. No fuzzy/normalized similarity is credited.
+  every section and function. No fuzzy/normalized similarity earns exact matching credit.
 - **Deduplication:** each original address/range earns credit once. Shared inline/COMDAT bodies
   emitted by multiple recovered units do not inflate the numerator.
-- **Completion:** `complete_code` and `complete_units` remain zero because the executable is not
-  relinked. These fields are distinct from matched functions. Data recovery is not reported yet.
+- **Fuzzy code:** pinned objdiff v3.8.1 compares fresh compiled objects with independently delinked
+  target objects, using `functionRelocDiffs=data_value`. Each score is weighted by the original FDE
+  size, even when the candidate function has a different size. Duplicate target addresses use the
+  best measured score once; unrecovered functions and unclaimed executable bytes contribute zero.
+  Exact matcher proofs contribute 100; an objdiff score of 100 alone does not grant exact credit.
+- **Data denominator:** all allocated non-executable ELF sections, including `.rodata`, `.data`,
+  BSS, unwind/exception tables and linker metadata. The initial data inventory is 573,002 bytes.
+  BSS contributes its zero-initialized memory extent, not file payload bytes. This does not include
+  external assets or bundled shared libraries.
+- **Matched data:** complete placed data sections with exact bytes and resolved references;
+  correctly placed BSS extents; complete referenced merge elements/terminated strings; and verified
+  read-only local copies. Target intervals are unioned so shared vtables, strings, suffixes and
+  overlapping copies count once. Unplaced, skipped and inexact sections earn no section credit.
+- **Fuzzy overall:** `(sum(original function size * score / 100) + matched data bytes) /
+  (total code bytes + total data bytes) * 100`. Data receives exact-only credit; partial code scores
+  come from native objdiff. This changes the meaning of the old fuzzy history, which was identical
+  to exact matched-code percentage with a code-only denominator. Matched Code remains comparable.
+- **Linked code/data:** `complete_code`, `complete_data` and `complete_units` remain zero. Capture
+  records an explicit unavailable link status because there is no executable link step. Compiling
+  an object or matching a function does not establish that it is included in a rebuilt executable.
 - **Display:** one treemap unit per FDE, with readable Mac-derived names when available, plus four
-  unclaimed-section units. Leave the site's default category as **All** to retain the full denominator.
+  unclaimed-code units and matched/unclaimed data intervals. The **Allocated data** category isolates
+  data progress. Leave the site's default category as **All** to retain the full denominator.
 
 The initial capture at the `CMemReadFile` + `CMemWriteFile` stage has 35 unique matched functions
 and 995 matched bytes: **0.04980%**. These two objects emit 37 function records, including two shared
@@ -39,11 +59,14 @@ committed or uploaded by the workflow.
 `inventory.json` pins the target image, section sizes/hashes and function-table hash.
 `functions.tsv` contains the complete FDE ranges. `evidence.json` contains the whole-object matcher
 results, object hashes, compiler/image identity, dependency hashes from GCC's depfile, toolchain
-manifest hash, and hashes of all measurement code/configuration inputs. Capture checks for source
-and measurement changes during compilation.
+manifest hash, and hashes of all measurement code/configuration inputs. Schema 2 also records native
+per-function scores, the scorer binary/configuration, delinked object hashes, exact data ranges and
+link status. Capture uses its own local objdiff project; it does not change the root `objdiff.json`
+or reuse stale interactive objects. Capture checks for source and measurement changes during compilation.
 
-CI verifies these identities and the evidence's internal consistency. **It does not recompile or
-recheck the proprietary original.** It publishes the recorded local measurement only when its
+CI verifies these identities, score extents, data bounds and the evidence's internal consistency.
+**It does not recompile or recheck the proprietary original.** It publishes the recorded local measurement
+only when its
 source/header, compiler configuration, matcher, inventory, and unit list still agree with the
 checkout. This is not a signed attestation and should be reviewed like other generated evidence.
 
@@ -64,7 +87,7 @@ reuses old matching credit or shrinks the denominator to the recovered subset.
 The public project is registered at [decomp.dev/banteg/harvest](https://decomp.dev/banteg/harvest).
 Its default version is `1.18-linux-amd64`, workflow is `progress.yml`, and category is **All**.
 The site currently offers Windows as its only PC platform category; the report version identifies
-the Linux target explicitly. The project remains hidden from the directory until 0.5% matched code.
+the Linux target explicitly. Directory listing requires at least 0.5% matched code.
 
 The existing decomp.dev GitHub App installation includes `banteg/harvest` using selected-repository
 access, alongside the existing Crimsonland and Snail Mail repositories. Workflow completion events
