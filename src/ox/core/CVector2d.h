@@ -53,6 +53,20 @@ public:
     //! Returns the length of the vector
     double getLength() const { return sqrt(X * X + Y * Y); }
 
+    //! Returns the clockwise angle in degrees, in the range 0..360.
+    double getAngle() const
+    {
+        if (Y == 0.0) return X < 0.0 ? 180.0 : 0.0;
+        else if (X == 0.0) return Y < 0.0 ? 90.0 : 270.0;
+        double angle = Y / sqrt(X * X + Y * Y);
+        angle = atan(sqrt(1 - angle * angle) / angle) * 57.295780181884766;
+        if (X > 0.0 && Y > 0.0) return angle + 270;
+        else if (X > 0.0 && Y < 0.0) return angle + 90;
+        else if (X < 0.0 && Y < 0.0) return 90 - angle;
+        else if (X < 0.0 && Y > 0.0) return 270 - angle;
+        return angle;
+    }
+
     //! Normalizes the vector, leaving a zero vector unchanged.
     CVector2d<T>& normalize()
     {

@@ -115,7 +115,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `HarvestFull/harvest/entity/CCreativeEntity.cpp` | 52/55 | creative buildings, Lua energy/color/progress/sprite controls, private-table serialization, constructors and rendering; the metadata loader and two empty display strings differ only in register or loop-compare choices |
 | `HarvestFull/harvest/entity/CEntityManager.cpp` | 39/43 | building lists and bounds, spatial grid maintenance, cached targeting searches, entity construction, save/load, and energy-beam rendering; placement, grid range search, and two predicates remain inexact |
 | `ox/entity/COxEntityManager.cpp` | 20/21 | entity ownership, deferred spawning and removal, reference refresh, first/best/all targeting searches, and render ordering with native sort helpers; the update loop remains inexact |
-| `HarvestFull/harvest/game/CWorld.cpp` | 23/29 | world layout and lifecycle, scenery collision grid, wind forces, camera bounds and serialization; placement, collision avoidance and expansion are reconstructed but inexact; graphics, scenario startup and the main update remain open |
+| `HarvestFull/harvest/game/CWorld.cpp` | 30/38 | complete world source: scenery collision grid, wind forces, sprite loading, scenario startup, edge shading, camera bounds and serialization; placement, collision avoidance, expansion, background rendering and the main update are reconstructed but inexact |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,

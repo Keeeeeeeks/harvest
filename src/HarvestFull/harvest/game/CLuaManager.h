@@ -6,6 +6,7 @@
 
 #include "ox/core/CVector3d.h"
 #include "ox/core/CString.h"
+#include "ox/core/CRect.h"
 #include "lua.hpp"
 
 namespace harvest {
@@ -22,6 +23,7 @@ class CLuaManager
 {
 public:
     void hookMapExpanded(float left, float top, float right, float bottom);
+    const ox::core::CRect<float>& getMinimumWorldBorders();
     void hookCreativeInit(const ox::core::CString<char>& id, entity::CCreativeEntity* building);
     void hookCreativeUpdate(const ox::core::CString<char>& id, entity::CCreativeEntity* building, float frameDelta);
     //! Tells the scripts that a building sent out a spark.

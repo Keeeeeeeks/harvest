@@ -1,5 +1,5 @@
 // Recovered for Harvest from the Mac and Linux 1.18 builds; not the original source.
-// Partial: layout and core world mechanics; graphics, scenario startup and update remain open.
+// Layout and native methods are reconstructed; byte matching remains partial.
 
 #ifndef HARVEST_GAME_CWORLD_H
 #define HARVEST_GAME_CWORLD_H
@@ -14,7 +14,10 @@
 #include "ox/core/CVector2d.h"
 #include "ox/core/CVector3d.h"
 
-namespace ox { namespace video { class IVideoDriver; } }
+namespace ox {
+namespace video { class IVideoDriver; }
+namespace gui { class IGUIFont; }
+}
 
 namespace harvest {
 namespace game {
@@ -37,26 +40,23 @@ struct SDoodad
     ox::core::CRect<float> Bounds;
 };
 
-//! A moving gust and its five visual sprites.
-struct SWindPuff
-{
-    ~SWindPuff()
-    {
-        for (int i = 0; i < 5; ++i)
-            if (Sprites[i]) Sprites[i]->remove();
-    }
-    ox::core::CPosition2d<float> Position;
-    ox::core::CVector2d<float> Speed;
-    float Life;
-    ox::video::ISpriteAnimationState* Sprites[5];
-};
+struct SWindPuff;
 
 //! The planet surface the game is played on.
+class IScenario;
 class CWorld
 {
 public:
     CWorld(int gameMode, int planet);
     virtual ~CWorld();
+    bool initializeWorld(ox::video::IVideoDriver* driver, const ox::core::CDimension2d<int>& size);
+    void initializeNewGame(IScenario* scenario);
+    bool readAndInitialize(ox::io::IReadFile* file, int version, ox::video::IVideoDriver* driver,
+        const ox::core::CDimension2d<int>& size);
+    void update(float frameDelta, const ox::core::CRect<float>& area);
+    void renderBackground(const ox::core::CPosition2d<float>& position, ox::gui::IGUIFont* font,
+        ox::core::CRect<int>* clip);
+    void renderEdgeShades(const ox::core::CPosition2d<float>& position);
 
     void changeViewSize(const ox::core::CDimension2d<int>& size);
     bool worldChangesSizeInThisGameMode() const;
@@ -116,10 +116,7 @@ private:
     ox::TArray<SDoodad*>* DoodadGrid;
     float WindClock;
     ox::TArray<SWindPuff*> WindPuffs;
-    float WeatherState0;
-    float WeatherState1;
-    float WeatherState2;
-    float WeatherState3;
+    ox::core::CRect<float> WindArea;
 };
 
 extern CWorld* gp_world;

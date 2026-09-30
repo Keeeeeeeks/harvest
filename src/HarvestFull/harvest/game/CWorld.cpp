@@ -1,5 +1,5 @@
 // Recovered for Harvest from the Mac and Linux 1.18 builds; not the original source.
-// Partial: scenery, collision avoidance, expansion, wind, camera bounds and save data.
+// World mechanics and rendering are reconstructed; byte matching remains partial.
 
 #include <iostream>
 #include <math.h>
@@ -8,12 +8,35 @@
 #include "harvest/entity/CHarvestEntity.h"
 #include "harvest/entity/CMineralsEntity.h"
 #include "ox/event/IEventReceiver.h"
+#include "harvest/gui/CStoryScreen.h"
+#include "ox/video/IVideoDriver.h"
+#include "ox/video/ISpritePackage.h"
+#include "ox/video/IParticlePackage.h"
+#include "ox/video/IParticleState.h"
 #include "ox/core/CMath.h"
 #include "ox/core/CBasic.h"
 #include "ox/io/CHelpIO.h"
 
 namespace harvest {
 namespace game {
+
+//! A moving gust and its five particle emitters.
+struct SWindPuff
+{
+    SWindPuff()
+    {
+        for (int i = 0; i < 5; ++i) Particles[i] = 0;
+    }
+    ~SWindPuff()
+    {
+        for (int i = 0; i < 5; ++i)
+            if (Particles[i]) Particles[i]->remove();
+    }
+    ox::core::CPosition2d<float> Position;
+    ox::core::CVector2d<float> Speed;
+    float SpeedMagnitude;
+    ox::video::IParticleState* Particles[5];
+};
 
 CWorld* gp_world = 0;
 ox::core::CHiddenInt* gp_mineralAmount = 0;
@@ -24,8 +47,7 @@ static const int DOODAD_TYPES[10] = { 2, 2, 2, 2, 2, 3, 4, 1, 0, 0 };
 CWorld::CWorld(int gameMode, int planet)
     : VisibleGameField(0, 0, 1024, 1024), ActualGameField(0, 0, 1024, 1024),
       TargetGameField(0, 0, 1024, 1024), InitialWorld(true), Planet(planet), GameMode(gameMode),
-      DoodadGridWidth(0), DoodadGridHeight(0), DoodadGrid(0), WindClock(0),
-      WeatherState0(0), WeatherState1(0), WeatherState2(0), WeatherState3(0)
+      DoodadGridWidth(0), DoodadGridHeight(0), DoodadGrid(0), WindClock(0)
 {
     for (int i = 0; i < 2; ++i) GroundSprites[i] = 0;
     for (int i = 0; i < 23; ++i) DoodadSprites[i] = 0;
@@ -392,6 +414,298 @@ void CWorld::expandWorldFromCurrent(int direction, bool populate)
     }
     ActualGameField = TargetGameField;
     VisibleGameField = TargetGameField;
+}
+
+bool CWorld::initializeWorld(ox::video::IVideoDriver* driver, const ox::core::CDimension2d<int>& size)
+{
+    if (!driver) return false;
+    VideoDriver = driver;
+    ox::video::ISpritePackage* package = driver->getSpritePackage("$GAME_RESOURCES$/harvestClientData/gfx/ingame.dat", false);
+    if (!package) return false;
+    if (Planet == 2) GroundSprites[0] = package->addNewAnimationState("Background2");
+    else if (Planet == 1) GroundSprites[0] = package->addNewAnimationState("Background3");
+    else GroundSprites[0] = package->addNewAnimationState("Background");
+    if (!GroundSprites[0]) return false;
+    GroundSprites[1] = package->addNewAnimationState("MapShadeEdge");
+    if (Planet == 2)
+    {
+        DoodadSprites[0] = package->addNewAnimationState("Hole1");
+        DoodadSprites[1] = package->addNewAnimationState("Hole2");
+        DoodadSprites[2] = package->addNewAnimationState("Hole3");
+        DoodadSprites[3] = package->addNewAnimationState("Hole5");
+        DoodadSprites[4] = package->addNewAnimationState("Hole6");
+    }
+    else if (Planet == 0)
+    {
+        DoodadSprites[5] = package->addNewAnimationState("B1Detail1");
+        DoodadSprites[6] = package->addNewAnimationState("B1Detail2");
+        DoodadSprites[7] = package->addNewAnimationState("B1Detail3");
+        DoodadSprites[8] = package->addNewAnimationState("B1Detail4");
+        DoodadSprites[9] = package->addNewAnimationState("B1Detail5");
+        DoodadSprites[10] = package->addNewAnimationState("B1Detail6");
+    }
+    else if (Planet == 1)
+    {
+        DoodadSprites[11] = package->addNewAnimationState("B3Detail1");
+        DoodadSprites[12] = package->addNewAnimationState("B3Detail2");
+        DoodadSprites[13] = package->addNewAnimationState("B3Detail3");
+        DoodadSprites[14] = package->addNewAnimationState("B3Detail4");
+        DoodadSprites[15] = package->addNewAnimationState("B3Detail5");
+        DoodadSprites[16] = package->addNewAnimationState("B3Detail6");
+        DoodadSprites[17] = package->addNewAnimationState("B3Detail7");
+        DoodadSprites[18] = package->addNewAnimationState("B3Detail8");
+        DoodadSprites[19] = package->addNewAnimationState("B3Detail9");
+        DoodadSprites[20] = package->addNewAnimationState("B3Detail10");
+        DoodadSprites[21] = package->addNewAnimationState("B3Detail11");
+        DoodadSprites[22] = package->addNewAnimationState("B3Detail12");
+    }
+    for (int i = 0; i < 23; ++i)
+        if (DoodadSprites[i])
+        {
+            ox::core::CPosition2d<int> size = DoodadSprites[i]->getFrameSize(0);
+            DoodadSizes[i].Width = size.X;
+            DoodadSizes[i].Height = size.Y;
+        }
+    DoodadCollisionRadii[0] = 214;
+    DoodadCollisionRadii[1] = 146;
+    DoodadCollisionRadii[2] = 109;
+    DoodadCollisionRadii[3] = 107;
+    DoodadCollisionRadii[4] = 89;
+    changeViewSize(size);
+    return true;
+}
+
+void CWorld::initializeNewGame(IScenario* scenario)
+{
+    if (scenario) Random.setCurrent(scenario->getDoodadSeed());
+    ox::core::CRect<float> sceneryArea = TargetGameField;
+    sceneryArea.UpperLeftCorner -= ox::core::CPosition2d<float>(512, 512);
+    sceneryArea.LowerRightCorner += ox::core::CPosition2d<float>(512, 512);
+    placeDoodads(sceneryArea, 128);
+    if (scenario) scenario->applyInitialExpansions(this);
+    else entity::CMineralsEntity::fillAreaWithMinerals(ActualGameField, 100, this);
+    if (GameMode == 3)
+        for (int i = 0; i < 4; ++i)
+        {
+            expandWorld(1, ActualGameField.UpperLeftCorner.X - 512, true);
+            expandWorld(3, ActualGameField.LowerRightCorner.X + 512, true);
+            expandWorld(0, ActualGameField.UpperLeftCorner.Y - 512, true);
+            expandWorld(2, ActualGameField.LowerRightCorner.Y + 512, true);
+            ActualGameField = TargetGameField;
+        }
+}
+
+bool CWorld::readAndInitialize(ox::io::IReadFile* file, int version, ox::video::IVideoDriver* driver,
+    const ox::core::CDimension2d<int>& size)
+{
+    TargetGameField.UpperLeftCorner.X = ox::io::CHelpIO::readFloat(file);
+    TargetGameField.UpperLeftCorner.Y = ox::io::CHelpIO::readFloat(file);
+    TargetGameField.LowerRightCorner.X = ox::io::CHelpIO::readFloat(file);
+    TargetGameField.LowerRightCorner.Y = ox::io::CHelpIO::readFloat(file);
+    if (version >= 14)
+    {
+        VisibleGameField.UpperLeftCorner.X = ox::io::CHelpIO::readFloat(file);
+        VisibleGameField.UpperLeftCorner.Y = ox::io::CHelpIO::readFloat(file);
+        VisibleGameField.LowerRightCorner.X = ox::io::CHelpIO::readFloat(file);
+        VisibleGameField.LowerRightCorner.Y = ox::io::CHelpIO::readFloat(file);
+        ActualGameField.UpperLeftCorner.X = ox::io::CHelpIO::readFloat(file);
+        ActualGameField.UpperLeftCorner.Y = ox::io::CHelpIO::readFloat(file);
+        ActualGameField.LowerRightCorner.X = ox::io::CHelpIO::readFloat(file);
+        ActualGameField.LowerRightCorner.Y = ox::io::CHelpIO::readFloat(file);
+    }
+    else
+    {
+        VisibleGameField = TargetGameField;
+        ActualGameField = TargetGameField;
+    }
+    if (version >= 6)
+    {
+        Planet = ox::io::CHelpIO::readInt(file);
+        initializeWorld(driver, size);
+        int count = ox::io::CHelpIO::readInt(file);
+        for (int i = 0; i < count; ++i)
+        {
+            ox::core::CPosition2d<float> position;
+            int type = ox::io::CHelpIO::readInt(file);
+            position.X = ox::io::CHelpIO::readFloat(file);
+            position.Y = ox::io::CHelpIO::readFloat(file);
+            createDoodad(position, type);
+        }
+    }
+    else
+    {
+        Planet = 0;
+        initializeWorld(driver, size);
+    }
+    recreateDoodadGrid();
+    return true;
+}
+
+void CWorld::renderBackground(const ox::core::CPosition2d<float>& position, ox::gui::IGUIFont* font,
+    ox::core::CRect<int>* clip)
+{
+    if (!GroundSprites[0]) return;
+    float height = ViewSize.Height;
+    float width = ViewSize.Width;
+    int offsetY = 0, offsetX = 0;
+    if (clip)
+    {
+        offsetY = clip->UpperLeftCorner.Y;
+        height = clip->getHeight();
+        offsetX = clip->UpperLeftCorner.X;
+        width = clip->getWidth();
+    }
+    int tileX = (int)(position.X - 256);
+    if (tileX < 0) tileX = ~(-tileX >> 9);
+    else tileX >>= 9;
+    int tileY = (int)(position.Y - 256);
+    if (tileY < 0) tileY = ~(-tileY >> 9);
+    else tileY >>= 9;
+    for (int y = (int)(tileY * 512.0f - position.Y); y < height; y += 512)
+        for (int x = (int)(tileX * 512.0f - position.X); x < width; x += 512)
+            GroundSprites[0]->draw(ox::core::CPosition2d<int>(offsetX + x, offsetY + y), clip, 0xffffffff);
+    for (unsigned int i = 0; i < Doodads.size(); ++i)
+    {
+        SDoodad* doodad = Doodads[i];
+        if (DoodadSprites[doodad->Type])
+            DoodadSprites[doodad->Type]->draw(ox::core::CPosition2d<int>(offsetX + (int)(doodad->Position.X - position.X),
+                offsetY + (int)(doodad->Position.Y - position.Y)), clip, 0xffffffff);
+    }
+}
+
+void CWorld::renderEdgeShades(const ox::core::CPosition2d<float>& position)
+{
+    if (!GroundSprites[1]) return;
+    ox::core::CPosition2d<float> upper = VisibleGameField.UpperLeftCorner + ox::core::CPosition2d<float>(-6, -6);
+    ox::core::CPosition2d<float> lower = VisibleGameField.LowerRightCorner + ox::core::CPosition2d<float>(6, 6);
+    ox::core::CRect<float> edges(upper, lower);
+    ox::core::CPosition2d<float> point;
+    point.Y = edges.UpperLeftCorner.Y - position.Y;
+    if (point.Y > -512)
+        for (float x = edges.UpperLeftCorner.X; x < edges.LowerRightCorner.X; x += 128)
+        {
+            point.X = x - position.X;
+            GroundSprites[1]->drawRotated(point, 0, 1, 0x80000000);
+        }
+    point.X = edges.LowerRightCorner.X - position.X;
+    if (point.X < ViewSize.Width + 512)
+        for (float y = edges.UpperLeftCorner.Y; y < edges.LowerRightCorner.Y; y += 128)
+        {
+            point.Y = y - position.Y;
+            GroundSprites[1]->drawRotated(point, 1.57079637f, 1, 0x80000000);
+        }
+    point.Y = edges.LowerRightCorner.Y - position.Y;
+    if (point.Y < ViewSize.Height + 512)
+        for (float x = edges.UpperLeftCorner.X; x < edges.LowerRightCorner.X; x += 128)
+        {
+            point.X = x - position.X;
+            GroundSprites[1]->drawRotated(point + ox::core::CPosition2d<float>(128, 0), 3.14159274f, 1, 0x80000000);
+        }
+    point.X = edges.UpperLeftCorner.X - position.X;
+    if (point.X > -512)
+        for (float y = edges.UpperLeftCorner.Y; y < edges.LowerRightCorner.Y; y += 128)
+        {
+            point.Y = y - position.Y;
+            GroundSprites[1]->drawRotated(point + ox::core::CPosition2d<float>(0, 128), 4.71238899f, 1, 0x80000000);
+        }
+}
+
+void CWorld::update(float frameDelta, const ox::core::CRect<float>& area)
+{
+    if (Planet == 1)
+    {
+        WindArea = ox::core::CRect<float>(VisibleGameField.UpperLeftCorner.X - 200,
+            VisibleGameField.UpperLeftCorner.Y - 200, VisibleGameField.LowerRightCorner.X + 200,
+            VisibleGameField.LowerRightCorner.Y + 200);
+        ox::TArray<SWindPuff*>::iterator it = WindPuffs.begin();
+        while (it != WindPuffs.end())
+        {
+            SWindPuff* puff = *it;
+            puff->Position += ox::core::CPosition2d<float>(puff->Speed.X * frameDelta, puff->Speed.Y * frameDelta);
+            if (!WindArea.isPointInside(puff->Position))
+            {
+                delete puff;
+                it = WindPuffs.erase(it);
+            }
+            else
+            {
+                float angle = (float)puff->Speed.getAngle() * .0174532905f;
+                float amount = puff->SpeedMagnitude * frameDelta * .00666666683f;
+                float ANGLE_OFFS[5] = { 0, .3f, -.3f, .75f, -.75f };
+                float SPEED_SCALES[5] = { 1.6f, 1.1f, 1.1f, .2f, .2f };
+                for (int i = 0; i < 5; ++i)
+                    if (puff->Particles[i])
+                    {
+                        float cs = cosf(angle + ANGLE_OFFS[i]);
+                        float sn = sinf(angle + ANGLE_OFFS[i]);
+                        ox::core::CVector3d<float> position(puff->Position.X + cs * 180, puff->Position.Y - sn * 180, 0);
+                        puff->Particles[i]->setCurrentSpeed(ox::core::CVector3d<float>(cs * amount, sn * -amount, 0));
+                        puff->Particles[i]->update(amount * SPEED_SCALES[i], position);
+                    }
+                ++it;
+            }
+        }
+        WindClock -= frameDelta;
+        if (WindClock <= 0)
+        {
+            WindClock += (ox::algo::CRand::rand() % 5000) * .001f /
+                (WindArea.getHeight() * .001953125f * .5f);
+            SWindPuff* puff = new SWindPuff;
+            puff->Position = ox::core::CPosition2d<float>(WindArea.LowerRightCorner.X - 1,
+                WindArea.UpperLeftCorner.Y + ox::algo::CRand::rand() % (int)WindArea.getHeight());
+            puff->Speed = ox::core::CVector2d<float>(-(float)(ox::algo::CRand::rand() % 300 + 50),
+                (float)(ox::algo::CRand::rand() % 50 - 25));
+            puff->SpeedMagnitude = puff->Speed.getLength();
+            for (int i = 0; i < 5; ++i)
+                puff->Particles[i] = entity::CEntity::gp_particlePackage->addNewParticleState("IceSpawner");
+            WindPuffs.push_back(puff);
+        }
+    }
+    if (!((GameMode == 3 || GameMode == 5) && InitialWorld))
+    {
+        ActualGameField.UpperLeftCorner.X = ox::core::min_(0.0f, (float)((int)(area.UpperLeftCorner.X - 512) >> 9) * 512);
+        ActualGameField.UpperLeftCorner.Y = ox::core::min_(0.0f, (float)((int)(area.UpperLeftCorner.Y - 512) >> 9) * 512);
+        ActualGameField.LowerRightCorner.X = ox::core::max_(1024.0f, (float)((int)(area.LowerRightCorner.X + 1024) >> 9) * 512);
+        ActualGameField.LowerRightCorner.Y = ox::core::max_(1024.0f, (float)((int)(area.LowerRightCorner.Y + 1024) >> 9) * 512);
+        if (GameMode == 4 && gp_luaManager)
+        {
+            const ox::core::CRect<float>& borders = gp_luaManager->getMinimumWorldBorders();
+            ActualGameField.UpperLeftCorner.X = ox::core::min_(ActualGameField.UpperLeftCorner.X, borders.UpperLeftCorner.X);
+            ActualGameField.UpperLeftCorner.Y = ox::core::min_(ActualGameField.UpperLeftCorner.Y, borders.UpperLeftCorner.Y);
+            ActualGameField.LowerRightCorner.X = ox::core::max_(ActualGameField.LowerRightCorner.X, borders.LowerRightCorner.X);
+            ActualGameField.LowerRightCorner.Y = ox::core::max_(ActualGameField.LowerRightCorner.Y, borders.LowerRightCorner.Y);
+        }
+        ActualGameField.UpperLeftCorner.X = ox::core::max_(ActualGameField.UpperLeftCorner.X, -4096.0f);
+        ActualGameField.UpperLeftCorner.Y = ox::core::max_(ActualGameField.UpperLeftCorner.Y, -4096.0f);
+        ActualGameField.LowerRightCorner.X = ox::core::min_(ActualGameField.LowerRightCorner.X, 5120.0f);
+        ActualGameField.LowerRightCorner.Y = ox::core::min_(ActualGameField.LowerRightCorner.Y, 5120.0f);
+    }
+    else ActualGameField = TargetGameField;
+    if (ActualGameField.UpperLeftCorner.X < TargetGameField.UpperLeftCorner.X)
+        expandWorld(1, ActualGameField.UpperLeftCorner.X, true);
+    if (ActualGameField.UpperLeftCorner.Y < TargetGameField.UpperLeftCorner.Y)
+        expandWorld(0, ActualGameField.UpperLeftCorner.Y, true);
+    if (ActualGameField.LowerRightCorner.X > TargetGameField.LowerRightCorner.X)
+        expandWorld(3, ActualGameField.LowerRightCorner.X, true);
+    if (ActualGameField.LowerRightCorner.Y > TargetGameField.LowerRightCorner.Y)
+        expandWorld(2, ActualGameField.LowerRightCorner.Y, true);
+    float movement = frameDelta * 100;
+    if (ActualGameField.UpperLeftCorner.X > VisibleGameField.UpperLeftCorner.X)
+        VisibleGameField.UpperLeftCorner.X = ox::core::min_(VisibleGameField.UpperLeftCorner.X + movement, ActualGameField.UpperLeftCorner.X);
+    else if (ActualGameField.UpperLeftCorner.X < VisibleGameField.UpperLeftCorner.X)
+        VisibleGameField.UpperLeftCorner.X = ActualGameField.UpperLeftCorner.X;
+    if (ActualGameField.UpperLeftCorner.Y > VisibleGameField.UpperLeftCorner.Y)
+        VisibleGameField.UpperLeftCorner.Y = ox::core::min_(VisibleGameField.UpperLeftCorner.Y + movement, ActualGameField.UpperLeftCorner.Y);
+    else if (ActualGameField.UpperLeftCorner.Y < VisibleGameField.UpperLeftCorner.Y)
+        VisibleGameField.UpperLeftCorner.Y = ActualGameField.UpperLeftCorner.Y;
+    if (ActualGameField.LowerRightCorner.X < VisibleGameField.LowerRightCorner.X)
+        VisibleGameField.LowerRightCorner.X = ox::core::max_(VisibleGameField.LowerRightCorner.X - movement, ActualGameField.LowerRightCorner.X);
+    else if (ActualGameField.LowerRightCorner.X > VisibleGameField.LowerRightCorner.X)
+        VisibleGameField.LowerRightCorner.X = ActualGameField.LowerRightCorner.X;
+    if (ActualGameField.LowerRightCorner.Y < VisibleGameField.LowerRightCorner.Y)
+        VisibleGameField.LowerRightCorner.Y = ox::core::max_(VisibleGameField.LowerRightCorner.Y - movement, ActualGameField.LowerRightCorner.Y);
+    else if (ActualGameField.LowerRightCorner.Y > VisibleGameField.LowerRightCorner.Y)
+        VisibleGameField.LowerRightCorner.Y = ActualGameField.LowerRightCorner.Y;
 }
 
 } // end namespace game

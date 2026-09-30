@@ -17,7 +17,7 @@
     "tools/hv/objdiff.py": "b2157b405263ec966eca3abcdf47e0cb56171100d0aee42ea83af28595497637",
     "tools/hv/delink.py": "536857fac0b1e250a693cf0f2ab9739f53dbe0b966b4ea047fea9b32028b22e5",
     "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
-    "config/1.18-linux-amd64/symbols.tsv": "e992dd9fb8636fc1ee51d4ce585acb466bef13c2cccf766ad6ab17dbb8b865d6",
+    "config/1.18-linux-amd64/symbols.tsv": "a1574b842d8925f4dca9645f40f539c07e832614f3fe711c3059eeafa95d76dd",
     "config/1.18-linux-amd64/units.toml": "4e17f93b566e63e5a82ef717e262981d8f6ca9f2463234b14397de25f51ba891"
   },
   "units": [
@@ -4833,7 +4833,7 @@
     },
     {
       "unit": "HarvestFull/harvest/game/CThreatLevel.cpp",
-      "object_sha256": "aae4543a234f5ffe0314b8d80dda1eb78b96065366f2e919f3e091f87ee0a2b0",
+      "object_sha256": "0d3f1f4183d8abdfa210663269cacdd3fd3202897ad443c1b43d73ed942ae9d5",
       "exact": false,
       "sections": [
         {
@@ -7364,7 +7364,7 @@
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
@@ -7374,7 +7374,7 @@
           "src/ox/video/../core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
           "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
@@ -7404,9 +7404,9 @@
           "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903"
         },
         "system_headers": 134,
-        "object_sha256": "aae4543a234f5ffe0314b8d80dda1eb78b96065366f2e919f3e091f87ee0a2b0"
+        "object_sha256": "0d3f1f4183d8abdfa210663269cacdd3fd3202897ad443c1b43d73ed942ae9d5"
       },
-      "fuzzy_target_sha256": "54ba60906724fe1564679b52a4d06661c4d7ada46f0d386e5245850f83960be9",
+      "fuzzy_target_sha256": "2344a272ce16ea00a840028f0ddcf4105b9d21c8c902f78f0dce42c2931bd69c",
       "fuzzy_functions": [
         {
           "address": "0x45bf40",
@@ -9859,7 +9859,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CHarvestEntity.cpp": "13ae5019894659e2e56ebb406c841551235ad0033f2a791f62cd4ba93af2bcb7",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -9872,7 +9872,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
@@ -10344,7 +10344,7 @@
     },
     {
       "unit": "HarvestFull/harvest/entity/CBuildingEntity.cpp",
-      "object_sha256": "67ba09d78c654423de1f995b57391b5d839291b35405e045941cc53f00817709",
+      "object_sha256": "c14bf38d6ed9dfbf728d91eb998de5caf3c9ce5ea7ab1bbeaeb1613db81a91bf",
       "exact": true,
       "sections": [
         {
@@ -11050,7 +11050,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CBuildingEntity.cpp": "9e9d2314de75da465da3c38f987158697e08c84c971e7242e49c656e1619b782",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -11063,7 +11063,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
@@ -11082,12 +11082,12 @@
           "src/HarvestFull/harvest/CHarvestFullMain.h": "d42cdbde7d9b5eb4f7c1a5ce18d92bb320903dab3b185a5deb04b8d02b65ccff",
           "src/HarvestFull/harvest/entity/CBuildableItems.h": "eb3fb72dcff5722ed2e57c25fedf7bdb4a0a93b3c12560f6d8198ac4a30278fd",
           "src/HarvestFull/harvest/entity/CCreativeEntity.h": "b38812de17b41fa4d4d848e5debdb54bc395829421a2fa9ce1b4ff5bc6d1ff4b",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "0b8ddc4a92223f09751885bdf3ed3094725c416df2094461b32b1c5880de27d3"
+          "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8"
         },
         "system_headers": 128,
-        "object_sha256": "67ba09d78c654423de1f995b57391b5d839291b35405e045941cc53f00817709"
+        "object_sha256": "c14bf38d6ed9dfbf728d91eb998de5caf3c9ce5ea7ab1bbeaeb1613db81a91bf"
       },
-      "fuzzy_target_sha256": "efeb96cd898b27a3166eedc543a7e2247837fb80311816c770dbe5f51b4d63ab",
+      "fuzzy_target_sha256": "8cb51d5d071bf6231129d4bc8500196383532ddc73c010c41c7d1e8cd59765dc",
       "fuzzy_functions": [
         {
           "address": "0x41ac30",
@@ -11831,7 +11831,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CSparkEntity.cpp": "08ca4862b473c2df39c5d8754276aa1f57b06ddeae763e6b9378d797738cc0fa",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -11844,7 +11844,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
@@ -12621,7 +12621,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CSparkProducerEntity.cpp": "006f1b062b13a181811d9740a1045071fdc09a2001797cea5a6d596ede4f2ece",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -12634,7 +12634,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "77125a31b58d71b4a0f59372bf5128edb7b1dbb50e58eee42d1cb54b71c4afef",
           "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
@@ -12655,7 +12655,7 @@
           "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "0b8ddc4a92223f09751885bdf3ed3094725c416df2094461b32b1c5880de27d3",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/io/CHelpIO.h": "f33385107ad01b175d72b92e404bd878cfc0d16d5c155fef7f9b1fb51fe947f0",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
@@ -13443,7 +13443,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CMineralsEntity.cpp": "0e05e373fd3e9ed48246760863e09a9a7080a0ef421b8527198a14d52e111f0a",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -13456,7 +13456,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
@@ -14185,7 +14185,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CConstructionEntity.cpp": "224cd8f1fb465a9f7b106b62307336c5bb51b7c6e4a372d4bdde2fb02160fd7e",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -14198,7 +14198,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CConstructionEntity.h": "635ea9bc480e3f4c219bf89302b155d07b2c3fcc55e9306cd3df782b5bc68219",
           "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
@@ -14227,7 +14227,7 @@
           "src/HarvestFull/harvest/entity/CMissileTurretEntity.h": "2a5168bde8ba8782f7b9ab1edb075c46c3c6a3da98d8de6b09207cf2fd84bdd1",
           "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "f12399c9f256759e67f949027bc8ba4cccc07ad2d399d0e84dc9cad03a8c392e",
           "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "77125a31b58d71b4a0f59372bf5128edb7b1dbb50e58eee42d1cb54b71c4afef",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "0b8ddc4a92223f09751885bdf3ed3094725c416df2094461b32b1c5880de27d3",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8",
           "src/HarvestFull/harvest/game/CStatistics.h": "dc51e43e06423ddedbcd422979153cafe63caa284692c3605868975044f0415a",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
@@ -15493,7 +15493,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CMinerEntity.cpp": "461b4ec851211efb7b3e01ea5858ae0c097b231917b94247109dfbede6a27b21",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -15506,7 +15506,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CMinerEntity.h": "a0a191b1185eb9ee3ce6778e71ed513fef2986165586cf3f88a35affb2046e07",
           "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
@@ -15528,7 +15528,7 @@
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/ECustomEvents.h": "850b5d66ce8a9e45974ac3a9e7c4572b3ed8bb8a14da43f74789e7759a8fb89b",
           "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "0b8ddc4a92223f09751885bdf3ed3094725c416df2094461b32b1c5880de27d3",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8",
           "src/HarvestFull/harvest/game/CStatistics.h": "dc51e43e06423ddedbcd422979153cafe63caa284692c3605868975044f0415a",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
@@ -16911,7 +16911,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CSparkMoverEntity.cpp": "9ef2843806f6fc1b1a849e2cf023cb916f82876e58e56e34060ae8bcc3a8bf6c",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -16924,7 +16924,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "f12399c9f256759e67f949027bc8ba4cccc07ad2d399d0e84dc9cad03a8c392e",
           "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
@@ -16947,7 +16947,7 @@
           "src/HarvestFull/harvest/ECustomEvents.h": "850b5d66ce8a9e45974ac3a9e7c4572b3ed8bb8a14da43f74789e7759a8fb89b",
           "src/HarvestFull/harvest/entity/CPerimeterBomb.h": "65da7b13d35f822d04fca8e98e28ef569e89fc767fd15598042c88150045c12e",
           "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "0b8ddc4a92223f09751885bdf3ed3094725c416df2094461b32b1c5880de27d3",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
           "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
@@ -17795,7 +17795,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CPerimeterBomb.cpp": "6407e5f214ed1d02e130f1bc9d4df04ddfc705b33d586e0991a1271061957acf",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -17808,7 +17808,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CPerimeterBomb.h": "65da7b13d35f822d04fca8e98e28ef569e89fc767fd15598042c88150045c12e",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
@@ -18245,7 +18245,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/settings/CAlienPriorities.cpp": "fe8aa93e98532cb6615b3c99fe28366b1a45c56496f5ca9a92a1df8f38534eda",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -18258,7 +18258,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
@@ -30520,7 +30520,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CDefenseTowerEntity.cpp": "38f0912d48268636a847007b44e7b996bd91a461cb2eb360e0c58dfd511ed617",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -30533,7 +30533,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CDefenseTowerEntity.h": "1c070a78254c2bd2ba0161f0f88aa6666f9d7b0a982a9d2a0434e57b3f5d7c33",
           "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
@@ -35283,7 +35283,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CMissileTurretEntity.cpp": "f85df2e6b8d235c2c70be3665321638c3b0d636d8a629a08938740b0829b4913",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -35296,9 +35296,9 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "0b8ddc4a92223f09751885bdf3ed3094725c416df2094461b32b1c5880de27d3",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -35804,7 +35804,7 @@
     },
     {
       "unit": "HarvestFull/harvest/entity/CAlienEntity.cpp",
-      "object_sha256": "b837014ea17f112e114e0515e08708d997b27ee0f6433dfa8e7936fc7e3d478d",
+      "object_sha256": "41ac0fdefc05a942cf2f43fe07ab04cfd6c7e53d984ee11f04974d5314e7ca02",
       "exact": false,
       "sections": [
         {
@@ -46836,7 +46836,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -46845,7 +46845,7 @@
           "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/video/../core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
           "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
@@ -46865,7 +46865,7 @@
           "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
           "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "0b8ddc4a92223f09751885bdf3ed3094725c416df2094461b32b1c5880de27d3",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
           "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
           "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
@@ -46884,9 +46884,9 @@
           "src/ox/video/ISpritePackage.h": "1c83a8f36232f0523f5904df2e8fc7714228f81d3f8c405d97d71dcce2ad56c5"
         },
         "system_headers": 132,
-        "object_sha256": "b837014ea17f112e114e0515e08708d997b27ee0f6433dfa8e7936fc7e3d478d"
+        "object_sha256": "41ac0fdefc05a942cf2f43fe07ab04cfd6c7e53d984ee11f04974d5314e7ca02"
       },
-      "fuzzy_target_sha256": "9abfc7351fccb254de05cd7eb1ee75ae7783c842dde387afa730373820419077",
+      "fuzzy_target_sha256": "04cf55080293fbcae7f6b0e35305dce53482d4c7c1ad3552098c10a21f7b0ad2",
       "fuzzy_functions": [
         {
           "address": "0x40a2d0",
@@ -53413,7 +53413,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CDropshipEntity.cpp": "502a2a1955831abf27d6316c1e454818229beb01072ed46861d8e7519fb88512",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -53426,7 +53426,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CDropshipEntity.h": "9fb72a4eea1d4af951cd6a98bc072218131933723806071558251f69703eab08",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
@@ -56033,7 +56033,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CShuttleEntity.cpp": "4e056aea17d3b63a34ee0c24e1c2893350342c17cb605946c43e303500a3fe8b",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -56046,7 +56046,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CShuttleEntity.h": "f8d78766ec2042f6ff2cb4b849354317bb871a91b6d9c1a81fadd76921571de0",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
@@ -57373,7 +57373,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CCreativeEntity.cpp": "c3246696c67fa4546abf38b62ebad8f36e6f1e028464cdfe2abb851f3a85498b",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -57386,7 +57386,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CCreativeEntity.h": "b38812de17b41fa4d4d848e5debdb54bc395829421a2fa9ce1b4ff5bc6d1ff4b",
           "src/HarvestFull/harvest/entity/CBuildingEntity.h": "a343d69da897f8864e24ea5e09d71bbb052f0803d1e092c1c66d0c276ecf7743",
@@ -57407,7 +57407,7 @@
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
           "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "0b8ddc4a92223f09751885bdf3ed3094725c416df2094461b32b1c5880de27d3",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8",
           "src/HarvestFull/harvest/game/CLuaFileValues.h": "728d3bc3bc583815cf68b010e7407dc002b8f614c721ccb06f7af5d0a25f13d1",
           "src/ox/io/CHelpIO.h": "f33385107ad01b175d72b92e404bd878cfc0d16d5c155fef7f9b1fb51fe947f0",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
@@ -58744,7 +58744,7 @@
         ],
         "inputs": {
           "src/HarvestFull/harvest/entity/CEntityManager.cpp": "9626154f642d5444614016fbabd8e41d9e66743a24f6aae417bba8703d0ecc4c",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -58757,7 +58757,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
           "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
@@ -59587,17 +59587,17 @@
     },
     {
       "unit": "HarvestFull/harvest/game/CWorld.cpp",
-      "object_sha256": "15b514b35704d60b0e389d009faa6a9529eb9872d89b39e92d4867b620530433",
+      "object_sha256": "944d77418d5c27156fbce0863159c05f9a7b769096dcc22c2d6c132d6494e8e7",
       "exact": false,
       "sections": [
         {
           "name": ".text",
-          "size": 9424,
+          "size": 17905,
           "placement": "explicit",
           "exact": false,
           "address": "0x45fdd0",
           "first_difference": 522,
-          "differing_bytes": 3120,
+          "differing_bytes": 6026,
           "misplaced_symbols": [
             {
               "symbol": "_ZNK7harvest4game6CWorld23getVisibleGameFieldSizeEv",
@@ -59635,79 +59635,109 @@
               "placed": "0x4600c0"
             },
             {
+              "symbol": "_ZN7harvest4game6CWorld16renderBackgroundERKN2ox4core11CPosition2dIfEEPNS2_3gui8IGUIFontEPNS3_5CRectIiEE",
+              "known": "0x460220",
+              "placed": "0x460230"
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorld16renderEdgeShadesERKN2ox4core11CPosition2dIfEE",
+              "known": "0x4604a0",
+              "placed": "0x4604b0"
+            },
+            {
               "symbol": "_GLOBAL__I__ZN7harvest4game8gp_worldE",
               "known": "0x4607b0",
-              "placed": "0x460230"
+              "placed": "0x4607c0"
             },
             {
               "symbol": "_ZNK7harvest4game6CWorld9applyWindERKN2ox4core9CVector3dIfEERNS3_9CVector2dIfEEf",
               "known": "0x460d80",
-              "placed": "0x4602a0"
+              "placed": "0x460830"
             },
             {
               "symbol": "_ZN7harvest4game6CWorld5writeEPN2ox2io10IWriteFileE",
               "known": "0x460ec0",
-              "placed": "0x4603e0"
+              "placed": "0x460970"
             },
             {
               "symbol": "_ZN7harvest4game6CWorld19findRendezvousPointERKN2ox4core11CPosition2dIfEERKNS3_9CVector2dIfEE",
               "known": "0x4609c0",
-              "placed": "0x460540"
+              "placed": "0x460ad0"
             },
             {
               "symbol": "_ZN7harvest4game6CWorld19getCollisionTangentERKN2ox4core11CPosition2dIfEE",
               "known": "0x460820",
-              "placed": "0x460920"
-            },
-            {
-              "symbol": "_ZN7harvest4game6CWorld18recreateDoodadGridEv",
-              "known": "0x461120",
-              "placed": "0x460ae0"
+              "placed": "0x460eb0"
             },
             {
               "symbol": "_ZN7harvest4game6CWorld12createDoodadERKN2ox4core11CPosition2dIfEEi",
               "known": "0x461020",
-              "placed": "0x460dd0"
+              "placed": "0x461070"
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorld18recreateDoodadGridEv",
+              "known": "0x461120",
+              "placed": "0x461170"
             },
             {
               "symbol": "_ZN7harvest4game6CWorld12placeDoodadsERKN2ox4core5CRectIfEEi",
               "known": "0x461410",
-              "placed": "0x460ed0"
+              "placed": "0x461460"
             },
             {
               "symbol": "_ZN7harvest4game6CWorld11expandWorldEifb",
               "known": "0x4616a0",
-              "placed": "0x461160"
+              "placed": "0x4616f0"
             },
             {
               "symbol": "_ZN7harvest4game6CWorld22expandWorldFromCurrentEib",
               "known": "0x461da0",
-              "placed": "0x461820"
+              "placed": "0x461db0"
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorld17initializeNewGameEPNS0_9IScenarioE",
+              "known": "0x461ea0",
+              "placed": "0x461eb0"
             },
             {
               "symbol": "_ZN7harvest4game6CWorldC1Eii",
               "known": "0x462080",
-              "placed": "0x461920"
+              "placed": "0x462090"
             },
             {
               "symbol": "_ZN7harvest4game6CWorldC2Eii",
               "known": "0x462270",
-              "placed": "0x461b10"
-            },
-            {
-              "symbol": "_ZN7harvest4game6CWorldD1Ev",
-              "known": "0x462820",
-              "placed": "0x461d00"
-            },
-            {
-              "symbol": "_ZN7harvest4game6CWorldD2Ev",
-              "known": "0x462640",
-              "placed": "0x461ee0"
+              "placed": "0x462280"
             },
             {
               "symbol": "_ZN7harvest4game6CWorldD0Ev",
               "known": "0x462460",
-              "placed": "0x4620c0"
+              "placed": "0x462470"
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorldD2Ev",
+              "known": "0x462640",
+              "placed": "0x462650"
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorldD1Ev",
+              "known": "0x462820",
+              "placed": "0x462830"
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorld6updateEfRKN2ox4core5CRectIfEE",
+              "known": "0x462a00",
+              "placed": "0x462a10"
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorld15initializeWorldEPN2ox5video12IVideoDriverERKNS2_4core12CDimension2dIiEE",
+              "known": "0x4635c0",
+              "placed": "0x4635b0"
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorld17readAndInitializeEPN2ox2io9IReadFileEiPNS2_5video12IVideoDriverERKNS2_4core12CDimension2dIiEE",
+              "known": "0x464220",
+              "placed": "0x464210"
             }
           ],
           "bad_references": [
@@ -59738,7 +59768,23 @@
               "matches": false
             },
             {
-              "offset": 2087,
+              "offset": 1253,
+              "type": 2,
+              "symbol": ".LC4",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x6fe0f847+0x4",
+              "matches": false
+            },
+            {
+              "offset": 1323,
+              "type": 2,
+              "symbol": ".LC5",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x797517ff+0x4",
+              "matches": false
+            },
+            {
+              "offset": 3511,
               "type": 2,
               "symbol": ".LC3",
               "addend": -4,
@@ -59746,7 +59792,7 @@
               "matches": false
             },
             {
-              "offset": 2201,
+              "offset": 3625,
               "type": 2,
               "symbol": "_ZN7harvest4game6CWorld24checkCollisionWithDoodadEPKNS0_7SDoodadERKN2ox4core11CPosition2dIfEE",
               "addend": -4,
@@ -59755,7 +59801,7 @@
               "matches": false
             },
             {
-              "offset": 2312,
+              "offset": 3736,
               "type": 2,
               "symbol": "_ZN2ox4core5CMath10getAngleIYERKNS0_11CPosition2dIfEES5_",
               "addend": -4,
@@ -59764,191 +59810,191 @@
               "matches": false
             },
             {
-              "offset": 2331,
+              "offset": 3755,
               "type": 2,
-              "symbol": ".LC14",
+              "symbol": ".LC23",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x1055fe6f+0x4",
               "matches": false
             },
             {
-              "offset": 2359,
+              "offset": 3783,
               "type": 2,
-              "symbol": ".LC15",
+              "symbol": ".LC24",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x5a5513cb+0x10",
               "matches": false
             },
             {
-              "offset": 2385,
+              "offset": 3809,
               "type": 2,
-              "symbol": ".LC15",
+              "symbol": ".LC24",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x100f1fb4+0x10",
               "matches": false
             },
             {
-              "offset": 2405,
+              "offset": 3829,
               "type": 2,
-              "symbol": ".LC23",
+              "symbol": ".LC29",
               "addend": -4,
               "reason": "unmapped or truncated range: -0x3e61e455+0x8",
               "matches": false
             },
             {
-              "offset": 2413,
+              "offset": 3837,
               "type": 2,
-              "symbol": ".LC24",
+              "symbol": ".LC30",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x44d153c5+0x8",
               "matches": false
             },
             {
-              "offset": 2433,
+              "offset": 3857,
               "type": 2,
-              "symbol": ".LC27",
+              "symbol": ".LC33",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x5a55729e+0x4",
               "matches": false
             },
             {
-              "offset": 2441,
+              "offset": 3865,
               "type": 2,
-              "symbol": ".LC28",
+              "symbol": ".LC34",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x1155ffa5+0x4",
               "matches": false
             },
             {
-              "offset": 2563,
+              "offset": 3987,
               "type": 2,
-              "symbol": ".LC16",
+              "symbol": ".LC12",
               "addend": -4,
               "reason": "unmapped or truncated range: -0x79b4e39a+0x4",
               "matches": false
             },
             {
-              "offset": 2598,
+              "offset": 4022,
               "type": 2,
-              "symbol": ".LC15",
+              "symbol": ".LC24",
               "addend": -4,
               "reason": "unmapped or truncated range: -0x2f8be3c5+0x10",
               "matches": false
             },
             {
-              "offset": 2624,
+              "offset": 4048,
               "type": 2,
-              "symbol": ".LC15",
+              "symbol": ".LC24",
               "addend": -4,
               "reason": "merged constant",
               "matches": false
             },
             {
-              "offset": 2640,
+              "offset": 4064,
               "type": 2,
-              "symbol": ".LC25",
+              "symbol": ".LC31",
               "addend": -4,
               "reason": "unmapped or truncated range: 0xfa38703+0x8",
               "matches": false
             },
             {
-              "offset": 2648,
+              "offset": 4072,
               "type": 2,
-              "symbol": ".LC26",
+              "symbol": ".LC32",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x54bc0cc5+0x8",
               "matches": false
             },
             {
-              "offset": 2668,
+              "offset": 4092,
               "type": 2,
-              "symbol": ".LC19",
+              "symbol": ".LC25",
               "addend": -4,
               "reason": "unmapped or truncated range: -0x79bee30+0x8",
               "matches": false
             },
             {
-              "offset": 2691,
+              "offset": 4115,
               "type": 2,
-              "symbol": ".LC17",
+              "symbol": ".LC13",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x1055ffe2+0x4",
               "matches": false
             },
             {
-              "offset": 2702,
+              "offset": 4126,
               "type": 2,
-              "symbol": ".LC16",
+              "symbol": ".LC12",
               "addend": -4,
               "reason": "unmapped or truncated range: -0x2f8be35d+0x4",
               "matches": false
             },
             {
-              "offset": 2726,
+              "offset": 4150,
               "type": 2,
-              "symbol": ".LC15",
+              "symbol": ".LC24",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x10460cf8+0x10",
               "matches": false
             },
             {
-              "offset": 2752,
+              "offset": 4176,
               "type": 2,
-              "symbol": ".LC15",
+              "symbol": ".LC24",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x10460d11+0x10",
               "matches": false
             },
             {
-              "offset": 2768,
+              "offset": 4192,
               "type": 2,
-              "symbol": ".LC21",
+              "symbol": ".LC27",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x248a986c+0x8",
               "matches": false
             },
             {
-              "offset": 2776,
+              "offset": 4200,
               "type": 2,
-              "symbol": ".LC22",
+              "symbol": ".LC28",
               "addend": -4,
               "reason": "unmapped or truncated range: -0x358be3c4+0x8",
               "matches": false
             },
             {
-              "offset": 2795,
+              "offset": 4219,
               "type": 2,
-              "symbol": ".LC18",
+              "symbol": ".LC14",
               "addend": -4,
               "reason": "unmapped or truncated range: -0xc99ce6d+0x4",
               "matches": false
             },
             {
-              "offset": 2814,
+              "offset": 4238,
               "type": 2,
-              "symbol": ".LC17",
+              "symbol": ".LC13",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x57550d6a+0x4",
               "matches": false
             },
             {
-              "offset": 2842,
+              "offset": 4266,
               "type": 2,
-              "symbol": ".LC15",
+              "symbol": ".LC24",
               "addend": -4,
               "reason": "unmapped or truncated range: -0x7851c582+0x10",
               "matches": false
             },
             {
-              "offset": 2868,
+              "offset": 4292,
               "type": 2,
-              "symbol": ".LC15",
+              "symbol": ".LC24",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x421c96d1+0x10",
               "matches": false
             },
             {
-              "offset": 3062,
+              "offset": 4486,
               "type": 2,
               "symbol": ".LC3",
               "addend": -4,
@@ -59956,7 +60002,7 @@
               "matches": false
             },
             {
-              "offset": 3168,
+              "offset": 4592,
               "type": 2,
               "symbol": "_ZN7harvest4game6CWorld24checkCollisionWithDoodadEPKNS0_7SDoodadERKN2ox4core11CPosition2dIfEE",
               "addend": -4,
@@ -59965,7 +60011,7 @@
               "matches": false
             },
             {
-              "offset": 3208,
+              "offset": 4632,
               "type": 2,
               "symbol": ".LC2",
               "addend": -4,
@@ -59973,23 +60019,23 @@
               "matches": false
             },
             {
-              "offset": 3225,
+              "offset": 4649,
               "type": 2,
-              "symbol": ".LC18",
+              "symbol": ".LC14",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x5d87cbc2+0x4",
               "matches": false
             },
             {
-              "offset": 3233,
+              "offset": 4657,
               "type": 2,
-              "symbol": ".LC16",
+              "symbol": ".LC12",
               "addend": -4,
               "reason": "unmapped or truncated range: -0x3c5ab4ca+0x4",
               "matches": false
             },
             {
-              "offset": 3312,
+              "offset": 4736,
               "type": 2,
               "symbol": "atanf",
               "addend": -4,
@@ -59998,15 +60044,15 @@
               "matches": false
             },
             {
-              "offset": 3336,
+              "offset": 4760,
               "type": 2,
-              "symbol": ".LC17",
+              "symbol": ".LC13",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x484609de+0x4",
               "matches": false
             },
             {
-              "offset": 4983,
+              "offset": 6407,
               "type": 2,
               "symbol": "_ZN2ox4algo5CRand7nextIntEi",
               "addend": -4,
@@ -60015,7 +60061,7 @@
               "matches": false
             },
             {
-              "offset": 5287,
+              "offset": 6711,
               "type": 2,
               "symbol": ".LC1",
               "addend": -4,
@@ -60023,7 +60069,7 @@
               "matches": false
             },
             {
-              "offset": 5345,
+              "offset": 6769,
               "type": 2,
               "symbol": "_ZN7harvest6entity15CMineralsEntity20fillAreaWithMineralsERKN2ox4core5CRectIfEEiPNS_4game6CWorldE",
               "addend": -4,
@@ -60032,7 +60078,7 @@
               "matches": false
             },
             {
-              "offset": 5471,
+              "offset": 6895,
               "type": 2,
               "symbol": ".LC1",
               "addend": -4,
@@ -60040,7 +60086,7 @@
               "matches": false
             },
             {
-              "offset": 5500,
+              "offset": 6924,
               "type": 2,
               "symbol": "_ZN2ox4core5CMath19getEstimateDistanceERKNS0_11CPosition2dIfEES5_",
               "addend": -4,
@@ -60049,15 +60095,15 @@
               "matches": false
             },
             {
-              "offset": 5508,
+              "offset": 6932,
               "type": 2,
-              "symbol": ".LC31",
+              "symbol": ".LC35",
               "addend": -4,
               "reason": "unmapped or truncated range: -0x7ca1a0db+0x4",
               "matches": false
             },
             {
-              "offset": 5516,
+              "offset": 6940,
               "type": 2,
               "symbol": ".LC1",
               "addend": -4,
@@ -60065,31 +60111,31 @@
               "matches": false
             },
             {
-              "offset": 5524,
+              "offset": 6948,
               "type": 2,
-              "symbol": ".LC32",
+              "symbol": ".LC36",
               "addend": -4,
               "reason": "merged constant",
               "matches": false
             },
             {
-              "offset": 5553,
+              "offset": 6977,
               "type": 2,
-              "symbol": ".LC33",
+              "symbol": ".LC37",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x206a5cd5+0x4",
               "matches": false
             },
             {
-              "offset": 5654,
+              "offset": 7078,
               "type": 2,
-              "symbol": ".LC29",
+              "symbol": ".LC5",
               "addend": -4,
               "reason": "merged constant",
               "matches": false
             },
             {
-              "offset": 5829,
+              "offset": 7253,
               "type": 2,
               "symbol": ".LC0",
               "addend": -4,
@@ -60097,7 +60143,7 @@
               "matches": false
             },
             {
-              "offset": 5842,
+              "offset": 7266,
               "type": 2,
               "symbol": "_ZN2ox5event17gp_subscriberListE",
               "addend": -4,
@@ -60106,15 +60152,15 @@
               "matches": false
             },
             {
-              "offset": 5942,
+              "offset": 7366,
               "type": 2,
-              "symbol": ".LC34",
+              "symbol": ".LC38",
               "addend": -4,
               "reason": "unmapped or truncated range: -0xca1c162+0x4",
               "matches": false
             },
             {
-              "offset": 5951,
+              "offset": 7375,
               "type": 2,
               "symbol": "_ZN7harvest4game13gp_luaManagerE",
               "addend": -4,
@@ -60123,7 +60169,7 @@
               "matches": false
             },
             {
-              "offset": 5985,
+              "offset": 7409,
               "type": 2,
               "symbol": "_ZN7harvest4game11CLuaManager15hookMapExpandedEffff",
               "addend": -4,
@@ -60132,7 +60178,7 @@
               "matches": false
             },
             {
-              "offset": 6057,
+              "offset": 7481,
               "type": 2,
               "symbol": "_ZN2ox5event17gp_subscriberListE",
               "addend": -4,
@@ -60141,7 +60187,7 @@
               "matches": false
             },
             {
-              "offset": 6121,
+              "offset": 7545,
               "type": 2,
               "symbol": "_ZN2ox5event17gp_subscriberListE",
               "addend": -4,
@@ -60150,7 +60196,7 @@
               "matches": false
             },
             {
-              "offset": 6194,
+              "offset": 7618,
               "type": 2,
               "symbol": ".LC0",
               "addend": -4,
@@ -60158,31 +60204,430 @@
               "matches": false
             },
             {
-              "offset": 6265,
+              "offset": 7689,
               "type": 2,
-              "symbol": ".LC29",
+              "symbol": ".LC5",
               "addend": -4,
               "reason": "unmapped or truncated range: -0x6ba8d480+0x4",
               "matches": false
             },
             {
-              "offset": 6410,
+              "offset": 7834,
               "type": 2,
-              "symbol": ".LC29",
+              "symbol": ".LC5",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x10394c6c+0x4",
               "matches": false
             },
             {
-              "offset": 6616,
+              "offset": 8040,
               "type": 2,
-              "symbol": ".LC29",
+              "symbol": ".LC5",
               "addend": -4,
               "reason": "unmapped or truncated range: 0x246a70fc+0x4",
               "matches": false
+            },
+            {
+              "offset": 11774,
+              "type": 2,
+              "symbol": "_ZN7harvest4game6CWorld11expandWorldEifb",
+              "addend": -4,
+              "destination": "0x4616a0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 11813,
+              "type": 2,
+              "symbol": "_ZN7harvest4game6CWorld11expandWorldEifb",
+              "addend": -4,
+              "destination": "0x4616a0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 11851,
+              "type": 2,
+              "symbol": "_ZN7harvest4game6CWorld11expandWorldEifb",
+              "addend": -4,
+              "destination": "0x4616a0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 11889,
+              "type": 2,
+              "symbol": "_ZN7harvest4game6CWorld11expandWorldEifb",
+              "addend": -4,
+              "destination": "0x4616a0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12018,
+              "type": 2,
+              "symbol": ".LC59",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x2002cb6+0x4",
+              "matches": false
+            },
+            {
+              "offset": 12236,
+              "type": 2,
+              "symbol": ".LC20",
+              "addend": -4,
+              "reason": "merged constant",
+              "matches": false
+            },
+            {
+              "offset": 12476,
+              "type": 2,
+              "symbol": "_ZdlPv",
+              "addend": -4,
+              "destination": "0x407b48",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12510,
+              "type": 2,
+              "symbol": "memmove",
+              "addend": -4,
+              "destination": "0x408398",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12595,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12657,
+              "type": 2,
+              "symbol": ".LC35",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x5ddfe8bb+0x4",
+              "matches": false
+            },
+            {
+              "offset": 12669,
+              "type": 2,
+              "symbol": ".LC1",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x86ef02+0x4",
+              "matches": false
+            },
+            {
+              "offset": 12677,
+              "type": 2,
+              "symbol": ".LC56",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x6f8082e+0x4",
+              "matches": false
+            },
+            {
+              "offset": 12698,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12792,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12829,
+              "type": 2,
+              "symbol": ".LC10",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x5b2ec010+0x4",
+              "matches": false
+            },
+            {
+              "offset": 12867,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12914,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12929,
+              "type": 2,
+              "symbol": ".LC24",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x2a1cdf54+0x10",
+              "matches": false
+            },
+            {
+              "offset": 13031,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity7CEntity18gp_particlePackageE",
+              "addend": -4,
+              "destination": "0x86b690",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 13058,
+              "type": 10,
+              "symbol": ".rodata.str1.1",
+              "addend": 0,
+              "reason": "unmapped or truncated range: 0x10244411+0xb",
+              "matches": false
+            },
+            {
+              "offset": 13107,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 13112,
+              "type": 10,
+              "symbol": ".rodata.str1.1",
+              "addend": 0,
+              "reason": "unmapped or truncated range: 0x75003880+0xb",
+              "matches": false
+            },
+            {
+              "offset": 13156,
+              "type": 11,
+              "symbol": ".rodata.str1.1",
+              "addend": 0,
+              "reason": "unmapped or truncated range: 0x10ebc931+0xb",
+              "matches": false
+            },
+            {
+              "offset": 13179,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity7CEntity18gp_particlePackageE",
+              "addend": -4,
+              "destination": "0x86b690",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 13208,
+              "type": 2,
+              "symbol": "_ZdaPv",
+              "addend": -4,
+              "destination": "0x407f58",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 13329,
+              "type": 2,
+              "symbol": ".LC41",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x277bbe4+0x8",
+              "matches": false
+            },
+            {
+              "offset": 13347,
+              "type": 2,
+              "symbol": ".LC45",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x8905ff6+0x4",
+              "matches": false
+            },
+            {
+              "offset": 13467,
+              "type": 2,
+              "symbol": ".LC46",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x3fd2ff2c+0x4",
+              "matches": false
+            },
+            {
+              "offset": 13481,
+              "type": 2,
+              "symbol": ".LC24",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x32ec516f+0x10",
+              "matches": false
+            },
+            {
+              "offset": 13548,
+              "type": 2,
+              "symbol": "sincosf",
+              "addend": -4,
+              "destination": "0x407508",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 13577,
+              "type": 2,
+              "symbol": ".LC54",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x54cf7aed+0x4",
+              "matches": false
+            },
+            {
+              "offset": 13585,
+              "type": 2,
+              "symbol": ".LC55",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0xbb9d2e9+0x4",
+              "matches": false
+            },
+            {
+              "offset": 13774,
+              "type": 2,
+              "symbol": "_ZN7harvest4game13gp_luaManagerE",
+              "addend": -4,
+              "destination": "0x86b900",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 13788,
+              "type": 2,
+              "symbol": "_ZN7harvest4game11CLuaManager22getMinimumWorldBordersEv",
+              "addend": -4,
+              "destination": "0x443a00",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 13885,
+              "type": 2,
+              "symbol": ".LC42",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x168d80ee+0x8",
+              "matches": false
+            },
+            {
+              "offset": 13908,
+              "type": 2,
+              "symbol": ".LC43",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x10395e92+0x8",
+              "matches": false
+            },
+            {
+              "offset": 13948,
+              "type": 2,
+              "symbol": ".LC25",
+              "addend": -4,
+              "reason": "merged constant",
+              "matches": false
+            },
+            {
+              "offset": 14005,
+              "type": 2,
+              "symbol": "sqrt",
+              "addend": -4,
+              "destination": "0x4078c8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 14039,
+              "type": 2,
+              "symbol": "atan",
+              "addend": -4,
+              "destination": "0x407968",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 14053,
+              "type": 2,
+              "symbol": ".LC44",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x4a56449c+0x8",
+              "matches": false
+            },
+            {
+              "offset": 14084,
+              "type": 2,
+              "symbol": ".LC42",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x59f44ba+0x8",
+              "matches": false
+            },
+            {
+              "offset": 14144,
+              "type": 2,
+              "symbol": ".LC42",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x2e557928+0x8",
+              "matches": false
+            },
+            {
+              "offset": 14229,
+              "type": 2,
+              "symbol": ".LC43",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x7671caa7+0x8",
+              "matches": false
+            },
+            {
+              "offset": 14242,
+              "type": 2,
+              "symbol": ".LC43",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x484ef5e9+0x8",
+              "matches": false
+            },
+            {
+              "offset": 14275,
+              "type": 2,
+              "symbol": "_ZNSt6vectorIPN7harvest4game9SWindPuffESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+              "addend": -4,
+              "destination": "0x4645a0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 14291,
+              "type": 2,
+              "symbol": "_ZN2ox4core7CStringIcED1Ev",
+              "addend": -4,
+              "destination": "0x409c20",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 14299,
+              "type": 2,
+              "symbol": "_Unwind_Resume",
+              "addend": -4,
+              "destination": "0x4084f8",
+              "reason": "different destination",
+              "matches": false
             }
           ],
-          "references": 184,
+          "references": 388,
           "functions": [
             {
               "symbol": "_ZN7harvest4game6CWorld14changeViewSizeERKN2ox4core12CDimension2dIiEE",
@@ -60273,6 +60718,22 @@
               "exact": false
             },
             {
+              "symbol": "_ZN7harvest4game6CWorld16renderBackgroundERKN2ox4core11CPosition2dIfEEPNS2_3gui8IGUIFontEPNS3_5CRectIiEE",
+              "address": "0x460220",
+              "size": 629,
+              "fde": false,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorld16renderEdgeShadesERKN2ox4core11CPosition2dIfEE",
+              "address": "0x4604a0",
+              "size": 778,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
               "symbol": "_GLOBAL__I__ZN7harvest4game8gp_worldE",
               "address": "0x4607b0",
               "size": 99,
@@ -60313,17 +60774,17 @@
               "exact": false
             },
             {
-              "symbol": "_ZN7harvest4game6CWorld18recreateDoodadGridEv",
-              "address": "0x461120",
-              "size": 749,
+              "symbol": "_ZN7harvest4game6CWorld12createDoodadERKN2ox4core11CPosition2dIfEEi",
+              "address": "0x461020",
+              "size": 243,
               "fde": true,
               "global": true,
               "exact": true
             },
             {
-              "symbol": "_ZN7harvest4game6CWorld12createDoodadERKN2ox4core11CPosition2dIfEEi",
-              "address": "0x461020",
-              "size": 243,
+              "symbol": "_ZN7harvest4game6CWorld18recreateDoodadGridEv",
+              "address": "0x461120",
+              "size": 749,
               "fde": true,
               "global": true,
               "exact": true
@@ -60353,6 +60814,14 @@
               "exact": true
             },
             {
+              "symbol": "_ZN7harvest4game6CWorld17initializeNewGameEPNS0_9IScenarioE",
+              "address": "0x461ea0",
+              "size": 479,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
               "symbol": "_ZN7harvest4game6CWorldC1Eii",
               "address": "0x462080",
               "size": 495,
@@ -60369,9 +60838,9 @@
               "exact": true
             },
             {
-              "symbol": "_ZN7harvest4game6CWorldD1Ev",
-              "address": "0x462820",
-              "size": 473,
+              "symbol": "_ZN7harvest4game6CWorldD0Ev",
+              "address": "0x462460",
+              "size": 480,
               "fde": true,
               "global": true,
               "exact": true
@@ -60385,9 +60854,33 @@
               "exact": true
             },
             {
-              "symbol": "_ZN7harvest4game6CWorldD0Ev",
-              "address": "0x462460",
-              "size": 480,
+              "symbol": "_ZN7harvest4game6CWorldD1Ev",
+              "address": "0x462820",
+              "size": 473,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorld6updateEfRKN2ox4core5CRectIfEE",
+              "address": "0x462a00",
+              "size": 2975,
+              "fde": false,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorld15initializeWorldEPN2ox5video12IVideoDriverERKNS2_4core12CDimension2dIiEE",
+              "address": "0x4635c0",
+              "size": 3157,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game6CWorld17readAndInitializeEPN2ox2io9IReadFileEiPNS2_5video12IVideoDriverERKNS2_4core12CDimension2dIiEE",
+              "address": "0x464220",
+              "size": 433,
               "fde": true,
               "global": true,
               "exact": true
@@ -60421,6 +60914,91 @@
             },
             {
               "address": "0x5f948c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f9490",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c4c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f9494",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77d0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5ef0c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c20",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77d0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5ef0c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f2d0c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c20",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77d0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5ef0c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f0470",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f9494",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77d0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5ef0c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f9498",
               "size": 4,
               "kind": "merged constant"
             },
@@ -60483,6 +61061,266 @@
               "address": "0x5f7c20",
               "size": 4,
               "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c20",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c20",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c20",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f94b0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f5fec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f5ff0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f0638",
+              "size": 50,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ff67e",
+              "size": 11,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ff67e",
+              "size": 11,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ff67e",
+              "size": 11,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92db",
+              "size": 13,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92db",
+              "size": 13,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92db",
+              "size": 13,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92e8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92e8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92e8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92d1",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92d1",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92d1",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92c7",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92c7",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92c7",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92bd",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92bd",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92bd",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92b3",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92b3",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92b3",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92a9",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92a9",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92a9",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f929f",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f929f",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f929f",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f92f4",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9300",
+              "size": 6,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9306",
+              "size": 6,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f930c",
+              "size": 6,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9312",
+              "size": 6,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9318",
+              "size": 6,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f931e",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9328",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9332",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f933c",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9346",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9350",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f935a",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9364",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f936e",
+              "size": 10,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9378",
+              "size": 11,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f9383",
+              "size": 11,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f938e",
+              "size": 11,
+              "kind": "merged string"
             }
           ]
         },
@@ -60538,6 +61376,42 @@
           ]
         },
         {
+          "name": ".text._ZN2ox4core7CStringIcEC1IcEEPKT_",
+          "size": 179,
+          "placement": "symbol: _ZN2ox4core7CStringIcEC1IcEEPKT_",
+          "exact": true,
+          "address": "0x416760",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZN2ox4core7CStringIcEC1IcEEPKT_",
+              "address": "0x416760",
+              "size": 179,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN2ox4core7CStringIcED1Ev",
+          "size": 18,
+          "placement": "symbol: _ZN2ox4core7CStringIcED1Ev",
+          "exact": true,
+          "address": "0x409c20",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN2ox4core7CStringIcED1Ev",
+              "address": "0x409c20",
+              "size": 18,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
           "name": ".text._ZNSt6vectorIPN7harvest4game7SDoodadESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
           "size": 401,
           "placement": "symbol: _ZNSt6vectorIPN7harvest4game7SDoodadESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
@@ -60554,6 +61428,34 @@
               "exact": true
             }
           ]
+        },
+        {
+          "name": ".text._ZNSt6vectorIPN7harvest4game9SWindPuffESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "size": 401,
+          "placement": "symbol: _ZNSt6vectorIPN7harvest4game9SWindPuffESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "exact": true,
+          "address": "0x4645a0",
+          "references": 5,
+          "functions": [
+            {
+              "symbol": "_ZNSt6vectorIPN7harvest4game9SWindPuffESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+              "address": "0x4645a0",
+              "size": 401,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".gcc_except_table",
+          "size": 404,
+          "placement": "exception frames",
+          "exact": false,
+          "address": "0x65b994",
+          "first_difference": 79,
+          "differing_bytes": 8,
+          "references": 0
         },
         {
           "name": ".rodata._ZTVN7harvest4game6CWorldE",
@@ -60661,9 +61563,7 @@
           ]
         }
       ],
-      "unplaced_sections": [
-        ".gcc_except_table"
-      ],
+      "unplaced_sections": [],
       "compilation": {
         "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
         "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
@@ -60683,8 +61583,8 @@
           "/out/HarvestFull__harvest__game__CWorld.o"
         ],
         "inputs": {
-          "src/HarvestFull/harvest/game/CWorld.cpp": "23251d9df0cb661e793c0ac8f5bd54e95aa3086199a7fe819796d1a8c20244db",
-          "src/HarvestFull/harvest/game/CWorld.h": "c45f0bca50ba10871f0f65306725da34c99cf4732ef1a76303b664e351d9a32a",
+          "src/HarvestFull/harvest/game/CWorld.cpp": "e30418d15cfbc6ea3f8c19730846f0e24fe83cb90ba276236dff46bc66bab2fa",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
@@ -60697,9 +61597,9 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
-          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/HarvestFull/harvest/game/CLuaManager.h": "0b8ddc4a92223f09751885bdf3ed3094725c416df2094461b32b1c5880de27d3",
+          "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -60714,6 +61614,14 @@
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec",
           "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
+          "src/HarvestFull/harvest/gui/CStoryScreen.h": "b4704142e4e4b9119d0ac9e312bdad8546c77001b787f0c2bf9f608e6c1d6de7",
+          "src/ox/video/IVideoDriver.h": "7902574a531ce451183cb8788bee222d1abc759938170ff0094860c3a24aff74",
+          "src/ox/video/../core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
+          "src/ox/video/ISpritePackage.h": "1c83a8f36232f0523f5904df2e8fc7714228f81d3f8c405d97d71dcce2ad56c5",
+          "src/ox/video/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/video/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/video/IParticlePackage.h": "54ea207a17ac6508c8eb0d38dce95af6c08b07104051c965b41d0b7959fa2027",
+          "src/ox/video/IParticleState.h": "c559d0b3c539917d9e81f8917e46c51adccd9be465b7c7c71cb25c1b94a132b1",
           "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
           "src/ox/io/CHelpIO.h": "f33385107ad01b175d72b92e404bd878cfc0d16d5c155fef7f9b1fb51fe947f0",
@@ -60723,9 +61631,9 @@
           "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903"
         },
         "system_headers": 129,
-        "object_sha256": "15b514b35704d60b0e389d009faa6a9529eb9872d89b39e92d4867b620530433"
+        "object_sha256": "944d77418d5c27156fbce0863159c05f9a7b769096dcc22c2d6c132d6494e8e7"
       },
-      "fuzzy_target_sha256": "a55b98f2b34a1153fc69e3294f4ff86db3ea6a7053e6dfc569ff2d8fb2b5a4cd",
+      "fuzzy_target_sha256": "19c1a0fd14fc994ec136600f2706df81ff46df80647b887eca9a257b3fd433be",
       "fuzzy_functions": [
         {
           "address": "0x45fdd0",
@@ -60794,6 +61702,18 @@
           "percent": 90.27059
         },
         {
+          "address": "0x460220",
+          "size": 630,
+          "symbol": "_ZN7harvest4game6CWorld16renderBackgroundERKN2ox4core11CPosition2dIfEEPNS2_3gui8IGUIFontEPNS3_5CRectIiEE",
+          "percent": 80.0629
+        },
+        {
+          "address": "0x4604a0",
+          "size": 778,
+          "symbol": "_ZN7harvest4game6CWorld16renderEdgeShadesERKN2ox4core11CPosition2dIfEE",
+          "percent": 99.77988
+        },
+        {
           "address": "0x4607b0",
           "size": 99,
           "symbol": "_GLOBAL__I__ZN7harvest4game8gp_worldE",
@@ -60824,16 +61744,16 @@
           "percent": 57.137615
         },
         {
-          "address": "0x461120",
-          "size": 749,
-          "symbol": "_ZN7harvest4game6CWorld18recreateDoodadGridEv",
-          "percent": 99.97041
-        },
-        {
           "address": "0x461020",
           "size": 243,
           "symbol": "_ZN7harvest4game6CWorld12createDoodadERKN2ox4core11CPosition2dIfEEi",
           "percent": 100.0
+        },
+        {
+          "address": "0x461120",
+          "size": 749,
+          "symbol": "_ZN7harvest4game6CWorld18recreateDoodadGridEv",
+          "percent": 99.97041
         },
         {
           "address": "0x461410",
@@ -60854,6 +61774,12 @@
           "percent": 99.68254
         },
         {
+          "address": "0x461ea0",
+          "size": 479,
+          "symbol": "_ZN7harvest4game6CWorld17initializeNewGameEPNS0_9IScenarioE",
+          "percent": 99.91151
+        },
+        {
           "address": "0x462080",
           "size": 495,
           "symbol": "_ZN7harvest4game6CWorldC1Eii",
@@ -60866,9 +61792,9 @@
           "percent": 100.0
         },
         {
-          "address": "0x462820",
-          "size": 473,
-          "symbol": "_ZN7harvest4game6CWorldD1Ev",
+          "address": "0x462460",
+          "size": 480,
+          "symbol": "_ZN7harvest4game6CWorldD0Ev",
           "percent": 100.0
         },
         {
@@ -60878,9 +61804,27 @@
           "percent": 100.0
         },
         {
-          "address": "0x462460",
-          "size": 480,
-          "symbol": "_ZN7harvest4game6CWorldD0Ev",
+          "address": "0x462820",
+          "size": 473,
+          "symbol": "_ZN7harvest4game6CWorldD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x462a00",
+          "size": 3007,
+          "symbol": "_ZN7harvest4game6CWorld6updateEfRKN2ox4core5CRectIfEE",
+          "percent": 75.99054
+        },
+        {
+          "address": "0x4635c0",
+          "size": 3157,
+          "symbol": "_ZN7harvest4game6CWorld15initializeWorldEPN2ox5video12IVideoDriverERKNS2_4core12CDimension2dIiEE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x464220",
+          "size": 433,
+          "symbol": "_ZN7harvest4game6CWorld17readAndInitializeEPN2ox2io9IReadFileEiPNS2_5video12IVideoDriverERKNS2_4core12CDimension2dIiEE",
           "percent": 100.0
         },
         {
@@ -60896,9 +61840,27 @@
           "percent": 100.0
         },
         {
+          "address": "0x416760",
+          "size": 179,
+          "symbol": "_ZN2ox4core7CStringIcEC1IcEEPKT_",
+          "percent": 100.0
+        },
+        {
+          "address": "0x409c20",
+          "size": 18,
+          "symbol": "_ZN2ox4core7CStringIcED1Ev",
+          "percent": 100.0
+        },
+        {
           "address": "0x464400",
           "size": 401,
           "symbol": "_ZNSt6vectorIPN7harvest4game7SDoodadESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4645a0",
+          "size": 401,
+          "symbol": "_ZNSt6vectorIPN7harvest4game9SWindPuffESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
           "percent": 100.0
         }
       ]
@@ -60910,7 +61872,7 @@
     "config": {
       "functionRelocDiffs": "data_value"
     },
-    "report_sha256": "789d8841ee5bc43d08ff463dee8d6c5b982e75c6851d9f7159aa1ed3ebccc6cf"
+    "report_sha256": "5a4e94080e3c66058dd19d256f1f17fda350e7017f171e22036c70a5e6b1a301"
   },
   "link": {
     "status": "unavailable",
