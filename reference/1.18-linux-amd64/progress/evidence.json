@@ -17,8 +17,8 @@
     "tools/hv/objdiff.py": "b2157b405263ec966eca3abcdf47e0cb56171100d0aee42ea83af28595497637",
     "tools/hv/delink.py": "536857fac0b1e250a693cf0f2ab9739f53dbe0b966b4ea047fea9b32028b22e5",
     "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
-    "config/1.18-linux-amd64/symbols.tsv": "7bc24a94d88621b7ca441c995bf2b20e7c45c6e1584bf64dd22f4c8118e410e2",
-    "config/1.18-linux-amd64/units.toml": "63ce6cedfad08e3204956399141d4d5d11a4db0b34fca428de0219765fd70de4"
+    "config/1.18-linux-amd64/symbols.tsv": "2a3dbdde7a9a1e6a56dee7ea768fe447b941dafbd36b83d75154f29c897c4e1a",
+    "config/1.18-linux-amd64/units.toml": "1def6031ad9361db2e02a36918566933fcef3f2922973d4cfa803dab0f64a60e"
   },
   "units": [
     {
@@ -7375,7 +7375,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
@@ -9873,7 +9873,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
@@ -11064,7 +11064,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -11839,7 +11839,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "096f136a6892418b9292b81c406a5d5b7cf7a075f0d9abdbae25e6d71ebb5215",
@@ -12629,7 +12629,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -13450,7 +13450,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "096f136a6892418b9292b81c406a5d5b7cf7a075f0d9abdbae25e6d71ebb5215",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
@@ -14193,7 +14193,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -15500,7 +15500,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -16917,7 +16917,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -17799,7 +17799,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
@@ -18247,7 +18247,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/settings/CAlienPriorities.h": "5142c1d66d9e1513171353b38b667aa34d2f70aabb0868b23570c189dc2938f3",
           "src/ox/io/CHelpIO.h": "f33385107ad01b175d72b92e404bd878cfc0d16d5c155fef7f9b1fb51fe947f0",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
@@ -30518,7 +30518,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -35283,7 +35283,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -46815,7 +46815,7 @@
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
           "src/HarvestFull/harvest/game/CWorld.h": "4c94e33cb97fe7a6223b0073388a4e8b85bd875905c691df38ae823bda523f84",
@@ -53410,7 +53410,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/video/SColor.h": "2c39a358f471fc6b3899a3d70e4fc31c118eb1549aaa1da7c0614d36ab8ad920",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "096f136a6892418b9292b81c406a5d5b7cf7a075f0d9abdbae25e6d71ebb5215",
           "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
@@ -53776,6 +53776,2549 @@
           "percent": 100.0
         }
       ]
+    },
+    {
+      "unit": "HarvestFull/harvest/entity/CShuttleEntity.cpp",
+      "object_sha256": "907a367b994a1b1bfa8ab62bd11db6f03de37c0fc1963690718914a0aeeed227",
+      "exact": false,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 19205,
+          "placement": "explicit",
+          "exact": false,
+          "address": "0x43b430",
+          "first_difference": 386,
+          "differing_bytes": 1812,
+          "misplaced_symbols": [
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity4isAiEv",
+              "known": "0x43b4b0",
+              "placed": "0x43b460"
+            },
+            {
+              "symbol": "_ZNK7harvest6entity14CShuttleEntity17getNextCheckPointEv",
+              "known": "0x43b4c0",
+              "placed": "0x43b470"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+              "known": "0x43b460",
+              "placed": "0x43b4a0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity14readEntityDataEPN2ox2io9IReadFileEi",
+              "known": "0x43b470",
+              "placed": "0x43b4b0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity15setMovementFlagEib",
+              "known": "0x43b480",
+              "placed": "0x43b4c0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity15getCurrentSpeedEv",
+              "known": "0x43b4a0",
+              "placed": "0x43b4e0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity8updateAiEv",
+              "known": "0x43bba0",
+              "placed": "0x43bb40"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntityD0Ev",
+              "known": "0x43bd70",
+              "placed": "0x43bd10"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntityD1Ev",
+              "known": "0x43bde0",
+              "placed": "0x43bd80"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntityD2Ev",
+              "known": "0x43be50",
+              "placed": "0x43bdf0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity13updatePlacingEv",
+              "known": "0x43c240",
+              "placed": "0x43c1e0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity11updateLogicEf",
+              "known": "0x43c450",
+              "placed": "0x43c3f0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntityC2Ei",
+              "known": "0x43e670",
+              "placed": "0x43ccc0"
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntityC1Ei",
+              "known": "0x43cd30",
+              "placed": "0x43e600"
+            }
+          ],
+          "bad_references": [
+            {
+              "offset": 796,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 901,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 992,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1045,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1116,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1204,
+              "type": 2,
+              "symbol": ".LC3",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x1152fadb+0x4",
+              "matches": false
+            },
+            {
+              "offset": 1246,
+              "type": 11,
+              "symbol": ".bss",
+              "addend": 320,
+              "destination": "0x86b700",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1287,
+              "type": 11,
+              "symbol": ".bss",
+              "addend": 320,
+              "destination": "0x86b700",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1295,
+              "type": 2,
+              "symbol": ".LC4",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x41443ffb+0x4",
+              "matches": false
+            },
+            {
+              "offset": 1313,
+              "type": 11,
+              "symbol": ".bss",
+              "addend": 324,
+              "destination": "0x86b700",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1322,
+              "type": 11,
+              "symbol": ".bss",
+              "addend": 324,
+              "destination": "0x86b700",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1330,
+              "type": 2,
+              "symbol": ".LC4",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x49bc959+0x4",
+              "matches": false
+            },
+            {
+              "offset": 1384,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1417,
+              "type": 11,
+              "symbol": ".bss",
+              "addend": 320,
+              "destination": "0x86b700",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1499,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1532,
+              "type": 11,
+              "symbol": ".bss",
+              "addend": 324,
+              "destination": "0x86b700",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1599,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1665,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 1742,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 5590,
+              "type": 2,
+              "symbol": ".LC4",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x35bb3596+0x4",
+              "matches": false
+            },
+            {
+              "offset": 5632,
+              "type": 11,
+              "symbol": ".bss",
+              "addend": 324,
+              "destination": "0x86b700",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 5652,
+              "type": 11,
+              "symbol": ".bss",
+              "addend": 320,
+              "destination": "0x86b700",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 5669,
+              "type": 11,
+              "symbol": ".bss",
+              "addend": 324,
+              "destination": "0x86b700",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 6100,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 6146,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity7CEntity14gp_audioDriverE",
+              "addend": -4,
+              "destination": "0x86b6a0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 6154,
+              "type": 2,
+              "symbol": ".LC1",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x1036cc9e+0x4",
+              "matches": false
+            },
+            {
+              "offset": 6162,
+              "type": 10,
+              "symbol": ".rodata.str1.1",
+              "addend": 16,
+              "reason": "unmapped or truncated range: 0x105b100f+0xb",
+              "matches": false
+            },
+            {
+              "offset": 6186,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity7CEntity14gp_audioDriverE",
+              "addend": -4,
+              "destination": "0x86b6a0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 6194,
+              "type": 2,
+              "symbol": ".LC1",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x15e3f5af+0x4",
+              "matches": false
+            },
+            {
+              "offset": 6202,
+              "type": 10,
+              "symbol": ".rodata.str1.1",
+              "addend": 27,
+              "reason": "unmapped or truncated range: 0x23f81510+0xb",
+              "matches": false
+            },
+            {
+              "offset": 6226,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity7CEntity14gp_audioDriverE",
+              "addend": -4,
+              "destination": "0x86b6a0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 6234,
+              "type": 2,
+              "symbol": ".LC1",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x160bf587+0x4",
+              "matches": false
+            },
+            {
+              "offset": 6242,
+              "type": 10,
+              "symbol": ".rodata.str1.1",
+              "addend": 38,
+              "reason": "unmapped or truncated range: 0x23d01510+0xb",
+              "matches": false
+            },
+            {
+              "offset": 6270,
+              "type": 2,
+              "symbol": "_ZdlPv",
+              "addend": -4,
+              "destination": "0x407b48",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 6278,
+              "type": 2,
+              "symbol": "_Unwind_Resume",
+              "addend": -4,
+              "destination": "0x4084f8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12251,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12327,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity14CShuttleEntity13updatePlacingEv",
+              "addend": -4,
+              "destination": "0x43c240",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12354,
+              "type": 2,
+              "symbol": "_ZN2ox4core7CStringIcED1Ev",
+              "addend": -4,
+              "destination": "0x409c20",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12362,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity7CEntityD2Ev",
+              "addend": -4,
+              "destination": "0x433220",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 12370,
+              "type": 2,
+              "symbol": "_Unwind_Resume",
+              "addend": -4,
+              "destination": "0x4084f8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 18713,
+              "type": 2,
+              "symbol": "_ZN2ox4algo5CRand4randEv",
+              "addend": -4,
+              "destination": "0x5dd110",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 18789,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity14CShuttleEntity13updatePlacingEv",
+              "addend": -4,
+              "destination": "0x43c240",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 18816,
+              "type": 2,
+              "symbol": "_ZN2ox4core7CStringIcED1Ev",
+              "addend": -4,
+              "destination": "0x409c20",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 18824,
+              "type": 2,
+              "symbol": "_ZN7harvest6entity7CEntityD2Ev",
+              "addend": -4,
+              "destination": "0x433220",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 18832,
+              "type": 2,
+              "symbol": "_Unwind_Resume",
+              "addend": -4,
+              "destination": "0x4084f8",
+              "reason": "different destination",
+              "matches": false
+            }
+          ],
+          "references": 687,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity12updateSpriteEf",
+              "address": "0x43b430",
+              "size": 34,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity4isAiEv",
+              "address": "0x43b4b0",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest6entity14CShuttleEntity17getNextCheckPointEv",
+              "address": "0x43b4c0",
+              "size": 41,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+              "address": "0x43b460",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity14readEntityDataEPN2ox2io9IReadFileEi",
+              "address": "0x43b470",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity15setMovementFlagEib",
+              "address": "0x43b480",
+              "size": 23,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity15getCurrentSpeedEv",
+              "address": "0x43b4a0",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest6entity14CShuttleEntity22getNextCheckPointNoModEv",
+              "address": "0x43b4f0",
+              "size": 7,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest6entity14CShuttleEntity13getCurrentLapEv",
+              "address": "0x43b500",
+              "size": 7,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest6entity14CShuttleEntity23getTimeAtLastCheckPointEv",
+              "address": "0x43b510",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity17setCurrentPlacingEi",
+              "address": "0x43b520",
+              "size": 7,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest6entity14CShuttleEntity17getCurrentPlacingEv",
+              "address": "0x43b530",
+              "size": 7,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest6entity14CShuttleEntity17getCurrentLapTimeEv",
+              "address": "0x43b540",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest6entity14CShuttleEntity12getTotalTimeEv",
+              "address": "0x43b550",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity6renderERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x43b560",
+              "size": 64,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity14resetAllAiByMeEb",
+              "address": "0x43b5a0",
+              "size": 1438,
+              "fde": false,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity8updateAiEv",
+              "address": "0x43bba0",
+              "size": 464,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntityD0Ev",
+              "address": "0x43bd70",
+              "size": 112,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntityD1Ev",
+              "address": "0x43bde0",
+              "size": 104,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntityD2Ev",
+              "address": "0x43be50",
+              "size": 104,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN7harvest6entity19g_checkPointsInitedE",
+              "address": "0x43bec0",
+              "size": 884,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity13updatePlacingEv",
+              "address": "0x43c240",
+              "size": 517,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity11updateLogicEf",
+              "address": "0x43c450",
+              "size": 2250,
+              "fde": false,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntityC2Ei",
+              "address": "0x43e670",
+              "size": 6453,
+              "fde": true,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntityC1Ei",
+              "address": "0x43cd30",
+              "size": 6453,
+              "fde": true,
+              "global": true,
+              "exact": false
+            }
+          ],
+          "data_ranges": [
+            {
+              "address": "0x5f4c74",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f0464",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f0464",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f0444",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03c4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03d8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03dc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f3d68",
+              "size": 8,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f4c78",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5ef0c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f0498",
+              "size": 8,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f04a0",
+              "size": 8,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f4c7c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03ec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f2418",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03d8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03e0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f2ce0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03ec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5efd59",
+              "size": 16,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f03e4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03e4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f2d14",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f2d14",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5ef0c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f4a40",
+              "size": 19,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ca",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ca",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ca",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7d8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7d8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7d8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7e6",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7e6",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7e6",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7f4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7f4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7f4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef802",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef802",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef802",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef810",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef810",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef810",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef81e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef81e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef81e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef82c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef82c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef82c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7bc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7bc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7bc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ae",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ae",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ae",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7a0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7a0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7a0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef792",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef792",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef792",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef784",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef784",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef784",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef776",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef776",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef776",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef768",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef768",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef768",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef75a",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef75a",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef75a",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef74c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef74c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef74c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef73e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef73e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef73e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef730",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef730",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef730",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef722",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef722",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef722",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef714",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef714",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef714",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef706",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef706",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef706",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6f8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6f8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6f8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ea",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ea",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ea",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6dc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6dc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6dc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ce",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ce",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ce",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6c0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6c0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6c0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6b2",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6b2",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6b2",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6a4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6a4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6a4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef696",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef696",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef696",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f4a53",
+              "size": 16,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f4a53",
+              "size": 16,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f4a53",
+              "size": 16,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ca",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ca",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ca",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7d8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7d8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7d8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7e6",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7e6",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7e6",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7f4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7f4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7f4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef802",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef802",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef802",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef810",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef810",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef810",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef81e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef81e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef81e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef82c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef82c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef82c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7bc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7bc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7bc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ae",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ae",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7ae",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7a0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7a0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef7a0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef792",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef792",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef792",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef784",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef784",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef784",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef776",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef776",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef776",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef768",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef768",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef768",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef75a",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef75a",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef75a",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef74c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef74c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef74c",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef73e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef73e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef73e",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef730",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef730",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef730",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef722",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef722",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef722",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef714",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef714",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef714",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef706",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef706",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef706",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6f8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6f8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6f8",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ea",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ea",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ea",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6dc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6dc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6dc",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ce",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ce",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6ce",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6c0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6c0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6c0",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6b2",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6b2",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6b2",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6a4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6a4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef6a4",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef696",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef696",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5ef696",
+              "size": 14,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f4a53",
+              "size": 16,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f4a53",
+              "size": 16,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f4a53",
+              "size": 16,
+              "kind": "merged string"
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 432,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x86b700",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x86b700",
+              "size": 432,
+              "kind": "bss"
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10killEntityEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10killEntityEv",
+          "exact": true,
+          "address": "0x416670",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10killEntityEv",
+              "address": "0x416670",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity8isKilledEv",
+          "size": 5,
+          "placement": "symbol: _ZN7harvest6entity7CEntity8isKilledEv",
+          "exact": true,
+          "address": "0x416680",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity8isKilledEv",
+              "address": "0x416680",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "size": 6,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "exact": true,
+          "address": "0x416620",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity14getRenderLayerEv",
+              "address": "0x416620",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity7onSparkEPNS0_12CSparkEntityE",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity7onSparkEPNS0_12CSparkEntityE",
+          "exact": true,
+          "address": "0x41b030",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity7onSparkEPNS0_12CSparkEntityE",
+              "address": "0x41b030",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity10wantsSparkEv",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity10wantsSparkEv",
+          "exact": true,
+          "address": "0x41b040",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity10wantsSparkEv",
+              "address": "0x41b040",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "size": 6,
+          "placement": "symbol: _ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "exact": true,
+          "address": "0x416630",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+              "address": "0x416630",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "size": 9,
+          "placement": "symbol: _ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "exact": true,
+          "address": "0x416640",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity14getSparkHeightEv",
+              "address": "0x416640",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ],
+          "data_ranges": [
+            {
+              "address": "0x5f03c0",
+              "size": 4,
+              "kind": "merged constant"
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity16getCollisionSizeEv",
+          "size": 9,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity16getCollisionSizeEv",
+          "exact": true,
+          "address": "0x416650",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity16getCollisionSizeEv",
+              "address": "0x416650",
+              "size": 9,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ],
+          "data_ranges": [
+            {
+              "address": "0x5ef0c8",
+              "size": 4,
+              "kind": "merged constant"
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNK7harvest6entity7CEntity12getSellValueEv",
+          "size": 14,
+          "placement": "symbol: _ZNK7harvest6entity7CEntity12getSellValueEv",
+          "exact": true,
+          "address": "0x416660",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNK7harvest6entity7CEntity12getSellValueEv",
+              "address": "0x416660",
+              "size": 14,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "exact": true,
+          "address": "0x416690",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+              "address": "0x416690",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "exact": true,
+          "address": "0x4166a0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+              "address": "0x4166a0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "size": 3,
+          "placement": "symbol: _ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "exact": true,
+          "address": "0x4166b0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+              "address": "0x4166b0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "exact": true,
+          "address": "0x4166c0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+              "address": "0x4166c0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest6entity14CShuttleEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "size": 2,
+          "placement": "symbol: _ZN7harvest6entity14CShuttleEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "exact": true,
+          "address": "0x43ffb0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest6entity14CShuttleEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+              "address": "0x43ffb0",
+              "size": 2,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEElS5_NS3_18SBestShuttleSorterEEvT_T0_SD_T1_T2_",
+          "size": 325,
+          "placement": "symbol: _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEElS5_NS3_18SBestShuttleSorterEEvT_T0_SD_T1_T2_",
+          "exact": true,
+          "address": "0x43ffc0",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEElS5_NS3_18SBestShuttleSorterEEvT_T0_SD_T1_T2_",
+              "address": "0x43ffc0",
+              "size": 325,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEElNS3_18SBestShuttleSorterEEvT_SC_T0_T1_",
+          "size": 695,
+          "placement": "symbol: _ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEElNS3_18SBestShuttleSorterEEvT_SC_T0_T1_",
+          "exact": true,
+          "address": "0x440110",
+          "references": 3,
+          "functions": [
+            {
+              "symbol": "_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEElNS3_18SBestShuttleSorterEEvT_SC_T0_T1_",
+              "address": "0x440110",
+              "size": 695,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN2ox4core7CStringIcED1Ev",
+          "size": 18,
+          "placement": "symbol: _ZN2ox4core7CStringIcED1Ev",
+          "exact": true,
+          "address": "0x409c20",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN2ox4core7CStringIcED1Ev",
+              "address": "0x409c20",
+              "size": 18,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEENS3_18SBestShuttleSorterEEvT_SC_T0_",
+          "size": 247,
+          "placement": "symbol: _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEENS3_18SBestShuttleSorterEEvT_SC_T0_",
+          "exact": true,
+          "address": "0x4403d0",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEENS3_18SBestShuttleSorterEEvT_SC_T0_",
+              "address": "0x4403d0",
+              "size": 247,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNSt6vectorIPN7harvest6entity14CShuttleEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "size": 401,
+          "placement": "symbol: _ZNSt6vectorIPN7harvest6entity14CShuttleEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "exact": true,
+          "address": "0x4404d0",
+          "references": 5,
+          "functions": [
+            {
+              "symbol": "_ZNSt6vectorIPN7harvest6entity14CShuttleEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+              "address": "0x4404d0",
+              "size": 401,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest6entity14CShuttleEntityE",
+          "size": 312,
+          "placement": "symbol: _ZTVN7harvest6entity14CShuttleEntityE",
+          "exact": true,
+          "address": "0x5f4a80",
+          "references": 38,
+          "data_ranges": [
+            {
+              "address": "0x5f4a80",
+              "size": 312,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest6entity14CShuttleEntityE",
+          "size": 34,
+          "placement": "symbol: _ZTSN7harvest6entity14CShuttleEntityE",
+          "exact": true,
+          "address": "0x5f4bc0",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f4bc0",
+              "size": 34,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest6entity14CShuttleEntityE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest6entity14CShuttleEntityE",
+          "exact": true,
+          "address": "0x5f4bf0",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f4bf0",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata",
+          "size": 84,
+          "placement": "references",
+          "exact": true,
+          "address": "0x5eff60",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5eff60",
+              "size": 84,
+              "kind": "section"
+            }
+          ]
+        }
+      ],
+      "unplaced_sections": [
+        ".gcc_except_table"
+      ],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
+          "-MD",
+          "-MF",
+          "/out/HarvestFull__harvest__entity__CShuttleEntity.d",
+          "-c",
+          "src/HarvestFull/harvest/entity/CShuttleEntity.cpp",
+          "-o",
+          "/out/HarvestFull__harvest__entity__CShuttleEntity.o"
+        ],
+        "inputs": {
+          "src/HarvestFull/harvest/entity/CShuttleEntity.cpp": "4e056aea17d3b63a34ee0c24e1c2893350342c17cb605946c43e303500a3fe8b",
+          "src/HarvestFull/harvest/game/CWorld.h": "4c94e33cb97fe7a6223b0073388a4e8b85bd875905c691df38ae823bda523f84",
+          "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
+          "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
+          "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
+          "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/HarvestFull/harvest/entity/CShuttleEntity.h": "f8d78766ec2042f6ff2cb4b849354317bb871a91b6d9c1a81fadd76921571de0",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
+          "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
+          "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
+          "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "096f136a6892418b9292b81c406a5d5b7cf7a075f0d9abdbae25e6d71ebb5215",
+          "src/ox/entity/COxEntityManager.h": "6efd580e319e6d1128a7a698422a148cf93441f5069ad6e479ebec2bd36662fe",
+          "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
+          "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/video/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
+          "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
+          "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
+          "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
+          "src/ox/audio/IAudioDriver.h": "62983e656a59de8c0499d6d4996fe8e421e4e592678783f43c4cd48b26d6a130",
+          "src/ox/video/ISpritePackage.h": "1c83a8f36232f0523f5904df2e8fc7714228f81d3f8c405d97d71dcce2ad56c5",
+          "src/ox/video/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/video/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/video/IParticlePackage.h": "54ea207a17ac6508c8eb0d38dce95af6c08b07104051c965b41d0b7959fa2027",
+          "src/ox/video/IParticleState.h": "c559d0b3c539917d9e81f8917e46c51adccd9be465b7c7c71cb25c1b94a132b1"
+        },
+        "system_headers": 132,
+        "object_sha256": "907a367b994a1b1bfa8ab62bd11db6f03de37c0fc1963690718914a0aeeed227"
+      },
+      "fuzzy_target_sha256": "b5a08fc249ff56de2f2084d87d0936a84ef8d9040af33956fc4df9f5b98e4a43",
+      "fuzzy_functions": [
+        {
+          "address": "0x43b430",
+          "size": 34,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity12updateSpriteEf",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b4b0",
+          "size": 12,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity4isAiEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b4c0",
+          "size": 41,
+          "symbol": "_ZNK7harvest6entity14CShuttleEntity17getNextCheckPointEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b460",
+          "size": 2,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity15writeEntityDataEPN2ox2io10IWriteFileE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b470",
+          "size": 2,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity14readEntityDataEPN2ox2io9IReadFileEi",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b480",
+          "size": 23,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity15setMovementFlagEib",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b4a0",
+          "size": 8,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity15getCurrentSpeedEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b4f0",
+          "size": 7,
+          "symbol": "_ZNK7harvest6entity14CShuttleEntity22getNextCheckPointNoModEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b500",
+          "size": 7,
+          "symbol": "_ZNK7harvest6entity14CShuttleEntity13getCurrentLapEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b510",
+          "size": 9,
+          "symbol": "_ZNK7harvest6entity14CShuttleEntity23getTimeAtLastCheckPointEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b520",
+          "size": 7,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity17setCurrentPlacingEi",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b530",
+          "size": 7,
+          "symbol": "_ZNK7harvest6entity14CShuttleEntity17getCurrentPlacingEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b540",
+          "size": 9,
+          "symbol": "_ZNK7harvest6entity14CShuttleEntity17getCurrentLapTimeEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b550",
+          "size": 9,
+          "symbol": "_ZNK7harvest6entity14CShuttleEntity12getTotalTimeEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b560",
+          "size": 64,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity6renderERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43b5a0",
+          "size": 1527,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity14resetAllAiByMeEb",
+          "percent": 85.765045
+        },
+        {
+          "address": "0x43bba0",
+          "size": 464,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity8updateAiEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43bd70",
+          "size": 112,
+          "symbol": "_ZN7harvest6entity14CShuttleEntityD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43bde0",
+          "size": 104,
+          "symbol": "_ZN7harvest6entity14CShuttleEntityD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43be50",
+          "size": 104,
+          "symbol": "_ZN7harvest6entity14CShuttleEntityD2Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43bec0",
+          "size": 884,
+          "symbol": "_GLOBAL__I__ZN7harvest6entity19g_checkPointsInitedE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43c240",
+          "size": 517,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity13updatePlacingEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43c450",
+          "size": 2260,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity11updateLogicEf",
+          "percent": 90.935555
+        },
+        {
+          "address": "0x43e670",
+          "size": 6453,
+          "symbol": "_ZN7harvest6entity14CShuttleEntityC2Ei",
+          "percent": 99.587776
+        },
+        {
+          "address": "0x43cd30",
+          "size": 6453,
+          "symbol": "_ZN7harvest6entity14CShuttleEntityC1Ei",
+          "percent": 99.587776
+        },
+        {
+          "address": "0x416670",
+          "size": 5,
+          "symbol": "_ZN7harvest6entity7CEntity10killEntityEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x416680",
+          "size": 5,
+          "symbol": "_ZN7harvest6entity7CEntity8isKilledEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x416620",
+          "size": 6,
+          "symbol": "_ZNK7harvest6entity7CEntity14getRenderLayerEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x41b030",
+          "size": 3,
+          "symbol": "_ZN7harvest6entity7CEntity7onSparkEPNS0_12CSparkEntityE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x41b040",
+          "size": 3,
+          "symbol": "_ZN7harvest6entity7CEntity10wantsSparkEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x416630",
+          "size": 6,
+          "symbol": "_ZN7harvest6entity7CEntity16acceptsSparkFromEi",
+          "percent": 100.0
+        },
+        {
+          "address": "0x416640",
+          "size": 9,
+          "symbol": "_ZN7harvest6entity7CEntity14getSparkHeightEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x416650",
+          "size": 9,
+          "symbol": "_ZNK7harvest6entity7CEntity16getCollisionSizeEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x416660",
+          "size": 14,
+          "symbol": "_ZNK7harvest6entity7CEntity12getSellValueEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x416690",
+          "size": 2,
+          "symbol": "_ZN7harvest6entity7CEntity22handleRightClickActionERKN2ox4core11CPosition2dIfEE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4166a0",
+          "size": 2,
+          "symbol": "_ZN7harvest6entity7CEntity26handleDoubleClickSelectionEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4166b0",
+          "size": 3,
+          "symbol": "_ZN7harvest6entity7CEntity30handleSelectionDraggedToEntityEPS1_",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4166c0",
+          "size": 2,
+          "symbol": "_ZN7harvest6entity7CEntity31handleSelectionDraggedToNothingEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43ffb0",
+          "size": 2,
+          "symbol": "_ZN7harvest6entity14CShuttleEntity17renderGroundLayerERKN2ox4core11CPosition2dIfEERKNS3_5CRectIiEE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x43ffc0",
+          "size": 325,
+          "symbol": "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEElS5_NS3_18SBestShuttleSorterEEvT_T0_SD_T1_T2_",
+          "percent": 100.0
+        },
+        {
+          "address": "0x440110",
+          "size": 695,
+          "symbol": "_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEElNS3_18SBestShuttleSorterEEvT_SC_T0_T1_",
+          "percent": 99.97207
+        },
+        {
+          "address": "0x409c20",
+          "size": 18,
+          "symbol": "_ZN2ox4core7CStringIcED1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4403d0",
+          "size": 247,
+          "symbol": "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN7harvest6entity14CShuttleEntityESt6vectorIS5_SaIS5_EEEENS3_18SBestShuttleSorterEEvT_SC_T0_",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4404d0",
+          "size": 401,
+          "symbol": "_ZNSt6vectorIPN7harvest6entity14CShuttleEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "percent": 100.0
+        }
+      ]
     }
   ],
   "fuzzy": {
@@ -53784,7 +56327,7 @@
     "config": {
       "functionRelocDiffs": "data_value"
     },
-    "report_sha256": "0d2b203ce61942b3868ac9c1ad47bf06914042292b10d2ccec3edc055e554df7"
+    "report_sha256": "362311262a962e8c12659c4fa976182305ab86058aa3c919a387a6cd96019ef5"
   },
   "link": {
     "status": "unavailable",

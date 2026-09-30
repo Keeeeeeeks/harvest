@@ -142,3 +142,8 @@
 ".text" = 0x42a530
 # std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR
 ".bss" = 0x86b664
+
+["HarvestFull/harvest/entity/CShuttleEntity.cpp"]
+".text" = 0x43b430
+# Race state and learned targets, iostream and game-header statics, then LAP_CHECKPOINTS.
+".bss" = 0x86b700

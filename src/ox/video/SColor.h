@@ -1,7 +1,7 @@
 // Copyright (C) 2002-2004 Nikolaus Gebhardt
 // Adapted from Irrlicht 0.7 include/SColor.h (license: third_party/irrlicht-0.7/include/irrlicht.h).
 // Recovered for Harvest's ox::video namespace; not the original source. Partial: only the
-// constructors and component getters are recovered.
+// constructors, component getters and alpha setter are recovered.
 
 #ifndef OX_VIDEO_SCOLOR_H
 #define OX_VIDEO_SCOLOR_H
@@ -27,6 +27,13 @@ public:
     int getRed() const { return (color >> 16) & 0xff; }
     int getGreen() const { return (color >> 8) & 0xff; }
     int getBlue() const { return color & 0xff; }
+
+    //! Changes transparency while keeping the RGB components.
+    void setAlpha(int alpha)
+    {
+        color = ((alpha & 0xff) << 24) | (((color >> 16) & 0xff) << 16) |
+            (((color >> 8) & 0xff) << 8) | (color & 0xff);
+    }
 
     unsigned int color;
 };
