@@ -137,3 +137,8 @@
 ".text" = 0x40a2d0
 # Chant timer/index, iostream and game-header statics, then g_alienNames[14].
 ".bss" = 0x86b520
+
+["HarvestFull/harvest/entity/CDropshipEntity.cpp"]
+".text" = 0x42a530
+# std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR
+".bss" = 0x86b664

@@ -470,6 +470,11 @@ void CMissileEntity::setSpeed(float x, float y, float z)
     Speed.Z = z;
 }
 
+void CMissileEntity::disableRetargeting()
+{
+    Retargeting = false;
+}
+
 CMissileEntity::~CMissileEntity()
 {
     if (Particle)

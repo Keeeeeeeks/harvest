@@ -89,7 +89,7 @@ public:
     virtual bool wantsSpark() { return false; }
     void initializeMissileType();
     void setSpeed(float x, float y, float z);
-    void disableRetargeting() { Retargeting = false; }
+    void disableRetargeting();
     void updateSpeed(const ox::core::CVector3d<float>& direction, float frameDelta, float acceleration,
         float speedLimit, float drag, float verticalDrag);
 

@@ -108,9 +108,9 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `HarvestFull/harvest/entity/CPerimeterBomb.cpp` | 24/25 | three-second fuse, radial alien damage, bomb knockback and kill events; `updateLogic` differs only in three loop-compare operand orders |
 | `HarvestFull/harvest/settings/CAlienPriorities.cpp` | 11/11 | weapon targeting weights, range preference, hold-fire and serialization; destructor section placement differs |
 | `HarvestFull/harvest/entity/CDefenseTowerEntity.cpp` | 44/50 | tower chains, damage/range scaling, aim rotation, spark refill, beams and serialization; constructors, link maintenance and the combat loop remain inexact |
-| `HarvestFull/harvest/entity/CMissileTurretEntity.cpp` | 69/76 | missile acceleration, tempest lightning geometry and damage, projectile construction, animations, culling and serialization; turret constructors, target selection and missile/launch combat loops remain inexact |
-
+| `HarvestFull/harvest/entity/CMissileTurretEntity.cpp` | 70/77 | missile acceleration, retargeting toggle, tempest lightning geometry and damage, projectile construction, animations, culling and serialization; turret constructors, target selection and missile/launch combat loops remain inexact |
 | `HarvestFull/harvest/entity/CAlienEntity.cpp` | 55/66 | alien layout, constructors, save/load, Lua control, damage modifiers and knockback, tiny/looker/stealer movement, five sprite sets; remaining AI, rendering and three large sprite setup routines are reconstructed but inexact |
+| `HarvestFull/harvest/entity/CDropshipEntity.cpp` | 53/55 | ship and bullet construction, turning, missile/gun target selection, rendering, projectile flight and splash damage; the seven-state flight/combat routine and 77-sprite loader remain inexact |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
@@ -194,6 +194,12 @@ Findings:
 - The entity manager has four grid layers. Building searches use layer 0 and alien targeting uses
   layer 1, whose cells begin at 0x14e8 on Linux amd64. The turret status display uses reload
   intervals of 10 seconds (basic), 28 seconds (Eagle), and 18 seconds (Tempest).
+- Dropship bullets travel at 1,800 units per second and leave a beam trail capped at 120 units.
+  Their impact damages aliens within 20 units with cubic distance falloff. The exact native code
+  centers that damage search on the bullet's position before the impact step; it does not move
+  the bullet to its target on that frame. The ship's missile and gun targets are separate entity
+  references, and its collision radius is 1. The partial audio interface records virtual slot
+  order; return types unused by recovered callers remain provisional.
 
 ## Inferred and merged sections
 
