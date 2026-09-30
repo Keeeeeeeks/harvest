@@ -117,7 +117,10 @@ private:
 
     CAlienLuaInfo* LuaInfo;
     float SpawnCooldown;
+public:
+    //! Directly assigned by the campaign starting-entity setup.
     ox::entity::SEntityReference Target;
+private:
     ox::core::CVector3d<float> MovementTarget;
     float Health;
     ox::core::CVector2d<float> Speed;

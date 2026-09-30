@@ -17,8 +17,8 @@
     "tools/hv/objdiff.py": "b2157b405263ec966eca3abcdf47e0cb56171100d0aee42ea83af28595497637",
     "tools/hv/delink.py": "536857fac0b1e250a693cf0f2ab9739f53dbe0b966b4ea047fea9b32028b22e5",
     "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
-    "config/1.18-linux-amd64/symbols.tsv": "8deb435c65e7397b607e7814ec96bf027591d3559dc70b79ed27abdcfb571880",
-    "config/1.18-linux-amd64/units.toml": "d87a712b5cb13ea02409d5b218985e778087f3d4fb1a66fa521cdccc56425fe5"
+    "config/1.18-linux-amd64/symbols.tsv": "fc7fc59a329da8c0307ec534f824c1d81d914fa5f522e7c55bd960b5ddfe902b",
+    "config/1.18-linux-amd64/units.toml": "2cfc049d7ce9d2b396264f3b919da62ae0eb93fce108d42635adbf36b7d79542"
   },
   "units": [
     {
@@ -7376,7 +7376,7 @@
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "03cd20d65bc4585b9a73dc996d7f6bd6cd83c57fd2c98d41a40be8948176db54",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
           "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
@@ -9880,7 +9880,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "03cd20d65bc4585b9a73dc996d7f6bd6cd83c57fd2c98d41a40be8948176db54",
           "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
@@ -14442,7 +14442,7 @@
           "exact": false,
           "address": "0x4340c0",
           "first_difference": 569,
-          "differing_bytes": 425,
+          "differing_bytes": 422,
           "misplaced_symbols": [
             {
               "symbol": "_ZN7harvest6entity20CMineralGatherEntityD0Ev",
@@ -14488,15 +14488,6 @@
               "symbol": ".LC14",
               "addend": -4,
               "reason": "merged constant",
-              "matches": false
-            },
-            {
-              "offset": 1930,
-              "type": 2,
-              "symbol": "_ZN7harvest4game16gp_mineralAmountE",
-              "addend": -4,
-              "reason": "no target address for symbol",
-              "candidate": "0x86b958",
               "matches": false
             },
             {
@@ -15547,7 +15538,7 @@
         "system_headers": 132,
         "object_sha256": "dd571e607dfad31a0ced542545be1a4ffebe553092ae8f0e8ebb54ee826ecb76"
       },
-      "fuzzy_target_sha256": "81d260b45a839ff716afbc62d5b0fe0b0a767023d954c50f2c08ad182781c8e3",
+      "fuzzy_target_sha256": "c6f2428f284fb61fcb750381be5609d4496b9ab27c316e49de00157943d46952",
       "fuzzy_functions": [
         {
           "address": "0x4340c0",
@@ -15637,7 +15628,7 @@
           "address": "0x434520",
           "size": 1405,
           "symbol": "_ZN7harvest6entity20CMineralGatherEntity11updateLogicEf",
-          "percent": 98.11897
+          "percent": 98.13505
         },
         {
           "address": "0x434aa0",
@@ -17817,7 +17808,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "03cd20d65bc4585b9a73dc996d7f6bd6cd83c57fd2c98d41a40be8948176db54",
           "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
@@ -30554,7 +30545,7 @@
           "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CHiddenFloat.h": "5030941eba704edd2d4d8d9e1236d29af77b85b05df0bbea1dd33b0c1d38b1e9",
-          "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "03cd20d65bc4585b9a73dc996d7f6bd6cd83c57fd2c98d41a40be8948176db54",
           "src/HarvestFull/harvest/entity/CMissileTurretEntity.h": "2a5168bde8ba8782f7b9ab1edb075c46c3c6a3da98d8de6b09207cf2fd84bdd1",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
@@ -35318,7 +35309,7 @@
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
           "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
-          "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "03cd20d65bc4585b9a73dc996d7f6bd6cd83c57fd2c98d41a40be8948176db54",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/HarvestFull/harvest/settings/CAlienPriorities.h": "5142c1d66d9e1513171353b38b667aa34d2f70aabb0868b23570c189dc2938f3",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
@@ -46847,7 +46838,7 @@
           "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "03cd20d65bc4585b9a73dc996d7f6bd6cd83c57fd2c98d41a40be8948176db54",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
           "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
@@ -53438,7 +53429,7 @@
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
           "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
-          "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "03cd20d65bc4585b9a73dc996d7f6bd6cd83c57fd2c98d41a40be8948176db54",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -58773,7 +58764,7 @@
           "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "03cd20d65bc4585b9a73dc996d7f6bd6cd83c57fd2c98d41a40be8948176db54",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
           "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
@@ -59587,7 +59578,7 @@
     },
     {
       "unit": "HarvestFull/harvest/game/CWorld.cpp",
-      "object_sha256": "a00322c995575e6895ef45def508806857797145c0dd4ada7e1f9199ff3a7f55",
+      "object_sha256": "bf530c1541790bdeef784cb677a6c871f35fbcf28bcb16b55217f2454ca006a5",
       "exact": false,
       "sections": [
         {
@@ -59597,7 +59588,7 @@
           "exact": false,
           "address": "0x45fdd0",
           "first_difference": 522,
-          "differing_bytes": 5508,
+          "differing_bytes": 5509,
           "misplaced_symbols": [
             {
               "symbol": "_ZNK7harvest4game6CWorld23getVisibleGameFieldSizeEv",
@@ -61608,7 +61599,7 @@
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec",
           "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
-          "src/HarvestFull/harvest/gui/CStoryScreen.h": "b4704142e4e4b9119d0ac9e312bdad8546c77001b787f0c2bf9f608e6c1d6de7",
+          "src/HarvestFull/harvest/gui/CStoryScreen.h": "7cbbf08d30f6dc2807f0a326410772edea0bb1ca2dfe03bb491668af2f704ce2",
           "src/ox/video/IVideoDriver.h": "7902574a531ce451183cb8788bee222d1abc759938170ff0094860c3a24aff74",
           "src/ox/video/../core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/video/ISpritePackage.h": "1c83a8f36232f0523f5904df2e8fc7714228f81d3f8c405d97d71dcce2ad56c5",
@@ -61625,7 +61616,7 @@
           "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903"
         },
         "system_headers": 129,
-        "object_sha256": "a00322c995575e6895ef45def508806857797145c0dd4ada7e1f9199ff3a7f55"
+        "object_sha256": "bf530c1541790bdeef784cb677a6c871f35fbcf28bcb16b55217f2454ca006a5"
       },
       "fuzzy_target_sha256": "19c1a0fd14fc994ec136600f2706df81ff46df80647b887eca9a257b3fd433be",
       "fuzzy_functions": [
@@ -61699,7 +61690,7 @@
           "address": "0x460220",
           "size": 630,
           "symbol": "_ZN7harvest4game6CWorld16renderBackgroundERKN2ox4core11CPosition2dIfEEPNS2_3gui8IGUIFontEPNS3_5CRectIiEE",
-          "percent": 98.62893
+          "percent": 98.62264
         },
         {
           "address": "0x4604a0",
@@ -62897,6 +62888,5425 @@
           "percent": 100.0
         }
       ]
+    },
+    {
+      "unit": "HarvestFull/harvest/game/CScenario.cpp",
+      "object_sha256": "dbd8448149fbb562481d3f80f5df3af9956771161946ceece598b5c79ae7c1ab",
+      "exact": false,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 22341,
+          "placement": "explicit",
+          "exact": false,
+          "address": "0x453ce0",
+          "first_difference": 7670,
+          "differing_bytes": 2179,
+          "misplaced_symbols": [
+            {
+              "symbol": "_ZN7harvest4game22CHarvestEventCondition14comparisonTestEiii",
+              "known": "0x453d90",
+              "placed": "0x453ce0"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario11clearEventsEv",
+              "known": "0x453ce0",
+              "placed": "0x453d40"
+            },
+            {
+              "symbol": "_ZNK7harvest4game9CScenario17getScenarioPlanetEv",
+              "known": "0x453d40",
+              "placed": "0x453da0"
+            },
+            {
+              "symbol": "_ZNK7harvest4game9CScenario18getStartingCreditsEv",
+              "known": "0x453d50",
+              "placed": "0x453db0"
+            },
+            {
+              "symbol": "_ZNK7harvest4game9CScenario13getDoodadSeedEv",
+              "known": "0x453d60",
+              "placed": "0x453dc0"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario12getObjectiveEi",
+              "known": "0x453d70",
+              "placed": "0x453dd0"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario16getNumObjectivesEv",
+              "known": "0x453d80",
+              "placed": "0x453de0"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenarioD0Ev",
+              "known": "0x455c20",
+              "placed": "0x455c10"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenarioD1Ev",
+              "known": "0x455d60",
+              "placed": "0x455d50"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenarioD2Ev",
+              "known": "0x455e90",
+              "placed": "0x455e80"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenarioC1Ev",
+              "known": "0x455fc0",
+              "placed": "0x455fb0"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenarioC2Ev",
+              "known": "0x456710",
+              "placed": "0x456700"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario20getCharacterInfoLineEfPN2ox5event14IEventReceiverEPKwiPKc",
+              "known": "0x456e70",
+              "placed": "0x456e60"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario8addEventEPNS0_13CHarvestEventE",
+              "known": "0x457310",
+              "placed": "0x457300"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario26notifyDropshipGoingToSpaceEPN2ox5event14IEventReceiverE",
+              "known": "0x457360",
+              "placed": "0x457350"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario18getCharacterDialogEPKwiPcf",
+              "known": "0x457c60",
+              "placed": "0x457c50"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario20notifyDropshipLandedEPN2ox5event14IEventReceiverE",
+              "known": "0x458020",
+              "placed": "0x458010"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario29notifyDropshipKilledAllAliensEPN2ox5event14IEventReceiverE",
+              "known": "0x458660",
+              "placed": "0x458650"
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario20createScenarioEventsEPN2ox5event14IEventReceiverE",
+              "known": "0x458890",
+              "placed": "0x458880"
+            }
+          ],
+          "bad_references": [
+            {
+              "offset": 7773,
+              "type": 2,
+              "symbol": "_ZNSt15_List_node_base6unhookEv",
+              "addend": -4,
+              "destination": "0x407478",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 7781,
+              "type": 2,
+              "symbol": "_ZdlPv",
+              "addend": -4,
+              "destination": "0x407b48",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 7955,
+              "type": 2,
+              "symbol": "_ZNSt15_List_node_base6unhookEv",
+              "addend": -4,
+              "destination": "0x407478",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 7963,
+              "type": 2,
+              "symbol": "_ZdlPv",
+              "addend": -4,
+              "destination": "0x407b48",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20032,
+              "type": 2,
+              "symbol": "_ZNSt15_List_node_base4hookEPS_",
+              "addend": -4,
+              "destination": "0x407cf8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20042,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20049,
+              "type": 2,
+              "symbol": ".LC440",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x1fecc45+0x4",
+              "matches": false
+            },
+            {
+              "offset": 20059,
+              "type": 11,
+              "symbol": "_ZTVN7harvest3gui17CDialogueItemInfoE",
+              "addend": 16,
+              "destination": "0x5f7520",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20098,
+              "type": 10,
+              "symbol": ".rodata.str4.4",
+              "addend": 12,
+              "reason": "unmapped or truncated range: 0x18bf+0x4",
+              "matches": false
+            },
+            {
+              "offset": 20142,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20148,
+              "type": 10,
+              "symbol": ".rodata.str4.4",
+              "addend": 12,
+              "reason": "unmapped or truncated range: 0x89481068+0x4",
+              "matches": false
+            },
+            {
+              "offset": 20189,
+              "type": 2,
+              "symbol": ".LC441",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x40d2d3d1+0xbc",
+              "matches": false
+            },
+            {
+              "offset": 20231,
+              "type": 10,
+              "symbol": ".rodata.str4.8",
+              "addend": 2224,
+              "reason": "unmapped or truncated range: 0x715+0xbc",
+              "matches": false
+            },
+            {
+              "offset": 20280,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20289,
+              "type": 10,
+              "symbol": ".rodata.str4.8",
+              "addend": 2224,
+              "reason": "unmapped or truncated range: 0x801f0f+0xbc",
+              "matches": false
+            },
+            {
+              "offset": 20351,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20390,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20418,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20444,
+              "type": 11,
+              "symbol": "_ZTVN7harvest4game17CAddDialogueEventE",
+              "addend": 16,
+              "destination": "0x5f73e0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20460,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20483,
+              "type": 2,
+              "symbol": "_ZNSt15_List_node_base4hookEPS_",
+              "addend": -4,
+              "destination": "0x407cf8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20493,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20503,
+              "type": 11,
+              "symbol": "_ZTVN7harvest3gui17CDialogueItemInfoE",
+              "addend": 16,
+              "destination": "0x5f7520",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20542,
+              "type": 10,
+              "symbol": ".rodata.str4.4",
+              "addend": 12,
+              "reason": "unmapped or truncated range: 0xe8004c43+0x4",
+              "matches": false
+            },
+            {
+              "offset": 20592,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20601,
+              "type": 10,
+              "symbol": ".rodata.str4.4",
+              "addend": 12,
+              "reason": "unmapped or truncated range: 0x10688948+0x4",
+              "matches": false
+            },
+            {
+              "offset": 20630,
+              "type": 2,
+              "symbol": ".LC443",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x5fbabd8a+0xc0",
+              "matches": false
+            },
+            {
+              "offset": 20672,
+              "type": 10,
+              "symbol": ".rodata.str4.8",
+              "addend": 2416,
+              "reason": "unmapped or truncated range: 0x840f0062+0xc0",
+              "matches": false
+            },
+            {
+              "offset": 20729,
+              "type": 10,
+              "symbol": ".rodata.str4.8",
+              "addend": 2416,
+              "reason": "merged string",
+              "matches": false
+            },
+            {
+              "offset": 20783,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20822,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20850,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20876,
+              "type": 11,
+              "symbol": "_ZTVN7harvest4game17CAddDialogueEventE",
+              "addend": 16,
+              "destination": "0x5f73e0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20892,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20915,
+              "type": 2,
+              "symbol": "_ZNSt15_List_node_base4hookEPS_",
+              "addend": -4,
+              "destination": "0x407cf8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20925,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20935,
+              "type": 11,
+              "symbol": "_ZTVN7harvest3gui17CDialogueItemInfoE",
+              "addend": 16,
+              "destination": "0x5f7520",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 20974,
+              "type": 10,
+              "symbol": ".rodata.str4.4",
+              "addend": 12,
+              "reason": "unmapped or truncated range: 0xe8014c43+0x4",
+              "matches": false
+            },
+            {
+              "offset": 21022,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21031,
+              "type": 10,
+              "symbol": ".rodata.str4.4",
+              "addend": 12,
+              "reason": "unmapped or truncated range: 0x89480474+0x4",
+              "matches": false
+            },
+            {
+              "offset": 21061,
+              "type": 2,
+              "symbol": ".LC445",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x75759000+0xc8",
+              "matches": false
+            },
+            {
+              "offset": 21103,
+              "type": 10,
+              "symbol": ".rodata.str4.8",
+              "addend": 2608,
+              "reason": "unmapped or truncated range: 0xf006228+0xc8",
+              "matches": false
+            },
+            {
+              "offset": 21159,
+              "type": 10,
+              "symbol": ".rodata.str4.8",
+              "addend": 2608,
+              "reason": "merged string",
+              "matches": false
+            },
+            {
+              "offset": 21215,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21254,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21282,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21308,
+              "type": 11,
+              "symbol": "_ZTVN7harvest4game17CAddDialogueEventE",
+              "addend": 16,
+              "destination": "0x5f73e0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21324,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21347,
+              "type": 2,
+              "symbol": "_ZNSt15_List_node_base4hookEPS_",
+              "addend": -4,
+              "destination": "0x407cf8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21357,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21367,
+              "type": 11,
+              "symbol": "_ZTVN7harvest3gui17CDialogueItemInfoE",
+              "addend": 16,
+              "destination": "0x5f7520",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21405,
+              "type": 10,
+              "symbol": ".rodata.str4.4",
+              "addend": 12,
+              "reason": "merged string",
+              "matches": false
+            },
+            {
+              "offset": 21454,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21496,
+              "type": 2,
+              "symbol": ".LC446",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x4845f061+0xb0",
+              "matches": false
+            },
+            {
+              "offset": 21522,
+              "type": 10,
+              "symbol": ".rodata.str4.8",
+              "addend": 2808,
+              "reason": "unmapped or truncated range: 0xc7240489+0xb0",
+              "matches": false
+            },
+            {
+              "offset": 21584,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21593,
+              "type": 10,
+              "symbol": ".rodata.str4.8",
+              "addend": 2808,
+              "reason": "unmapped or truncated range: 0x841f+0xb0",
+              "matches": false
+            },
+            {
+              "offset": 21647,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21686,
+              "type": 2,
+              "symbol": "_Znam",
+              "addend": -4,
+              "destination": "0x407128",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21714,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21740,
+              "type": 11,
+              "symbol": "_ZTVN7harvest4game17CAddDialogueEventE",
+              "addend": 16,
+              "destination": "0x5f73e0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21756,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21777,
+              "type": 2,
+              "symbol": "_ZNSt15_List_node_base4hookEPS_",
+              "addend": -4,
+              "destination": "0x407cf8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21787,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21793,
+              "type": 10,
+              "symbol": ".rodata.str1.1",
+              "addend": 331,
+              "reason": "unmapped or truncated range: 0x3843+0x1",
+              "matches": false
+            },
+            {
+              "offset": 21804,
+              "type": 10,
+              "symbol": ".rodata.str4.8",
+              "addend": 2984,
+              "reason": "unmapped or truncated range: 0x43c70000+0x80",
+              "matches": false
+            },
+            {
+              "offset": 21812,
+              "type": 2,
+              "symbol": ".LC406",
+              "addend": -4,
+              "reason": "unmapped or truncated range: -0x20bb85d8+0x4",
+              "matches": false
+            },
+            {
+              "offset": 21820,
+              "type": 10,
+              "symbol": ".rodata.str4.4",
+              "addend": 12,
+              "reason": "unmapped or truncated range: 0x20bf3843+0x4",
+              "matches": false
+            },
+            {
+              "offset": 21831,
+              "type": 2,
+              "symbol": "_ZN7harvest3gui17CDialogueItemInfoC1EPKwS3_PKcS5_fb",
+              "addend": -4,
+              "destination": "0x459b00",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21841,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21867,
+              "type": 11,
+              "symbol": "_ZTVN7harvest4game17CAddDialogueEventE",
+              "addend": 16,
+              "destination": "0x5f73e0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21883,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21904,
+              "type": 2,
+              "symbol": "_ZNSt15_List_node_base4hookEPS_",
+              "addend": -4,
+              "destination": "0x407cf8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21914,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21920,
+              "type": 10,
+              "symbol": ".rodata.str1.1",
+              "addend": 331,
+              "reason": "unmapped or truncated range: 0x622e31b8+0x1",
+              "matches": false
+            },
+            {
+              "offset": 21928,
+              "type": 10,
+              "symbol": ".rodata.str4.8",
+              "addend": 3112,
+              "reason": "unmapped or truncated range: 0x5f6c70ba+0x68",
+              "matches": false
+            },
+            {
+              "offset": 21936,
+              "type": 2,
+              "symbol": ".LC406",
+              "addend": -4,
+              "reason": "unmapped or truncated range: 0x19d6e9a9+0x4",
+              "matches": false
+            },
+            {
+              "offset": 21944,
+              "type": 10,
+              "symbol": ".rodata.str4.4",
+              "addend": 12,
+              "reason": "unmapped or truncated range: 0x622838be+0x4",
+              "matches": false
+            },
+            {
+              "offset": 21955,
+              "type": 2,
+              "symbol": "_ZN7harvest3gui17CDialogueItemInfoC1EPKwS3_PKcS5_fb",
+              "addend": -4,
+              "destination": "0x459b00",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21965,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 21991,
+              "type": 11,
+              "symbol": "_ZTVN7harvest4game17CAddDialogueEventE",
+              "addend": 16,
+              "destination": "0x5f73e0",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22007,
+              "type": 2,
+              "symbol": "_Znwm",
+              "addend": -4,
+              "destination": "0x407bc8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22028,
+              "type": 2,
+              "symbol": "_ZNSt15_List_node_base4hookEPS_",
+              "addend": -4,
+              "destination": "0x407cf8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22108,
+              "type": 2,
+              "symbol": "_ZdlPv",
+              "addend": -4,
+              "destination": "0x407b48",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22116,
+              "type": 2,
+              "symbol": "_Unwind_Resume",
+              "addend": -4,
+              "destination": "0x4084f8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22133,
+              "type": 2,
+              "symbol": "_ZdaPv",
+              "addend": -4,
+              "destination": "0x407f58",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22142,
+              "type": 2,
+              "symbol": "_ZN2ox4core7CStringIwED1Ev",
+              "addend": -4,
+              "destination": "0x409c40",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22152,
+              "type": 2,
+              "symbol": "_ZN2ox4core7CStringIwED1Ev",
+              "addend": -4,
+              "destination": "0x409c40",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22193,
+              "type": 2,
+              "symbol": "_ZdlPv",
+              "addend": -4,
+              "destination": "0x407b48",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22201,
+              "type": 2,
+              "symbol": "_Unwind_Resume",
+              "addend": -4,
+              "destination": "0x4084f8",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22218,
+              "type": 2,
+              "symbol": "_ZdaPv",
+              "addend": -4,
+              "destination": "0x407f58",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22226,
+              "type": 2,
+              "symbol": "_ZN2ox4core7CStringIwED1Ev",
+              "addend": -4,
+              "destination": "0x409c40",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 22235,
+              "type": 2,
+              "symbol": "_ZN2ox4core7CStringIwED1Ev",
+              "addend": -4,
+              "destination": "0x409c40",
+              "reason": "different destination",
+              "matches": false
+            }
+          ],
+          "references": 1449,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game22CHarvestEventCondition14comparisonTestEiii",
+              "address": "0x453d90",
+              "size": 86,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario11clearEventsEv",
+              "address": "0x453ce0",
+              "size": 92,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest4game9CScenario17getScenarioPlanetEv",
+              "address": "0x453d40",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest4game9CScenario18getStartingCreditsEv",
+              "address": "0x453d50",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK7harvest4game9CScenario13getDoodadSeedEv",
+              "address": "0x453d60",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario12getObjectiveEi",
+              "address": "0x453d70",
+              "size": 13,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario16getNumObjectivesEv",
+              "address": "0x453d80",
+              "size": 6,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN7harvest4game9CScenarioC2Ev",
+              "address": "0x453df0",
+              "size": 59,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game20CAlienCountCondition13testConditionEv",
+              "address": "0x453e30",
+              "size": 57,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game18CMineralsCondition13testConditionEv",
+              "address": "0x453e70",
+              "size": 57,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario19addStartingEntitiesEv",
+              "address": "0x453eb0",
+              "size": 6761,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario22applyInitialExpansionsEPNS0_6CWorldE",
+              "address": "0x455920",
+              "size": 269,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario15skipToNextEventEv",
+              "address": "0x455a30",
+              "size": 132,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario6updateEf",
+              "address": "0x455ac0",
+              "size": 321,
+              "fde": false,
+              "global": true,
+              "exact": false
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenarioD0Ev",
+              "address": "0x455c20",
+              "size": 306,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenarioD1Ev",
+              "address": "0x455d60",
+              "size": 299,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenarioD2Ev",
+              "address": "0x455e90",
+              "size": 299,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenarioC1Ev",
+              "address": "0x455fc0",
+              "size": 1863,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenarioC2Ev",
+              "address": "0x456710",
+              "size": 1879,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario20getCharacterInfoLineEfPN2ox5event14IEventReceiverEPKwiPKc",
+              "address": "0x456e70",
+              "size": 1173,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario8addEventEPNS0_13CHarvestEventE",
+              "address": "0x457310",
+              "size": 66,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario26notifyDropshipGoingToSpaceEPN2ox5event14IEventReceiverE",
+              "address": "0x457360",
+              "size": 2301,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario18getCharacterDialogEPKwiPcf",
+              "address": "0x457c60",
+              "size": 946,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario20notifyDropshipLandedEPN2ox5event14IEventReceiverE",
+              "address": "0x458020",
+              "size": 1587,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario29notifyDropshipKilledAllAliensEPN2ox5event14IEventReceiverE",
+              "address": "0x458660",
+              "size": 558,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN7harvest4game9CScenario20createScenarioEventsEPN2ox5event14IEventReceiverE",
+              "address": "0x458890",
+              "size": 2981,
+              "fde": true,
+              "global": true,
+              "exact": false
+            }
+          ],
+          "data_ranges": [
+            {
+              "address": "0x5f7670",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7674",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7678",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f767c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7680",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7684",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7688",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f768c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7690",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7694",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7698",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f769c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76a0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76a4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76a8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76ac",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76b0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76b4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76b8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76bc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76c0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76c4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76cc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76d0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76d4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76d8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76dc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7694",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76e0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f2400",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76e4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76e8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76ec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76f0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76f4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76f8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76fc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7700",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7704",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7708",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f770c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7710",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7714",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7718",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76bc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76f4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f771c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7720",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7724",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7728",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f772c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7730",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7734",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7738",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f773c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7740",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7744",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7748",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f774c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7750",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7754",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f772c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7758",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f775c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7760",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7764",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7768",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f776c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7770",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7774",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7778",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f777c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76ac",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7780",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7714",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7784",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7788",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f778c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f0450",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7790",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7794",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7798",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f779c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77a0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77a4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77a8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77ac",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77b0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77b4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77b8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77bc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77c0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77c4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77cc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77d0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77d4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77d8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77dc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77e0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77e4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77e8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77ec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77f0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77f4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77f8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77fc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f3d64",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7800",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7804",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f042c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7808",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f780c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7810",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7814",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7818",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f781c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7820",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7824",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7818",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7828",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f782c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7830",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7834",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7838",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f783c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7840",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7844",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7848",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f784c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7850",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7854",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f0440",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7858",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f785c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7860",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7864",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7868",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7804",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f786c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7870",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7874",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7878",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f787c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7880",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7884",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7888",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f788c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7890",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f77e0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7894",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7898",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f789c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78a0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78a4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78a8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78ac",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78b0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78b4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78b8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78bc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78c0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78c4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78cc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78d0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78d4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76b8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78d8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78dc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78e0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78e4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78e8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78ec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78f0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78f4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78f8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78fc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7900",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f23f4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7904",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7908",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f790c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7910",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7914",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7918",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f791c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7898",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7920",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7924",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7928",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f792c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7930",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7934",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7938",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f793c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7940",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7944",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7948",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f794c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7950",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7954",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7958",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f795c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7960",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7814",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7964",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7968",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f796c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7970",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7974",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7978",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f797c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7980",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7984",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7980",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7988",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76dc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f798c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7990",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7994",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7998",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f799c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79a0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79a4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79a8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79ac",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79b0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79b4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79b8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79bc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79c0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79c4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79c8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78c0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79cc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79d0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79d4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f78d8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79d8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79dc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79e0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79e4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79e8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79ec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79f0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79f4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79f8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f79fc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a00",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a04",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7814",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a08",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a0c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a10",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a14",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a18",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a1c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a20",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a24",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a28",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a2c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a10",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a30",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a34",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a38",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a3c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a40",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a44",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a48",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a4c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a50",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a54",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a58",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a5c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a60",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a64",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a68",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a6c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a70",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a74",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a78",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a7c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a80",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7984",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a84",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a88",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a8c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a90",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7760",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a94",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a98",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a9c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7aa0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7aa4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7aa8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7aac",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ab0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ab4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ab8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7abc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ac0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ac4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ac8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7acc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ad0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ad4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f779c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ad8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7adc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ae0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ae4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ae8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7aec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a94",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7af0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7af4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7af8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7afc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76fc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b00",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b04",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b08",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b0c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b10",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b14",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b18",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b1c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b20",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b24",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b28",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b2c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b30",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b34",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b38",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b3c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b40",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7a50",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b44",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b48",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b4c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b50",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b54",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b58",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b5c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76b0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b60",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b64",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b68",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b6c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b70",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b74",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b78",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b7c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b80",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b84",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b88",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b8c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b90",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b94",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b98",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b9c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ba0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ba4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7ba8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bac",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bb0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bb4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bb8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bbc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f76d8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bc0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bc4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bc8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bcc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bd0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bd4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bd8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bdc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7be0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7be4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7be8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7b9c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bc4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bf0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bf4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bf8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bfc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c00",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c04",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c08",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7aa8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c0c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c10",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c14",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7bfc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c18",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c1c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c20",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6048",
+              "size": 80,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6098",
+              "size": 80,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6cd8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6cd8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6cd8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6cd8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f60e8",
+              "size": 64,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6128",
+              "size": 68,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6170",
+              "size": 80,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6048",
+              "size": 80,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6098",
+              "size": 80,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6cd8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6cd8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6cd8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6cd8",
+              "size": 12,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f60e8",
+              "size": 64,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6128",
+              "size": 68,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6170",
+              "size": 80,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6ce4",
+              "size": 16,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f61c0",
+              "size": 84,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6cf4",
+              "size": 18,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6218",
+              "size": 92,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f0420",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c24",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7694",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c28",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c2c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c30",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c34",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c38",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7670",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f799c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c3c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c40",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c44",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c28",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6d06",
+              "size": 27,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6278",
+              "size": 92,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f03ec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f0434",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6d21",
+              "size": 17,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f62d8",
+              "size": 88,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f0cc4",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6d32",
+              "size": 19,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6330",
+              "size": 96,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f23fc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6d45",
+              "size": 17,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6390",
+              "size": 88,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f7c4c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6d56",
+              "size": 19,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f63e8",
+              "size": 96,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6d69",
+              "size": 21,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6448",
+              "size": 104,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f23fc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6d7e",
+              "size": 21,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f64b0",
+              "size": 104,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f7c48",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6d93",
+              "size": 21,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6518",
+              "size": 104,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f03f0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6da8",
+              "size": 21,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6580",
+              "size": 104,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f03f0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6dbd",
+              "size": 21,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f65e8",
+              "size": 104,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f77d8",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f0434",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6dd2",
+              "size": 16,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6650",
+              "size": 80,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f7c48",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6de2",
+              "size": 17,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f66a0",
+              "size": 88,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f241c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6df3",
+              "size": 15,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f66f8",
+              "size": 80,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f23fc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6e02",
+              "size": 17,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6748",
+              "size": 88,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f241c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6e13",
+              "size": 15,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f67a0",
+              "size": 80,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f78fc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6e22",
+              "size": 13,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f67f0",
+              "size": 64,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f03f0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x622e31",
+              "size": 1,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6830",
+              "size": 64,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f23fc",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6e2f",
+              "size": 13,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6870",
+              "size": 72,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f03f0",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f6e3c",
+              "size": 11,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f68b8",
+              "size": 64,
+              "kind": "merged string"
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 12,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x86b914",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x86b914",
+              "size": 12,
+              "kind": "bss"
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game9IScenarioD1Ev",
+          "size": 8,
+          "placement": "symbol: _ZN7harvest4game9IScenarioD1Ev",
+          "exact": true,
+          "address": "0x459460",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game9IScenarioD1Ev",
+              "address": "0x459460",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game13CHarvestEventD1Ev",
+          "size": 8,
+          "placement": "symbol: _ZN7harvest4game13CHarvestEventD1Ev",
+          "exact": true,
+          "address": "0x459440",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game13CHarvestEventD1Ev",
+              "address": "0x459440",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game15CPostEventEvent8runEventEv",
+          "size": 57,
+          "placement": "symbol: _ZN7harvest4game15CPostEventEvent8runEventEv",
+          "exact": true,
+          "address": "0x459480",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game15CPostEventEvent8runEventEv",
+              "address": "0x459480",
+              "size": 57,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CTrackEntityEvent8runEventEv",
+          "size": 58,
+          "placement": "symbol: _ZN7harvest4game17CTrackEntityEvent8runEventEv",
+          "exact": true,
+          "address": "0x459590",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CTrackEntityEvent8runEventEv",
+              "address": "0x459590",
+              "size": 58,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CSpawnEntityEventD1Ev",
+          "size": 50,
+          "placement": "symbol: _ZN7harvest4game17CSpawnEntityEventD1Ev",
+          "exact": true,
+          "address": "0x4595e0",
+          "references": 4,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CSpawnEntityEventD1Ev",
+              "address": "0x4595e0",
+              "size": 50,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CSpawnEntityEvent8runEventEv",
+          "size": 39,
+          "placement": "symbol: _ZN7harvest4game17CSpawnEntityEvent8runEventEv",
+          "exact": true,
+          "address": "0x459620",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CSpawnEntityEvent8runEventEv",
+              "address": "0x459620",
+              "size": 39,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CAddDialogueEventD1Ev",
+          "size": 50,
+          "placement": "symbol: _ZN7harvest4game17CAddDialogueEventD1Ev",
+          "exact": true,
+          "address": "0x4594c0",
+          "references": 4,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CAddDialogueEventD1Ev",
+              "address": "0x4594c0",
+              "size": 50,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CAddDialogueEvent8runEventEv",
+          "size": 53,
+          "placement": "symbol: _ZN7harvest4game17CAddDialogueEvent8runEventEv",
+          "exact": true,
+          "address": "0x459500",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CAddDialogueEvent8runEventEv",
+              "address": "0x459500",
+              "size": 53,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CAddInfoLineEvent8runEventEv",
+          "size": 53,
+          "placement": "symbol: _ZN7harvest4game17CAddInfoLineEvent8runEventEv",
+          "exact": true,
+          "address": "0x459540",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CAddInfoLineEvent8runEventEv",
+              "address": "0x459540",
+              "size": 53,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game22CHarvestEventConditionD1Ev",
+          "size": 8,
+          "placement": "symbol: _ZN7harvest4game22CHarvestEventConditionD1Ev",
+          "exact": true,
+          "address": "0x459450",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game22CHarvestEventConditionD1Ev",
+              "address": "0x459450",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".rodata",
+          "size": 72,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x5f6000",
+          "references": 8,
+          "data_ranges": [
+            {
+              "address": "0x5f6e47",
+              "size": 23,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6e5e",
+              "size": 17,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6e6f",
+              "size": 13,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x5f6000",
+              "size": 72,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game20CAlienCountConditionD1Ev",
+          "size": 8,
+          "placement": "symbol: _ZN7harvest4game20CAlienCountConditionD1Ev",
+          "exact": true,
+          "address": "0x459660",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game20CAlienCountConditionD1Ev",
+              "address": "0x459660",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game18CMineralsConditionD1Ev",
+          "size": 8,
+          "placement": "symbol: _ZN7harvest4game18CMineralsConditionD1Ev",
+          "exact": true,
+          "address": "0x459650",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game18CMineralsConditionD1Ev",
+              "address": "0x459650",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game19CDropshipStateEventD1Ev",
+          "size": 8,
+          "placement": "symbol: _ZN7harvest4game19CDropshipStateEventD1Ev",
+          "exact": true,
+          "address": "0x4595d0",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game19CDropshipStateEventD1Ev",
+              "address": "0x4595d0",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CTrackEntityEventD1Ev",
+          "size": 8,
+          "placement": "symbol: _ZN7harvest4game17CTrackEntityEventD1Ev",
+          "exact": true,
+          "address": "0x459580",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CTrackEntityEventD1Ev",
+              "address": "0x459580",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game15CPostEventEventD1Ev",
+          "size": 8,
+          "placement": "symbol: _ZN7harvest4game15CPostEventEventD1Ev",
+          "exact": true,
+          "address": "0x459470",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game15CPostEventEventD1Ev",
+              "address": "0x459470",
+              "size": 8,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNSt4listIPN7harvest4game13CHarvestEventESaIS3_EED1Ev",
+          "size": 47,
+          "placement": "symbol: _ZNSt4listIPN7harvest4game13CHarvestEventESaIS3_EED1Ev",
+          "exact": true,
+          "address": "0x459770",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZNSt4listIPN7harvest4game13CHarvestEventESaIS3_EED1Ev",
+              "address": "0x459770",
+              "size": 47,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game13CHarvestEventD0Ev",
+          "size": 12,
+          "placement": "symbol: _ZN7harvest4game13CHarvestEventD0Ev",
+          "exact": true,
+          "address": "0x4596a0",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game13CHarvestEventD0Ev",
+              "address": "0x4596a0",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game18CMineralsConditionD0Ev",
+          "size": 12,
+          "placement": "symbol: _ZN7harvest4game18CMineralsConditionD0Ev",
+          "exact": true,
+          "address": "0x459670",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game18CMineralsConditionD0Ev",
+              "address": "0x459670",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game22CHarvestEventConditionD0Ev",
+          "size": 12,
+          "placement": "symbol: _ZN7harvest4game22CHarvestEventConditionD0Ev",
+          "exact": true,
+          "address": "0x459680",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game22CHarvestEventConditionD0Ev",
+              "address": "0x459680",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game20CAlienCountConditionD0Ev",
+          "size": 12,
+          "placement": "symbol: _ZN7harvest4game20CAlienCountConditionD0Ev",
+          "exact": true,
+          "address": "0x459690",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game20CAlienCountConditionD0Ev",
+              "address": "0x459690",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CSpawnEntityEventD0Ev",
+          "size": 57,
+          "placement": "symbol: _ZN7harvest4game17CSpawnEntityEventD0Ev",
+          "exact": true,
+          "address": "0x4596f0",
+          "references": 5,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CSpawnEntityEventD0Ev",
+              "address": "0x4596f0",
+              "size": 57,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CTrackEntityEventD0Ev",
+          "size": 12,
+          "placement": "symbol: _ZN7harvest4game17CTrackEntityEventD0Ev",
+          "exact": true,
+          "address": "0x4596b0",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CTrackEntityEventD0Ev",
+              "address": "0x4596b0",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game15CPostEventEventD0Ev",
+          "size": 12,
+          "placement": "symbol: _ZN7harvest4game15CPostEventEventD0Ev",
+          "exact": true,
+          "address": "0x4596c0",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game15CPostEventEventD0Ev",
+              "address": "0x4596c0",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CAddDialogueEventD0Ev",
+          "size": 57,
+          "placement": "symbol: _ZN7harvest4game17CAddDialogueEventD0Ev",
+          "exact": true,
+          "address": "0x459730",
+          "references": 5,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CAddDialogueEventD0Ev",
+              "address": "0x459730",
+              "size": 57,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game19CDropshipStateEventD0Ev",
+          "size": 12,
+          "placement": "symbol: _ZN7harvest4game19CDropshipStateEventD0Ev",
+          "exact": true,
+          "address": "0x4596d0",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game19CDropshipStateEventD0Ev",
+              "address": "0x4596d0",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game9IScenarioD0Ev",
+          "size": 12,
+          "placement": "symbol: _ZN7harvest4game9IScenarioD0Ev",
+          "exact": true,
+          "address": "0x4596e0",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game9IScenarioD0Ev",
+              "address": "0x4596e0",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game19CDropshipStateEvent8runEventEv",
+          "size": 26,
+          "placement": "symbol: _ZN7harvest4game19CDropshipStateEvent8runEventEv",
+          "exact": true,
+          "address": "0x4597a0",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game19CDropshipStateEvent8runEventEv",
+              "address": "0x4597a0",
+              "size": 26,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN2ox4core7CStringIwED1Ev",
+          "size": 18,
+          "placement": "symbol: _ZN2ox4core7CStringIwED1Ev",
+          "exact": true,
+          "address": "0x409c40",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZN2ox4core7CStringIwED1Ev",
+              "address": "0x409c40",
+              "size": 18,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game24CConditionalHarvestEventD0Ev",
+          "size": 208,
+          "placement": "symbol: _ZN7harvest4game24CConditionalHarvestEventD0Ev",
+          "exact": true,
+          "address": "0x4597c0",
+          "references": 9,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game24CConditionalHarvestEventD0Ev",
+              "address": "0x4597c0",
+              "size": 208,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game24CConditionalHarvestEventD1Ev",
+          "size": 201,
+          "placement": "symbol: _ZN7harvest4game24CConditionalHarvestEventD1Ev",
+          "exact": true,
+          "address": "0x459890",
+          "references": 8,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game24CConditionalHarvestEventD1Ev",
+              "address": "0x459890",
+              "size": 201,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest3gui17CDialogueItemInfoD0Ev",
+          "size": 76,
+          "placement": "symbol: _ZN7harvest3gui17CDialogueItemInfoD0Ev",
+          "exact": true,
+          "address": "0x459e60",
+          "references": 6,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest3gui17CDialogueItemInfoD0Ev",
+              "address": "0x459e60",
+              "size": 76,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNSt6vectorIPN7harvest4game22CHarvestEventConditionESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "size": 401,
+          "placement": "symbol: _ZNSt6vectorIPN7harvest4game22CHarvestEventConditionESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "exact": true,
+          "address": "0x459960",
+          "references": 5,
+          "functions": [
+            {
+              "symbol": "_ZNSt6vectorIPN7harvest4game22CHarvestEventConditionESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+              "address": "0x459960",
+              "size": 401,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest3gui17CDialogueItemInfoD1Ev",
+          "size": 74,
+          "placement": "symbol: _ZN7harvest3gui17CDialogueItemInfoD1Ev",
+          "exact": true,
+          "address": "0x459eb0",
+          "references": 5,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest3gui17CDialogueItemInfoD1Ev",
+              "address": "0x459eb0",
+              "size": 74,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game16SInfoLineMessageD1Ev",
+          "size": 66,
+          "placement": "symbol: _ZN7harvest4game16SInfoLineMessageD1Ev",
+          "exact": true,
+          "address": "0x450f90",
+          "references": 4,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game16SInfoLineMessageD1Ev",
+              "address": "0x450f90",
+              "size": 66,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest3gui17CDialogueItemInfoC1EPKwS3_PKcS5_fb",
+          "size": 854,
+          "placement": "symbol: _ZN7harvest3gui17CDialogueItemInfoC1EPKwS3_PKcS5_fb",
+          "exact": true,
+          "address": "0x459b00",
+          "references": 13,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest3gui17CDialogueItemInfoC1EPKwS3_PKcS5_fb",
+              "address": "0x459b00",
+              "size": 854,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CAddInfoLineEventD0Ev",
+          "size": 83,
+          "placement": "symbol: _ZN7harvest4game17CAddInfoLineEventD0Ev",
+          "exact": true,
+          "address": "0x459f50",
+          "references": 7,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CAddInfoLineEventD0Ev",
+              "address": "0x459f50",
+              "size": 83,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game17CAddInfoLineEventD1Ev",
+          "size": 76,
+          "placement": "symbol: _ZN7harvest4game17CAddInfoLineEventD1Ev",
+          "exact": true,
+          "address": "0x459f00",
+          "references": 6,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game17CAddInfoLineEventD1Ev",
+              "address": "0x459f00",
+              "size": 76,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZN7harvest4game24CConditionalHarvestEvent8runEventEv",
+          "size": 133,
+          "placement": "symbol: _ZN7harvest4game24CConditionalHarvestEvent8runEventEv",
+          "exact": true,
+          "address": "0x459fb0",
+          "references": 3,
+          "functions": [
+            {
+              "symbol": "_ZN7harvest4game24CConditionalHarvestEvent8runEventEv",
+              "address": "0x459fb0",
+              "size": 133,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game20CAlienCountConditionE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game20CAlienCountConditionE",
+          "exact": true,
+          "address": "0x5f6e80",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f6e80",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game18CMineralsConditionE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game18CMineralsConditionE",
+          "exact": true,
+          "address": "0x5f6ec0",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f6ec0",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game9CScenarioE",
+          "size": 48,
+          "placement": "symbol: _ZTVN7harvest4game9CScenarioE",
+          "exact": true,
+          "address": "0x5f6f00",
+          "references": 5,
+          "data_ranges": [
+            {
+              "address": "0x5f6f00",
+              "size": 48,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game24CConditionalHarvestEventE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game24CConditionalHarvestEventE",
+          "exact": true,
+          "address": "0x5f72a0",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f72a0",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game9CScenarioE",
+          "size": 26,
+          "placement": "symbol: _ZTSN7harvest4game9CScenarioE",
+          "exact": true,
+          "address": "0x5f6ff0",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f6ff0",
+              "size": 26,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game9CScenarioE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest4game9CScenarioE",
+          "exact": true,
+          "address": "0x5f7010",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f7010",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game24CConditionalHarvestEventE",
+          "size": 42,
+          "placement": "symbol: _ZTSN7harvest4game24CConditionalHarvestEventE",
+          "exact": true,
+          "address": "0x5f7300",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f7300",
+              "size": 42,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game24CConditionalHarvestEventE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest4game24CConditionalHarvestEventE",
+          "exact": true,
+          "address": "0x5f72d0",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f72d0",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game20CAlienCountConditionE",
+          "size": 38,
+          "placement": "symbol: _ZTSN7harvest4game20CAlienCountConditionE",
+          "exact": true,
+          "address": "0x5f6f40",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f6f40",
+              "size": 38,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game20CAlienCountConditionE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest4game20CAlienCountConditionE",
+          "exact": true,
+          "address": "0x5f6f70",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f6f70",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game18CMineralsConditionE",
+          "size": 36,
+          "placement": "symbol: _ZTSN7harvest4game18CMineralsConditionE",
+          "exact": true,
+          "address": "0x5f6fa0",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f6fa0",
+              "size": 36,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game18CMineralsConditionE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest4game18CMineralsConditionE",
+          "exact": true,
+          "address": "0x5f6fd0",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f6fd0",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game9IScenarioE",
+          "size": 16,
+          "placement": "symbol: _ZTIN7harvest4game9IScenarioE",
+          "exact": true,
+          "address": "0x5f7040",
+          "references": 2,
+          "data_ranges": [
+            {
+              "address": "0x5f7040",
+              "size": 16,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game13CHarvestEventE",
+          "size": 16,
+          "placement": "symbol: _ZTIN7harvest4game13CHarvestEventE",
+          "exact": true,
+          "address": "0x5f7190",
+          "references": 2,
+          "data_ranges": [
+            {
+              "address": "0x5f7190",
+              "size": 16,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game22CHarvestEventConditionE",
+          "size": 16,
+          "placement": "symbol: _ZTIN7harvest4game22CHarvestEventConditionE",
+          "exact": true,
+          "address": "0x5f7030",
+          "references": 2,
+          "data_ranges": [
+            {
+              "address": "0x5f7030",
+              "size": 16,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game9IScenarioE",
+          "size": 26,
+          "placement": "symbol: _ZTSN7harvest4game9IScenarioE",
+          "exact": true,
+          "address": "0x5f7090",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f7090",
+              "size": 26,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game13CHarvestEventE",
+          "size": 31,
+          "placement": "symbol: _ZTSN7harvest4game13CHarvestEventE",
+          "exact": true,
+          "address": "0x5f71a0",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f71a0",
+              "size": 31,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game22CHarvestEventConditionE",
+          "size": 40,
+          "placement": "symbol: _ZTSN7harvest4game22CHarvestEventConditionE",
+          "exact": true,
+          "address": "0x5f7060",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f7060",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game13CHarvestEventE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game13CHarvestEventE",
+          "exact": true,
+          "address": "0x5f71c0",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f71c0",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game22CHarvestEventConditionE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game22CHarvestEventConditionE",
+          "exact": true,
+          "address": "0x5f70c0",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f70c0",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game17CSpawnEntityEventE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game17CSpawnEntityEventE",
+          "exact": true,
+          "address": "0x5f7100",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f7100",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game17CSpawnEntityEventE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest4game17CSpawnEntityEventE",
+          "exact": true,
+          "address": "0x5f7130",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f7130",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game17CSpawnEntityEventE",
+          "size": 35,
+          "placement": "symbol: _ZTSN7harvest4game17CSpawnEntityEventE",
+          "exact": true,
+          "address": "0x5f7160",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f7160",
+              "size": 35,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game17CTrackEntityEventE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game17CTrackEntityEventE",
+          "exact": true,
+          "address": "0x5f7200",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f7200",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game17CTrackEntityEventE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest4game17CTrackEntityEventE",
+          "exact": true,
+          "address": "0x5f7230",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f7230",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game17CTrackEntityEventE",
+          "size": 35,
+          "placement": "symbol: _ZTSN7harvest4game17CTrackEntityEventE",
+          "exact": true,
+          "address": "0x5f7260",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f7260",
+              "size": 35,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game15CPostEventEventE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game15CPostEventEventE",
+          "exact": true,
+          "address": "0x5f7340",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f7340",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game15CPostEventEventE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest4game15CPostEventEventE",
+          "exact": true,
+          "address": "0x5f7370",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f7370",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game15CPostEventEventE",
+          "size": 33,
+          "placement": "symbol: _ZTSN7harvest4game15CPostEventEventE",
+          "exact": true,
+          "address": "0x5f73a0",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f73a0",
+              "size": 33,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game17CAddDialogueEventE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game17CAddDialogueEventE",
+          "exact": true,
+          "address": "0x5f73e0",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f73e0",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game17CAddDialogueEventE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest4game17CAddDialogueEventE",
+          "exact": true,
+          "address": "0x5f7410",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f7410",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game17CAddDialogueEventE",
+          "size": 35,
+          "placement": "symbol: _ZTSN7harvest4game17CAddDialogueEventE",
+          "exact": true,
+          "address": "0x5f7440",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f7440",
+              "size": 35,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game19CDropshipStateEventE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game19CDropshipStateEventE",
+          "exact": true,
+          "address": "0x5f7480",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f7480",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game19CDropshipStateEventE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest4game19CDropshipStateEventE",
+          "exact": true,
+          "address": "0x5f74b0",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f74b0",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game19CDropshipStateEventE",
+          "size": 37,
+          "placement": "symbol: _ZTSN7harvest4game19CDropshipStateEventE",
+          "exact": true,
+          "address": "0x5f74e0",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f74e0",
+              "size": 37,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest3gui17CDialogueItemInfoE",
+          "size": 32,
+          "placement": "symbol: _ZTVN7harvest3gui17CDialogueItemInfoE",
+          "exact": true,
+          "address": "0x5f7520",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f7520",
+              "size": 32,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest3gui17CDialogueItemInfoE",
+          "size": 16,
+          "placement": "symbol: _ZTIN7harvest3gui17CDialogueItemInfoE",
+          "exact": true,
+          "address": "0x5f7540",
+          "references": 2,
+          "data_ranges": [
+            {
+              "address": "0x5f7540",
+              "size": 16,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest3gui17CDialogueItemInfoE",
+          "size": 34,
+          "placement": "symbol: _ZTSN7harvest3gui17CDialogueItemInfoE",
+          "exact": true,
+          "address": "0x5f7560",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f7560",
+              "size": 34,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game17CAddInfoLineEventE",
+          "size": 40,
+          "placement": "symbol: _ZTVN7harvest4game17CAddInfoLineEventE",
+          "exact": true,
+          "address": "0x5f75a0",
+          "references": 4,
+          "data_ranges": [
+            {
+              "address": "0x5f75a0",
+              "size": 40,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN7harvest4game17CAddInfoLineEventE",
+          "size": 24,
+          "placement": "symbol: _ZTIN7harvest4game17CAddInfoLineEventE",
+          "exact": true,
+          "address": "0x5f75d0",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x5f75d0",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN7harvest4game17CAddInfoLineEventE",
+          "size": 35,
+          "placement": "symbol: _ZTSN7harvest4game17CAddInfoLineEventE",
+          "exact": true,
+          "address": "0x5f7600",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x5f7600",
+              "size": 35,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN7harvest4game9IScenarioE",
+          "size": 48,
+          "placement": "symbol: _ZTVN7harvest4game9IScenarioE",
+          "exact": true,
+          "address": "0x5f7640",
+          "references": 5,
+          "data_ranges": [
+            {
+              "address": "0x5f7640",
+              "size": 48,
+              "kind": "section"
+            }
+          ]
+        }
+      ],
+      "unplaced_sections": [
+        ".gcc_except_table"
+      ],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
+          "-MD",
+          "-MF",
+          "/out/HarvestFull__harvest__game__CScenario.d",
+          "-c",
+          "src/HarvestFull/harvest/game/CScenario.cpp",
+          "-o",
+          "/out/HarvestFull__harvest__game__CScenario.o"
+        ],
+        "inputs": {
+          "src/HarvestFull/harvest/game/CScenario.cpp": "a9f32c9d7ad9aeac9c5af600463bfddc9ccebccf6565e3a477619b7e6a696be4",
+          "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
+          "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
+          "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
+          "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
+          "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
+          "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/video/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/video/../core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
+          "src/ox/video/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
+          "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
+          "src/ox/core/CVector2d.h": "3f38dd2413c649b909302cad6454b81d0e71d1690e18b08fd089beb9620d0fa3",
+          "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/HarvestFull/harvest/game/CScenario.h": "801d404664019cfeec2585cf4c1c54f6c6af47ddef17b16242d92b7063bac7c5",
+          "src/HarvestFull/harvest/gui/CStoryScreen.h": "7cbbf08d30f6dc2807f0a326410772edea0bb1ca2dfe03bb491668af2f704ce2",
+          "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/HarvestFull/harvest/game/SInfoLineMessage.h": "33aa55d3cd365ce34fb04a2e1097bbf8e687967d6449e38bc2d1da150394e5dd",
+          "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
+          "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
+          "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/entity/../core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
+          "src/HarvestFull/harvest/entity/CDropshipEntity.h": "9fb72a4eea1d4af951cd6a98bc072218131933723806071558251f69703eab08",
+          "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
+          "src/HarvestFull/harvest/entity/CAlienEntity.h": "03cd20d65bc4585b9a73dc996d7f6bd6cd83c57fd2c98d41a40be8948176db54",
+          "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
+          "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
+          "third_party/luajit-2.0.0-beta8/include/lua.h": "c906dd3a71ff93b50e5eaea4f7a47ca40d859227d52574208b5b4123c1053368",
+          "third_party/luajit-2.0.0-beta8/include/luaconf.h": "1a401f42e1865b5ffdee60e93d64bfb94bad10703fa03dd61efe76124d888975",
+          "third_party/luajit-2.0.0-beta8/include/lauxlib.h": "a1be3c2d133777c618c2d88fa7cdcb013d5372b0959b77b235cd7de67323cc23",
+          "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
+          "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
+          "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec"
+        },
+        "system_headers": 131,
+        "object_sha256": "dbd8448149fbb562481d3f80f5df3af9956771161946ceece598b5c79ae7c1ab"
+      },
+      "fuzzy_target_sha256": "88731d0d163936d13b05799b9571d3e9888d5c8787274b18c9caaec42808fb72",
+      "fuzzy_functions": [
+        {
+          "address": "0x453d90",
+          "size": 86,
+          "symbol": "_ZN7harvest4game22CHarvestEventCondition14comparisonTestEiii",
+          "percent": 100.0
+        },
+        {
+          "address": "0x453ce0",
+          "size": 92,
+          "symbol": "_ZN7harvest4game9CScenario11clearEventsEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x453d40",
+          "size": 3,
+          "symbol": "_ZNK7harvest4game9CScenario17getScenarioPlanetEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x453d50",
+          "size": 3,
+          "symbol": "_ZNK7harvest4game9CScenario18getStartingCreditsEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x453d60",
+          "size": 6,
+          "symbol": "_ZNK7harvest4game9CScenario13getDoodadSeedEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x453d70",
+          "size": 13,
+          "symbol": "_ZN7harvest4game9CScenario12getObjectiveEi",
+          "percent": 100.0
+        },
+        {
+          "address": "0x453d80",
+          "size": 6,
+          "symbol": "_ZN7harvest4game9CScenario16getNumObjectivesEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x453df0",
+          "size": 59,
+          "symbol": "_GLOBAL__I__ZN7harvest4game9CScenarioC2Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x453e30",
+          "size": 57,
+          "symbol": "_ZN7harvest4game20CAlienCountCondition13testConditionEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x453e70",
+          "size": 57,
+          "symbol": "_ZN7harvest4game18CMineralsCondition13testConditionEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x453eb0",
+          "size": 6761,
+          "symbol": "_ZN7harvest4game9CScenario19addStartingEntitiesEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x455920",
+          "size": 269,
+          "symbol": "_ZN7harvest4game9CScenario22applyInitialExpansionsEPNS0_6CWorldE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x455a30",
+          "size": 132,
+          "symbol": "_ZN7harvest4game9CScenario15skipToNextEventEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x455ac0",
+          "size": 340,
+          "symbol": "_ZN7harvest4game9CScenario6updateEf",
+          "percent": 46.447918
+        },
+        {
+          "address": "0x455c20",
+          "size": 306,
+          "symbol": "_ZN7harvest4game9CScenarioD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x455d60",
+          "size": 299,
+          "symbol": "_ZN7harvest4game9CScenarioD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x455e90",
+          "size": 299,
+          "symbol": "_ZN7harvest4game9CScenarioD2Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x455fc0",
+          "size": 1863,
+          "symbol": "_ZN7harvest4game9CScenarioC1Ev",
+          "percent": 99.90239
+        },
+        {
+          "address": "0x456710",
+          "size": 1879,
+          "symbol": "_ZN7harvest4game9CScenarioC2Ev",
+          "percent": 99.902596
+        },
+        {
+          "address": "0x456e70",
+          "size": 1173,
+          "symbol": "_ZN7harvest4game9CScenario20getCharacterInfoLineEfPN2ox5event14IEventReceiverEPKwiPKc",
+          "percent": 100.0
+        },
+        {
+          "address": "0x457310",
+          "size": 66,
+          "symbol": "_ZN7harvest4game9CScenario8addEventEPNS0_13CHarvestEventE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x457360",
+          "size": 2301,
+          "symbol": "_ZN7harvest4game9CScenario26notifyDropshipGoingToSpaceEPN2ox5event14IEventReceiverE",
+          "percent": 99.97006
+        },
+        {
+          "address": "0x457c60",
+          "size": 946,
+          "symbol": "_ZN7harvest4game9CScenario18getCharacterDialogEPKwiPcf",
+          "percent": 100.0
+        },
+        {
+          "address": "0x458020",
+          "size": 1587,
+          "symbol": "_ZN7harvest4game9CScenario20notifyDropshipLandedEPN2ox5event14IEventReceiverE",
+          "percent": 99.868805
+        },
+        {
+          "address": "0x458660",
+          "size": 558,
+          "symbol": "_ZN7harvest4game9CScenario29notifyDropshipKilledAllAliensEPN2ox5event14IEventReceiverE",
+          "percent": 99.80315
+        },
+        {
+          "address": "0x458890",
+          "size": 2981,
+          "symbol": "_ZN7harvest4game9CScenario20createScenarioEventsEPN2ox5event14IEventReceiverE",
+          "percent": 90.180374
+        },
+        {
+          "address": "0x459460",
+          "size": 8,
+          "symbol": "_ZN7harvest4game9IScenarioD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459440",
+          "size": 8,
+          "symbol": "_ZN7harvest4game13CHarvestEventD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459480",
+          "size": 57,
+          "symbol": "_ZN7harvest4game15CPostEventEvent8runEventEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459590",
+          "size": 58,
+          "symbol": "_ZN7harvest4game17CTrackEntityEvent8runEventEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4595e0",
+          "size": 50,
+          "symbol": "_ZN7harvest4game17CSpawnEntityEventD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459620",
+          "size": 39,
+          "symbol": "_ZN7harvest4game17CSpawnEntityEvent8runEventEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4594c0",
+          "size": 50,
+          "symbol": "_ZN7harvest4game17CAddDialogueEventD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459500",
+          "size": 53,
+          "symbol": "_ZN7harvest4game17CAddDialogueEvent8runEventEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459540",
+          "size": 53,
+          "symbol": "_ZN7harvest4game17CAddInfoLineEvent8runEventEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459450",
+          "size": 8,
+          "symbol": "_ZN7harvest4game22CHarvestEventConditionD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459660",
+          "size": 8,
+          "symbol": "_ZN7harvest4game20CAlienCountConditionD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459650",
+          "size": 8,
+          "symbol": "_ZN7harvest4game18CMineralsConditionD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4595d0",
+          "size": 8,
+          "symbol": "_ZN7harvest4game19CDropshipStateEventD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459580",
+          "size": 8,
+          "symbol": "_ZN7harvest4game17CTrackEntityEventD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459470",
+          "size": 8,
+          "symbol": "_ZN7harvest4game15CPostEventEventD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459770",
+          "size": 47,
+          "symbol": "_ZNSt4listIPN7harvest4game13CHarvestEventESaIS3_EED1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4596a0",
+          "size": 12,
+          "symbol": "_ZN7harvest4game13CHarvestEventD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459670",
+          "size": 12,
+          "symbol": "_ZN7harvest4game18CMineralsConditionD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459680",
+          "size": 12,
+          "symbol": "_ZN7harvest4game22CHarvestEventConditionD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459690",
+          "size": 12,
+          "symbol": "_ZN7harvest4game20CAlienCountConditionD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4596f0",
+          "size": 57,
+          "symbol": "_ZN7harvest4game17CSpawnEntityEventD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4596b0",
+          "size": 12,
+          "symbol": "_ZN7harvest4game17CTrackEntityEventD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4596c0",
+          "size": 12,
+          "symbol": "_ZN7harvest4game15CPostEventEventD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459730",
+          "size": 57,
+          "symbol": "_ZN7harvest4game17CAddDialogueEventD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4596d0",
+          "size": 12,
+          "symbol": "_ZN7harvest4game19CDropshipStateEventD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4596e0",
+          "size": 12,
+          "symbol": "_ZN7harvest4game9IScenarioD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4597a0",
+          "size": 26,
+          "symbol": "_ZN7harvest4game19CDropshipStateEvent8runEventEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x409c40",
+          "size": 18,
+          "symbol": "_ZN2ox4core7CStringIwED1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x4597c0",
+          "size": 208,
+          "symbol": "_ZN7harvest4game24CConditionalHarvestEventD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459890",
+          "size": 201,
+          "symbol": "_ZN7harvest4game24CConditionalHarvestEventD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459e60",
+          "size": 76,
+          "symbol": "_ZN7harvest3gui17CDialogueItemInfoD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459960",
+          "size": 401,
+          "symbol": "_ZNSt6vectorIPN7harvest4game22CHarvestEventConditionESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459eb0",
+          "size": 74,
+          "symbol": "_ZN7harvest3gui17CDialogueItemInfoD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x450f90",
+          "size": 66,
+          "symbol": "_ZN7harvest4game16SInfoLineMessageD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459b00",
+          "size": 854,
+          "symbol": "_ZN7harvest3gui17CDialogueItemInfoC1EPKwS3_PKcS5_fb",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459f50",
+          "size": 83,
+          "symbol": "_ZN7harvest4game17CAddInfoLineEventD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459f00",
+          "size": 76,
+          "symbol": "_ZN7harvest4game17CAddInfoLineEventD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x459fb0",
+          "size": 133,
+          "symbol": "_ZN7harvest4game24CConditionalHarvestEvent8runEventEv",
+          "percent": 100.0
+        }
+      ]
     }
   ],
   "fuzzy": {
@@ -62905,7 +68315,7 @@
     "config": {
       "functionRelocDiffs": "data_value"
     },
-    "report_sha256": "0ee660c32856f1e8e52c6c057d763304f14cf6dd1de3e02becac11d8a6a5c062"
+    "report_sha256": "d5636d46f21757182d4ffd9dc45c480c9e03f869548a84e5a1a33dc5a331b793"
   },
   "link": {
     "status": "unavailable",
