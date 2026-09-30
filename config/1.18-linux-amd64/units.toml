@@ -169,3 +169,7 @@
 ".text" = 0x45fdd0
 # World and mineral globals, iostream, game-header statics, STARTING_AREA.
 ".bss" = 0x86b950
+
+["HarvestFull/harvest/game/CStatistics.cpp"]
+".text" = 0x45a040
+".bss" = 0x86b920
