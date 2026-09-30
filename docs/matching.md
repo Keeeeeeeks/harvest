@@ -113,8 +113,8 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `HarvestFull/harvest/entity/CDropshipEntity.cpp` | 53/55 | ship and bullet construction, turning, missile/gun target selection, rendering, projectile flight and splash damage; the seven-state flight/combat routine and 77-sprite loader remain inexact |
 | `HarvestFull/harvest/entity/CShuttleEntity.cpp` | 40/44 | race placement and sorting, steering AI, checkpoints, rendering and state accessors; constructor register allocation, recovery movement and AI training remain inexact |
 | `HarvestFull/harvest/entity/CCreativeEntity.cpp` | 52/55 | creative buildings, Lua energy/color/progress/sprite controls, private-table serialization, constructors and rendering; the metadata loader and two empty display strings differ only in register or loop-compare choices |
-
 | `HarvestFull/harvest/entity/CEntityManager.cpp` | 39/43 | building lists and bounds, spatial grid maintenance, cached targeting searches, entity construction, save/load, and energy-beam rendering; placement, grid range search, and two predicates remain inexact |
+| `ox/entity/COxEntityManager.cpp` | 20/21 | entity ownership, deferred spawning and removal, reference refresh, first/best/all targeting searches, and render ordering with native sort helpers; the update loop remains inexact |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,

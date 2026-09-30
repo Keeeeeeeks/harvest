@@ -13,7 +13,8 @@ class COxEntity;
 class ITestBestEntityFunction
 {
 public:
-    virtual bool testEntity(COxEntity* entity, COxEntity* best) = 0;
+    //! Returns 0 to reject, 1 to remember the candidate, or 2 to stop immediately.
+    virtual int testEntity(COxEntity* entity, COxEntity* best) = 0;
 };
 
 } // end namespace entity

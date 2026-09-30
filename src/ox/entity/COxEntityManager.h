@@ -28,7 +28,7 @@ struct SEntityReference
     COxEntity* Entity;
     int Id;
     //! The manager's update counter when Entity was last looked up.
-    int UpdateCounter;
+    unsigned int UpdateCounter;
 };
 
 //! Holds entities in layers.
@@ -58,7 +58,7 @@ protected:
     std::list<COxEntity*>* PendingEntities;
     bool* ListChanged;
     TArray<COxEntity*> RenderList;
-    int UpdateCounter;
+    unsigned int UpdateCounter;
     bool Updating;
 };
 

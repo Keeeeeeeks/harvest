@@ -17,8 +17,8 @@
     "tools/hv/objdiff.py": "b2157b405263ec966eca3abcdf47e0cb56171100d0aee42ea83af28595497637",
     "tools/hv/delink.py": "536857fac0b1e250a693cf0f2ab9739f53dbe0b966b4ea047fea9b32028b22e5",
     "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
-    "config/1.18-linux-amd64/symbols.tsv": "c161b0c78dbcc1e8e1238d53e67e2fb4ed43a0922114556eec2935e97288f46f",
-    "config/1.18-linux-amd64/units.toml": "5c05bb0069a3cacc72cb6cf567530cf93f5caaedfd04cba9d01214a8d028be1e"
+    "config/1.18-linux-amd64/symbols.tsv": "f8015aae5f5038707e082642c1994c146ad665b90a90e18214a484d8bee79d73",
+    "config/1.18-linux-amd64/units.toml": "d2e0eb99af709e4cc21b74d945f495acc36dc4cb781beea18cc16c09c991a676"
   },
   "units": [
     {
@@ -4833,7 +4833,7 @@
     },
     {
       "unit": "HarvestFull/harvest/game/CThreatLevel.cpp",
-      "object_sha256": "b0c476c31e42bc49282c774aa4571698057f7ce34683d6b94393d22c6e7b71b8",
+      "object_sha256": "0d3f1f4183d8abdfa210663269cacdd3fd3202897ad443c1b43d73ed942ae9d5",
       "exact": false,
       "sections": [
         {
@@ -7371,12 +7371,12 @@
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
@@ -7404,9 +7404,9 @@
           "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903"
         },
         "system_headers": 134,
-        "object_sha256": "b0c476c31e42bc49282c774aa4571698057f7ce34683d6b94393d22c6e7b71b8"
+        "object_sha256": "0d3f1f4183d8abdfa210663269cacdd3fd3202897ad443c1b43d73ed942ae9d5"
       },
-      "fuzzy_target_sha256": "e60dd65282199a2f172ee4ecd7bf19d1a8c623dd7e4b2db15456bb6db8b3ad89",
+      "fuzzy_target_sha256": "2344a272ce16ea00a840028f0ddcf4105b9d21c8c902f78f0dce42c2931bd69c",
       "fuzzy_functions": [
         {
           "address": "0x45bf40",
@@ -8193,7 +8193,7 @@
         ],
         "inputs": {
           "src/ox/entity/COxEntity.cpp": "953125c1239a27ca18a45dbbb2f2e729e03c548e0194b160c5987c5a5d832d91",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393"
@@ -9869,13 +9869,13 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
@@ -10343,7 +10343,7 @@
     },
     {
       "unit": "HarvestFull/harvest/entity/CBuildingEntity.cpp",
-      "object_sha256": "2cec880ee8fe6454c360249cade4d14cf56f59c1f2003442c21841fcb0b79286",
+      "object_sha256": "c14bf38d6ed9dfbf728d91eb998de5caf3c9ce5ea7ab1bbeaeb1613db81a91bf",
       "exact": true,
       "sections": [
         {
@@ -11060,7 +11060,7 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
@@ -11078,9 +11078,9 @@
           "src/HarvestFull/harvest/game/CLuaManager.h": "eca945b2ca775a516ed1a4334350241a59b25c929e87ad0fa1a054df2a033280"
         },
         "system_headers": 128,
-        "object_sha256": "2cec880ee8fe6454c360249cade4d14cf56f59c1f2003442c21841fcb0b79286"
+        "object_sha256": "c14bf38d6ed9dfbf728d91eb998de5caf3c9ce5ea7ab1bbeaeb1613db81a91bf"
       },
-      "fuzzy_target_sha256": "64af4199a96c2a526e4f616e2b66156600877a6215a8487bbb80b5ffe1cf1f08",
+      "fuzzy_target_sha256": "8cb51d5d071bf6231129d4bc8500196383532ddc73c010c41c7d1e8cd59765dc",
       "fuzzy_functions": [
         {
           "address": "0x41ac30",
@@ -11835,12 +11835,12 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
@@ -12625,7 +12625,7 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
@@ -12638,7 +12638,7 @@
           "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
           "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -13446,13 +13446,13 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -14189,7 +14189,7 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
@@ -14206,7 +14206,7 @@
           "src/HarvestFull/harvest/entity/CCreativeEntity.h": "b38812de17b41fa4d4d848e5debdb54bc395829421a2fa9ce1b4ff5bc6d1ff4b",
           "src/HarvestFull/harvest/entity/CDefenseTowerEntity.h": "1c070a78254c2bd2ba0161f0f88aa6666f9d7b0a982a9d2a0434e57b3f5d7c33",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -15496,7 +15496,7 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
@@ -15509,7 +15509,7 @@
           "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
           "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -16913,7 +16913,7 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
@@ -16926,7 +16926,7 @@
           "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
           "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -17795,13 +17795,13 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
@@ -18243,7 +18243,7 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
@@ -30514,7 +30514,7 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
@@ -30527,7 +30527,7 @@
           "third_party/luajit-2.0.0-beta8/include/lualib.h": "a6f4f0c553306242b878fd286a276174078b79c88ac2a18fcb2d9987017f4799",
           "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -35285,14 +35285,14 @@
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -35786,7 +35786,7 @@
     },
     {
       "unit": "HarvestFull/harvest/entity/CAlienEntity.cpp",
-      "object_sha256": "856e4843e4ead27aea1c2fd7ef7d1d5adbb83e2ca8db3de003809c1c2dcaaffd",
+      "object_sha256": "41ac0fdefc05a942cf2f43fe07ab04cfd6c7e53d984ee11f04974d5314e7ca02",
       "exact": false,
       "sections": [
         {
@@ -46825,11 +46825,11 @@
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
           "src/HarvestFull/harvest/entity/CHarvestEntity.h": "30df4dce9b983d6dd725ba20bc4399b269f483dc160f52e508f1aa399341a447",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/lua/lunar.h": "b408feb23001054e40d1e8cd32665ede44b6dc5375deb4d1222268777a2ff893",
           "third_party/luajit-2.0.0-beta8/include/lua.hpp": "3365db69037f3ae891e9ae6489fdfcdaf73185347b8b8ff7c0e8ee66523753f1",
@@ -46866,9 +46866,9 @@
           "src/ox/video/ISpritePackage.h": "1c83a8f36232f0523f5904df2e8fc7714228f81d3f8c405d97d71dcce2ad56c5"
         },
         "system_headers": 132,
-        "object_sha256": "856e4843e4ead27aea1c2fd7ef7d1d5adbb83e2ca8db3de003809c1c2dcaaffd"
+        "object_sha256": "41ac0fdefc05a942cf2f43fe07ab04cfd6c7e53d984ee11f04974d5314e7ca02"
       },
-      "fuzzy_target_sha256": "2177d554c523f2774253dbeb24ec5e9c90c9fe86e20e1848b103d58fa1c39739",
+      "fuzzy_target_sha256": "04cf55080293fbcae7f6b0e35305dce53482d4c7c1ad3552098c10a21f7b0ad2",
       "fuzzy_functions": [
         {
           "address": "0x40a2d0",
@@ -53406,13 +53406,13 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -56026,13 +56026,13 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/ox/video/SColor.h": "a4c30c7c74a59f3d3d70a9a3953f663a3ee238c6a230f842a797abfa2bb09cb3",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -57367,7 +57367,7 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
@@ -57381,7 +57381,7 @@
           "third_party/luajit-2.0.0-beta8/include/luajit.h": "18bdc87917bc74002145a0e1d03d4ad113d8526fe546bf1b8845e79e5b47d4ef",
           "src/HarvestFull/harvest/entity/CBuildableItems.h": "eb3fb72dcff5722ed2e57c25fedf7bdb4a0a93b3c12560f6d8198ac4a30278fd",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
           "src/ox/video/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
@@ -58724,7 +58724,7 @@
           "/out/HarvestFull__harvest__entity__CEntityManager.o"
         ],
         "inputs": {
-          "src/HarvestFull/harvest/entity/CEntityManager.cpp": "4202236e0f12af0cab8586593587ca726ee79bbd6b2457b1e4a9318ba4b232a8",
+          "src/HarvestFull/harvest/entity/CEntityManager.cpp": "9626154f642d5444614016fbabd8e41d9e66743a24f6aae417bba8703d0ecc4c",
           "src/HarvestFull/harvest/game/CWorld.h": "4c94e33cb97fe7a6223b0073388a4e8b85bd875905c691df38ae823bda523f84",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
           "src/ox/core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
@@ -58732,7 +58732,7 @@
           "src/ox/core/CVector2d.h": "ea27474295864e892dbebc45f94e8c6fe512269ca28c6f8a26e310c04b7d3167",
           "src/ox/core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/entity/COxEntityManager.h": "b3566d5128e0aedf661e999ce1f1186692cfaa46455bd698d76f69316e04391a",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
           "src/ox/video/ISpriteAnimationState.h": "8b81fb234372c9d700058cc86893dfc1c5b35b851caf0f5a1eaae5796d81894e",
@@ -58745,7 +58745,7 @@
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/core/CDimension2d.h": "a5678aabedf3d095fb1114a9386f16d8683117b09cc749db579b8fd678ad2a83",
           "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
-          "src/ox/entity/COxEntity.h": "15c4b418ccd2f55aa9be1b9dc16016571ce3d6250dcb0d34e6f1bcb06fc2b3a7",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/entity/CAlienEntity.h": "76f0b69ba57138296daa45ea39839032f85139b67dbcdd962c74266aebcc30d0",
@@ -58765,7 +58765,7 @@
           "src/HarvestFull/harvest/entity/CMissileTurretEntity.h": "2a5168bde8ba8782f7b9ab1edb075c46c3c6a3da98d8de6b09207cf2fd84bdd1",
           "src/HarvestFull/harvest/entity/CMineralsEntity.h": "3fc9ab85235e1599ed166b581f720965746018b1c940e378e073794095eae5ec",
           "src/ox/entity/ITestEntityFunction.h": "b178c234a2902d6a14e5584e0870db48927a7a02e2fd3d12a01ff408ffa4f9af",
-          "src/ox/entity/ITestBestEntityFunction.h": "8a919cf57052de1a917cd98bac5d3750e156730f3214045e997aa1165824f8c0",
+          "src/ox/entity/ITestBestEntityFunction.h": "90447fc2502db934b5ad9328259525c13c12ecd827d1c86fc27db02b56345581",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
           "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
           "src/ox/algo/CRand.h": "d46e82374f8ce82f8485435070fee77d2dce58f465a6a08e78e22984efc64e9d",
@@ -59039,6 +59039,532 @@
           "percent": 100.0
         }
       ]
+    },
+    {
+      "unit": "ox/entity/COxEntityManager.cpp",
+      "object_sha256": "25224ca513e505f7d2c3ae80cdeee0a8becc731160ea6f646ec46a65f2ce77a7",
+      "exact": false,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 3635,
+          "placement": "explicit",
+          "exact": false,
+          "address": "0x5e1d20",
+          "first_difference": 2674,
+          "differing_bytes": 103,
+          "bad_references": [
+            {
+              "offset": 3573,
+              "type": 2,
+              "symbol": "_ZNSt6vectorIPN2ox6entity9COxEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+              "addend": -4,
+              "destination": "0x416880",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 3592,
+              "type": 2,
+              "symbol": "_ZNSt6vectorIPN2ox6entity9COxEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+              "addend": -4,
+              "destination": "0x416880",
+              "reason": "different destination",
+              "matches": false
+            },
+            {
+              "offset": 3612,
+              "type": 2,
+              "symbol": "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEENS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_T0_",
+              "addend": -4,
+              "destination": "0x5e2b60",
+              "reason": "different destination",
+              "matches": false
+            }
+          ],
+          "references": 65,
+          "functions": [
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManager13getRenderListEv",
+              "address": "0x5e1d20",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK2ox6entity16COxEntityManager13getEntityListEi",
+              "address": "0x5e1d30",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManager15findFirstEntityEiPNS0_19ITestEntityFunctionE",
+              "address": "0x5e1d40",
+              "size": 109,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManager14findBestEntityEiPNS0_23ITestBestEntityFunctionE",
+              "address": "0x5e1db0",
+              "size": 112,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManager15updateReferenceERNS0_16SEntityReferenceEib",
+              "address": "0x5e1e20",
+              "size": 211,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZNK2ox6entity16COxEntityManager16getUpdateCounterEv",
+              "address": "0x5e1f00",
+              "size": 4,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN2ox6entity16COxEntityManagerC2Ei",
+              "address": "0x5e1f10",
+              "size": 38,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManager12locateEntityEii",
+              "address": "0x5e1f40",
+              "size": 125,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManagerC1Ei",
+              "address": "0x5e1fc0",
+              "size": 241,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManager12appendEntityEPNS0_9COxEntityEi",
+              "address": "0x5e20c0",
+              "size": 118,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManager15findAllEntitiesERNS_6TArrayIPNS0_9COxEntityEEEiPNS0_19ITestEntityFunctionE",
+              "address": "0x5e2140",
+              "size": 159,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManagerD0Ev",
+              "address": "0x5e21e0",
+              "size": 396,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManagerD1Ev",
+              "address": "0x5e2370",
+              "size": 396,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManagerD2Ev",
+              "address": "0x5e2500",
+              "size": 396,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManagerC2Ei",
+              "address": "0x5e2690",
+              "size": 241,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox6entity16COxEntityManager17updateAllEntitiesEfRKNS_4core5CRectIfEE",
+              "address": "0x5e2790",
+              "size": 963,
+              "fde": false,
+              "global": true,
+              "exact": false
+            }
+          ],
+          "data_ranges": [
+            {
+              "address": "0x5f0434",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f241c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f03ec",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x61aa6c",
+              "size": 4,
+              "kind": "merged constant"
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x874250",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x874250",
+              "size": 1,
+              "kind": "bss"
+            }
+          ]
+        },
+        {
+          "name": ".gcc_except_table",
+          "size": 72,
+          "placement": "exception frames",
+          "exact": true,
+          "address": "0x6668e6",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x6668e6",
+              "size": 72,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".text._ZNSt6vectorIPN2ox6entity9COxEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "size": 401,
+          "placement": "symbol: _ZNSt6vectorIPN2ox6entity9COxEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "exact": true,
+          "address": "0x416880",
+          "references": 5,
+          "functions": [
+            {
+              "symbol": "_ZNSt6vectorIPN2ox6entity9COxEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+              "address": "0x416880",
+              "size": 401,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEENS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_T0_",
+          "size": 443,
+          "placement": "symbol: _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEENS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_T0_",
+          "exact": true,
+          "address": "0x5e2b60",
+          "references": 1,
+          "functions": [
+            {
+              "symbol": "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEENS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_T0_",
+              "address": "0x5e2b60",
+              "size": 443,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEElS5_NS2_4algo19SPointerSortFunctorIS5_EEEvT_T0_SF_T1_T2_",
+          "size": 594,
+          "placement": "symbol: _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEElS5_NS2_4algo19SPointerSortFunctorIS5_EEEvT_T0_SF_T1_T2_",
+          "exact": true,
+          "address": "0x5e2d20",
+          "references": 0,
+          "functions": [
+            {
+              "symbol": "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEElS5_NS2_4algo19SPointerSortFunctorIS5_EEEvT_T0_SF_T1_T2_",
+              "address": "0x5e2d20",
+              "size": 594,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEENS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_SE_T0_",
+          "size": 315,
+          "placement": "symbol: _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEENS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_SE_T0_",
+          "exact": true,
+          "address": "0x5e2f80",
+          "references": 2,
+          "functions": [
+            {
+              "symbol": "_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEENS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_SE_T0_",
+              "address": "0x5e2f80",
+              "size": 315,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".text._ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEElNS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_T0_T1_",
+          "size": 1258,
+          "placement": "symbol: _ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEElNS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_T0_T1_",
+          "exact": true,
+          "address": "0x5e30c0",
+          "references": 3,
+          "functions": [
+            {
+              "symbol": "_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEElNS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_T0_T1_",
+              "address": "0x5e30c0",
+              "size": 1258,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN2ox6entity16COxEntityManagerE",
+          "size": 80,
+          "placement": "symbol: _ZTVN2ox6entity16COxEntityManagerE",
+          "exact": true,
+          "address": "0x622600",
+          "references": 9,
+          "data_ranges": [
+            {
+              "address": "0x622600",
+              "size": 80,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN2ox6entity16COxEntityManagerE",
+          "size": 31,
+          "placement": "symbol: _ZTSN2ox6entity16COxEntityManagerE",
+          "exact": true,
+          "address": "0x622650",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x622650",
+              "size": 31,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN2ox6entity16COxEntityManagerE",
+          "size": 16,
+          "placement": "symbol: _ZTIN2ox6entity16COxEntityManagerE",
+          "exact": true,
+          "address": "0x622670",
+          "references": 2,
+          "data_ranges": [
+            {
+              "address": "0x622670",
+              "size": 16,
+              "kind": "section"
+            }
+          ]
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
+          "-MD",
+          "-MF",
+          "/out/ox__entity__COxEntityManager.d",
+          "-c",
+          "src/ox/entity/COxEntityManager.cpp",
+          "-o",
+          "/out/ox__entity__COxEntityManager.o"
+        ],
+        "inputs": {
+          "src/ox/entity/COxEntityManager.cpp": "35cc9e22af3fd829b19a718a3862a5ff78d7b6aacd46cb27f32c980b79678de0",
+          "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
+          "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/entity/../core/CRect.h": "da599379c1e28f45b87e38284e35132b5420f9261e833454cb5bf5c7a676de3f",
+          "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
+          "src/ox/entity/COxEntity.h": "7833d3dbcc46577e95cbe0b94903abb3ce350f1d7a339f6625bddcb6654bd19e",
+          "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
+          "src/ox/entity/ITestEntityFunction.h": "b178c234a2902d6a14e5584e0870db48927a7a02e2fd3d12a01ff408ffa4f9af",
+          "src/ox/entity/ITestBestEntityFunction.h": "90447fc2502db934b5ad9328259525c13c12ecd827d1c86fc27db02b56345581",
+          "src/ox/entity/../algo/SPointerSortFunctor.h": "0c29ef987a5d3d5572aae50cf8b634c510053e8059716acebd37f7a3f4416d72"
+        },
+        "system_headers": 132,
+        "object_sha256": "25224ca513e505f7d2c3ae80cdeee0a8becc731160ea6f646ec46a65f2ce77a7"
+      },
+      "fuzzy_target_sha256": "7c9900afca0a0caabcce0a0862ed5f900d71a8d773d17c5fa806a50bb1f7556b",
+      "fuzzy_functions": [
+        {
+          "address": "0x5e1d20",
+          "size": 5,
+          "symbol": "_ZN2ox6entity16COxEntityManager13getRenderListEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e1d30",
+          "size": 12,
+          "symbol": "_ZNK2ox6entity16COxEntityManager13getEntityListEi",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e1d40",
+          "size": 109,
+          "symbol": "_ZN2ox6entity16COxEntityManager15findFirstEntityEiPNS0_19ITestEntityFunctionE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e1db0",
+          "size": 112,
+          "symbol": "_ZN2ox6entity16COxEntityManager14findBestEntityEiPNS0_23ITestBestEntityFunctionE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e1e20",
+          "size": 211,
+          "symbol": "_ZN2ox6entity16COxEntityManager15updateReferenceERNS0_16SEntityReferenceEib",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e1f00",
+          "size": 4,
+          "symbol": "_ZNK2ox6entity16COxEntityManager16getUpdateCounterEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e1f10",
+          "size": 38,
+          "symbol": "_GLOBAL__I__ZN2ox6entity16COxEntityManagerC2Ei",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e1f40",
+          "size": 125,
+          "symbol": "_ZN2ox6entity16COxEntityManager12locateEntityEii",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e1fc0",
+          "size": 241,
+          "symbol": "_ZN2ox6entity16COxEntityManagerC1Ei",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e20c0",
+          "size": 118,
+          "symbol": "_ZN2ox6entity16COxEntityManager12appendEntityEPNS0_9COxEntityEi",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e2140",
+          "size": 159,
+          "symbol": "_ZN2ox6entity16COxEntityManager15findAllEntitiesERNS_6TArrayIPNS0_9COxEntityEEEiPNS0_19ITestEntityFunctionE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e21e0",
+          "size": 396,
+          "symbol": "_ZN2ox6entity16COxEntityManagerD0Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e2370",
+          "size": 396,
+          "symbol": "_ZN2ox6entity16COxEntityManagerD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e2500",
+          "size": 396,
+          "symbol": "_ZN2ox6entity16COxEntityManagerD2Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e2690",
+          "size": 241,
+          "symbol": "_ZN2ox6entity16COxEntityManagerC2Ei",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e2790",
+          "size": 965,
+          "symbol": "_ZN2ox6entity16COxEntityManager17updateAllEntitiesEfRKNS_4core5CRectIfEE",
+          "percent": 95.24715
+        },
+        {
+          "address": "0x416880",
+          "size": 401,
+          "symbol": "_ZNSt6vectorIPN2ox6entity9COxEntityESaIS3_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS3_S5_EERKS3_",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e2b60",
+          "size": 443,
+          "symbol": "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEENS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_T0_",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e2d20",
+          "size": 594,
+          "symbol": "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEElS5_NS2_4algo19SPointerSortFunctorIS5_EEEvT_T0_SF_T1_T2_",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e2f80",
+          "size": 315,
+          "symbol": "_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEENS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_SE_T0_",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5e30c0",
+          "size": 1258,
+          "symbol": "_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPN2ox6entity9COxEntityESt6vectorIS5_SaIS5_EEEElNS2_4algo19SPointerSortFunctorIS5_EEEvT_SE_T0_T1_",
+          "percent": 99.98542
+        }
+      ]
     }
   ],
   "fuzzy": {
@@ -59047,7 +59573,7 @@
     "config": {
       "functionRelocDiffs": "data_value"
     },
-    "report_sha256": "8eb3ae3596b8ea2ce82a5541eb5225ab72c6caa9bb6e1586c65dc5d788e3a3ca"
+    "report_sha256": "b1cccb066d3e4dd5f13c8b5d165f3b3a391966e622a4a5e1963829ed0310610b"
   },
   "link": {
     "status": "unavailable",

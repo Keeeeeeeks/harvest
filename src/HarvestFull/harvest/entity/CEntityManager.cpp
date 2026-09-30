@@ -33,7 +33,7 @@ static const bool PLACEMENT_OBSTACLES[21] =
 class CFindClickableBuilding : public ox::entity::ITestBestEntityFunction
 {
 public:
-    virtual bool testEntity(ox::entity::COxEntity* entity, ox::entity::COxEntity* best);
+    virtual int testEntity(ox::entity::COxEntity* entity, ox::entity::COxEntity* best);
     ox::core::CPosition2d<float> Position;
     float Distance;
 };
@@ -395,7 +395,7 @@ CEntity* CEntityManager::locateEntityInGrid(int id, int gridPosition, int layer)
     return 0;
 }
 
-bool CFindClickableBuilding::testEntity(ox::entity::COxEntity* entity, ox::entity::COxEntity* best)
+int CFindClickableBuilding::testEntity(ox::entity::COxEntity* entity, ox::entity::COxEntity* best)
 {
     float distance = ox::core::CMath::getSquaredDistance(
         ox::core::CPosition2d<float>(entity->getPosition().X, entity->getPosition().Y), Position);

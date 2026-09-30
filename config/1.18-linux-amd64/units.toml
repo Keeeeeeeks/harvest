@@ -159,3 +159,8 @@
 ".rodata" = 0x5f2d70
 # gp_entityManager, iostream initializer, WORLD_GRID_OFFSET and ENERGY_PROGRESS_COLOR.
 ".bss" = 0x86b670
+
+["ox/entity/COxEntityManager.cpp"]
+".text" = 0x5e1d20
+# std::ios_base::Init object.
+".bss" = 0x874250

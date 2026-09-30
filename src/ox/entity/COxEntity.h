@@ -39,6 +39,17 @@ public:
 
     virtual int getRenderLayer() const;
 
+    //! Render ordering: layer, then vertical position, then horizontal position.
+    bool operator<(const COxEntity& other) const
+    {
+        if (getRenderLayer() == other.getRenderLayer())
+        {
+            if (Position.Y == other.Position.Y) return Position.X < other.Position.X;
+            return Position.Y < other.Position.Y;
+        }
+        return getRenderLayer() < other.getRenderLayer();
+    }
+
     int getId() const;
     void setId(int id);
 
