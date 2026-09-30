@@ -11,6 +11,7 @@ namespace algo {
 class CRand
 {
 public:
+    CRand() : Current(0x0f0f0f0f) {}
     virtual ~CRand() {}
 
     //! The next value of the sequence after seed.

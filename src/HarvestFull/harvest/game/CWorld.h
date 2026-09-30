@@ -1,14 +1,20 @@
 // Recovered for Harvest from the Mac and Linux 1.18 builds; not the original source.
-// Partial: only what recovered units use is declared.
+// Partial: layout and core world mechanics; graphics, scenario startup and update remain open.
 
 #ifndef HARVEST_GAME_CWORLD_H
 #define HARVEST_GAME_CWORLD_H
 
+#include "ox/TArray.h"
+#include "ox/algo/CRand.h"
 #include "ox/core/CHiddenInt.h"
+#include "ox/core/CDimension2d.h"
+#include "ox/video/ISpriteAnimationState.h"
 #include "ox/core/CPosition2d.h"
 #include "ox/core/CRect.h"
 #include "ox/core/CVector2d.h"
 #include "ox/core/CVector3d.h"
+
+namespace ox { namespace video { class IVideoDriver; } }
 
 namespace harvest {
 namespace game {
@@ -23,11 +29,47 @@ inline float getWorldGridOffset()
 //! Added to world coordinates to index the entity grid.
 static const float WORLD_GRID_OFFSET = getWorldGridOffset();
 
+//! A scenery obstacle: its sprite bounds limit the elliptical collision test.
+struct SDoodad
+{
+    int Type;
+    ox::core::CPosition2d<float> Position;
+    ox::core::CRect<float> Bounds;
+};
+
+//! A moving gust and its five visual sprites.
+struct SWindPuff
+{
+    ~SWindPuff()
+    {
+        for (int i = 0; i < 5; ++i)
+            if (Sprites[i]) Sprites[i]->remove();
+    }
+    ox::core::CPosition2d<float> Position;
+    ox::core::CVector2d<float> Speed;
+    float Life;
+    ox::video::ISpriteAnimationState* Sprites[5];
+};
+
 //! The planet surface the game is played on.
 class CWorld
 {
 public:
+    CWorld(int gameMode, int planet);
     virtual ~CWorld();
+
+    void changeViewSize(const ox::core::CDimension2d<int>& size);
+    bool worldChangesSizeInThisGameMode() const;
+    void constrainViewPos(ox::core::CPosition2d<float>& position);
+    bool checkCollisionWithDoodad(const SDoodad* doodad, const ox::core::CPosition2d<float>& position);
+    ox::core::CPosition2d<float> findRendezvousPoint(const ox::core::CPosition2d<float>& position,
+        const ox::core::CVector2d<float>& movement);
+    void createDoodad(const ox::core::CPosition2d<float>& position, int type);
+    void placeDoodads(const ox::core::CRect<float>& area, int count);
+    void recreateDoodadGrid();
+    bool write(ox::io::IWriteFile* file);
+    ox::core::CRect<float> expandWorld(int direction, float boundary, bool populate);
+    void expandWorldFromCurrent(int direction, bool populate);
 
     //! Index of the planet: 0, 1 or 2.
     int getPlanet() const;
@@ -48,12 +90,36 @@ public:
         float frameDelta) const;
 
 private:
-    // The layout is not recovered yet; this keeps Planet at its Linux amd64 offset (0x4c).
-    unsigned char Unrecovered[0x4c - sizeof(void*)];
+    // Names are ours; the native members and their cross-platform layout are verified.
+    ox::video::IVideoDriver* VideoDriver;
+    ox::core::CRect<float> VisibleGameField;
+    ox::core::CRect<float> ActualGameField;
+    ox::core::CRect<float> TargetGameField;
+    bool InitialWorld;
+    ox::core::CDimension2d<float> ViewSize;
 
 public:
     //! Read directly by particles, which only feel wind on planet 1; see getPlanet.
     int Planet;
+
+private:
+    int GameMode;
+    ox::video::ISpriteAnimationState* GroundSprites[2];
+    ox::video::ISpriteAnimationState* DoodadSprites[23];
+    ox::core::CDimension2d<int> DoodadSizes[23];
+    float DoodadCollisionRadii[23];
+    ox::algo::CRand Random;
+    ox::TArray<SDoodad*> Doodads;
+    ox::core::CRect<float> DoodadGridArea;
+    int DoodadGridWidth;
+    int DoodadGridHeight;
+    ox::TArray<SDoodad*>* DoodadGrid;
+    float WindClock;
+    ox::TArray<SWindPuff*> WindPuffs;
+    float WeatherState0;
+    float WeatherState1;
+    float WeatherState2;
+    float WeatherState3;
 };
 
 extern CWorld* gp_world;

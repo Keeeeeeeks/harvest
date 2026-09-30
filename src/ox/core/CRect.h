@@ -51,6 +51,14 @@ public:
             position.X < LowerRightCorner.X && position.Y < LowerRightCorner.Y;
     }
 
+    bool isRectCollided(const CRect<T>& other) const
+    {
+        return LowerRightCorner.Y > other.UpperLeftCorner.Y &&
+            UpperLeftCorner.Y < other.LowerRightCorner.Y &&
+            LowerRightCorner.X > other.UpperLeftCorner.X &&
+            UpperLeftCorner.X < other.LowerRightCorner.X;
+    }
+
     CPosition2d<T> UpperLeftCorner;
     CPosition2d<T> LowerRightCorner;
 };

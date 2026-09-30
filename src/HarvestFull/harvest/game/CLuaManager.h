@@ -21,6 +21,7 @@ namespace game {
 class CLuaManager
 {
 public:
+    void hookMapExpanded(float left, float top, float right, float bottom);
     void hookCreativeInit(const ox::core::CString<char>& id, entity::CCreativeEntity* building);
     void hookCreativeUpdate(const ox::core::CString<char>& id, entity::CCreativeEntity* building, float frameDelta);
     //! Tells the scripts that a building sent out a spark.

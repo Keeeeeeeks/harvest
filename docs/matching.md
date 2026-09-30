@@ -115,6 +115,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `HarvestFull/harvest/entity/CCreativeEntity.cpp` | 52/55 | creative buildings, Lua energy/color/progress/sprite controls, private-table serialization, constructors and rendering; the metadata loader and two empty display strings differ only in register or loop-compare choices |
 | `HarvestFull/harvest/entity/CEntityManager.cpp` | 39/43 | building lists and bounds, spatial grid maintenance, cached targeting searches, entity construction, save/load, and energy-beam rendering; placement, grid range search, and two predicates remain inexact |
 | `ox/entity/COxEntityManager.cpp` | 20/21 | entity ownership, deferred spawning and removal, reference refresh, first/best/all targeting searches, and render ordering with native sort helpers; the update loop remains inexact |
+| `HarvestFull/harvest/game/CWorld.cpp` | 23/29 | world layout and lifecycle, scenery collision grid, wind forces, camera bounds and serialization; placement, collision avoidance and expansion are reconstructed but inexact; graphics, scenario startup and the main update remain open |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
@@ -183,6 +184,13 @@ Findings:
 - `selectSparkTarget` is still open: the target fetches the next element before the loop's exit
   test (only a loop that loads it there comes close), and it keeps `this` and `excludeId` in the
   opposite callee-saved registers from ours.
+- World scenery uses elliptical collision radii, with vertical distance multiplied by 1.5,
+  and a 256-unit spatial grid on planet 2. Placement protects the starting area and retries up
+  to four times; the first scenery choice of each planet-2 batch is forced to type 0.
+- Expansion scatters minerals in 512-unit cells, reducing their count with distance from
+  `(512, 512)`. The native special case resets counts from -24 through -16 to 20 before
+  clamping to 2..20. Both achievement events 21/15 and 21/16 require area 10,485,760.
+  The camera's oversize-height branch writes `X`, which the reconstruction preserves.
 
 - Defense towers form directed chains. Back-target counts scale range and damage; a chain can
   reverse toward its end tower. The recovered aim-rotation and spark-refill routines match exactly,
