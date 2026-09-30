@@ -52,9 +52,11 @@ class CEntityManager : public ox::entity::COxEntityManager
 {
 public:
     bool hasBuildingListChanged() const;
+    CEntity* findBuildingInRange(const ox::core::CPosition2d<float>& position, float squaredRange);
 
     //! The grid cell of a world coordinate, clamped to the grid.
     int calculateGridCoordinateClamp(float coordinate);
+    void updateGridEntity(CEntity* entity, const ox::core::CVector3d<float>& oldPosition, int searchLayer);
     void addGridEntity(CEntity* entity, int searchLayer);
     void removeGridEntity(CEntity* entity, const ox::core::CVector3d<float>& position, int searchLayer);
     //! The grid cell index of a position.

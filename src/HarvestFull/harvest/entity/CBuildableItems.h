@@ -5,11 +5,13 @@
 #define HARVEST_ENTITY_CBUILDABLEITEMS_H
 
 #include "ox/core/CHiddenInt.h"
+#include "ox/entity/COxEntity.h"
 #include "ox/core/CString.h"
 
 namespace harvest {
 namespace entity {
 
+class CEntity;
 //! A buildable building. Partial: the layout between the recovered members is not known yet.
 struct SBuildingInfoItem
 {
@@ -33,6 +35,7 @@ struct SBuildingInfoItem
 class CBuildableItems
 {
 public:
+    const char* getEntityIdForEntityInstance(CEntity* entity);
     int getIndexForEntityType(int entityType);
     int getIndexForEntityId(const char* entityId);
     SBuildingInfoItem* getBuildingInfo(int index);

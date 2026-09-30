@@ -110,6 +110,8 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `HarvestFull/harvest/entity/CDefenseTowerEntity.cpp` | 44/50 | tower chains, damage/range scaling, aim rotation, spark refill, beams and serialization; constructors, link maintenance and the combat loop remain inexact |
 | `HarvestFull/harvest/entity/CMissileTurretEntity.cpp` | 69/76 | missile acceleration, tempest lightning geometry and damage, projectile construction, animations, culling and serialization; turret constructors, target selection and missile/launch combat loops remain inexact |
 
+| `HarvestFull/harvest/entity/CAlienEntity.cpp` | 55/66 | alien layout, constructors, save/load, Lua control, damage modifiers and knockback, tiny/looker/stealer movement, five sprite sets; remaining AI, rendering and three large sprite setup routines are reconstructed but inexact |
+
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
 `SEvent`/`IEventReceiver` (network event only), `IOxDevice`, `INetworkDevice`/`SServerInfo`, and
@@ -235,7 +237,7 @@ names for that class, marked partial:
 
 - only the members and functions the recovered units use, with virtual functions in vtable order
   (their names and order come from the ported vtables);
-- sizes that matter to a caller (`new CAlienEntity` allocates 0x2f0 bytes) kept by an explicit
+- sizes that matter to a caller (for example, a caller allocating a not-yet-recovered class) kept by an explicit
   `Unrecovered` byte array until the owning unit is recovered;
 - file-level statics that every includer defines (`ENERGY_PROGRESS_COLOR`, the 4096.0 grid offset)
   in a header, because each object initializes its own copy in its static initializer.

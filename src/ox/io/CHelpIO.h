@@ -15,6 +15,8 @@ namespace io {
 class CHelpIO
 {
 public:
+    static unsigned char readByte(IReadFile* file);
+    static void writeByte(IWriteFile* file, unsigned char value);
     static int readInt(IReadFile* file);
     static float readFloat(IReadFile* file);
     static void writeInt(IWriteFile* file, int value);

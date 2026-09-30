@@ -65,6 +65,19 @@ public:
         return *this;
     }
 
+    //! Rotates around center; the original helper takes degrees.
+    void rotateBy(double degrees, const CVector2d<T>& center = CVector2d<T>())
+    {
+        degrees *= 0.017453290522098541;
+        T cs = (T)cos(degrees);
+        T sn = (T)sin(degrees);
+        X -= center.X;
+        Y -= center.Y;
+        set(X * cs - Y * sn, X * sn + Y * cs);
+        X += center.X;
+        Y += center.Y;
+    }
+
     T X, Y;
 };
 

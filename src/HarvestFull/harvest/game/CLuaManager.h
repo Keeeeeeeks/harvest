@@ -4,9 +4,12 @@
 #ifndef HARVEST_GAME_CLUAMANAGER_H
 #define HARVEST_GAME_CLUAMANAGER_H
 
+#include "ox/core/CVector3d.h"
+
 namespace harvest {
 namespace entity {
 class CBuildingEntity;
+class CAlienEntity;
 } // end namespace entity
 
 namespace game {
@@ -16,6 +19,8 @@ class CLuaManager
 {
 public:
     //! Tells the scripts that a building sent out a spark.
+    void hookAlienDeath(int alienType, const ox::core::CVector3d<float>& position);
+    void hookBuildingDestroyed(const char* buildingType, float x, float y, entity::CAlienEntity* alien);
     void hookEnergySparkCreated(int sparkId, entity::CBuildingEntity* building);
     //! Tells the scripts that a construction site has become a building.
     void hookBuildingConstructed(entity::CBuildingEntity* building);

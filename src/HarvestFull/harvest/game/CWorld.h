@@ -39,6 +39,8 @@ public:
     bool hasWorldExpandedAtLeastOnce();
 
     bool mayPlaceObjectHere(const ox::core::CPosition2d<float>& position, bool building);
+    const ox::core::CRect<float>& getVisibleGameFieldSize() const;
+    float getCollisionTangent(const ox::core::CPosition2d<float>& position);
     bool mayMoveHere(const ox::core::CPosition2d<float>& position);
 
     //! Adds the wind at a position over the frame to speed.
