@@ -1,5 +1,5 @@
 // Recovered for Harvest from the Mac and Linux 1.18 builds; not the original source.
-// Partial: only what recovered units use is declared.
+// Member names for the cached searches are ours; public method names follow the Mac symbols.
 
 #ifndef HARVEST_ENTITY_CENTITYMANAGER_H
 #define HARVEST_ENTITY_CENTITYMANAGER_H
@@ -15,6 +15,13 @@ namespace harvest {
 namespace entity {
 
 class CEntity;
+class CAlienEntity;
+class CMineralsEntity;
+class CFindClickableBuilding;
+class CFindRandomEntityInRange;
+class CFindShootableAlienInRange;
+class CFindBuildingInRange;
+class CFindRangeLineBuildings;
 
 //! A beam drawn from Start to End with sprites at both ends, above all entities.
 struct SEnergyBeam
@@ -51,7 +58,27 @@ struct SEnergyBeam
 class CEntityManager : public ox::entity::COxEntityManager
 {
 public:
+    CEntityManager();
+    virtual ~CEntityManager();
+    void update(float frameDelta, const ox::core::CRect<float>& visibleArea);
+    bool readEntities(ox::io::IReadFile* file, int version);
+    bool writeEntities(ox::io::IWriteFile* file);
     bool hasBuildingListChanged() const;
+    int getNumBuildings() const;
+    int getNumAliens() const;
+    const ox::core::CRect<float>& getBuildingsBoundingBox() const;
+    void renderEntities(const ox::core::CPosition2d<float>& camera, const ox::core::CRect<int>& viewPort);
+    bool isBuildingPlacementOk(ox::core::CPosition2d<float>& position, float collisionSize);
+    void findAllGridEntitiesInRange(ox::TArray<ox::entity::COxEntity*>& result, int layer, CFindRandomEntityInRange* test);
+    void getAllEntitiesInRange(ox::TArray<ox::entity::COxEntity*>& result, const ox::core::CPosition2d<float>& position, float squaredRange, int layer, int entityType);
+    CEntity* findRandomAlienInRange(const ox::core::CPosition2d<float>& position, float squaredRange, float minimumSquaredRange);
+    CEntity* findAnyEntityInRange(const ox::core::CPosition2d<float>& position, float squaredRange, int layer, int entityType);
+    float getRangeSearchResultDistance();
+    void getAllRangeLineBuildings(ox::TArray<ox::entity::COxEntity*>& result, const ox::core::CPosition2d<float>& position, int entityType);
+    CEntity* updateClickableReference(int id, CEntity* entity);
+    CEntity* addBuilding(int type, float x, float y);
+    CMineralsEntity* addMinerals(int size, float x, float y);
+    CAlienEntity* addAlien(int type, float x, float y);
     CEntity* findBuildingInRange(const ox::core::CPosition2d<float>& position, float squaredRange);
 
     //! The grid cell of a world coordinate, clamped to the grid.
@@ -72,12 +99,20 @@ public:
     CEntity* findClickableEntity(const ox::core::CPosition2d<float>& position);
 
 private:
-    // The layout is not recovered yet; this keeps Grid at its Linux amd64 offset (0xa8).
-    unsigned char Unrecovered[0xa8 - sizeof(ox::entity::COxEntityManager)];
+    ox::TArray<SEnergyBeam*> TopLevelEnergyBeams;
+    CFindClickableBuilding* ClickableSearch;
+    CFindRandomEntityInRange* RandomSearch;
+    CFindShootableAlienInRange* ShootableSearch;
+    CFindBuildingInRange* BuildingSearch;
+    CFindRangeLineBuildings* RangeLineSearch;
+    bool BuildingsChanged;
+    int NumBuildings;
+    unsigned int NumEntities;
+    ox::core::CRect<float> BuildingsBoundingBox;
 
 public:
-    //! Four search layers of grid cells, each indexed y * 18 + x.
-    std::list<CEntity*> Grid[4][18 * 18];
+    //! Five search layers of grid cells, each indexed y * 18 + x.
+    std::list<CEntity*> Grid[5][18 * 18];
 };
 
 extern CEntityManager* gp_entityManager;

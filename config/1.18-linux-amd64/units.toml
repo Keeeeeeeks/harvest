@@ -152,3 +152,10 @@
 ".text" = 0x41be00
 # std::ios_base::Init, WORLD_GRID_OFFSET, ENERGY_PROGRESS_COLOR.
 ".bss" = 0x86b64c
+
+["HarvestFull/harvest/entity/CEntityManager.cpp"]
+".text" = 0x430390
+# Construction switch followed by building eligibility tables.
+".rodata" = 0x5f2d70
+# gp_entityManager, iostream initializer, WORLD_GRID_OFFSET and ENERGY_PROGRESS_COLOR.
+".bss" = 0x86b670

@@ -1,5 +1,5 @@
 // Recovered for Harvest from the Mac and Linux 1.18 builds; not the original source.
-// Partial: the virtual interface follows the vtables; members are not recovered yet.
+// The virtual interface and member layout follow the Mac and Linux native builds.
 
 #ifndef OX_ENTITY_COXENTITYMANAGER_H
 #define OX_ENTITY_COXENTITYMANAGER_H
@@ -35,6 +35,7 @@ struct SEntityReference
 class COxEntityManager
 {
 public:
+    COxEntityManager(int layers);
     virtual ~COxEntityManager();
 
     virtual void updateAllEntities(float frameDelta, const core::CRect<float>& visibleArea);
@@ -49,6 +50,16 @@ public:
     void updateReference(SEntityReference& reference, int layer, bool locate);
     int getUpdateCounter() const;
     const std::list<COxEntity*>& getEntityList(int layer) const;
+    const TArray<COxEntity*>& getRenderList();
+
+protected:
+    int NumLayers;
+    std::list<COxEntity*>* EntityLists;
+    std::list<COxEntity*>* PendingEntities;
+    bool* ListChanged;
+    TArray<COxEntity*> RenderList;
+    int UpdateCounter;
+    bool Updating;
 };
 
 } // end namespace entity
