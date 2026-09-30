@@ -545,15 +545,14 @@ void CWorld::renderBackground(const ox::core::CPosition2d<float>& position, ox::
     ox::core::CRect<int>* clip)
 {
     if (!GroundSprites[0]) return;
-    float height = ViewSize.Height;
-    float width = ViewSize.Width;
-    int offsetY = 0, offsetX = 0;
+    ox::core::CDimension2d<float> size = ViewSize;
+    int offsetX = 0, offsetY = 0;
     if (clip)
     {
         offsetY = clip->UpperLeftCorner.Y;
-        height = clip->getHeight();
+        size.Height = clip->getHeight();
         offsetX = clip->UpperLeftCorner.X;
-        width = clip->getWidth();
+        size.Width = clip->getWidth();
     }
     int tileX = (int)(position.X - 256);
     if (tileX < 0) tileX = ~(-tileX >> 9);
@@ -561,8 +560,11 @@ void CWorld::renderBackground(const ox::core::CPosition2d<float>& position, ox::
     int tileY = (int)(position.Y - 256);
     if (tileY < 0) tileY = ~(-tileY >> 9);
     else tileY >>= 9;
-    for (int y = (int)(tileY * 512.0f - position.Y); y < height; y += 512)
-        for (int x = (int)(tileX * 512.0f - position.X); x < width; x += 512)
+    // The native renderer computes the tile origin once before drawing the grid.
+    ox::core::CPosition2d<int> start((int)(tileX * 512.0f - position.X),
+        (int)(tileY * 512.0f - position.Y));
+    for (int y = start.Y; y < size.Height; y += 512)
+        for (int x = start.X; x < size.Width; x += 512)
             GroundSprites[0]->draw(ox::core::CPosition2d<int>(offsetX + x, offsetY + y), clip, 0xffffffff);
     for (unsigned int i = 0; i < Doodads.size(); ++i)
     {

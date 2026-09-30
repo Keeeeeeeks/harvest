@@ -59988,7 +59988,7 @@
     },
     {
       "unit": "HarvestFull/harvest/game/CWorld.cpp",
-      "object_sha256": "944d77418d5c27156fbce0863159c05f9a7b769096dcc22c2d6c132d6494e8e7",
+      "object_sha256": "a00322c995575e6895ef45def508806857797145c0dd4ada7e1f9199ff3a7f55",
       "exact": false,
       "sections": [
         {
@@ -59998,7 +59998,7 @@
           "exact": false,
           "address": "0x45fdd0",
           "first_difference": 522,
-          "differing_bytes": 6026,
+          "differing_bytes": 5508,
           "misplaced_symbols": [
             {
               "symbol": "_ZNK7harvest4game6CWorld23getVisibleGameFieldSizeEv",
@@ -60166,22 +60166,6 @@
               "addend": -4,
               "destination": "0x45fe70",
               "reason": "different destination",
-              "matches": false
-            },
-            {
-              "offset": 1253,
-              "type": 2,
-              "symbol": ".LC4",
-              "addend": -4,
-              "reason": "unmapped or truncated range: -0x6fe0f847+0x4",
-              "matches": false
-            },
-            {
-              "offset": 1323,
-              "type": 2,
-              "symbol": ".LC5",
-              "addend": -4,
-              "reason": "unmapped or truncated range: 0x797517ff+0x4",
               "matches": false
             },
             {
@@ -61121,8 +61105,8 @@
             {
               "symbol": "_ZN7harvest4game6CWorld16renderBackgroundERKN2ox4core11CPosition2dIfEEPNS2_3gui8IGUIFontEPNS3_5CRectIiEE",
               "address": "0x460220",
-              "size": 629,
-              "fde": false,
+              "size": 630,
+              "fde": true,
               "global": true,
               "exact": false
             },
@@ -61315,6 +61299,16 @@
             },
             {
               "address": "0x5f948c",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f9284",
+              "size": 4,
+              "kind": "merged constant"
+            },
+            {
+              "address": "0x5f7c20",
               "size": 4,
               "kind": "merged constant"
             },
@@ -61984,7 +61978,7 @@
           "/out/HarvestFull__harvest__game__CWorld.o"
         ],
         "inputs": {
-          "src/HarvestFull/harvest/game/CWorld.cpp": "e30418d15cfbc6ea3f8c19730846f0e24fe83cb90ba276236dff46bc66bab2fa",
+          "src/HarvestFull/harvest/game/CWorld.cpp": "1409dd0e75506cd0f17cc557942d70310eb5b08304547dd62dd5d080c11c9fa2",
           "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
@@ -62033,7 +62027,7 @@
           "src/ox/io/IFileSystem.h": "966284bbb4b7c00145041c2855a2f494fdd53b397f1308bc9f05ed49ae755668"
         },
         "system_headers": 129,
-        "object_sha256": "944d77418d5c27156fbce0863159c05f9a7b769096dcc22c2d6c132d6494e8e7"
+        "object_sha256": "a00322c995575e6895ef45def508806857797145c0dd4ada7e1f9199ff3a7f55"
       },
       "fuzzy_target_sha256": "19c1a0fd14fc994ec136600f2706df81ff46df80647b887eca9a257b3fd433be",
       "fuzzy_functions": [
@@ -62107,7 +62101,7 @@
           "address": "0x460220",
           "size": 630,
           "symbol": "_ZN7harvest4game6CWorld16renderBackgroundERKN2ox4core11CPosition2dIfEEPNS2_3gui8IGUIFontEPNS3_5CRectIiEE",
-          "percent": 80.0629
+          "percent": 98.62893
         },
         {
           "address": "0x4604a0",
@@ -63314,7 +63308,7 @@
     "config": {
       "functionRelocDiffs": "data_value"
     },
-    "report_sha256": "941fcb3aeabb521ee102604ef4e3f4b181a60d33494df8173c5a309d79e20270"
+    "report_sha256": "8f99ad2737afb4067ca94b7cf00c9a46dc4263c7aa556775243b8152996c40e3"
   },
   "link": {
     "status": "unavailable",

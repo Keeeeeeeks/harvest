@@ -93,3 +93,18 @@ are unchanged. A partial improvement may still leave the unit inexact. After app
 block specification's ranges/hash if continuing the search, run `hv match` for the unit to refresh
 its regular reports and objdiff objects, and run `just progress-capture` before committing source
 changes. Search evidence and compiled objects remain local.
+
+## Gameplay near-miss checks, 2026-09-30
+
+After recovering the complete `CWorld` source, bounded searches over the top-level function
+blocks preserved the exact baseline but found no improvement:
+
+| Unit | Distinct candidates evaluated | Exact functions before and after |
+| --- | ---: | ---: |
+| `HarvestFull/harvest/entity/CPerimeterBomb.cpp` | 13 | 24/25 |
+| `HarvestFull/harvest/game/CWorld.cpp` | 78 | 30/38 |
+
+Both runs used `--apply`; neither changed the source because no candidate improved the score.
+These results constrain the tested definition orders, not alternative source or header shapes.
+A separate native-source correction computes the background tile origin once as a 2D position;
+its objdiff score is 98.63%, while the function remains inexact and earns no exact credit.
