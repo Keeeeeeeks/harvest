@@ -173,3 +173,7 @@
 ["HarvestFull/harvest/game/CStatistics.cpp"]
 ".text" = 0x45a040
 ".bss" = 0x86b920
+
+["daisy/video/Null/CFPSCounter.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x86c160
