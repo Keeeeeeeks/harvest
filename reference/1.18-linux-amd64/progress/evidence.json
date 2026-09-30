@@ -3748,7 +3748,7 @@
           "src/ox/core/CHiddenFloat.cpp": "d2205b61b1e19a25eb4f3f5f798b8b16cb7f5285bb51c599602074e1556405df",
           "src/ox/core/CHiddenFloat.h": "5030941eba704edd2d4d8d9e1236d29af77b85b05df0bbea1dd33b0c1d38b1e9",
           "src/ox/core/../algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
-          "src/ox/core/../io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/core/../io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/core/../io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/core/../io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -4084,7 +4084,7 @@
           "src/ox/core/CHiddenInt.cpp": "8e1d01b031497441dac9678e3341abdb4ec16a5b651fcf5af533b79346a3cd66",
           "src/ox/core/CHiddenInt.h": "939d3308395db3fc5ca12cb89e6627301452b30cfe8167f3b26115f46f5f33f6",
           "src/ox/core/../algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
-          "src/ox/core/../io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/core/../io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/core/../io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/core/../io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/core/../io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -7397,7 +7397,7 @@
           "src/ox/algo/CArrayFunctions.h": "c1c020c147e23685af15997be3c5df8a5184f8f23c4a9c990de88d3d928ad679",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
           "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -9903,7 +9903,7 @@
           "src/HarvestFull/harvest/entity/CSparkMoverEntity.h": "f12399c9f256759e67f949027bc8ba4cccc07ad2d399d0e84dc9cad03a8c392e",
           "src/HarvestFull/harvest/entity/CSparkProducerEntity.h": "77125a31b58d71b4a0f59372bf5128edb7b1dbb50e58eee42d1cb54b71c4afef",
           "src/ox/entity/ITestEntityFunction.h": "b178c234a2902d6a14e5584e0870db48927a7a02e2fd3d12a01ff408ffa4f9af",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -11856,7 +11856,7 @@
           "src/ox/entity/COxEntityManager.h": "a9f061c257146a727b08ad801be7e4c434d8043b30124eb83012f44f0c22e1de",
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -12657,7 +12657,7 @@
           "src/HarvestFull/harvest/entity/CSparkEntity.h": "2c3afebf49696fd20716c5ed9b435485c613d49ec744b585ae1216cc5e5ddcc4",
           "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -13470,7 +13470,7 @@
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -14232,7 +14232,7 @@
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
           "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -15533,7 +15533,7 @@
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
           "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -16952,7 +16952,7 @@
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
           "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
           "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -17830,7 +17830,7 @@
           "src/HarvestFull/harvest/entity/CEntityManager.h": "508cf4e6e1ce63b88243246536b953b2f6920e93a0b6a8cf43a2c5399ba05dd0",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
           "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -18267,7 +18267,7 @@
           "src/ox/entity/../core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
           "src/HarvestFull/harvest/settings/CAlienPriorities.h": "5142c1d66d9e1513171353b38b667aa34d2f70aabb0868b23570c189dc2938f3",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -30560,7 +30560,7 @@
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
           "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
           "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -35322,7 +35322,7 @@
           "src/HarvestFull/harvest/settings/CSystemConfig.h": "7130ec75814ede586208f9af7cf795d6feccde563c9d5c628fca28e1f3bcd5e1",
           "src/HarvestFull/harvest/settings/CAlienPriorities.h": "5142c1d66d9e1513171353b38b667aa34d2f70aabb0868b23570c189dc2938f3",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -46871,7 +46871,7 @@
           "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4",
           "src/HarvestFull/harvest/entity/CBuildableItems.h": "eb3fb72dcff5722ed2e57c25fedf7bdb4a0a93b3c12560f6d8198ac4a30278fd",
           "src/HarvestFull/harvest/game/CStatistics.h": "4f8d081bebc7f0c08a5bf1703919f2ab632fffeb497f6d95ad083eb7e0c0a72c",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -57409,7 +57409,7 @@
           "src/ox/entity/../TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/HarvestFull/harvest/game/CLuaManager.h": "491cc7e0c717ee506bb1bae40d3453629fb7c32b65567ce4a570aa03d0a756e8",
           "src/HarvestFull/harvest/game/CLuaFileValues.h": "728d3bc3bc583815cf68b010e7407dc002b8f614c721ccb06f7af5d0a25f13d1",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -57759,7 +57759,7 @@
     },
     {
       "unit": "HarvestFull/harvest/entity/CEntityManager.cpp",
-      "object_sha256": "00d7774e42c68eb36fdb9a79e027327aed4f3da19c6e92b86aba28c05c95c7df",
+      "object_sha256": "dbdc16077e661d23eeee71e1859158081e4d7032eceea25ec91b4514fec29092",
       "exact": false,
       "sections": [
         {
@@ -57769,7 +57769,7 @@
           "exact": false,
           "address": "0x430390",
           "first_difference": 951,
-          "differing_bytes": 567,
+          "differing_bytes": 566,
           "misplaced_symbols": [
             {
               "symbol": "_ZN7harvest6entity14CEntityManager28calculateGridCoordinateClampEf",
@@ -58172,7 +58172,7 @@
               "size": 202,
               "fde": true,
               "global": true,
-              "exact": false
+              "exact": true
             },
             {
               "symbol": "_ZN7harvest6entity14CEntityManagerD2Ev",
@@ -58743,7 +58743,12 @@
           "/out/HarvestFull__harvest__entity__CEntityManager.o"
         ],
         "inputs": {
-          "src/HarvestFull/harvest/entity/CEntityManager.cpp": "9626154f642d5444614016fbabd8e41d9e66743a24f6aae417bba8703d0ecc4c",
+          "src/HarvestFull/harvest/entity/CEntityManager.cpp": "c7bbdc8adb403a3c86887b71070dfdf9292340ec00c2531b76225a9254e43f9d",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
+          "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
+          "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
+          "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
           "src/HarvestFull/harvest/game/CWorld.h": "68255f5712380375e1c8e0a35ddaddd5c4c9781831c84c83bc717b06bc64ddb9",
           "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
           "src/ox/algo/CRand.h": "2f534618ac828688ba6b51b1aa13ef4e076502174ccaa6a0117aa8bc5f7b89f9",
@@ -58787,15 +58792,10 @@
           "src/ox/entity/ITestEntityFunction.h": "b178c234a2902d6a14e5584e0870db48927a7a02e2fd3d12a01ff408ffa4f9af",
           "src/ox/entity/ITestBestEntityFunction.h": "90447fc2502db934b5ad9328259525c13c12ecd827d1c86fc27db02b56345581",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
-          "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
-          "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
-          "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
-          "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
-          "src/ox/io/../core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903"
+          "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c"
         },
         "system_headers": 132,
-        "object_sha256": "00d7774e42c68eb36fdb9a79e027327aed4f3da19c6e92b86aba28c05c95c7df"
+        "object_sha256": "dbdc16077e661d23eeee71e1859158081e4d7032eceea25ec91b4514fec29092"
       },
       "fuzzy_target_sha256": "56daa697ef181efdcc0ca92edc093211b240a0c00fa40c78ee891c1383ba8bb9",
       "fuzzy_functions": [
@@ -59007,7 +59007,7 @@
           "address": "0x431a50",
           "size": 202,
           "symbol": "_ZN7harvest6entity14CEntityManagerC2Ev",
-          "percent": 99.70588
+          "percent": 100.0
         },
         {
           "address": "0x431b20",
@@ -61624,7 +61624,7 @@
           "src/ox/video/IParticleState.h": "c559d0b3c539917d9e81f8917e46c51adccd9be465b7c7c71cb25c1b94a132b1",
           "src/ox/core/CMath.h": "31ca0d074ce10a68ce8e7def8ea12df2033aa74abc07f04b4bc0fe56e41f939c",
           "src/ox/core/CBasic.h": "6ab67d38a520797f9a0133213b91bc5bd334017ee607a77273999339b7195ef2",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -62642,7 +62642,7 @@
           "src/ox/entity/../core/CPosition2d.h": "2c21728e70f5b8b6051a9336bd34be433dd7d93c31b53510fb4eed4dbd359ba4",
           "src/ox/entity/../core/CRect.h": "057a212c154928473896ebe68e8c6e5a0bd045be1bfe04e7185dfa2748061689",
           "src/ox/entity/../core/CVector3d.h": "65b36a6dbf77658e1517a5c7bc39a59d683a873b8404a6252f71ff8eca2fc393",
-          "src/ox/io/CHelpIO.h": "32619abe78f4b8be22f51dc079997fbd12e682bb326545d2fe37845599856780",
+          "src/ox/io/CHelpIO.h": "7bc9106660c73f224ba5cd443588a4be1647925f8b8ee78b3b558b5e2a8a9946",
           "src/ox/io/IReadFile.h": "be74749f72e89abb4f266c90eff56f1bab622147001b2cee148b6ef533021807",
           "src/ox/io/../IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
           "src/ox/io/IWriteFile.h": "e217871c7372e3db36a084986831e95b25afd47a7ed53577295db27a1e3b1d9d",
@@ -62911,7 +62911,7 @@
     "config": {
       "functionRelocDiffs": "data_value"
     },
-    "report_sha256": "14c39200c8590f9d183b0df1a298ab00edaca8d7d6509523d0e634ce6f0a38b6"
+    "report_sha256": "fd0c7502f9ef022c2e8a99e5c80211539150008971f0ba6dbc13fe9de640e580"
   },
   "link": {
     "status": "unavailable",

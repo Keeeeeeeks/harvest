@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <math.h>
+#include "ox/io/CHelpIO.h"
 #include "harvest/game/CWorld.h"
 #include "harvest/entity/CEntityManager.h"
 #include "harvest/entity/CHarvestEntity.h"
@@ -17,7 +18,6 @@
 #include "ox/core/CBasic.h"
 #include "ox/core/CMath.h"
 #include "ox/algo/CRand.h"
-#include "ox/io/CHelpIO.h"
 
 namespace harvest {
 namespace entity {

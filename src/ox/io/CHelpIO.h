@@ -20,11 +20,11 @@ public:
     static int readInt(IReadFile* file);
     static float readFloat(IReadFile* file);
     static void writeInt(IWriteFile* file, int value);
-    static void writeShort(IWriteFile* file, short value);
-    static void writeWideString(IWriteFile* file, const core::CString<wchar_t>& value, bool ansi);
     static void writeFloat(IWriteFile* file, float value);
     static void readString(IReadFile* file, core::CString<char>& value);
     static void writeString(IWriteFile* file, const core::CString<char>& value);
+    static void writeShort(IWriteFile* file, short value);
+    static void writeWideString(IWriteFile* file, const core::CString<wchar_t>& value, bool ansi);
 };
 
 } // end namespace io
