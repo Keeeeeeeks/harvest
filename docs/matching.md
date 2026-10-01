@@ -132,8 +132,6 @@ brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStr
 `SEvent`/`IEventReceiver` (network event only), `IOxDevice`, `INetworkDevice`/`SServerInfo`, and
 declarations of `CCriticalSection` and `CThread`.
 
-
-
 The complete `CHelpIO` unit matches `.text` at `0x5eaf90`, `.bss` at `0x87427c`, and its
 103-byte `.gcc_except_table` at `0x666e8b`. Exception-table placement is independently pinned by
 the `readWideString` FDE's LSDA pointer and the unique occurrence of the complete table's bytes.
@@ -149,3 +147,155 @@ terminated and unterminated strings, 16-bit wide-character truncation, counted s
 embedded NULs, and zero/negative/maximum decimal appends. A disk-backed filename smoke selected
 `00` in an empty directory, then `11` after creating files `00` through `10`. The complete game
 was not executed.
+
+The complete `CFPSCounter` unit matches its 198-byte `.text` at `0x599c90` and one-byte
+`.bss` at `0x86c160`. The Mac unit identifies the methods; the Linux FDEs pin their extents,
+and the unchanged Irrlicht 0.7 calculation identifies the 65-byte `registerFrame` body at
+`0x599ce0`. Its 1000.0f constant and every relocation are checked without masking.
+The counter starts with 100 counted frames, increments before testing elapsed time, updates
+only after strictly more than 2000 milliseconds, truncates the floating-point FPS result to
+an integer, and resets the sample. Unsigned subtraction preserves clock rollover behavior.
+A smoke executable linked against the matched object in the pinned GCC 4.4.3 container
+checked initial state, the exact threshold, accumulated frames, truncation, reset, and rollover.
+The complete game was not executed.
+
+Findings:
+
+- Linux function order within `.text` follows GCC 4.4's `cgraph_expand_all_functions`: the reverse
+  of `cgraph_postorder`, which walks the node list newest first and emits callers before callees.
+  Inline copies are prepended to that list as the IPA inliner creates them, and each copy has the
+  function it was inlined into as its only caller, so a function's position follows the time of the
+  *last* inlining decision into it. That order comes from the inliner's badness heap, which depends
+  on the estimated sizes of the inline helpers (`CString`, `SServerInfo`, `wideToAnsi`). Two sources
+  that compile to the same bytes can still order differently, so the order carries information about
+  the exact form of shared inline code. CHTTPConnectionHandler's order is still open: Linux has
+  `C2 C1 joinThread <clone> doGet`, ours `<clone> C1 C2 doGet joinThread` (definition order already
+  follows Mac, which keeps source order). Useful tools: `-fdump-ipa-cgraph -fdump-ipa-inline`.
+- GCC's inlining and register allocation depend on the whole object: changing `OnEvent` changed
+  whether `subString` was inlined (through estimated call frequencies) and the registers in `doGet`.
+  Match a unit's biggest function before trusting its neighbours.
+- Runs of single-byte `nop`s mark the gap between separate input sections (a new object or a COMDAT
+  section); within one section the assembler pads with multi-byte nops (a lone 0x90 is either).
+- Each object's iostream static initializer stores its own `.bss` slot, and the slots are consecutive
+  in link order, which gives a unit's boundaries and its `.bss` placement.
+- Register allocation follows the order local variables are declared and whether a value reuses a
+  variable (`level = (level + 1) / 2` rather than a new `count`); when only registers differ, try
+  declaration orders before rewriting logic.
+- GCC's fold moves a plain variable to the right of `==`, so `c == table[i]` still compares
+  `table[i], c`; to get the other operand order compare two locals.
+- Output order moves with where a function is defined even when it is inlined everywhere: the Wave
+  accessors of `CThreatLevel` sit in the Wave section of the file although Mac lists them next to
+  their `CThreatLevel` wrappers.
+- Spelling matters and the original is not minimal: `Size < Pos + finalPos`, a max-style
+  `Size = Pos < Size ? Size : Pos`, an explicit `return CString<char>(result)` copy in `wideToAnsi`,
+  early returns in `getContentLength`, a `for (;;)` state loop with per-branch `break`/`continue`.
+- The original has bugs that must be kept: `doGet` returns without leaving its lock when busy,
+  `wideToAnsi` frees an array with scalar `delete`, and the "Interrupted" event never sets its type.
+- When a section's known symbols disagree, the earliest one anchors it and the first misplaced
+  symbol shows where the lengths diverge: the function just before it differs.
+- A return type can show only in other functions: `update`/`updateLogic` return `int`, not `bool`
+  (the target zero-extends `setle` results), and switching it fixed five functions of
+  CHarvestEntity at once, including ones that never touch it.
+- GCC evaluates constructor arguments right to left, so `CPosition2d<int>((int)x, (int)y)` converts
+  y first, while float screen positions built by assigning `pos.X` then `pos.Y` compute x first.
+  Temporaries passed straight into a virtual call are built after the vtable load; named locals
+  before it.
+- Branch structure moves alignment padding: `CFindSparkFunctor::testEntity` compiled to the same
+  instructions with its three tests in one `if`, but only a separate `wantsSpark` test gave the
+  target's (absent) jump-target alignment.
+- A wrong virtual return type can be invisible in its own unit: `onSpark` returns the spark's next
+  target id (or -1, or 0), which only CSparkEntity showed.
+- `CPerimeterBombExplosion` moves before damping its speed. It detonates after three seconds, or
+  when a bomb that has exceeded speed 10 leaves the movable world. Alien damage falls linearly
+  with squared distance within radius 200; nearby bombs receive a radial push within radius 100.
+  Event 21/20 requires 20 kills; event 21/11 requires six kills and a bomb that has moved.
+- `CAlienPriorities` defaults all 14 weights to 2, with range preference and hold-fire disabled.
+  Hold-fire is loaded only from save version 30 onward. Its comma parser leaves unprovided weights
+  unchanged, includes the terminating character in the final substring, and parses an empty final
+  token as zero. The native comparison is `start <= text.size()`, not a strict inequality.
+- Multi-string constructors (CMinerEntity, CSparkMoverEntity) differ only in the first inlined
+  `CString` copy loop, whose compare operands are swapped (`cmp len, i; jge` in the target). Single
+  string constructors match, so this is likely which inliner pass inlined that first copy.
+- A unit's `.bss` can start with a variable it defines before the iostream slot:
+  CSparkMoverEntity defines `g_useLargeSparkDeathParticle` there.
+- `selectSparkTarget` is still open: the target fetches the next element before the loop's exit
+  test (only a loop that loads it there comes close), and it keeps `this` and `excludeId` in the
+  opposite callee-saved registers from ours.
+- World scenery uses elliptical collision radii, with vertical distance multiplied by 1.5,
+  and a 256-unit spatial grid on planet 2. Placement protects the starting area and retries up
+  to four times; the first scenery choice of each planet-2 batch is forced to type 0.
+- Expansion scatters minerals in 512-unit cells, reducing their count with distance from
+  `(512, 512)`. The native special case resets counts from -24 through -16 to 20 before
+  clamping to 2..20. Both achievement events 21/15 and 21/16 require area 10,485,760.
+  The camera's oversize-height branch writes `X`, which the reconstruction preserves.
+
+- Defense towers form directed chains. Back-target counts scale range and damage; a chain can
+  reverse toward its end tower. The recovered aim-rotation and spark-refill routines match exactly,
+  but the constructors and `updateLogic` still differ. A constructor with the same FDE size is not
+  an exact match and receives no exact credit.
+- Missile types 0, 1 and 2 are the basic missile, MIRV and Eagle. Basic blasts sort nearby aliens
+  by squared distance and affect at most seven; MIRV selects three targets for tempest blasts;
+  Eagle missiles refresh an entity reference and may retarget. Those flight and launch loops remain
+  inexact. The acceleration/clamp routine, recursive lightning geometry, tempest damage loop,
+  projectile constructors and distance-sorting helpers match exactly.
+- Missile constructor integers are the owner id, missile type and target id. The target is an
+  `SEntityReference` at offset 0x50; its id and update counter are not standalone kill counters.
+- The entity manager has four grid layers. Building searches use layer 0 and alien targeting uses
+  layer 1, whose cells begin at 0x14e8 on Linux amd64. The turret status display uses reload
+  intervals of 10 seconds (basic), 28 seconds (Eagle), and 18 seconds (Tempest).
+- Dropship bullets travel at 1,800 units per second and leave a beam trail capped at 120 units.
+  Their impact damages aliens within 20 units with cubic distance falloff. The exact native code
+  centers that damage search on the bullet's position before the impact step; it does not move
+  the bullet to its target on that frame. The ship's missile and gun targets are separate entity
+  references, and its collision radius is 1. The partial audio interface records virtual slot
+  order; return types unused by recovered callers remain provisional.
+
+## Inferred and merged sections
+
+A data section with no known symbol is placed where the references to it from placed code imply,
+when all of them agree, and is then compared byte for byte. References into merged string or
+constant sections (for example `.rodata.str1.1`, or `.rodata.str4.4` for wide strings) are checked
+by content: the string or constant at the referenced offset must equal the target's.
+
+An inline copy (a COMDAT section) kept from another object reads that object's copy of a file-level
+static, such as a header's `static const int` table, so its reference cannot land in our copy. A
+reference from such a section to a local object is checked by content: the target's object at the
+same place must hold our object's bytes. Both copies must be read-only: equal initial bytes do not
+make mutable statics interchangeable.
+
+Exception tables (`.gcc_except_table`) are referenced only from `.eh_frame`, which is not compared.
+Each of our FDEs names its function and its table offset; the target FDE of the placed function
+gives the table's address, and the section is placed when every function implies the same base.
+
+## Per-function placement and learned symbols
+
+Each function of an executable section is compared at its own target address, so function bodies
+can match before the unit's order does; the section is exact only when every function lands at
+base + offset. Functions without a known name (static initializers, GCC clones) take the target
+function after the one before them when its size fits, else the one FDE of their size in the known
+range, so a length difference in one function does not misplace the rest. `hv match --learn` adds the addresses of unknown symbols referenced by
+functions that match everywhere else, when every such reference agrees (evidence `reloc:<unit>:<fn>`),
+and of the unit's own global functions that match exactly (evidence `match:<unit>`), so units that
+call them can resolve those calls.
+
+## Definition-order search
+
+For bounded definition-order experiments, see [Definition-order search](search.md). `hv search`
+uses explicit source blocks, preserves existing exact matches, saves a candidate patch and verifies
+an improvement before optional application.
+
+## Shared headers
+
+A recovered unit declares what it uses from classes it does not own (for game code these are mostly
+`CWorld`, the entity classes, `CSystemConfig` and the event list) in the header the Mac debug map
+names for that class, marked partial:
+
+- only the members and functions the recovered units use, with virtual functions in vtable order
+  (their names and order come from the ported vtables);
+- sizes that matter to a caller (for example, a caller allocating a not-yet-recovered class) kept by an explicit
+  `Unrecovered` byte array until the owning unit is recovered;
+- file-level statics that every includer defines (`ENERGY_PROGRESS_COLOR`, the 4096.0 grid offset)
+  in a header, because each object initializes its own copy in its static initializer.
+
+The owning unit replaces the partial declaration when it is recovered. Game sources include from
+the source roots (`-Isrc -Isrc/HarvestFull`, as `ox/...` and `harvest/...`).
