@@ -11,6 +11,8 @@ placed; each reference into them is checked by comparing the referenced content 
 Nothing is masked: a relocation that cannot be resolved or checked makes its section inexact.
 """
 
+import bisect
+import functools
 import hashlib
 from dataclasses import dataclass, field
 
@@ -115,8 +117,7 @@ class Resolver:
 
 
 def section_symbols(obj: Elf):
-    table = obj.elf.get_section_by_name(".symtab")
-    return list(table.iter_symbols()) if table is not None else []
+    return obj.symtab()
 
 
 @dataclass
@@ -140,6 +141,13 @@ class Layout:
         return all(address == self.base + start for start, _, address in self.segments)
 
 
+@functools.lru_cache(maxsize=4)
+def fde_index(fdes: frozenset) -> tuple[dict[int, int], list[int], list[tuple[int, int]]]:
+    """Each FDE's size by start address, the sorted start addresses, and the sorted FDEs."""
+    sizes = dict(fdes)
+    return sizes, sorted(sizes), sorted(fdes)
+
+
 def layout_functions(section_index: int, base: int, symbols, resolver: Resolver, fdes) -> Layout:
     """Place each function of an executable section at its own target address.
 
@@ -156,12 +164,14 @@ def layout_functions(section_index: int, base: int, symbols, resolver: Resolver,
         key=lambda s: s["st_value"],
     )
     layout = Layout(base)
-    fde_sizes = dict(fdes)
+    fde_sizes, starts, ranges = fde_index(frozenset(fdes))
     known = {s.name: resolver.known[s.name] for s in functions if s.name in resolver.known}
     if known:
         low = min(known.values())
         high = max(address + s["st_size"] for s in functions if (address := known.get(s.name)) is not None)
-        free = sorted((a, n) for a, n in fdes if low <= a < high and a not in known.values())
+        taken = set(known.values())
+        span = ranges[bisect.bisect_left(ranges, (low,)) : bisect.bisect_left(ranges, (high,))]
+        free = [(a, n) for a, n in span if a not in taken]
     else:
         free = []
     for symbol in functions:
@@ -174,10 +184,11 @@ def layout_functions(section_index: int, base: int, symbols, resolver: Resolver,
                 # the target function that comes next after the one before it
                 previous_start, previous_end, previous_address = layout.segments[-1]
                 extent = fde_sizes.get(previous_address, previous_end - previous_start)
-                following = min(
-                    (a for a in fde_sizes if a >= previous_address + extent),
-                    default=previous_address + start - previous_start,
-                )
+                after = bisect.bisect_left(starts, previous_address + extent)
+                if after < len(starts):
+                    following = starts[after]
+                else:
+                    following = previous_address + start - previous_start
             if (following, size) in fdes:
                 address = following
             elif (base + start, size) in fdes:
@@ -206,7 +217,7 @@ def place_sections(
             by_section.setdefault(symbol["st_shndx"], []).append(symbol)
     placements = {}
     names = {}
-    for index, section in enumerate(obj.elf.iter_sections()):
+    for index, section in enumerate(obj.sections):
         names[section.name] = index
         if not section["sh_flags"] & SHF_ALLOC or section.name in SKIPPED or is_merged(section):
             continue
@@ -354,14 +365,14 @@ def check_local_copy(
     """Compare the file-level static object holding a section offset with the target's copy, which
     holds `address` at the same place. Only read-only, relocation-free objects are comparable:
     equal initial bytes do not make two mutable objects interchangeable."""
-    section = obj.elf.get_section(shndx)
+    section = obj.sections[shndx]
     if section["sh_type"] != "SHT_PROGBITS" or not section["sh_flags"] & SHF_ALLOC:
         return False, "different destination"
     if section["sh_flags"] & SHF_WRITE:
         return False, "mutable local object"
     holders = [
         s
-        for s in obj.elf.get_section_by_name(".symtab").iter_symbols()
+        for s in obj.symtab()
         if s["st_shndx"] == shndx
         and s["st_info"]["bind"] == "STB_LOCAL"
         and s["st_info"]["type"] == "STT_OBJECT"
@@ -393,7 +404,7 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
     fdes = target.fde_ranges()
     placements = place_sections(obj, resolver, explicit, fdes)
     symbols = section_symbols(obj)
-    sections = list(obj.elf.iter_sections())
+    sections = obj.sections
     infer_placements(obj, target, placements, sections)
     infer_exception_tables(obj, target, placements, sections)
     results = []
@@ -447,9 +458,10 @@ def expected_bytes(target: Elf, layout: Layout, size: int) -> tuple[bytes, set[i
     if layout.contiguous:
         return target.read(layout.base, size), set()
     expected = bytearray(size)
+    ignored = set(range(size))
     for start, end, address in layout.segments:
         expected[start:end] = target.read(address, end - start)
-    ignored = {o for o in range(size) if not layout.in_function(o)}
+        ignored.difference_update(range(start, end))
     return bytes(expected), ignored
 
 
