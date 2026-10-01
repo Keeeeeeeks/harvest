@@ -102,6 +102,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `ox/io/CHelpIO.cpp` | 19/19 | Complete unit: numeric and string I/O, free-filename selection, static initializer; all compared sections match |
 | `ox/algo/CRand.cpp`, `CSimplePress.cpp`, `CTimeCounter.cpp` | 35/35 | exact |
 | `ox/core/CBasic.cpp`, `CCipherKey.cpp`, `CCriticalSection.cpp`, `CHiddenFloat.cpp`, `CHiddenInt.cpp`, `CThread.cpp` | 61/61 | exact |
+| `daisy/video/Null/CFPSCounter.cpp` | 5/5 | exact; Irrlicht 0.7 FPS calculation, both constructors and the iostream initializer |
 | `HarvestFull/harvest/game/CThreatLevel.cpp` | 76/81 | game modes and waves; five functions differ only in register allocation (and one switch layout) |
 | `ox/entity/COxEntity.cpp` | 25/25 | exact; keeps the 2d constructors' `Position.Y` typo |
 | `HarvestFull/harvest/entity/CBuildingEntity.cpp` | 31/31 | exact; the building's Lua view (Lunar method table) |
@@ -146,6 +147,17 @@ terminated and unterminated strings, 16-bit wide-character truncation, counted s
 embedded NULs, and zero/negative/maximum decimal appends. A disk-backed filename smoke selected
 `00` in an empty directory, then `11` after creating files `00` through `10`. The complete game
 was not executed.
+
+The complete `CFPSCounter` unit matches its 198-byte `.text` at `0x599c90` and one-byte
+`.bss` at `0x86c160`. The Mac unit identifies the methods; the Linux FDEs pin their extents,
+and the unchanged Irrlicht 0.7 calculation identifies the 65-byte `registerFrame` body at
+`0x599ce0`. Its 1000.0f constant and every relocation are checked without masking.
+The counter starts with 100 counted frames, increments before testing elapsed time, updates
+only after strictly more than 2000 milliseconds, truncates the floating-point FPS result to
+an integer, and resets the sample. Unsigned subtraction preserves clock rollover behavior.
+A smoke executable linked against the matched object in the pinned GCC 4.4.3 container
+checked initial state, the exact threshold, accumulated frames, truncation, reset, and rollover.
+The complete game was not executed.
 
 Findings:
 

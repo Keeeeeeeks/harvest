@@ -2127,6 +2127,10 @@ address	size	symbol	evidence
 0x585b40	12	_ZN2ox5scene14IAnimatedMeshXD0Ev	mac-vtable:_ZTVN2ox5scene14IAnimatedMeshXE:3
 0x58f590	509	_ZN5daisy5scene12CXFileReaderD0Ev	mac-vtable:_ZTVN5daisy5scene12CXFileReaderE:3
 0x58f790	502	_ZN5daisy5scene12CXFileReaderD1Ev	mac-vtable:_ZTVN5daisy5scene12CXFileReaderE:2
+0x599c90	21	_ZN5daisy5video11CFPSCounterC2Ev	manual:Mac-unit-order+Irrlicht-0.7-body+amd64-FDE
+0x599cb0	21	_ZN5daisy5video11CFPSCounterC1Ev	manual:Mac-unit-order+Irrlicht-0.7-body+amd64-FDE
+0x599cd0	3	_ZN5daisy5video11CFPSCounter6getFPSEv	manual:Mac-unit-order+Irrlicht-0.7-body+amd64-FDE
+0x599ce0	65	_ZN5daisy5video11CFPSCounter13registerFrameEj	manual:Mac-unit-order+Irrlicht-0.7-body+amd64-FDE
 0x599dc0	38	_ZN5daisy5video15CImageLoaderBmp21isALoadableFileFormatEPN2ox2io9IReadFileE	mac-vtable:_ZTVN5daisy5video15CImageLoaderBmpE:5
 0x59a260	1162	_ZN5daisy5video15CImageLoaderBmp9loadImageEPN2ox2io9IReadFileE	mac-vtable:_ZTVN5daisy5video15CImageLoaderBmpE:6
 0x59a6f0	55	_ZN5daisy5video15CImageLoaderBmpD0Ev	mac-vtable:_ZTVN5daisy5video15CImageLoaderBmpE:3

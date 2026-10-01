@@ -17,8 +17,8 @@
     "tools/hv/objdiff.py": "b2157b405263ec966eca3abcdf47e0cb56171100d0aee42ea83af28595497637",
     "tools/hv/delink.py": "536857fac0b1e250a693cf0f2ab9739f53dbe0b966b4ea047fea9b32028b22e5",
     "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
-    "config/1.18-linux-amd64/symbols.tsv": "6571c098ad71cad4775c4b00ebb4d545e66048069adb8cae8d84ea57cd6cc194",
-    "config/1.18-linux-amd64/units.toml": "765b2b5cdc637ea5f1b924f708f17246acd00c2a3bcf310879e192d7999ef532"
+    "config/1.18-linux-amd64/symbols.tsv": "4e0d5cad513581f3b3cac77c15c9eddcb312980fe62c1bf1c510707dd830bb5b",
+    "config/1.18-linux-amd64/units.toml": "d7558b9a8eb468f3e3cd91ffaea042927cdb9d849721ede06a5d258eeebaa7d4"
   },
   "units": [
     {
@@ -63293,6 +63293,144 @@
       ]
     },
     {
+      "unit": "daisy/video/Null/CFPSCounter.cpp",
+      "object_sha256": "d0ff9f07efc60c7cf17ec268fd02a20c57c5dda306c36416481240c83f83e356",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 198,
+          "placement": "symbol: _ZN5daisy5video11CFPSCounterC2Ev",
+          "exact": true,
+          "address": "0x599c90",
+          "references": 7,
+          "functions": [
+            {
+              "symbol": "_ZN5daisy5video11CFPSCounterC2Ev",
+              "address": "0x599c90",
+              "size": 21,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN5daisy5video11CFPSCounterC1Ev",
+              "address": "0x599cb0",
+              "size": 21,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN5daisy5video11CFPSCounter6getFPSEv",
+              "address": "0x599cd0",
+              "size": 3,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN5daisy5video11CFPSCounter13registerFrameEj",
+              "address": "0x599ce0",
+              "size": 65,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN5daisy5video11CFPSCounterC2Ev",
+              "address": "0x599d30",
+              "size": 38,
+              "fde": true,
+              "global": false,
+              "exact": true
+            }
+          ],
+          "data_ranges": [
+            {
+              "address": "0x5f2ce0",
+              "size": 4,
+              "kind": "merged constant"
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x86c160",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x86c160",
+              "size": 1,
+              "kind": "bss"
+            }
+          ]
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
+          "-MD",
+          "-MF",
+          "/out/daisy__video__Null__CFPSCounter.d",
+          "-c",
+          "src/daisy/video/Null/CFPSCounter.cpp",
+          "-o",
+          "/out/daisy__video__Null__CFPSCounter.o"
+        ],
+        "inputs": {
+          "src/daisy/video/Null/CFPSCounter.cpp": "f42eb17379c3b4b7cabd961b7537172fe6b2def39ed8902a06a825480ee6dd72",
+          "src/daisy/video/Null/CFPSCounter.h": "80c53853500f4c88a7b563fba4db1a52e9430aaa304871de791c744c5904b82f"
+        },
+        "system_headers": 99,
+        "object_sha256": "d0ff9f07efc60c7cf17ec268fd02a20c57c5dda306c36416481240c83f83e356"
+      },
+      "fuzzy_target_sha256": "ea2c67839a043a0f4204cef17439af3382e9f32ff24bb2fec2f2fe97830e8e36",
+      "fuzzy_functions": [
+        {
+          "address": "0x599c90",
+          "size": 21,
+          "symbol": "_ZN5daisy5video11CFPSCounterC2Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x599cb0",
+          "size": 21,
+          "symbol": "_ZN5daisy5video11CFPSCounterC1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x599cd0",
+          "size": 3,
+          "symbol": "_ZN5daisy5video11CFPSCounter6getFPSEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x599ce0",
+          "size": 65,
+          "symbol": "_ZN5daisy5video11CFPSCounter13registerFrameEj",
+          "percent": 100.0
+        },
+        {
+          "address": "0x599d30",
+          "size": 38,
+          "symbol": "_GLOBAL__I__ZN5daisy5video11CFPSCounterC2Ev",
+          "percent": 100.0
+        }
+      ]
+    },
+    {
       "unit": "HarvestFull/harvest/game/CScenario.cpp",
       "object_sha256": "dbd8448149fbb562481d3f80f5df3af9956771161946ceece598b5c79ae7c1ab",
       "exact": false,
@@ -68718,7 +68856,7 @@
     "config": {
       "functionRelocDiffs": "data_value"
     },
-    "report_sha256": "9e1974a5ccfa1592da4da37acfb16a03e80848db7ce7c0c0b299624dec556ce4"
+    "report_sha256": "36a90af6cd5c7abba676e1f64201fb019edeb935604493dda46c8655a2bf6b16"
   },
   "link": {
     "status": "unavailable",
