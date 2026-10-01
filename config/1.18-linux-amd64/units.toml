@@ -6,6 +6,10 @@
 ".text" = 0x5ea6f0
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x874270
+["daisy/video/Software/CZBuffer.cpp"]
+".text" = 0x4f8010
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x86c078
 
 ["ox/io/CMemReadFile.cpp"]
 # std::ios_base::Init object of the iostream static initializer
@@ -57,6 +61,12 @@
 ["ox/core/CCipherKey.cpp"]
 # std::ios_base::Init object of the iostream static initializer
 ".bss" = 0x874230
+
+["ox/io/CHelpIO.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x87427c
+# LSDA of readWideString; the complete 103-byte table matches at this unique address.
+".gcc_except_table" = 0x666e8b
 
 ["ox/algo/CSimplePress.cpp"]
 # m_staticIndices, then the std::ios_base::Init object of the iostream static initializer
@@ -179,6 +189,9 @@
 ".text" = 0x45a040
 ".bss" = 0x86b920
 
+["daisy/video/Null/CFPSCounter.cpp"]
+# std::ios_base::Init object of the iostream static initializer
+".bss" = 0x86c160
 ["HarvestFull/harvest/game/CScenario.cpp"]
 ".text" = 0x453ce0
 ".bss" = 0x86b914

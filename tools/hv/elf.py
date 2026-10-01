@@ -20,6 +20,17 @@ class Elf:
             or self.elf["e_type"] != kind
         ):
             raise ValueError(f"expected little-endian x86-64 {kind}")
+        # pyelftools re-parses a section header, and re-reads its bytes, on every access; the
+        # matcher looks sections, symbols and relocations up repeatedly, so parse each once
+        self.sections = list(self.elf.iter_sections())
+        self.mapped = [
+            (section, section.data())
+            for section in self.sections
+            if section["sh_flags"] & 2 and section["sh_type"] != "SHT_NOBITS"
+        ]
+        self._symbols = {}
+        self._relocations = {}
+        self._cache = {}
 
     @classmethod
     def load(cls, path: Path, kind: str):
@@ -28,12 +39,10 @@ class Elf:
     def read(self, address: int, size: int) -> bytes:
         if size <= 0:
             raise ValueError("range must be nonempty")
-        for section in self.elf.iter_sections():
-            if not section["sh_flags"] & 2 or section["sh_type"] == "SHT_NOBITS":
-                continue
+        for section, data in self.mapped:
             offset = address - section["sh_addr"]
             if 0 <= offset and offset + size <= section["sh_size"]:
-                data = section.data()[offset : offset + size]
+                data = data[offset : offset + size]
                 if len(data) == size:
                     return data
         raise ValueError(f"unmapped or truncated range: {address:#x}+{size:#x}")
@@ -41,17 +50,33 @@ class Elf:
     def word(self, address: int) -> int:
         return struct.unpack("<Q", self.read(address, 8))[0]
 
-    def relocations(self, section_index: int):
-        for section in self.elf.iter_sections():
-            if isinstance(section, RelocationSection) and section["sh_info"] == section_index:
-                if not section.is_RELA():
-                    raise ValueError("REL relocations are not supported")
-                table = self.elf.get_section(section["sh_link"])
-                for relocation in section.iter_relocations():
-                    yield relocation, table.get_symbol(relocation["r_info_sym"])
+    def symbols(self, table_index: int) -> list:
+        """The symbols of a symbol table section, by symbol index."""
+        if table_index not in self._symbols:
+            self._symbols[table_index] = list(self.sections[table_index].iter_symbols())
+        return self._symbols[table_index]
+
+    def symtab(self) -> list:
+        for index, section in enumerate(self.sections):
+            if section.name == ".symtab":
+                return self.symbols(index)
+        return []
+
+    def relocations(self, section_index: int) -> tuple:
+        """(relocation, symbol) pairs that apply to a section."""
+        if section_index not in self._relocations:
+            pairs = []
+            for section in self.sections:
+                if isinstance(section, RelocationSection) and section["sh_info"] == section_index:
+                    if not section.is_RELA():
+                        raise ValueError("REL relocations are not supported")
+                    table = self.symbols(section["sh_link"])
+                    pairs.extend((r, table[r["r_info_sym"]]) for r in section.iter_relocations())
+            self._relocations[section_index] = tuple(pairs)
+        return self._relocations[section_index]
 
     def section_at(self, address: int):
-        for section in self.elf.iter_sections():
+        for section in self.sections:
             if (
                 section["sh_flags"] & 2
                 and section["sh_addr"] <= address < section["sh_addr"] + section["sh_size"]
@@ -67,7 +92,7 @@ class Elf:
         section = self.section_at(address)
         if section is None or section["sh_type"] == "SHT_NOBITS":
             raise ValueError(f"no string data at {address:#x}")
-        data = section.data()
+        data = next(data for mapped, data in self.mapped if mapped is section)
         start = address - section["sh_addr"]
         end = data.find(b"\0", start)
         if end < 0:
@@ -76,6 +101,11 @@ class Elf:
 
     def copy_symbols(self) -> dict[str, int]:
         """Library data copied into the executable by R_X86_64_COPY, by symbol name."""
+        if "copies" not in self._cache:
+            self._cache["copies"] = self._copy_symbols()
+        return self._cache["copies"]
+
+    def _copy_symbols(self) -> dict[str, int]:
         rela = self.elf.get_section_by_name(".rela.dyn")
         if not isinstance(rela, RelocationSection):
             return {}
@@ -93,8 +123,12 @@ class Elf:
             self._fdes = [entry for entry in entries if isinstance(entry, FDE)]
         return self._fdes
 
-    def fde_ranges(self) -> set[tuple[int, int]]:
-        return {(entry["initial_location"], entry["address_range"]) for entry in self.fdes()}
+    def fde_ranges(self) -> frozenset[tuple[int, int]]:
+        if "fde_ranges" not in self._cache:
+            self._cache["fde_ranges"] = frozenset(
+                (entry["initial_location"], entry["address_range"]) for entry in self.fdes()
+            )
+        return self._cache["fde_ranges"]
 
     def fde_lsdas(self) -> dict[int, int]:
         """The exception table (LSDA) of each function that has one, by function address."""
@@ -102,6 +136,11 @@ class Elf:
 
     def plt_symbols(self) -> dict[str, int]:
         """Resolve each legacy x86-64 PLT entry through its GOT relocation."""
+        if "plt" not in self._cache:
+            self._cache["plt"] = self._plt_symbols()
+        return self._cache["plt"]
+
+    def _plt_symbols(self) -> dict[str, int]:
         plt = self.elf.get_section_by_name(".plt")
         rela = self.elf.get_section_by_name(".rela.plt")
         if plt is None or not isinstance(rela, RelocationSection):
