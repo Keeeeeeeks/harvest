@@ -256,6 +256,7 @@ class Evaluator:
         self.pending = {}  # digest -> batch compilation outcome, not yet evaluated
         self.ahead = {}  # object digest -> comparison result or error, not yet evaluated
         self.stats = {}  # input name -> (size, mtime, inode) when its hash was last verified
+        self.paths = {name: str(builds.ROOT / name) for name in context["inputs"]}
         self.evaluated = self.compiled = self.cache_hits = self.object_hits = 0
 
     def fresh(self):
@@ -265,7 +266,7 @@ class Evaluator:
         stale = []
         for name in expected:
             try:
-                stat = (builds.ROOT / name).stat()
+                stat = os.stat(self.paths[name])
             except FileNotFoundError:
                 raise ValueError(
                     "repository inputs changed during search; candidate was not applied"
