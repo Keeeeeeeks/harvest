@@ -27,6 +27,14 @@ this bounded search found no further improvement; it does not establish that the
 
 ## Selecting blocks
 
+The campaign recovery used an 80-candidate budget with two restarts and seed 0. Its 28 compiled
+definition orders improved `CScenario.cpp` from 58 to 61 exact functions while preserving every
+previous exact function and data section. Canonical verification confirmed the winner before
+application. The gains were the two character-message builders and the dialogue-info constructor.
+A subsequent native-backed change to the condition pointer's lifetime recovered the reinforcement
+script too, bringing the unit to 62/64. This does not establish whole-unit equality: the scheduler
+and opening sequence remain inexact, and function placement still differs.
+
 `--blocks auto` (the default) makes one block of each top-level function definition, together with
 the comment lines directly above it. Namespaces are transparent; data definitions, declarations and
 classes defined in the file stay in place. For anything else, specify named, inclusive, one-based
