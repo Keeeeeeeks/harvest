@@ -95,6 +95,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 
 | Unit | Functions | Notes |
 | --- | ---: | --- |
+| `daisy/video/Software/CZBuffer.cpp` | 16/16 | exact; signed 16-bit software depth buffer, resizing and reference-counted factory |
 | `ox/io/CMemReadFile.cpp` | 19/19 | Irrlicht 0.7 `IUnknown` → `IReadFile` → `CMemReadFile` |
 | `ox/io/CMemWriteFile.cpp` | 18/18 | `IWriteFile` from Irrlicht 0.7; the class itself is Oxeye's |
 | `ox/net/CHTTPConnectionHandler.cpp` | 18/19 | `OnEvent` differs only in one register choice; function order differs |
@@ -131,6 +132,18 @@ Counts include inline methods and base-class destructors emitted as COMDAT copie
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
 `SEvent`/`IEventReceiver` (network event only), `IOxDevice`, `INetworkDevice`/`SServerInfo`, and
 declarations of `CCriticalSection` and `CThread`.
+
+The complete `CZBuffer` unit matches `.text` at `0x4f8010`, `.bss` at `0x86c078`,
+and its exception table, vtables and RTTI. The Irrlicht 0.7 implementation retains
+signed 16-bit depth values and the native 56-byte amd64 layout. Resizing to the same
+dimensions preserves the allocation and its contents; a changed size reallocates
+without initializing the depth values. `clear` zeros the entire buffer.
+
+A behavior smoke linked the matched object in the pinned GCC 4.4.3 container and
+checked the class size, factory and virtual dispatch, clearing all elements,
+height-only and width-only resize, unchanged-size content preservation, zero-size
+construction and clearing, and reference-counted destruction. The complete game
+was not executed.
 
 The complete `CHelpIO` unit matches `.text` at `0x5eaf90`, `.bss` at `0x87427c`, and its
 103-byte `.gcc_except_table` at `0x666e8b`. Exception-table placement is independently pinned by
