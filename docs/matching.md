@@ -95,6 +95,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 
 | Unit | Functions | Notes |
 | --- | ---: | --- |
+| `ox/game/CGameState.cpp` | 10/10 | exact; state initialization, cached device subsystems and borrowed error messages |
 | `daisy/video/Software/CZBuffer.cpp` | 16/16 | exact; signed 16-bit software depth buffer, resizing and reference-counted factory |
 | `ox/io/CMemReadFile.cpp` | 19/19 | Irrlicht 0.7 `IUnknown` → `IReadFile` → `CMemReadFile` |
 | `ox/io/CMemWriteFile.cpp` | 18/18 | `IWriteFile` from Irrlicht 0.7; the class itself is Oxeye's |
@@ -132,6 +133,23 @@ Counts include inline methods and base-class destructors emitted as COMDAT copie
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
 `SEvent`/`IEventReceiver` (network event only), `IOxDevice`, `INetworkDevice`/`SServerInfo`, and
 declarations of `CCriticalSection` and `CThread`.
+
+The complete `CGameState` unit matches `.text` at `0x5ea6f0` (457 bytes), `.bss`
+at `0x874270`, and its vtable and RTTI. It inherits `IEventReceiver` and has a
+72-byte amd64 layout. Initialization fetches video, GUI, scene, audio and joystick
+subsystems in that order before checking the three required video/GUI/scene
+pointers. Audio and joystick are optional. Both initialization helpers return 1
+for failure and 0 for success; custom error messages are borrowed, not copied.
+
+Native quirks are preserved: the constructor does not initialize audio or joystick
+fields, a null-device retry leaves cached subsystem pointers unchanged, and a
+successful retry does not clear a previous error message. A behavior smoke linked
+the matched object in the pinned GCC 4.4.3 container with a mock device and a stub
+for the external `IEventReceiver` destructor. It checked constructor writes,
+all 32 combinations of available subsystems, getter order, null-device failures,
+failure/success retries, error-pointer aliasing and virtual destruction. The
+external event-unsubscription implementation and complete game were not executed.
+
 
 The complete `CZBuffer` unit matches `.text` at `0x4f8010`, `.bss` at `0x86c078`,
 and its exception table, vtables and RTTI. The Irrlicht 0.7 implementation retains

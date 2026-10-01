@@ -17,10 +17,283 @@
     "tools/hv/objdiff.py": "b2157b405263ec966eca3abcdf47e0cb56171100d0aee42ea83af28595497637",
     "tools/hv/delink.py": "536857fac0b1e250a693cf0f2ab9739f53dbe0b966b4ea047fea9b32028b22e5",
     "config/1.18-linux-amd64/flags.json": "9ebb8c16c904108ddb5cbaa50345a733d400ee2bd3994c72e5545e676fb03ad8",
-    "config/1.18-linux-amd64/symbols.tsv": "1b9b773ea09057758aa60985bce3d8108673830d1874455e781e9d5e8d2da7a5",
-    "config/1.18-linux-amd64/units.toml": "246eb38c90c7aa64337f1d25533422e240cd3047d2ae11a6b9f661a5eca4be68"
+    "config/1.18-linux-amd64/symbols.tsv": "f7f4d9a9187bee5e1b296c1362d1e7ced5f114ff885b978586600e0390efbbe8",
+    "config/1.18-linux-amd64/units.toml": "efee42f138eb60ce0241048ea47b591470185216ee156cd93ad60bb917e44059"
   },
   "units": [
+    {
+      "unit": "ox/game/CGameState.cpp",
+      "object_sha256": "9239778df278c7b3de9735e2c0ae8eae89cef4387073c82d7721d1ba29ff4178",
+      "exact": true,
+      "sections": [
+        {
+          "name": ".text",
+          "size": 457,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x5ea6f0",
+          "references": 20,
+          "functions": [
+            {
+              "symbol": "_ZN2ox4game10CGameStateC2Ev",
+              "address": "0x5ea6f0",
+              "size": 56,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4game10CGameStateC1Ev",
+              "address": "0x5ea730",
+              "size": 56,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4game10CGameState9daisyInitEPNS_9IOxDeviceE",
+              "address": "0x5ea770",
+              "size": 159,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4game10CGameState9firstInitEPNS_9IOxDeviceE",
+              "address": "0x5ea810",
+              "size": 22,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4game10CGameState16returnFailedInitEPc",
+              "address": "0x5ea830",
+              "size": 10,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4game10CGameState15getErrorMessageEv",
+              "address": "0x5ea840",
+              "size": 5,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_GLOBAL__I__ZN2ox4game10CGameStateC2Ev",
+              "address": "0x5ea850",
+              "size": 38,
+              "fde": true,
+              "global": false,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4game10CGameStateD1Ev",
+              "address": "0x5ea880",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4game10CGameStateD2Ev",
+              "address": "0x5ea890",
+              "size": 12,
+              "fde": true,
+              "global": true,
+              "exact": true
+            },
+            {
+              "symbol": "_ZN2ox4game10CGameStateD0Ev",
+              "address": "0x5ea8a0",
+              "size": 25,
+              "fde": true,
+              "global": true,
+              "exact": true
+            }
+          ],
+          "data_ranges": [
+            {
+              "address": "0x622e31",
+              "size": 1,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x622e31",
+              "size": 1,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x622a1b",
+              "size": 30,
+              "kind": "merged string"
+            },
+            {
+              "address": "0x622a00",
+              "size": 27,
+              "kind": "merged string"
+            }
+          ]
+        },
+        {
+          "name": ".bss",
+          "size": 1,
+          "placement": "explicit",
+          "exact": true,
+          "address": "0x874270",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x874270",
+              "size": 1,
+              "kind": "bss"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTVN2ox4game10CGameStateE",
+          "size": 80,
+          "placement": "symbol: _ZTVN2ox4game10CGameStateE",
+          "exact": true,
+          "address": "0x622a40",
+          "references": 9,
+          "data_ranges": [
+            {
+              "address": "0x622a40",
+              "size": 80,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTSN2ox4game10CGameStateE",
+          "size": 23,
+          "placement": "symbol: _ZTSN2ox4game10CGameStateE",
+          "exact": true,
+          "address": "0x622a90",
+          "references": 0,
+          "data_ranges": [
+            {
+              "address": "0x622a90",
+              "size": 23,
+              "kind": "section"
+            }
+          ]
+        },
+        {
+          "name": ".rodata._ZTIN2ox4game10CGameStateE",
+          "size": 24,
+          "placement": "symbol: _ZTIN2ox4game10CGameStateE",
+          "exact": true,
+          "address": "0x622ab0",
+          "references": 3,
+          "data_ranges": [
+            {
+              "address": "0x622ab0",
+              "size": 24,
+              "kind": "section"
+            }
+          ]
+        }
+      ],
+      "unplaced_sections": [],
+      "compilation": {
+        "container_image_id": "sha256:647e6aa11cda66853b69b73c6a4fcc5a5a802809d38c89b84ebf1a6b45871a18",
+        "compiler_version": "g++ (Ubuntu 4.4.3-4ubuntu5) 4.4.3",
+        "package_manifest_sha256": "e379f2252a8cdda9e94b71c872e83c863e7e7961180fa62ea95e8f763fafaf5e",
+        "command": [
+          "g++",
+          "-O2",
+          "-Isrc",
+          "-Isrc/HarvestFull",
+          "-Ithird_party/luajit-2.0.0-beta8/include",
+          "-MD",
+          "-MF",
+          "/out/ox__game__CGameState.d",
+          "-c",
+          "src/ox/game/CGameState.cpp",
+          "-o",
+          "/out/ox__game__CGameState.o"
+        ],
+        "inputs": {
+          "src/ox/game/CGameState.cpp": "1df4d06aebfdc1257242ab25712a81f43c077bdef5bdbe6a696eb599e3edeb52",
+          "src/ox/game/CGameState.h": "79ebddb318512d9bce89477aab3d59b51bdb50c6ad7024b979db3050012154f6",
+          "src/ox/IOxDevice.h": "cc963fe39f6d75fa7343119780d5547ca017c65a93276bff58697d579d334e79",
+          "src/ox/IUnknown.h": "2876425521d21d0ab1b35bc5e2a72ae62acee754c6785899771e48912b9b0a9f",
+          "src/ox/TArray.h": "43fc9098e7be91c1ed85447c6343d484e105d29252e01c82c4de4f50555ffdaa",
+          "src/ox/core/CString.h": "f6d00d49c238a3795214399b2a88c3c24a5e135c9822ec18f6964752934ad903",
+          "src/ox/event/IEventReceiver.h": "34d59bfe29fcd5e066e1b83192933ddf6a3bcd1170cd58e53f10e60b9bbb99b4"
+        },
+        "system_headers": 105,
+        "object_sha256": "9239778df278c7b3de9735e2c0ae8eae89cef4387073c82d7721d1ba29ff4178"
+      },
+      "fuzzy_target_sha256": "dbe9443e5947a6a7ec6cb3552196ed7b11a713f877526de2258fdb6d8d8585c7",
+      "fuzzy_functions": [
+        {
+          "address": "0x5ea6f0",
+          "size": 56,
+          "symbol": "_ZN2ox4game10CGameStateC2Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5ea730",
+          "size": 56,
+          "symbol": "_ZN2ox4game10CGameStateC1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5ea770",
+          "size": 159,
+          "symbol": "_ZN2ox4game10CGameState9daisyInitEPNS_9IOxDeviceE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5ea810",
+          "size": 22,
+          "symbol": "_ZN2ox4game10CGameState9firstInitEPNS_9IOxDeviceE",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5ea830",
+          "size": 10,
+          "symbol": "_ZN2ox4game10CGameState16returnFailedInitEPc",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5ea840",
+          "size": 5,
+          "symbol": "_ZN2ox4game10CGameState15getErrorMessageEv",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5ea850",
+          "size": 38,
+          "symbol": "_GLOBAL__I__ZN2ox4game10CGameStateC2Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5ea880",
+          "size": 12,
+          "symbol": "_ZN2ox4game10CGameStateD1Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5ea890",
+          "size": 12,
+          "symbol": "_ZN2ox4game10CGameStateD2Ev",
+          "percent": 100.0
+        },
+        {
+          "address": "0x5ea8a0",
+          "size": 25,
+          "symbol": "_ZN2ox4game10CGameStateD0Ev",
+          "percent": 100.0
+        }
+      ]
+    },
     {
       "unit": "daisy/video/Software/CZBuffer.cpp",
       "object_sha256": "12c419dc2802ca83e925e44c38c3fb4feac5c7c7fcfeccb35ff5229ca8083543",
@@ -69334,7 +69607,7 @@
     "config": {
       "functionRelocDiffs": "data_value"
     },
-    "report_sha256": "ba335ea3639aa5ebc7b05048ff3e8dadbead5397fd28502c0e70a20b5694a236"
+    "report_sha256": "4eac438dbb820bd1069799a2ef6b961c8f90a862ef99e5a6ef5f89aba35fdf19"
   },
   "link": {
     "status": "unavailable",
