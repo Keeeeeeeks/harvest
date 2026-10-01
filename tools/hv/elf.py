@@ -30,6 +30,7 @@ class Elf:
         ]
         self._symbols = {}
         self._relocations = {}
+        self._cache = {}
 
     @classmethod
     def load(cls, path: Path, kind: str):
@@ -100,6 +101,11 @@ class Elf:
 
     def copy_symbols(self) -> dict[str, int]:
         """Library data copied into the executable by R_X86_64_COPY, by symbol name."""
+        if "copies" not in self._cache:
+            self._cache["copies"] = self._copy_symbols()
+        return self._cache["copies"]
+
+    def _copy_symbols(self) -> dict[str, int]:
         rela = self.elf.get_section_by_name(".rela.dyn")
         if not isinstance(rela, RelocationSection):
             return {}
@@ -117,8 +123,12 @@ class Elf:
             self._fdes = [entry for entry in entries if isinstance(entry, FDE)]
         return self._fdes
 
-    def fde_ranges(self) -> set[tuple[int, int]]:
-        return {(entry["initial_location"], entry["address_range"]) for entry in self.fdes()}
+    def fde_ranges(self) -> frozenset[tuple[int, int]]:
+        if "fde_ranges" not in self._cache:
+            self._cache["fde_ranges"] = frozenset(
+                (entry["initial_location"], entry["address_range"]) for entry in self.fdes()
+            )
+        return self._cache["fde_ranges"]
 
     def fde_lsdas(self) -> dict[int, int]:
         """The exception table (LSDA) of each function that has one, by function address."""
@@ -126,6 +136,11 @@ class Elf:
 
     def plt_symbols(self) -> dict[str, int]:
         """Resolve each legacy x86-64 PLT entry through its GOT relocation."""
+        if "plt" not in self._cache:
+            self._cache["plt"] = self._plt_symbols()
+        return self._cache["plt"]
+
+    def _plt_symbols(self) -> dict[str, int]:
         plt = self.elf.get_section_by_name(".plt")
         rela = self.elf.get_section_by_name(".rela.plt")
         if plt is None or not isinstance(rela, RelocationSection):
