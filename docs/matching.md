@@ -123,8 +123,8 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | `HarvestFull/harvest/entity/CEntityManager.cpp` | 39/43 | building lists and bounds, spatial grid maintenance, cached targeting searches, entity construction, save/load, and energy-beam rendering; placement, grid range search, and two predicates remain inexact |
 | `ox/entity/COxEntityManager.cpp` | 20/21 | entity ownership, deferred spawning and removal, reference refresh, first/best/all targeting searches, and render ordering with native sort helpers; the update loop remains inexact |
 | `HarvestFull/harvest/game/CWorld.cpp` | 30/38 | complete world source: scenery collision grid, wind forces, sprite loading, scenario startup, edge shading, camera bounds and serialization; placement, collision avoidance, expansion, background rendering and the main update are reconstructed but inexact |
-
 | `HarvestFull/harvest/game/CStatistics.cpp` | 36/41 | wave summaries, protected score totals, event logs, versioned serialization and highscore accessors; score encoding, parameterized score construction and two statistic update routines are reconstructed but inexact |
+| `HarvestFull/harvest/game/CScenario.cpp` | 62/64 | complete campaign source: the 200-call starting map, lifecycle, dialogue, dropship landing and departure, mineral-triggered reinforcements, completion conditions and event callbacks; the scheduler and opening dialogue/credits sequence remain inexact |
 
 Counts include inline methods and base-class destructors emitted as COMDAT copies. The HTTP handler
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,

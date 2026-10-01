@@ -179,3 +179,9 @@
 ["HarvestFull/harvest/game/CStatistics.cpp"]
 ".text" = 0x45a040
 ".bss" = 0x86b920
+
+["HarvestFull/harvest/game/CScenario.cpp"]
+".text" = 0x453ce0
+".bss" = 0x86b914
+# Comparison jump table followed by the three character portrait pointers.
+".rodata" = 0x5f6000
