@@ -437,6 +437,32 @@ def test_prefetch_stays_within_the_budget(evaluator):
     assert not getattr(compiler, "batches", 0) and not e.pending
 
 
+def test_parallel_comparisons_reuse_objects_and_defer_candidate_errors(evaluator, monkeypatch):
+    e, compiler, _ = evaluator
+    good, duplicate, bad = [compiler.out / name for name in ("good.o", "duplicate.o", "bad.o")]
+    good.write_bytes(b"good")
+    duplicate.write_bytes(b"good")
+    bad.write_bytes(b"bad")
+    monkeypatch.setattr(search.Elf, "load", lambda path, kind: path.read_bytes())
+
+    def compare(obj, *args):
+        if obj == b"bad":
+            raise ValueError("invalid candidate object")
+        return {**result(), "object_sha256": search.sha(obj)}
+
+    monkeypatch.setattr(search.match, "compare_object", compare)
+    e.compare_ahead([good, duplicate, bad])
+    assert len(e.ahead) == 2
+    assert not e.objects and e.evaluated == 0 and e.object_hits == 0
+    assert not (e.run / "trials.jsonl").exists()
+    expected = compare(b"good")
+    assert e.compare(good) == expected
+    assert e.compare(duplicate) == expected and e.object_hits == 1
+    with pytest.raises(ValueError, match="invalid candidate object"):
+        e.compare(bad)
+    assert not e.ahead and search.sha(b"bad") not in e.objects
+
+
 def test_batched_compile_failures_are_logged_like_single_ones(evaluator, monkeypatch):
     e, compiler, _ = evaluator
     error = subprocess.CalledProcessError(1, ["g++"], stderr="not declared")

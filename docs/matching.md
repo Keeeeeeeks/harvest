@@ -20,6 +20,12 @@ toolchain container and compares the object with the target image, section by se
 
 Rows with other evidence (for example `manual:`) are kept when the generator reruns.
 
+Mac virtual-slot names need instruction-level validation when the layouts differ. Linux's
+`CFileSystem` inserts a path-cache-clearing virtual at slot 12, shifting subsequent Mac names by
+one. Manual rows correct those shifted names. The inserted method's original name is unavailable;
+the recovered interface uses the descriptive name `clearCachedFilePaths`. `existFile` is Linux
+slot 17 (`vptr + 0x78`), not Mac slot 16.
+
 ## Placement
 
 Every allocated object section is placed at a target address:
@@ -90,12 +96,16 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 | Unit | Functions | Notes |
 | --- | ---: | --- |
 | `ox/algo/CRegulator.cpp` | 34/34 | exact; scalar and three-axis PID-style regulators, anti-windup and speed regulation |
+| `ox/game/CGameState.cpp` | 10/10 | exact; state initialization, cached device subsystems and borrowed error messages |
+| `daisy/video/Software/CZBuffer.cpp` | 16/16 | exact; signed 16-bit software depth buffer, resizing and reference-counted factory |
 | `ox/io/CMemReadFile.cpp` | 19/19 | Irrlicht 0.7 `IUnknown` → `IReadFile` → `CMemReadFile` |
 | `ox/io/CMemWriteFile.cpp` | 18/18 | `IWriteFile` from Irrlicht 0.7; the class itself is Oxeye's |
 | `ox/net/CHTTPConnectionHandler.cpp` | 18/19 | `OnEvent` differs only in one register choice; function order differs |
 | `ox/net/CVariablePacket.cpp` | 32/32 | packet parser and builder; function order differs |
+| `ox/io/CHelpIO.cpp` | 19/19 | Complete unit: numeric and string I/O, free-filename selection, static initializer; all compared sections match |
 | `ox/algo/CRand.cpp`, `CSimplePress.cpp`, `CTimeCounter.cpp` | 35/35 | exact |
 | `ox/core/CBasic.cpp`, `CCipherKey.cpp`, `CCriticalSection.cpp`, `CHiddenFloat.cpp`, `CHiddenInt.cpp`, `CThread.cpp` | 61/61 | exact |
+| `daisy/video/Null/CFPSCounter.cpp` | 5/5 | exact; Irrlicht 0.7 FPS calculation, both constructors and the iostream initializer |
 | `HarvestFull/harvest/game/CThreatLevel.cpp` | 76/81 | game modes and waves; five functions differ only in register allocation (and one switch layout) |
 | `ox/entity/COxEntity.cpp` | 25/25 | exact; keeps the 2d constructors' `Position.Y` typo |
 | `HarvestFull/harvest/entity/CBuildingEntity.cpp` | 31/31 | exact; the building's Lua view (Lunar method table) |
@@ -154,6 +164,62 @@ speed acceleration and signed overshoot, zero-vector behavior, the unused
 argument, layouts and destruction. Mutations changing acceleration to `10.0f`
 or time-weighting the integral are required to fail. The matched object was also
 linked and exercised directly. The complete game was not executed.
+
+The complete `CGameState` unit matches `.text` at `0x5ea6f0` (457 bytes), `.bss`
+at `0x874270`, and its vtable and RTTI. It inherits `IEventReceiver` and has a
+72-byte amd64 layout. Initialization fetches video, GUI, scene, audio and joystick
+subsystems in that order before checking the three required video/GUI/scene
+pointers. Audio and joystick are optional. Both initialization helpers return 1
+for failure and 0 for success; custom error messages are borrowed, not copied.
+
+Native quirks are preserved: the constructor does not initialize audio or joystick
+fields, a null-device retry leaves cached subsystem pointers unchanged, and a
+successful retry does not clear a previous error message. A behavior smoke linked
+the matched object in the pinned GCC 4.4.3 container with a mock device and a stub
+for the external `IEventReceiver` destructor. It checked constructor writes,
+all 32 combinations of available subsystems, getter order, null-device failures,
+failure/success retries, error-pointer aliasing and virtual destruction. The
+external event-unsubscription implementation and complete game were not executed.
+
+
+The complete `CZBuffer` unit matches `.text` at `0x4f8010`, `.bss` at `0x86c078`,
+and its exception table, vtables and RTTI. The Irrlicht 0.7 implementation retains
+signed 16-bit depth values and the native 56-byte amd64 layout. Resizing to the same
+dimensions preserves the allocation and its contents; a changed size reallocates
+without initializing the depth values. `clear` zeros the entire buffer.
+
+A behavior smoke linked the matched object in the pinned GCC 4.4.3 container and
+checked the class size, factory and virtual dispatch, clearing all elements,
+height-only and width-only resize, unchanged-size content preservation, zero-size
+construction and clearing, and reference-counted destruction. The complete game
+was not executed.
+
+The complete `CHelpIO` unit matches `.text` at `0x5eaf90`, `.bss` at `0x87427c`, and its
+103-byte `.gcc_except_table` at `0x666e8b`. Exception-table placement is independently pinned by
+the `readWideString` FDE's LSDA pointer and the unique occurrence of the complete table's bytes.
+Numeric reads initialize their values to zero and ignore the read result. Narrow and wide string
+readers append 255-character chunks; wide-string writes truncate each `wchar_t` to 16 bits rather
+than encode supplementary Unicode characters. A nonpositive length prefix leaves the destination
+string unchanged. Filename selection starts at `00` and skips existing names.
+
+The behavior smoke linked the matched helper object with the recovered memory-file classes in the
+pinned Linux GCC 4.4.3 container, without the build-only timing library. It checked numeric wire
+bytes, EOF and short reads, string lengths around both 255- and 510-character chunk boundaries,
+terminated and unterminated strings, 16-bit wide-character truncation, counted strings with
+embedded NULs, and zero/negative/maximum decimal appends. A disk-backed filename smoke selected
+`00` in an empty directory, then `11` after creating files `00` through `10`. The complete game
+was not executed.
+
+The complete `CFPSCounter` unit matches its 198-byte `.text` at `0x599c90` and one-byte
+`.bss` at `0x86c160`. The Mac unit identifies the methods; the Linux FDEs pin their extents,
+and the unchanged Irrlicht 0.7 calculation identifies the 65-byte `registerFrame` body at
+`0x599ce0`. Its 1000.0f constant and every relocation are checked without masking.
+The counter starts with 100 counted frames, increments before testing elapsed time, updates
+only after strictly more than 2000 milliseconds, truncates the floating-point FPS result to
+an integer, and resets the sample. Unsigned subtraction preserves clock rollover behavior.
+A smoke executable linked against the matched object in the pinned GCC 4.4.3 container
+checked initial state, the exact threshold, accumulated frames, truncation, reset, and rollover.
+The complete game was not executed.
 
 Findings:
 
