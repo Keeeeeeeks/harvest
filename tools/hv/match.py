@@ -115,8 +115,7 @@ class Resolver:
 
 
 def section_symbols(obj: Elf):
-    table = obj.elf.get_section_by_name(".symtab")
-    return list(table.iter_symbols()) if table is not None else []
+    return obj.symtab()
 
 
 @dataclass
@@ -206,7 +205,7 @@ def place_sections(
             by_section.setdefault(symbol["st_shndx"], []).append(symbol)
     placements = {}
     names = {}
-    for index, section in enumerate(obj.elf.iter_sections()):
+    for index, section in enumerate(obj.sections):
         names[section.name] = index
         if not section["sh_flags"] & SHF_ALLOC or section.name in SKIPPED or is_merged(section):
             continue
@@ -354,14 +353,14 @@ def check_local_copy(
     """Compare the file-level static object holding a section offset with the target's copy, which
     holds `address` at the same place. Only read-only, relocation-free objects are comparable:
     equal initial bytes do not make two mutable objects interchangeable."""
-    section = obj.elf.get_section(shndx)
+    section = obj.sections[shndx]
     if section["sh_type"] != "SHT_PROGBITS" or not section["sh_flags"] & SHF_ALLOC:
         return False, "different destination"
     if section["sh_flags"] & SHF_WRITE:
         return False, "mutable local object"
     holders = [
         s
-        for s in obj.elf.get_section_by_name(".symtab").iter_symbols()
+        for s in obj.symtab()
         if s["st_shndx"] == shndx
         and s["st_info"]["bind"] == "STB_LOCAL"
         and s["st_info"]["type"] == "STT_OBJECT"
@@ -393,7 +392,7 @@ def compare_object(obj: Elf, target: Elf, known: dict[str, int], explicit: dict[
     fdes = target.fde_ranges()
     placements = place_sections(obj, resolver, explicit, fdes)
     symbols = section_symbols(obj)
-    sections = list(obj.elf.iter_sections())
+    sections = obj.sections
     infer_placements(obj, target, placements, sections)
     infer_exception_tables(obj, target, placements, sections)
     results = []
