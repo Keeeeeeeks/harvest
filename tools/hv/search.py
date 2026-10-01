@@ -3,10 +3,13 @@
 import difflib
 import hashlib
 import json
+import multiprocessing
+import os
 import random
 import re
 import subprocess
 import uuid
+from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -223,6 +226,15 @@ class BudgetExhausted(Exception):
     pass
 
 
+# (target, known, placements), inherited by forked comparison workers
+_shared = None
+
+
+def _compare_path(path: str) -> dict:
+    target, known, placements = _shared
+    return match.compare_object(Elf.load(Path(path), "ET_REL"), target, known, placements)
+
+
 @dataclass
 class Choice:
     order: tuple[int, ...]
@@ -242,6 +254,7 @@ class Evaluator:
         self.sources = {}
         self.objects = {}
         self.pending = {}  # digest -> batch compilation outcome, not yet evaluated
+        self.ahead = {}  # object digest -> comparison result or error, not yet evaluated
         self.stats = {}  # input name -> (size, mtime, inode) when its hash was last verified
         self.evaluated = self.compiled = self.cache_hits = self.object_hits = 0
 
@@ -269,9 +282,31 @@ class Evaluator:
         if digest in self.objects:
             self.object_hits += 1
             return self.objects[digest]
-        result = match.compare_object(Elf.load(obj, "ET_REL"), self.target, self.known, self.unit.placements)
+        result = self.ahead.pop(digest, None)
+        if isinstance(result, Exception):
+            raise result
+        if result is None:
+            compiled = Elf.load(obj, "ET_REL")
+            result = match.compare_object(compiled, self.target, self.known, self.unit.placements)
         self.objects[digest] = result
         return result
+
+    def compare_ahead(self, objects: list[Path]):
+        """Compare a batch's new objects in parallel; compare and evaluate consume them in order."""
+        todo = {}
+        for obj in objects:
+            digest = builds.sha256_file(obj)
+            if digest not in self.objects and digest not in self.ahead:
+                todo[digest] = obj
+        if len(todo) < 2:
+            return
+        global _shared
+        _shared = (self.target, self.known, self.unit.placements)
+        workers = min(len(todo), os.cpu_count() or 1)
+        with ProcessPoolExecutor(workers, mp_context=multiprocessing.get_context("fork")) as pool:
+            futures = {digest: pool.submit(_compare_path, str(obj)) for digest, obj in todo.items()}
+            for digest, future in futures.items():
+                self.ahead[digest] = future.exception() or future.result()
 
     def validate_compilation(self, metadata: dict, digest: str):
         expected = {**self.context["inputs"], f"src/{self.unit.source}": digest}
@@ -316,6 +351,7 @@ class Evaluator:
         outcomes = self.compiler.compile_many(self.unit.path, items)
         self.compiled += len(items)
         self.pending.update(zip(todo, outcomes, strict=True))
+        self.compare_ahead([o[0] for o in outcomes if not isinstance(o, subprocess.CalledProcessError)])
         self.fresh()
 
     def evaluate(self, order):
