@@ -95,6 +95,7 @@ With these objects objdiff scores every function of the exact units at 100%, mat
 
 | Unit | Functions | Notes |
 | --- | ---: | --- |
+| `ox/algo/CRegulator.cpp` | 34/34 | exact; scalar and three-axis PID-style regulators, anti-windup and speed regulation |
 | `ox/game/CGameState.cpp` | 10/10 | exact; state initialization, cached device subsystems and borrowed error messages |
 | `daisy/video/Software/CZBuffer.cpp` | 16/16 | exact; signed 16-bit software depth buffer, resizing and reference-counted factory |
 | `ox/io/CMemReadFile.cpp` | 19/19 | Irrlicht 0.7 `IUnknown` → `IReadFile` → `CMemReadFile` |
@@ -133,6 +134,36 @@ Counts include inline methods and base-class destructors emitted as COMDAT copie
 brought in `CString` (Irrlicht's `string` plus Oxeye's methods), `TArray`, `CStringFunctions`,
 `SEvent`/`IEventReceiver` (network event only), `IOxDevice`, `INetworkDevice`/`SServerInfo`, and
 declarations of `CCriticalSection` and `CThread`.
+
+The complete `CRegulator` unit matches its 2,660-byte `.text` at `0x5dd200`,
+`.bss` at `0x86c210`, and both classes' vtables and RTTI. The scalar controller
+is 56 bytes and the three-axis wrapper is 176 bytes on Linux amd64. All 34
+functions match, including constructors, destructor variants, forwarding methods,
+the scalar update, the speed helper and the static initializer.
+
+The native integral accumulates error without multiplying by time. Anti-windup
+clamps it symmetrically; `restart` seeds it from the configured start value only
+when anti-windup is enabled. The constructor does not use that seed. The
+derivative uses previous error minus current error and is evaluated only after
+accumulated elapsed time exceeds the double constant `0.01`, then resets its
+elapsed counter. These details are preserved rather than replaced with a standard
+PID formula.
+
+The speed helper ignores its first float argument. It accelerates toward the
+normalized desired velocity with the native constant `20.0f`, clamps component
+overshoot according to the desired component's sign, then advances position.
+A zero desired vector leaves both speed and position unchanged; a zero component
+does not clamp an existing speed component. Direct component-wise zero tests
+reproduce the native block layout; the overloaded vector comparison does not.
+
+`HARVEST_TEST_TOOLCHAIN=1 uv run pytest -q tests/test_regulator.py` runs the checked-in
+native smoke against a canonical compiled object in the pinned container. It
+checks scalar P/I/D behavior, derivative timing, positive/negative anti-windup,
+restart and setters, zero/negative timesteps, 64 three-axis forwarding steps,
+speed acceleration and signed overshoot, zero-vector behavior, the unused
+argument, layouts and destruction. Mutations changing acceleration to `10.0f`
+or time-weighting the integral are required to fail. The matched object was also
+linked and exercised directly. The complete game was not executed.
 
 The complete `CGameState` unit matches `.text` at `0x5ea6f0` (457 bytes), `.bss`
 at `0x874270`, and its vtable and RTTI. It inherits `IEventReceiver` and has a
